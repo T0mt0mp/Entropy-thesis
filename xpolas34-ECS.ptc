@@ -1,44 +1,45 @@
 \select@language {czech}
-\contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{2}{chapter.1}
-\contentsline {chapter}{\numberline {2}Teoretick\IeC {\'y} rozbor}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Po\IeC {\v z}adavky na n\IeC {\'a}vrh software}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}Reprezentace entit a jejich chov\IeC {\'a}n\IeC {\'\i }}{5}{section.2.3}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{6}{section*.2}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{8}{section*.3}
-\contentsline {subsection}{Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{section*.4}
-\contentsline {section}{\numberline {2.4}Komponentn\IeC {\'\i } syst\IeC {\'e}my}{11}{section.2.4}
-\contentsline {subsection}{Historie v\IeC {\'y}voje}{11}{section*.5}
-\contentsline {subsection}{Koncepty}{12}{section*.6}
-\contentsline {subsection}{V\IeC {\'y}hody zvolen\IeC {\'e} reprezentace}{14}{section*.7}
-\contentsline {section}{\numberline {2.5}Paralelizmus}{15}{section.2.5}
-\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh komponentn\IeC {\'\i }ho syst\IeC {\'e}mu}{18}{chapter.3}
-\contentsline {section}{\numberline {3.1}Reprezentace entit}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Komponenty a jejich nosi\IeC {\v c}e}{19}{section.3.2}
-\contentsline {section}{\numberline {3.3}Syst\IeC {\'e}my a skupiny}{20}{section.3.3}
-\contentsline {section}{\numberline {3.4}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{21}{section.3.4}
-\contentsline {section}{\numberline {3.5}P\IeC {\v r}ehled komunikace}{22}{section.3.5}
-\contentsline {section}{\numberline {3.6}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{24}{section.3.6}
-\contentsline {chapter}{\numberline {4}Implementace}{26}{chapter.4}
-\contentsline {section}{\numberline {4.1}Pou\IeC {\v z}it\IeC {\'e} knihovny a p\IeC {\v r}enositelnost}{26}{section.4.1}
-\contentsline {section}{\numberline {4.2}Spr\IeC {\'a}va entit}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Komponenty}{27}{section.4.3}
-\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{28}{section.4.4}
-\contentsline {section}{\numberline {4.5}Obnovovac\IeC {\'\i } f\IeC {\'a}ze}{29}{section.4.5}
-\contentsline {section}{\numberline {4.6}Podpora paralelizmu}{29}{section.4.6}
-\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i }}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Testovan\IeC {\'e} sestavy}{32}{section.5.2}
-\contentsline {section}{\numberline {5.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Porovn\IeC {\'a}n\IeC {\'\i }}{33}{section.5.4}
-\contentsline {section}{\numberline {5.5}Demo hra}{33}{section.5.5}
-\contentsline {subsection}{N\IeC {\'a}vrh}{33}{section*.8}
-\contentsline {subsection}{Implementace}{34}{section*.9}
-\contentsline {subsection}{V\IeC {\'y}sledek}{34}{section*.10}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{36}{chapter.6}
-\contentsline {chapter}{Literatura}{38}{chapter*.11}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{39}{section*.12}
+\contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Teoretick\IeC {\'y} rozbor}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Po\IeC {\v z}adavky na n\IeC {\'a}vrh software}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Reprezentace entit a jejich chov\IeC {\'a}n\IeC {\'\i }}{6}{section.2.3}
+\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{7}{section*.2}
+\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{section*.3}
+\contentsline {subsection}{Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{10}{section*.4}
+\contentsline {section}{\numberline {2.4}Komponentn\IeC {\'\i } syst\IeC {\'e}my}{12}{section.2.4}
+\contentsline {subsection}{Historie v\IeC {\'y}voje}{12}{section*.5}
+\contentsline {subsection}{Koncepty}{13}{section*.6}
+\contentsline {subsection}{V\IeC {\'y}hody zvolen\IeC {\'e} reprezentace}{15}{section*.7}
+\contentsline {section}{\numberline {2.5}Paralelizmus}{16}{section.2.5}
+\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh komponentn\IeC {\'\i }ho syst\IeC {\'e}mu}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Komponenty a jejich nosi\IeC {\v c}e}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Syst\IeC {\'e}my a skupiny}{21}{section.3.2}
+\contentsline {section}{\numberline {3.3}Reprezentace entit}{23}{section.3.3}
+\contentsline {section}{\numberline {3.4}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{23}{section.3.4}
+\contentsline {section}{\numberline {3.5}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{24}{section.3.5}
+\contentsline {chapter}{\numberline {4}Implementace}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Pou\IeC {\v z}it\IeC {\'e} knihovny a p\IeC {\v r}enositelnost}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}Spr\IeC {\'a}va entit}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Komponenty}{28}{section.4.3}
+\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{29}{section.4.4}
+\contentsline {section}{\numberline {4.5}Obnovovac\IeC {\'\i } f\IeC {\'a}ze}{30}{section.4.5}
+\contentsline {section}{\numberline {4.6}Podpora paralelizmu}{30}{section.4.6}
+\contentsline {chapter}{\numberline {5}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{32}{chapter.5}
+\contentsline {section}{\numberline {5.1}Demo hra}{32}{section.5.1}
+\contentsline {section}{\numberline {5.2}N\IeC {\'a}vrh}{32}{section.5.2}
+\contentsline {section}{\numberline {5.3}Zhodnocen\IeC {\'\i }}{33}{section.5.3}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i }}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{34}{section.6.1}
+\contentsline {section}{\numberline {6.2}Testovan\IeC {\'e} sestavy}{35}{section.6.2}
+\contentsline {section}{\numberline {6.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{35}{section.6.3}
+\contentsline {section}{\numberline {6.4}Porovn\IeC {\'a}n\IeC {\'\i }}{36}{section.6.4}
+\contentsline {subsection}{Implementace}{36}{section*.8}
+\contentsline {subsection}{V\IeC {\'y}sledek}{36}{section*.9}
+\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{38}{chapter.7}
+\contentsline {chapter}{Literatura}{40}{chapter*.10}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{41}{section*.11}
 \ttl@starttoc {chapters@1}
-\contentsline {chapter}{\numberline {A}Jak pracovat s touto \IeC {\v s}ablonou}{40}{appendix.A}
-\contentsline {paragraph}{Pozor na \IeC {\v c}\IeC {\'\i }slov\IeC {\'a}n\IeC {\'\i } str\IeC {\'a}nek!}{41}{section*.14}
+\contentsline {chapter}{\numberline {A}Jak pracovat s touto \IeC {\v s}ablonou}{42}{appendix.A}
+\contentsline {paragraph}{Pozor na \IeC {\v c}\IeC {\'\i }slov\IeC {\'a}n\IeC {\'\i } str\IeC {\'a}nek!}{43}{section*.13}
 \contentsfinish 

@@ -12,6 +12,17 @@
 \todo{Vyhodnocení}
 \blind[1]
 
+Cílem této práce je návrh a implementace knihovny pro dynamickou kompozici objektů, za běhu aplikace. Mezi hlavní požadavky patří \emph{thread-safe}\cite{ThreadSafety} rozhraní, které je možné používat ve vícevláknových aplikacích. Další prioritou je skutečné využití a prospěch z běhu na více vláknech, jednoduchost použití a integrace do již existujících projektů a minimalizace režie.
+
+Práce je rozdělena do čtyř logických celků -- teoretická část\ref{Chap:Theory}, návrh systému\ref{Chap:Design}, implementace\ref{Chap:Implementation}, vyhodnocení a praktická použitelnost výsledné knihovny.
+
+Kapitola \ref{Chap:Theory} se zabývá aktuálním stavem v návrhu \emph{software} a důvody proč je metoda \emph{datově orientované kompozice} důležitá. Jelikož efektivní využití architektury moderních počítačů je stále více důležité, byly při návrhu knihovny použity techniky datově orientovaného návrhu\cite{DataOrientedDesign}, jehož výhody a bližší popis je součástí kapitoly \ref{Chap:DDD}. Další důležitou částí je efektivní využití vícevláknových procesorů, kterým se zabývá kapitola \ref{Chap:Parallelism}.
+
+Kapitola \ref{Chap:Design} obsahuje obecný návrh systému pro dynamickou kompozici, který není závislý na implementačním jazyce. První část \ref{Chap:Overview} obsahuje přehled celého systému, vymezení funkcionality jednotlivých bloků a jejich komunikace. Následují sekce o \emph{komponentech}(\ref{Chap:Component}), \emph{systémech}(\ref{Chap:System}) a \emph{entitách}(\ref{Chap:Entity}), ve kterých je specifikována jejich funkce. Návrhem paralelního přístupu a popis podporovaných možností paralelizace se zabývá sekce \ref{Chap:ParallelismDesign}.
+
+Následuje kapitola \ref{Chap:Implementation}, ve které je popsána implementace výše zmíněného návrhu v jazyce \emph{C++}. První část se zabývá psaním přenositelného kódu v jazyce \emph{C++} a zdůvodnění výběru implementačního jazyka. Následuje popis implementace jednotlivých částí návrhu. Sekce \ref{Chap:CompImpl} obsahuje způsob registrace \emph{komponentů}, definuje, co může být \emph{komponentem} a základní typy datových struktur pro jejich uchovávání. Následuje popis \emph{systémů}, jejich definice a způsob, jakým jsou určeny k používání. Dále je zde shrnuta implementace \emph{entity} a výběr mezi horizontálními a vertikálními \emph{metadaty} s ohledem na paralelizmus. Nakonec je popsána funkce \emph{refresh} a způsoby zajištění parlelního přístupu.
+
+Poslední část se skládá z příkladu využití knihovny v kapitole \ref{Chap:Demo} a vyhodnocení \ref{Chap:Eval}. Knihovna je zhodnocena z pohledu použitelnosti (\ref{Chap:Usability}), výkonosti (\ref{Chap:Performance}) a nakonec porovnána proti vybraným \emph{open-source} knihovnám.
 
 \chapter{Teoretický rozbor}
 \todo{Popis kapitoly}
@@ -22,6 +33,7 @@
 \blind[2]
 
 \section{Datově orientovaný návrh}
+\label{Chap:DDD}
 \todo{Proč se používá, architektura PC.}
 \blind[4]
 
@@ -85,6 +97,7 @@
 \blind[4]
 
 \section{Paralelizmus}
+\label{Chap:Parallelism}
 \todo{Důležitost, hardware - cache, popis možností paralelizace.}
 \blind[2]
 \begin{figure}[H]
@@ -100,15 +113,20 @@
 %https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine
 
 \chapter{Návrh komponentního systému}
+\todo{Co by to melo umet, priority}
+
+\secion{Přehled a komunikace}
 \todo{Postup seznámení s návrhem top -> down}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
 	\caption{Návrhový diagram komponentního systému. \todo{Vytvořit}}
 \end{figure}
 \blind[1]
-
-\section{Reprezentace entit}
-\todo{Entita, id, generace. Alternativy a důvody.}
+\todo{High-level design, propojení. Universe, action-cache.}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
+	\caption{Přehled návrhu komponentního systému a komunikace mezi jeho částmi. \todo{Vytvořit - HLB diagram}}
+\end{figure}
 \blind[3]
 
 \section{Komponenty a jejich nosiče}
@@ -119,17 +137,13 @@
 \todo{Volnost použití systémů. Uživatelem definované chování. Filtry - require, reject. Cache pomocí skupin entit.}
 \blind[5]
 
+\section{Reprezentace entit}
+\todo{Entita, id, generace. Alternativy a důvody.}
+\blind[3]
+
 \section{Paralelní přístup}
 \todo{Podporované způsoby paralelizace, návrh, zdůvodnění. Entity paralellization. System parallelization. Diskuze na téma, zda je paralelní přístup potřeba.}
 \blind[5]
-
-\section{Přehled komunikace}
-\todo{High-level design, propojení. Universe, action-cache.}
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Přehled návrhu komponentního systému a komunikace mezi jeho částmi. \todo{Vytvořit - HLB diagram}}
-\end{figure}
-\blind[3]
 
 \section{Tok řízení}
 \todo{Popsat předpokládaný tok řízení, jak se bude používat. Registrace. Iterace. Refresh.}
@@ -141,16 +155,12 @@
 
 
 \chapter{Implementace}
-\todo{Shrnutí návrhu, zdůvodnění výběru implementačního jazyku C++}
+\todo{Shrnutí návrhu}
 \blind[2]
 
 \section{Použité knihovny a přenositelnost}
-\todo{Zdůvodnění nepoužití knihoven. C++14, Linux, Windows.}
+\todo{zduvodneni pouziti c++ Zdůvodnění nepoužití knihoven. C++14, Linux, Windows. Header-only}
 \blind[2]
-
-\section{Správa entit}
-\todo{Potřebné informace, implementace, datové struktury, optimalizace}
-\blind[3]
 
 \section{Komponenty}
 \todo{Rekapitulace vlastností, které komponenta musi splnit. Registrace, generování identifikátorů. Uživatelské nosiče}
@@ -158,6 +168,10 @@
 
 \section{Systémy a skupiny}
 \todo{Super třída, filtry, přístup - iterace. Přidání systému, volitelná skupina - added/removed.}
+\blind[3]
+
+\section{Správa entit}
+\todo{Potřebné informace, implementace, datové struktury, optimalizace}
 \blind[3]
 
 \section{Obnovovací fáze}
@@ -168,6 +182,20 @@
 \todo{2 způsoby paralelizmu - dělení skupin, change-sety}
 \blind[3]
 
+
+\chapter{Použití knihovny}
+
+\section{Demo hra}
+\todo{Popis principů hry}
+\blind[1]
+
+\section{Návrh}
+\todo{Komponentní návrh}
+\blind[3]
+
+\section{Zhodnocení}
+\todo{Výkon, návrh, jednoduchost}
+\blind[3]
 
 \chapter{Vyhodnocení}
 \todo{Shrnutí, popis co bude v této kapitole}
@@ -192,16 +220,6 @@
 \section{Porovnání}
 \todo{Výkonostní porovnání oproti jiným ECS knihovnám, Unity? Grafy.}
 \blind[2]
-
-\section{Demo hra}
-\todo{Důvod, typ hry}
-\blind[1]
-
-\subsection{Návrh}
-\todo{Popis principů hry}
-\blind[1]
-\todo{Komponentní návrh}
-\blind[1]
 
 \subsection{Implementace}
 \todo{Použité knihovny, základní popis implementace}
