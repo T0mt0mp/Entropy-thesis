@@ -1,1 +1,2 @@
-# Bachelor thesis - Component system
+# Bachelor thesis on VUT FIT - Component system
+
