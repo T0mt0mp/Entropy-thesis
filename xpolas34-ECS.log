@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  11 APR 2017 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  12 APR 2017 12:30
 entering extended mode
 **./xpolas34-ECS.tex
 (xpolas34-ECS.tex
@@ -1409,7 +1409,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.41 ...C {\v r}\IeC {\'\i }lohy}{41}{section*.11}
+l.41 ...C {\v r}\IeC {\'\i }lohy}{40}{section*.11}
                                                    [1
 
 
@@ -1422,891 +1422,13 @@ l.41 ...C {\v r}\IeC {\'\i }lohy}{41}{section*.11}
 he same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5 \chapter
-            {√övod} [2]
+l.34 \chapter
+             {√övod} [2]
 Kapitola 1.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 7.
+LaTeX Warning: Citation `DOD' on page 3 undefined on input line 38.
 
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 7.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 9.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 9.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 11.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 11.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 13.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 13.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.15 C
-      √≠lem t√©to pr√°ce je n√°vrh a implementace knihovny pro dynamickou ko...
-[3
-
-]
-
-LaTeX Warning: Citation `ThreadSafety' on page 4 undefined on input line 15.
-
-
-LaTeX Warning: Reference `Chap:Theory' on page 4 undefined on input line 17.
-
-
-LaTeX Warning: Reference `Chap:Design' on page 4 undefined on input line 17.
-
-
-LaTeX Warning: Reference `Chap:Implementation' on page 4 undefined on input lin
-e 17.
-
-
-Overfull \hbox (40.1326pt too wide) in paragraph at lines 17--18
-[]\T1/lmr/m/n/10.95 Pr·ce je roz-d•-lena do £ty∞ lo-gic-k˝ch celk∑ -- te-o-re-t
-ick· £·st[], n·-vrh systÈmu[], implementace[],
- []
-
-
-LaTeX Warning: Reference `Chap:Theory' on page 4 undefined on input line 19.
-
-
-LaTeX Warning: Citation `DataOrientedDesign' on page 4 undefined on input line 
-19.
-
-
-LaTeX Warning: Reference `Chap:Design' on page 4 undefined on input line 21.
-
-
-LaTeX Warning: Reference `Chap:Overview' on page 4 undefined on input line 21.
-
-
-LaTeX Warning: Reference `Chap:Component' on page 4 undefined on input line 21.
-
-
-
-LaTeX Warning: Reference `Chap:System' on page 4 undefined on input line 21.
-
-
-LaTeX Warning: Reference `Chap:Entity' on page 4 undefined on input line 21.
-
-
-LaTeX Warning: Reference `Chap:ParallelismDesign' on page 4 undefined on input 
-line 21.
-
-
-LaTeX Warning: Reference `Chap:Demo' on page 4 undefined on input line 23.
-
-
-LaTeX Warning: Reference `Chap:Eval' on page 4 undefined on input line 23.
-
-
-LaTeX Warning: Reference `Chap:Usability' on page 4 undefined on input line 23.
-
-
-
-LaTeX Warning: Reference `Chap:Performance' on page 4 undefined on input line 2
-3.
-
-[4]
-Kapitola 2.
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 27.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 27.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 31.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 31.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 31.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 36.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 36.
-
-[5
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 36.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 36.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 36.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 40.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 40.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 40.
-
-[6] <figures/TODO-image.pdf, id=243, 151.87993pt x 85.31876pt>
-File: figures/TODO-image.pdf Graphic file (type pdf)
-
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 45.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 45--46
-[][] 
- []
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 49.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 49--50
-[][] 
- []
-
-[7 <./figures/TODO-image.pdf>]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 52.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 52.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 52.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 52.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 57.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 57--58
-[][] 
- []
-
-[8]
-File: figures/TODO-image.pdf Graphic file (type pdf)
- <use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 61.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 61--62
-[][] 
- []
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 64.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 64.
-
-[9]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 64.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 64.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 69.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 69--70
-[][] 
- []
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 73.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 73--74
-[][] 
- []
-
-[10]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 76.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 76.
-
-[11]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 76.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 76.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 76.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 80.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 80.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 83.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 83.
-
-[12]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 83.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 83.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 88.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 88--89
-[][] 
- []
-
-[13]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-[14]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 91.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 95.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 95.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 95.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 95.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 95.
-
-[15]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 100.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 100.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 100.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 102.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 102--103
-[][] 
- []
-
-[16]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 105.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 105.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 107.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 107--108
-[][] 
- []
-
-[17]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 110.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 110.
-
-[18]
-Kapitola 3.
-! Undefined control sequence.
-l.116 \secion
-             {P≈ôehled a komunikace}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 119.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 119--120
-[][] 
- []
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 122.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 122.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 125.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 125--126
-[][] 
- []
-
-[19
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 128.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 128.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 128.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 128.
-
-[20]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 132.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 132.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 132.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 132.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 132.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-[21]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 136.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 140.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 140.
-
-[22]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 140.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 140.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-[23]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 144.
-
-File: figures/TODO-image.pdf Graphic file (type pdf)
-<use figures/TODO-image.pdf>
-Package pdftex.def Info: figures/TODO-image.pdf used on input line 149.
-(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 149--150
-[][] 
- []
-
-[24]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 152.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 152.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 152.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 152.
-
-[25] [26]
-Kapitola 4.
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 157.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 157.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 157.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 161.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 161.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 161.
-
-[27
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 165.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 165.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 165.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 165.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 169.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 169.
-
-[28]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 169.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 169.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 173.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 173.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 173.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 173.
-
-[29]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 177.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 177.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 177.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 181.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 181.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 181.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 181.
-
-[30] [31]
-Kapitola 5.
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 188.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 188.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 192.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 192.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 192.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 192.
-
-[32
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 196.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 196.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 196.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 196.
-
-[33]
-Kapitola 6.
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 200.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 200.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 204.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 204.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 204.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 208.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 208.
-
-[34
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 212.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 212.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 214.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 214.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 216.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 216.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 220.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 220.
-
-[35]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 220.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 224.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 224.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 224.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 228.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 228.
-
-[36]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 228.
-
-[37]
-Kapitola 7.
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 233.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 233.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 235.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 235.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 237.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 237.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 239.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 239.
-
-[38
-
-]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 241.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 241.
-
-) (xpolas34-ECS.bbl [39]
-
-LaTeX Warning: Empty `thebibliography' environment on input line 11.
-
-) [40
-
-] [41
-
-]
-\c@ttl@toc@chapters=\count321
- (xpolas34-ECS-30-prilohy-appendices.tex
-P\IeC {\v r}\IeC {\'\i }loha A.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 38.
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [42
-
-]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 42.
-
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -2318,29 +1440,828 @@ File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 42.
- [43] [44])
+
+
+LaTeX Warning: Reference `Chap:Theory' on page 3 undefined on input line 48.
+
+
+LaTeX Warning: Reference `Chap:Design' on page 3 undefined on input line 48.
+
+
+LaTeX Warning: Reference `Chap:Implementation' on page 3 undefined on input lin
+e 48.
+
+
+LaTeX Warning: Reference `Chap:Demo' on page 3 undefined on input line 48.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.50 \chapter
+             {Teoretick√Ω rozbor} [3
+
+]
+Kapitola 2.
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 52.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 52.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 56.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 56.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 56.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 61.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 61.
+
+[4
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 61.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 61.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 61.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 65.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 65.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 65.
+
+[5] <figures/TODO-image.pdf, id=238, 151.87993pt x 85.31876pt>
+File: figures/TODO-image.pdf Graphic file (type pdf)
+
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 70.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 70--71
+[][] 
+ []
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 74.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 74--75
+[][] 
+ []
+
+[6 <./figures/TODO-image.pdf>]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 77.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 77.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 77.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 77.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 82.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 82--83
+[][] 
+ []
+
+[7]
+File: figures/TODO-image.pdf Graphic file (type pdf)
+ <use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 86.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 86--87
+[][] 
+ []
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 89.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 89.
+
+[8]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 89.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 89.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 94.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 94--95
+[][] 
+ []
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 98.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 98--99
+[][] 
+ []
+
+[9]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 101.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 101.
+
+[10]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 101.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 101.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 101.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 105.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 105.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 108.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 108.
+
+[11]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 108.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 108.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 113.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 113--114
+[][] 
+ []
+
+[12]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+[13]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 116.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 120.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 120.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 120.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 120.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 120.
+
+[14]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 125.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 125.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 125.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 127.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 127--128
+[][] 
+ []
+
+[15]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 130.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 130.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 132.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 132--133
+[][] 
+ []
+
+[16]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 135.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 135.
+
+[17]
+Kapitola 3.
+! Undefined control sequence.
+l.141 \secion
+             {P≈ôehled a komunikace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 144.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 144--145
+[][] 
+ []
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 147.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 147.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 150.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 150--151
+[][] 
+ []
+
+[18
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 153.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 153.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 153.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 153.
+
+[19]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 157.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 157.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 157.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 157.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 157.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+[20]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 161.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 165.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 165.
+
+[21]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 165.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 165.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+[22]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 169.
+
+File: figures/TODO-image.pdf Graphic file (type pdf)
+<use figures/TODO-image.pdf>
+Package pdftex.def Info: figures/TODO-image.pdf used on input line 174.
+(pdftex.def)             Requested size: 432.4818pt x 242.95392pt.
+
+Overfull \hbox (0.81pt too wide) in paragraph at lines 174--175
+[][] 
+ []
+
+[23]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 177.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 177.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 177.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 177.
+
+[24] [25]
+Kapitola 4.
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 182.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 182.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 182.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 186.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 186.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 186.
+
+[26
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 190.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 190.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 190.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 190.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 194.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 194.
+
+[27]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 194.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 194.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 198.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 198.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 198.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 198.
+
+[28]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 202.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 202.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 202.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 206.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 206.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 206.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 206.
+
+[29] [30]
+Kapitola 5.
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 213.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 213.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 217.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 217.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 217.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 217.
+
+[31
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 221.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 221.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 221.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 221.
+
+[32]
+Kapitola 6.
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 225.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 225.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 229.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 229.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 229.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 233.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 233.
+
+[33
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 237.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 237.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 239.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 239.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 241.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 241.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 245.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 245.
+
+[34]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 245.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 249.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 249.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 249.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 253.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 253.
+
+[35]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 253.
+
+[36]
+Kapitola 7.
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 258.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 258.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 260.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 260.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 262.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 262.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 264.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 264.
+
+[37
+
+]
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 266.
+
+
+Package blindtext Warning: czech not defined, using English instead.
+(blindtext)                 on input line 266.
+
+) (xpolas34-ECS.bbl [38]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 11.
+
+) [39
+
+] [40
+
+]
+\c@ttl@toc@chapters=\count321
+ (xpolas34-ECS-30-prilohy-appendices.tex
+P\IeC {\v r}\IeC {\'\i }loha A.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 38.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [41
+
+] [42] [43])
 \tf@ptc=\write5
 \openout5 = `xpolas34-ECS.ptc'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 276.
- [45]
+ [44]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 276.
 
 (xpolas34-ECS.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 276.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 276.
 Package rerunfilecheck Info: File `xpolas34-ECS.out' has not changed.
-(rerunfilecheck)             Checksum: B26D5C5DDF9F144440B03051A4BF1079;4651.
+(rerunfilecheck)             Checksum: 0BD1D2B609C3D2D9E2B9FA62B9168C3F;4651.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 22592 strings out of 493333
- 368885 string characters out of 3139188
+ 22582 strings out of 493333
+ 368723 string characters out of 3139188
  442373 words of memory out of 3000000
- 25621 multiletter control sequences out of 15000+200000
+ 25612 multiletter control sequences out of 15000+200000
  121183 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,37p,10410b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2360,9 +2281,9 @@ type1/public/lm/lmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
 i10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmtt9.pfb>
-Output written on xpolas34-ECS.pdf (48 pages, 680204 bytes).
+Output written on xpolas34-ECS.pdf (47 pages, 677554 bytes).
 PDF statistics:
- 543 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
+ 537 PDF objects out of 1000 (max. 8388607)
+ 117 named destinations out of 1000 (max. 500000)
  301 words of extra memory for PDF output out of 10000 (max. 10000000)
 
