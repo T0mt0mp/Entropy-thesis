@@ -1,18 +1,19 @@
 \select@language {czech}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{3}{chapter.1}
 \contentsline {chapter}{\numberline {2}Teoretick\IeC {\'y} rozbor}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Po\IeC {\v z}adavky na n\IeC {\'a}vrh software}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}Reprezentace entit a jejich chov\IeC {\'a}n\IeC {\'\i }}{5}{section.2.3}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{6}{section*.2}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{8}{section*.3}
-\contentsline {subsection}{Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{section*.4}
-\contentsline {section}{\numberline {2.4}Komponentn\IeC {\'\i } syst\IeC {\'e}my}{11}{section.2.4}
-\contentsline {subsection}{Historie v\IeC {\'y}voje}{11}{section*.5}
-\contentsline {subsection}{Koncepty}{12}{section*.6}
+\contentsline {section}{\numberline {2.1}Entitn\IeC {\'\i } syst\IeC {\'e}my}{4}{section.2.1}
+\contentsline {subsection}{Historie v\IeC {\'y}voje}{4}{section*.2}
+\contentsline {section}{\numberline {2.2}Po\IeC {\v z}adavky na n\IeC {\'a}vrh ########}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Reprezentace entit a jejich chov\IeC {\'a}n\IeC {\'\i }}{7}{section.2.4}
+\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{7}{section*.3}
+\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{section*.4}
+\contentsline {subsection}{Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{11}{section*.5}
+\contentsline {section}{\numberline {2.5}Entitn\IeC {\'\i } syst\IeC {\'e}m}{12}{section.2.5}
+\contentsline {subsection}{Koncept}{12}{section*.6}
 \contentsline {subsection}{V\IeC {\'y}hody zvolen\IeC {\'e} reprezentace}{14}{section*.7}
-\contentsline {section}{\numberline {2.5}Paralelizmus}{15}{section.2.5}
-\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh komponentn\IeC {\'\i }ho syst\IeC {\'e}mu}{18}{chapter.3}
+\contentsline {section}{\numberline {2.6}Paralelizmus}{15}{section.2.6}
+\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{18}{chapter.3}
 \contentsline {section}{\numberline {3.1}Komponenty a jejich nosi\IeC {\v c}e}{20}{section.3.1}
 \contentsline {section}{\numberline {3.2}Syst\IeC {\'e}my a skupiny}{20}{section.3.2}
 \contentsline {section}{\numberline {3.3}Reprezentace entit}{22}{section.3.3}

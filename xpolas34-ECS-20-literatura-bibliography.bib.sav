@@ -63,17 +63,48 @@
 
 @Unpublished{GameDesignPatterns,
   author = {Robert Nystrom},
-  title  = {Game Programming Patterns},
+  title  = {{\it Game Programming Patterns}},
   note   = {[Online; navštíveno 12.04.2017]},
   url    = {http://gameprogrammingpatterns.com/contents.html},
 }
 
 @Misc{Unity,
-  url = {https://unity3d.com/},
+  title = {{\it Unity}},
+  url   = {https://unity3d.com/},
 }
 
 @Misc{UnrealEngine,
-  url = {https://www.unrealengine.com/},
+  title = {{\it Unreal engine 4}},
+  url   = {https://www.unrealengine.com/},
+}
+
+@Misc{CPPObjectMemoryLayout,
+  author = {Eli Bendersky},
+  title  = {{\it Dumping a C++ object's memory layout with Clang}},
+  note   = {[Online; navštíveno 13.04.2017]},
+  url    = {http://eli.thegreenplace.net/2012/12/17/dumping-a-c-objects-memory-layout-with-clang},
+}
+
+@Misc{DataOrientedDesignCppCon,
+  author = {Mike Acton},
+  title  = {{\it Data-Oriented Design and C++}},
+  year   = {2014},
+  note   = {[Online; navštíveno 13.04.2017]},
+  url    = {https://www.youtube.com/watch?v=rX0ItVEVjHc},
+}
+
+@Misc{DataOrientedDesignDice,
+  title = {{\it Introduction to Data-Oriented Design}},
+  note  = {[Online; navštíveno 13.04.2017]},
+  url   = {http://www.dice.se/wp-content/uploads/2014/12/Introduction_to_Data-Oriented_Design.pdf},
+}
+
+@Misc{DODComponents,
+  author = {Richard Fabian},
+  title  = {{\it Component Based Objects}},
+  year   = {2013},
+  note   = {[Online; navštíveno 13.04.2017]},
+  url    = {http://www.dataorienteddesign.com/dodmain/node5.html},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -48,25 +48,51 @@ Mezi další požadavky, z pohledu \emph{herního enginu}, jsou efektivní prác
 Práce je rozdělena do čtyř logických celků -- teoretická část, návrh systému, implementace a vyhodnocení. Kapitola \ref{Chap:Theory} popisuje aktuální stav návrhu \emph{software}, primárně z pohledu herního vývoje. Nejdříve zde jsou přiblíženy požadavky na \emph{entitní systémy}. Následuje porovnání aktuálně používaných způsobů reprezentace \emph{entit}, jejich výhody a nevýhody. Závěr obsahuje způsoby využití vícevláknových konfigurací. Kapitola \ref{Chap:Design} zahrnuje kompletní návrh \emph{entitního systému}, který je obecný -- nezávislý na implementačním jazyce. Nejdříve je uveden přehled celého systému, následuje podrobnější popis jeho částí a rozbor různých způsobů řešení. Další kapitola (\ref{Chap:Implementation}) je věnována implementaci v jazyce C++. Následuje kapitola \ref{Chap:Demo}, ve které je předvedena funkčnost systému na návrhu a implementaci demo hry. Poslední kapitola shrnuje výsledný systém z pohledu výkonosti a srovnává jej s podobnými \emph{open-source} knihovnami.
 
 \chapter{Teoretický rozbor}
-\todo{Popis kapitoly}
+
+Tato se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na kompozici, definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které jsou dnes používány.
+
+\section{Entitní systémy a jejich historie}
+\todo{Zaklad, co to je.}
 \blind[1]
 
-\section{Požadavky na návrh software}
+Entitní systém je část, v tomto případě, \emph{herního enginu}, jejíž úkolem je údržba \emph{entit}, kde \emph{entitou} je objekt ve virtuálním světě. 
+
+\blind[3]
+
+\section{Požadavky na návrh ####}
 \todo{Délka, složitost. Potřeba oddělení částí.}
 \blind[2]
 
-Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají knihy \emph{návrhových vzorů}\cite{DesignPatterns}\cite{GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat \emph{software}. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému. Tyto techniky umožňují pracovat velkému množství programátorů na jednom projektu.
+Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají techniky pro organizaci kódu a knihy \emph{návrhových vzorů}\cite{DesignPatterns}\cite{GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat \emph{software}. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému. Tyto techniky umožňují pracovat velkému množství programátorů na jednom projektu.
+
+Mezi techniky dnes používané patří primárně \emph{objektově orientované programování}, ale stále častěji také \emph{}
 
 Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedním z důležitých rozhodnutí v návrhu \emph{herního enginu}. Entity jsou často používány pro komunikaci mezi jednotlivými podsystémy -- např. vykreslení efektu, který vznikl v \emph{gameplay} kódu. Přílišná provázanost však většinou znamená zvýšený výskyt programovacích chyb (\emph{bugs}) \cite{GameDesignPatterns}. Podrobněji se tímto zabývá sekce \ref{Chap:Representation}.
 
 \section{Datově orientovaný návrh}
 \label{Chap:DDD}
-\todo{Proč se používá, architektura PC.}
-\blind[4]
 
-\section{Reprezentace entit a jejich chování}
-\todo{Co to je entita, chování}
-\blind[2]
+Dnes nejpoužívanější způsob návrhu -- \emph{objektově orientovaný} (\emph{OOD}) -- umožňuje abstrahovat od fyzického hardware, na kterém výsledná aplikace běží a řešit daný problém jeho dekompozicí do objektů. Základní stavební kámen je v tomto případě objekt -- agregace hodnot a proveditelných operací. Toto umožňuje řešení problémů transformací objektů z reálného světa na objekty virtuální, se kterými dokáží lidé pracovat a zároveň jim rozumí také počítač. Toto je však problematické pro moderní výpočetní hardware, který je optimalizovaný na jednoduché datové transformace.
+
+Kvůli výše zmíněnému problému a stále vyšší potřebě optimalizace se objevuje \emph{datově orientovaný návrh}\cite{DOD} (\emph{DOD}), který se naopak zaměřuje na data, které aplikace používá. Nevýhodou je snížení čitelnosti výsledného kódu a složitější transformace návrhu aplikace -- řešení problému -- ve výsledný program. Základní myšlenkou je oddělení dat a operací nad nimi, toto umožňuje efektivnější využití paměti a procesorových \emph{cache}. 
+
+Častým příkladem rozdílů mezi \emph{OOD} a \emph{DOD} je transformace seznamu struktur (\emph{SOA}) ve strukturu seznamů (\emph{AOS}), který lze vidět na obr.\ref{Fig:SOAASO}.
+
+\begin{figure}[]
+	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
+	\caption{Příklad transformace pole struktur na strukturu polí. \todo{Vytvořit}}
+	\label{Fig:SOAASO}
+\end{figure}
+
+Základem \emph{DOD} je důkladná analýza aplikačních dat -- jejich obor hodnot, transformace, definice vstupních dat, požadovaný výstup atp. Často je využíváno datové struktury pole, jehož vlastnosti umožňují rychlou iteraci. Mezi výhody \emph{DOD} patří také dobrá lokalita dat a odkazů, což umožňuje efektivní využití procesorových \emph{cache}. Díky těmto vlastnostem se \emph{DOD} stále častěji používá v herním průmyslu\cite{DataOrientedDesignDice}\cite{DataOrientedDesignCppCon}.
+
+Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání objektů zabývá sekce \ref{Chap:DOC}.
+
+\section{Reprezentace entit}
+
+Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit}\cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě a \emph{chování} jsou operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
+
+Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware. 
 
 \subsection{Objektově orientovaná hierarchie}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
@@ -79,6 +105,9 @@ Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedn
 	\caption{Obsah paměti u objektově orientovaných hierarchií. \todo{Vytvořit}}
 \end{figure}
 \blind[3]
+
+ problem nastava v pripade 
+ nekolikanasobna dedicnost, problemy
 
 \subsection{Objektově orientovaná kompozice}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
@@ -93,6 +122,7 @@ Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedn
 \blind[3]
 
 \subsection{Datově orientovaná kompozice}
+\label{Chap:DOC}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
@@ -104,14 +134,8 @@ Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedn
 \end{figure}
 \blind[4]
 
-\section{Komponentní systémy}
-\todo{Zaklad, co to je.}
-\blind[1]
-
-\subsection{Historie vývoje}
-\blind[3]
-
-\subsection{Koncepty}
+\section{Entitní systém}
+\subsection{Koncept}
 \todo{Představení základní architektury návrhového vzoru - entity, komponenty, systémy}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
@@ -139,7 +163,7 @@ Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedn
 \blind[1]
 %https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine
 
-\chapter{Návrh komponentního systému}
+\chapter{Návrh entitního systému}
 \todo{Co by to melo umet, priority}
 
 \secion{Přehled a komunikace}
