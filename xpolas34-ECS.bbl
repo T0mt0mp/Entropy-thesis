@@ -1,4 +1,4 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -7,5 +7,86 @@
   \urlstyle{rm}\Url}\fi
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{CacheCoherence}
+{\it Cache Coherence}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://www.d.umn.edu/~gshute/arch/cache-coherence.xhtml}
+
+\bibitem{DataLocality}
+{\it Data Locality}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{http://docs.roguewave.com/threadspotter/2011.2/manual_html_linux/manual_html/ch_intro_locality.html}
+
+\bibitem{CpuIpc}
+{\it Instruction scheduling}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://www.cl.cam.ac.uk/teaching/1617/OptComp/slides/lecture14.pdf}
+
+\bibitem{DataOrientedDesignDice}
+{\it Introduction to Data-Oriented Design}. [Online; navštíveno 13.04.2017].
+\newline\urlprefix\url{http://www.dice.se/wp-content/uploads/2014/12/Introduction_to_Data-Oriented_Design.pdf}
+
+\bibitem{Pipelining}
+{\it Pipelining}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://web.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/pipe_title.html}
+
+\bibitem{UnityGo}
+{\it Unity GameObject}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://docs.unity3d.com/ScriptReference/GameObject.html}
+
+\bibitem{ARM}
+\emph{ARM Architecture}. 2005, [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://www.scss.tcd.ie/~waldroj/3d1/arm_arm.pdf}
+
+\bibitem{AmdX86-64}
+\emph{AMD64 Architecture Programmer’s Manual}. 2013, [Online; navštíveno
+  14.04.2017].
+\newline\urlprefix\url{https://support.amd.com/TechDocs/24592.pdf}
+
+\bibitem{IntelX86-64}
+\emph{Intel® 64 and IA-32 Architectures Software Developer’s Manual}. 2016,
+  [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-1-manual.pdf}
+
+\bibitem{DataOrientedDesignCppCon}
+Acton, M.: {\it Data-Oriented Design and C++}. 2014, [Online; navštíveno
+  13.04.2017].
+\newline\urlprefix\url{https://www.youtube.com/watch?v=rX0ItVEVjHc}
+
+\bibitem{DODComponents}
+Fabian, R.: {\it Component Based Objects}. 2013, [Online; navštíveno
+  13.04.2017].
+\newline\urlprefix\url{http://www.dataorienteddesign.com/dodmain/node5.html}
+
+\bibitem{DOD}
+Fabian, R.: {\it Data-Oriented Design}. 2013, [Online; navštíveno
+  12.04.2017].
+\newline\urlprefix\url{http://www.dataorienteddesign.com/dodmain/}
+
+\bibitem{DesignPatterns}
+Gamma, E.: \emph{{\it Design Patterns: Elements of Reusable Object-Oriented
+  Software}}. Boston:Addison-Wesley, 1995, ISBN ISBN 0-201-63361-2.
+
+\bibitem{MemoryTiming}
+Norvig, P.: Approximate timing for various operations on a typical PC [online].
+  2001, [vid. 13.04.2017].
+\newline\urlprefix\url{http://norvig.com/21-days.html#answers}
+
+\bibitem{GameDesignPatterns}
+Nystrom, R.: {\it Game Programming Patterns}, [Online; navštíveno
+  12.04.2017].
+\newline\urlprefix\url{http://gameprogrammingpatterns.com/contents.html}
+
+\bibitem{Ps4Xbox}
+Shimp, A.~L.: {\it Xbox One: Hardware Analysis \& Comparison to Playstation 4}.
+  2013, [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{http://www.anandtech.com/show/6972/xbox-one-hardware-compared-to-playstation-4/2}
+
+\bibitem{CpuMemoryGap}
+Trancoso, P.: {\it How L1 and L2 CPU caches work}. 2014, [Online; navštíveno
+  14.04.2017].
+\newline\urlprefix\url{http://www.cs.ucy.ac.cy/courses/EPL605/Fall2014Files/Chapter5-Memory-Cache2.pdf}
+
+\bibitem{EvolveHierarchy}
+West, M.: {\it Evolve Your Hierarchy}, 2007, [Online; navštíveno 12.04.2017].
+\newline\urlprefix\url{http://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/}
 
 \end{thebibliography}

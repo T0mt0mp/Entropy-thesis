@@ -52,57 +52,63 @@ Práce je rozdělena do čtyř logických celků -- teoretická část, návrh s
 Tato se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na kompozici, definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které jsou dnes používány.
 
 \section{Entitní systémy a jejich historie}
-\todo{Zaklad, co to je.}
-\blind[1]
 
-Entitní systém je část, v tomto případě, \emph{herního enginu}, jejíž úkolem je údržba \emph{entit}, kde \emph{entitou} je objekt ve virtuálním světě. 
+\emph{Entitní systém} je část herního enginu, který zprostředkovává zprávu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
 
-\blind[3]
-
-\section{Požadavky na návrh ####}
-\todo{Délka, složitost. Potřeba oddělení částí.}
-\blind[2]
+\section{Požadavky na návrh}
 
 Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají techniky pro organizaci kódu a knihy \emph{návrhových vzorů}\cite{DesignPatterns}\cite{GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat \emph{software}. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému. Tyto techniky umožňují pracovat velkému množství programátorů na jednom projektu.
 
-Mezi techniky dnes používané patří primárně \emph{objektově orientované programování}, ale stále častěji také \emph{}
+Mezi techniky dnes používané patří primárně \emph{objektově orientované návrh}, ale stále častěji také návrh \emph{datově orientovaný}, kterým se zabývá část \ref{Chap:DDD}.
 
 Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedním z důležitých rozhodnutí v návrhu \emph{herního enginu}. Entity jsou často používány pro komunikaci mezi jednotlivými podsystémy -- např. vykreslení efektu, který vznikl v \emph{gameplay} kódu. Přílišná provázanost však většinou znamená zvýšený výskyt programovacích chyb (\emph{bugs}) \cite{GameDesignPatterns}. Podrobněji se tímto zabývá sekce \ref{Chap:Representation}.
+
+\section{Architektura moderních počítačů}
+
+Důležitou součástí tvorby her je analýza cílového hardware, na kterém hra poběží. Velkou výhodou je v dnešní době velmi vysoká podobnost všech různých herních systémů. Stolní počítače, ale i některé nové konzole (\emph{Playstation 4} a \emph{Xbox One} \cite{Ps4Xbox}), již všechny používají architekturu procesorů \emph{x86} \cite{IntelX86-64} \cite{AmdX86-64}. Stále důležitější platformou jsou také mobilní zařízení, které používají architekturu procesorů \emph{ARM} \cite{ARM}. Výhodou, z pohledu návrhu \emph{software}, je velmi podobná architektura paměti, která umožňuje optimalizace, které fungují na všech často používaných platformách.
+
+Moderní procesory dokáží velmi rychle vykonávat jednoduché instrukce a za použití mechanizmů (např. \emph{pipelining} \cite{Pipelining}) se stále zvyšuje počet instrukcí za jeden cyklus (\emph{Instructions per Cycle} \cite{CpuIpc}). Problém nadchází v případě, kdy procesor operuje s daty, které nejsou k dispozici v jeho registrech. Rozdíl v rychlosti procesorů a pamětí stále roste \cite{CpuMemoryGap}, způsobem minimalizace tohoto rozdílu jsou procesorové \emph{cache}.
+
+Právě díky rozdílům rychlostí jednotlivých typů pamětí \cite{MemoryTiming} vznikají nové způsoby, jak navrhovat aplikace, které umožňují efektivně využívat hierarchii procesorových \emph{cache}. Jedním z nich je \emph{datově orientovaný návrh}, kterým se zabývá následující sekce. Mezi důležité parametry pro efektivní využití \emph{cache} patří lokalita odkazů \cite{DataLocality} a udržování jejich koherence \cite{CacheCoherence}. Lokalita odkazů je primárně dělena na 2 typy -- časová a prostorová. Časovou lokalitou je myšleno opakované používání stejných dat, kdy se data při prvním použití zapíší do \emph{cache} a dále již není třeba přístup k hlavní paměti. Načítání dat do \emph{cache} je prováděno v blocích (\emph{cache line}), které jsou specifikovány pro každý procesor. Program, který využívá data, které jsou v paměti blízko (vejdou se do jedné \emph{cache line}) má dobrou prostorovou lokalitu odkazů. Udržování koherence procesorových \emph{cache} se primárně projevuje ve více-jádrových systémech a podrobněji se jím zabývá sekce \ref{Chap:Parallelism}.
 
 \section{Datově orientovaný návrh}
 \label{Chap:DDD}
 
-Dnes nejpoužívanější způsob návrhu -- \emph{objektově orientovaný} (\emph{OOD}) -- umožňuje abstrahovat od fyzického hardware, na kterém výsledná aplikace běží a řešit daný problém jeho dekompozicí do objektů. Základní stavební kámen je v tomto případě objekt -- agregace hodnot a proveditelných operací. Toto umožňuje řešení problémů transformací objektů z reálného světa na objekty virtuální, se kterými dokáží lidé pracovat a zároveň jim rozumí také počítač. Toto je však problematické pro moderní výpočetní hardware, který je optimalizovaný na jednoduché datové transformace.
+Dnes nejpoužívanější způsob návrhu -- \emph{objektově orientovaný} (\emph{OOD}) -- umožňuje abstrahovat od fyzického hardware, na kterém výsledná aplikace běží a řešit daný problém jeho dekompozicí do objektů. Základní stavební kámen je v tomto případě objekt -- agregace hodnot a proveditelných operací. Toto umožňuje řešení problémů transformací objektů z reálného světa na objekty virtuální, se kterými dokáží lidé pracovat a zároveň jsou interpretovatelné i překladači programovacích jazyků. Toto je však problematické pro moderní výpočetní hardware, který je optimalizovaný na jednoduché datové transformace.
 
-Kvůli výše zmíněnému problému a stále vyšší potřebě optimalizace se objevuje \emph{datově orientovaný návrh}\cite{DOD} (\emph{DOD}), který se naopak zaměřuje na data, které aplikace používá. Nevýhodou je snížení čitelnosti výsledného kódu a složitější transformace návrhu aplikace -- řešení problému -- ve výsledný program. Základní myšlenkou je oddělení dat a operací nad nimi, toto umožňuje efektivnější využití paměti a procesorových \emph{cache}. 
+Kvůli výše zmíněnému problému a stále vyšší potřebě optimalizace se objevuje \emph{datově orientovaný návrh}\cite{DOD} (\emph{DOD}), který se naopak zaměřuje na data, které aplikace používá. Nevýhodou je snížení čitelnosti výsledného kódu a složitější transformace návrhu aplikace -- řešení problému -- ve výsledný program. Základní myšlenkou je oddělení dat a operací nad nimi, toto umožňuje efektivnější využití paměti a procesorových \emph{cache}.
 
-Častým příkladem rozdílů mezi \emph{OOD} a \emph{DOD} je transformace seznamu struktur (\emph{SOA}) ve strukturu seznamů (\emph{AOS}), který lze vidět na obr.\ref{Fig:SOAASO}.
+Častým příkladem rozdílů mezi \emph{OOD} a \emph{DOD} je transformace seznamu struktur (\emph{SOA}) ve strukturu seznamů (\emph{AOS}), který lze vidět na obr. \ref{Fig:SOAASO}.
 
 \begin{figure}[]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Příklad transformace pole struktur na strukturu polí. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOD1}}
+	\caption{Příklad transformace pole struktur na strukturu polí.}
 	\label{Fig:SOAASO}
 \end{figure}
 
 Základem \emph{DOD} je důkladná analýza aplikačních dat -- jejich obor hodnot, transformace, definice vstupních dat, požadovaný výstup atp. Často je využíváno datové struktury pole, jehož vlastnosti umožňují rychlou iteraci. Mezi výhody \emph{DOD} patří také dobrá lokalita dat a odkazů, což umožňuje efektivní využití procesorových \emph{cache}. Díky těmto vlastnostem se \emph{DOD} stále častěji používá v herním průmyslu\cite{DataOrientedDesignDice}\cite{DataOrientedDesignCppCon}.
 
-Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání objektů zabývá sekce \ref{Chap:DOC}.
+Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání \emph{entit} zabývá sekce \ref{Chap:DOC}.
 
 \section{Reprezentace entit}
 
 Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit}\cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě a \emph{chování} jsou operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
 
-Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware. 
+Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware.
 
 \subsection{Objektově orientovaná hierarchie}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Příklad objektově orientované hierarchie. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP1}}
+	\caption{Příklad objektově orientované hierarchie.}
 \end{figure}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Obsah paměti u objektově orientovaných hierarchií. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP2}}
+	\caption{Obsah paměti u objektově orientovaných hierarchií.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP3}}
+	\caption{Využití procesorové \emph{cache} při použití objektově orientované entitní hierarchie.}
 \end{figure}
 \blind[3]
 
@@ -112,12 +118,20 @@ Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot
 \subsection{Objektově orientovaná kompozice}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Příklad objektově orientované kompozice. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_1}}
+	\caption{Příklad objektově orientované kompozice.}
 \end{figure}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Obsah paměti u objektově orientované kompozice. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_2}}
+	\caption{Využití kompozice pro tvorbu herních objektů.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC2}}
+	\caption{Obsah paměti u objektově orientované kompozice.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC3}}
+	\caption{Využití procesorové \emph{cache} při použití objektově orientované kompozice.}
 \end{figure}
 \blind[3]
 
@@ -125,14 +139,20 @@ Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot
 \label{Chap:DOC}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Příklad datově orientované kompozice. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC1_1}}
+	\caption{Příklad datově orientované kompozice.}
 \end{figure}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Obsah paměti u datově orientované kompozice. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC2}}
+	\caption{Obsah paměti u datově orientované kompozice.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-3}}
+	\caption{Využití procesorové \emph{cache} při použití datově orientované kompozice.}
 \end{figure}
 \blind[4]
+
+ciste knoceptualni
 
 \section{Entitní systém}
 \subsection{Koncept}
@@ -166,7 +186,7 @@ Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot
 \chapter{Návrh entitního systému}
 \todo{Co by to melo umet, priority}
 
-\secion{Přehled a komunikace}
+\section{Přehled a komunikace}
 \todo{Postup seznámení s návrhem top -> down}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
