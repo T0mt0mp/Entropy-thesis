@@ -55,6 +55,8 @@ Tato se věnuje teorii \emph{entitních systémů}, jejich historii a požadavk�
 
 \emph{Entitní systém} je část herního enginu, který zprostředkovává zprávu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
 
+\todo{historie}
+
 \section{Požadavky na návrh}
 
 Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají techniky pro organizaci kódu a knihy \emph{návrhových vzorů}\cite{DesignPatterns}\cite{GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat \emph{software}. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému. Tyto techniky umožňují pracovat velkému množství programátorů na jednom projektu.
@@ -94,32 +96,70 @@ Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \
 
 Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit}\cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě a \emph{chování} jsou operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
 
-Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware.
+Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware. Závěry zde vyvozené jsou primárně zaměřené na \emph{třídní} objektově orientované jazyky (\emph{C++}, \emph{JAVA}, \emph{Python} atp.), ale částečně je lze aplikovat i na \emph{objektově orientované} programovací jazyky obecně.
 
 \subsection{Objektově orientovaná hierarchie}
-\todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
+
+Pod pojmem \emph{objektově orientovaná hierarchie} (\emph{OOH} \cite{GameDesignPatterns}) je míněn způsob skládání nových typů entit za využití \emph{dědičnosti} a často také \emph{polymorfismu}. Příklad hierarchie, navržené pro ukázkovou 2D hru, lze vidět na obr. \ref{Fig:OOPHierarchy}. V kořenu stromu hierarchie je, v případě \emph{OOH}, bázová třída, která umožňuje uniformní skladování entit. Konkrétní entity, které existují v herním světě, jsou listy ve stromy dědičnosti.
+
+Množina akcí entity je nastřádána průchodem stromu dědičnosti od kořene k listu, kde se konkrétní entita nachází. Existují dva často používané způsoby definice těchto akcí. První z nich je přímá definice metody v děděné třídě, tohoto je využíváno v případě akcí, které nezávisí na typu entity -- např. vykreslení. Druhým je potom využití polymorfizmu -- virtuálních metod.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP1}}
 	\caption{Příklad objektově orientované hierarchie.}
+	\label{Fig:OOPHierarchy}
 \end{figure}
-\begin{figure}[H]
+
+Hierarchie dědičnosti, která je v tomto příkladě použita lze vidět na obr. \ref{Fig:OOPHierarchy} -- pouze ilustrační, pro předvedení problémů. Bázová třída \textbf{Entity} obsahuje kód pro vykreslování, dále se hierarchie dělí na entity pohyblivé a statické. Prvním problémem je umístění entit, které jsou v pozadí -- nelze do nich narazit. Dalším příkladem problémů s \emph{OOH} je přidání třídy \textbf{StationaryGun} (nepohyblivá zbraň), u které není optimální třída, ze které by měla dědit.
+
+Pro příklad využití paměti je využit seznam pohybujících se entit, jejichž pozice musí být každý snímek hry aktualizována o jejich rychlost. Ilustrace možné organizace paměti lze vidět na obr. \ref{Fig:OOPMemory}. Hlavní seznam obsahuje ukazatele na entity, které je potřeba aktualizovat. Instance jednotlivých konkrétních typů jsou uloženy ve vlastních seznamech.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP2}}
 	\caption{Obsah paměti u objektově orientovaných hierarchií.}
+	\label{Fig:OOPMemory}
 \end{figure}
-\begin{figure}[H]
+
+Při operaci aktualizace je iterováno přes hlavní seznam ukazatelů a na každý objekt je zavolána metoda, která aktualizuje pozici o jeho rychlost. Postup práce s hlavní pamětí a \emph{cache} je následující \footnote{Postup neuvažuje různé vrstvy paměti \emph{cache} a předpokládá, že k požadovanému bloku paměti zatím nebylo přistoupeno. Velikost řádku vyrovnávací paměti je nastavena tak, aby nedošlo k překrytí paměti ukazatelů a paměti instancí.}. Prvním krokem je načtení bloku paměti o velikosti řádku vyrovnávací paměti (\emph{cache}), který obsahuje požadované ukazatele. Následuje dereference prvního z ukazatelů, která zapříčiní čtení dalšího řádků paměti, který již obsahuje iterované objekty. Ilustrace obsahu paměti \emph{cache} lze vidět na obr. \ref{Fig:OOPCache}. Díky způsobu, kterým jsou entity skládány, obsahují jednotlivé objekty kromě požadovaných informací -- pozice a rychlost -- také data, která nejsou používána. Výsledkem je neoptimální využití procesorových \emph{cache} \cite{DataOrientedDesignDice}.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP3}}
 	\caption{Využití procesorové \emph{cache} při použití objektově orientované entitní hierarchie.}
+	\label{Fig:OOPCache}
 \end{figure}
-\blind[3]
 
- problem nastava v pripade 
- nekolikanasobna dedicnost, problemy
+Komunikace jednotlivých částí je při použití \emph{OOH} implicitní -- pomocí \emph{public} a \emph{protected} členů. 
+
+\pagebreak
+
+\noindent Mezi výhody \emph{OOH} patří: 
+\begin{itemize}
+	\item Jednoduchá implementace.
+	\item Podpora tříd zabudována do mnoha programovacích jazyků.
+	\item Použití standardních návrhových metod z objektově orientovaného návrhu.
+	\item Implicitní propojení a komunikace mezi děděnými částmi.
+\end{itemize}
+
+\noindent Její nevýhody jsou: 
+\begin{itemize}
+	\item Akumulace stavu a chování, které není nutně entitou vyžadováno.
+	\item Duplikace kódu v různých větvích stromu dědičnosti.
+	\item Zvyšující se složitost umisťování nových typů entit.
+	\item Typy entit jsou specifikovány ve zdrojovém kódu.
+	\item Statické typování \footnote{Může být výhodou v některých případech, např. optimalizace, které vykonává překladač.}, nemožnost tvorby nových typů za běhu programu.
+\end{itemize}
 
 \subsection{Objektově orientovaná kompozice}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
+
+Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesignPatterns}) je myšlena tvorba entit z menších částí -- komponent -- kde komponenty obsahují data i množinu proveditelných akcí. Entita je při použití \emph{OOC} kontejner, který obaluje seznam komponent (kompozice). Příklad návrhu množiny komponent lze vidět na obr. \ref{Fig:OOCHierarchy}.
+
+Množinu akcí, které lze nad entitou provést je definována komponenty, které jsou v entitě přítomny. 
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_1}}
 	\caption{Příklad objektově orientované kompozice.}
+	\label{Fig:OOCHierarchy}
 \end{figure}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_2}}
@@ -133,7 +173,28 @@ Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC3}}
 	\caption{Využití procesorové \emph{cache} při použití objektově orientované kompozice.}
 \end{figure}
-\blind[3]
+
+\noindent Mezi výhody \emph{OOH} patří: 
+\begin{itemize}
+	\item Uniformní instance všech typů entit, liší se pouze v přítomných komponentech.
+	\item Lepší využití procesorových \emph{cache}.
+	\item Možnost definování nových typů entit za běhu, použitím kompozice.
+	\item Definice typů entit v datech.
+	\item Komponenty, které entita vlastní, jsou přístupny z jednoho místa.
+	\item Odstraněna duplikace kódu a akumulace nechtěného stavu.
+\end{itemize}
+
+\noindent Její nevýhody jsou: 
+\begin{itemize}
+	% Odstranit
+	\item Akumulace stavu a chování, které není nutně entitou vyžadováno.
+	\item Duplikace kódu v různých větvích stromu dědičnosti.
+	\item Zvyšující se složitost umisťování nových typů entit.
+	\item Typy entit jsou specifikovány ve zdrojovém kódu.
+	\item Statické typování, nemožnost tvorby nových typů za běhu programu.
+	%
+	\item Složitější implementace, většinou bez podpory v programovacím jazyce.
+\end{itemize}
 
 \subsection{Datově orientovaná kompozice}
 \label{Chap:DOC}

@@ -6,12 +6,12 @@
 \contentsline {section}{\numberline {2.3}Architektura modern\IeC {\'\i }ch po\IeC {\v c}\IeC {\'\i }ta\IeC {\v c}\IeC {\r u}}{5}{section.2.3}
 \contentsline {section}{\numberline {2.4}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{5}{section.2.4}
 \contentsline {section}{\numberline {2.5}Reprezentace entit}{6}{section.2.5}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{6}{section*.2}
-\contentsline {subsection}{Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{section*.3}
-\contentsline {subsection}{Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{11}{section*.4}
+\contentsline {subsection}{\numberline {2.5.1}Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{6}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Objektov\IeC {\v e} orientovan\IeC {\'a} kompozice}{9}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Datov\IeC {\v e} orientovan\IeC {\'a} kompozice}{11}{subsection.2.5.3}
 \contentsline {section}{\numberline {2.6}Entitn\IeC {\'\i } syst\IeC {\'e}m}{14}{section.2.6}
-\contentsline {subsection}{Koncept}{14}{section*.5}
-\contentsline {subsection}{V\IeC {\'y}hody zvolen\IeC {\'e} reprezentace}{16}{section*.6}
+\contentsline {subsection}{\numberline {2.6.1}Koncept}{14}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}V\IeC {\'y}hody zvolen\IeC {\'e} reprezentace}{16}{subsection.2.6.2}
 \contentsline {section}{\numberline {2.7}Paralelizmus}{17}{section.2.7}
 \contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{20}{chapter.3}
 \contentsline {section}{\numberline {3.1}P\IeC {\v r}ehled a komunikace}{20}{section.3.1}
@@ -36,11 +36,11 @@
 \contentsline {section}{\numberline {6.2}Testovan\IeC {\'e} sestavy}{36}{section.6.2}
 \contentsline {section}{\numberline {6.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{36}{section.6.3}
 \contentsline {section}{\numberline {6.4}Porovn\IeC {\'a}n\IeC {\'\i }}{37}{section.6.4}
-\contentsline {subsection}{Implementace}{37}{section*.7}
-\contentsline {subsection}{V\IeC {\'y}sledek}{37}{section*.8}
+\contentsline {subsection}{\numberline {6.4.1}Implementace}{37}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}V\IeC {\'y}sledek}{37}{subsection.6.4.2}
 \contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{39}{chapter.7}
-\contentsline {chapter}{Literatura}{41}{chapter*.9}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{43}{section*.10}
+\contentsline {chapter}{Literatura}{41}{chapter*.2}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{43}{section*.3}
 \contentsline {chapter}{\numberline {A}Jak pracovat s touto \IeC {\v s}ablonou}{44}{appendix.A}
-\contentsline {paragraph}{Pozor na \IeC {\v c}\IeC {\'\i }slov\IeC {\'a}n\IeC {\'\i } str\IeC {\'a}nek!}{45}{section*.12}
+\contentsline {paragraph}{Pozor na \IeC {\v c}\IeC {\'\i }slov\IeC {\'a}n\IeC {\'\i } str\IeC {\'a}nek!}{45}{section*.5}
 \contentsfinish 
