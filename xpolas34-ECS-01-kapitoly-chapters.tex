@@ -69,7 +69,7 @@ Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedn
 
 Důležitou součástí tvorby her je analýza cílového hardware, na kterém hra poběží. Velkou výhodou je v dnešní době velmi vysoká podobnost všech různých herních systémů. Stolní počítače, ale i některé nové konzole (\emph{Playstation 4} a \emph{Xbox One} \cite{Ps4Xbox}), již všechny používají architekturu procesorů \emph{x86} \cite{IntelX86-64} \cite{AmdX86-64}. Stále důležitější platformou jsou také mobilní zařízení, které používají architekturu procesorů \emph{ARM} \cite{ARM}. Výhodou, z pohledu návrhu \emph{software}, je velmi podobná architektura paměti, která umožňuje optimalizace, které fungují na všech často používaných platformách.
 
-Moderní procesory dokáží velmi rychle vykonávat jednoduché instrukce a za použití mechanizmů (např. \emph{pipelining} \cite{Pipelining}) se stále zvyšuje počet instrukcí za jeden cyklus (\emph{Instructions per Cycle} \cite{CpuIpc}). Problém nadchází v případě, kdy procesor operuje s daty, které nejsou k dispozici v jeho registrech. Rozdíl v rychlosti procesorů a pamětí stále roste \cite{CpuMemoryGap}, způsobem minimalizace tohoto rozdílu jsou procesorové \emph{cache}.
+Moderní procesory dokáží velmi rychle vykonávat jednoduché instrukce a za použití mechanizmů (např. \emph{pipelining} \cite{Pipelining}) se stále zvyšuje počet instrukcí za jeden cyklus (\emph{Instructions per Cycle} \cite{CpuIpc}). Problém nadchází v případě, kdy procesor operuje s daty, které nejsou k dispozici v jeho registrech. Rozdíl v rychlosti procesorů a pamětí stále roste \cite{CpuMemoryGap}, způsobem minimalizace tohoto rozdílu jsou procesorové \emph{cache} (\emph{vyrovnávací paměť}).
 
 Právě díky rozdílům rychlostí jednotlivých typů pamětí \cite{MemoryTiming} vznikají nové způsoby, jak navrhovat aplikace, které umožňují efektivně využívat hierarchii procesorových \emph{cache}. Jedním z nich je \emph{datově orientovaný návrh}, kterým se zabývá následující sekce. Mezi důležité parametry pro efektivní využití \emph{cache} patří lokalita odkazů \cite{DataLocality} a udržování jejich koherence \cite{CacheCoherence}. Lokalita odkazů je primárně dělena na 2 typy -- časová a prostorová. Časovou lokalitou je myšleno opakované používání stejných dat, kdy se data při prvním použití zapíší do \emph{cache} a dále již není třeba přístup k hlavní paměti. Načítání dat do \emph{cache} je prováděno v blocích (\emph{cache line}), které jsou specifikovány pro každý procesor. Program, který využívá data, které jsou v paměti blízko (vejdou se do jedné \emph{cache line}) má dobrou prostorovou lokalitu odkazů. Udržování koherence procesorových \emph{cache} se primárně projevuje ve více-jádrových systémech a podrobněji se jím zabývá sekce \ref{Chap:Parallelism}.
 
@@ -150,33 +150,50 @@ Komunikace jednotlivých částí je při použití \emph{OOH} implicitní -- po
 \end{itemize}
 
 \subsection{Objektově orientovaná kompozice}
-\todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 
-Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesignPatterns}) je myšlena tvorba entit z menších částí -- komponent -- kde komponenty obsahují data i množinu proveditelných akcí. Entita je při použití \emph{OOC} kontejner, který obaluje seznam komponent (kompozice). Příklad návrhu množiny komponent lze vidět na obr. \ref{Fig:OOCHierarchy}.
+Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesignPatterns}) je myšlena tvorba entit z menších částí -- komponent -- kde komponenty obsahují data i množinu proveditelných akcí. Entita je při použití \emph{OOC} kontejner, který obaluje seznam komponent (kompozice). Příklad návrhu množiny komponent lze vidět na obr. \ref{Fig:OOCHierarchy}, kontejnerovou třídou je v tomto případě \textbf{Entity}.
 
-Množinu akcí, které lze nad entitou provést je definována komponenty, které jsou v entitě přítomny. 
+Množinu akcí, které lze nad entitou provést je definována komponenty, které jsou v entitě přítomny. Každá komponenta obsahuje, kromě dat, také akce, které lze nad entitou, která danou komponentu obsahuje, provést.
 
-\begin{figure}[H]
+Tato je často používaná (\emph{composition over inheritance}) v návrhu software a je mezikrokem od \emph{objektově orientované hierarchie} k \emph{datově orientované kompozici}. 
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_1}}
 	\caption{Příklad objektově orientované kompozice.}
 	\label{Fig:OOCHierarchy}
 \end{figure}
-\begin{figure}[H]
+
+Příkladem využití těchto komponent, pro implementaci stejné množiny konkrétních entit, jako v případě použití \emph{OOH}, lze vidět na obr. \ref{Fig:OOCEntity}. Oproti využití dědičnosti se zde již lze jednoduše vyhnout problému s umístěním entit do stromu dědičnosti. Přidání typu \textbf{StationaryGun} je již také bezproblémové, díky možnosti libovolné kombinace jednotlivých komponent.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_2}}
-	\caption{Využití kompozice pro tvorbu herních objektů.}
-\end{figure}
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC2}}
-	\caption{Obsah paměti u objektově orientované kompozice.}
-\end{figure}
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC3}}
-	\caption{Využití procesorové \emph{cache} při použití objektově orientované kompozice.}
+	\caption{Využití kompozice pro tvorbu herních objektů. Konkrétní typy entit jsou zde reprezentovány řádky, jednotlivé komponenty jsou potom sloupce. Přítomnost komponenty je vyznačena znakem \uv{\emph{x}}.}
+	\label{Fig:OOCEntity}
 \end{figure}
 
-\noindent Mezi výhody \emph{OOH} patří: 
+Existuje mnoho způsobů, jak tuto základní myšlenku kompozice z menších částí implementovat. Jednou z možností je vyhradit pro každý typ komponenty pozici v seznamu ukazatelů \footnote{Mezi další způsoby patří mapy nebo dynamické seznamy. Možným řešením je také použití obecných ukazatelů a typových proměnných. }. V tomto návrhu je entita redukována na seznam ukazatelů, kde každá komponenta je buď přítomna (ukazatel je nastavený), nebo nepřítomna (ukazatel je \emph{NULL}). Výhodou této implementace je rychlost. Primární nevýhodou je potom neefektivní využití paměti, pro větší množství druhů komponent. Ilustraci této implementace lze vidět na obr. \ref{Fig:OOCImpl}. 
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC2}}
+	\caption{Obsah paměti u objektově orientované kompozice. Zde je entita implementována pomocí seznamu ukazatelů.}
+	\label{Fig:OOCImpl}
+\end{figure}
+
+Jako příklad práce s pamětí je použita iterace nad seznamem entit, u kterých je nutno provést aktualizaci pozice, podle jejich rychlosti. V tomto příkladě je použita implementace pomocí statického seznamu ukazatelů, podle obr. \ref{Fig:OOCImpl}.
+
+Podobně, jako u použití \emph{OOH}, je zde iterováno přes seznam, který však tentokrát obsahuje již jednotlivé instance typu \textbf{Entity} \footnote{Předpokládá se, že všechny entity obsahují komponenty typu \textbf{Position} a \textbf{Velocity}}. Využití vyrovnávací paměti, za stejných předpokladů, jako u příkladu v případě \emph{OOH}, je následující. Nejdříve je načten seznam entit a jejich ukazatelů na jednotlivé komponenty. Požadovaná operace potřebuje pouze ukazatele na komponenty typu \textbf{Position} a \textbf{Velocity}, ostatní jsou v tomto případě zbytečné \footnote{Záleží na implementaci, tuto neefektivitu je možné řešit optimalizacemi. }. Následuje přístup k požadovaným komponentám skrz ukazatele v první entitě. Tímto je načten blok paměti, pro každou komponentu, do vyrovnávací paměti. Po provedení operace nad první entitou a přístupu k dalším jsou již následující komponenty přístupné z \emph{cache}. 
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC3}}
+	\caption{Využití procesorové \emph{cache} při použití objektově orientované kompozice.}
+	\label{Fig:OOCCache}
+\end{figure}
+
+Komunikace mezi jednotlivými komponenty je při použití \emph{objektově orientované kompozice} problematické. Příkladem by mohla být \emph{umělá inteligence}, která potřebuje změnit rychlost entity. Jelikož jsou jednotlivé komponenty samostatné (\emph{encapsulation}) objekty, oddělené od ostatních komponent, které jsou součástí stejné entity, není mezi nimi možná přímá komunikace. Jedním možným řešením je přidání systému zpráv \footnote{Zprávy, ale i události jsou možným řešením.}, který má přístup k entitě, jako celku a předat odkaz na tento systém jednotlivým komponentám.
+
+\noindent Mezi výhody \emph{OOC} patří: 
 \begin{itemize}
-	\item Uniformní instance všech typů entit, liší se pouze v přítomných komponentech.
+	\item Uniformní instance všech typů entit, liší se pouze v přítomných komponentách.
 	\item Lepší využití procesorových \emph{cache}.
 	\item Možnost definování nových typů entit za běhu, použitím kompozice.
 	\item Definice typů entit v datech.
@@ -186,19 +203,16 @@ Množinu akcí, které lze nad entitou provést je definována komponenty, kter�
 
 \noindent Její nevýhody jsou: 
 \begin{itemize}
-	% Odstranit
-	\item Akumulace stavu a chování, které není nutně entitou vyžadováno.
-	\item Duplikace kódu v různých větvích stromu dědičnosti.
-	\item Zvyšující se složitost umisťování nových typů entit.
-	\item Typy entit jsou specifikovány ve zdrojovém kódu.
-	\item Statické typování, nemožnost tvorby nových typů za běhu programu.
-	%
 	\item Složitější implementace, většinou bez podpory v programovacím jazyce.
+	\item Komunikace mezi komponentami není implicitní, je nutno ji implementovat. 
 \end{itemize}
 
 \subsection{Datově orientovaná kompozice}
 \label{Chap:DOC}
 \todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
+
+
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC1_1}}
 	\caption{Příklad datově orientované kompozice.}
@@ -208,7 +222,7 @@ Množinu akcí, které lze nad entitou provést je definována komponenty, kter�
 	\caption{Obsah paměti u datově orientované kompozice.}
 \end{figure}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-3}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC3}}
 	\caption{Využití procesorové \emph{cache} při použití datově orientované kompozice.}
 \end{figure}
 \blind[4]
