@@ -131,7 +131,7 @@
 
 @Misc{MemoryTiming,
   author = {Peter Norvig},
-  title  = {{\it Approximate timing for various operations on a typical PC [online]}},
+  title  = {{\it Approximate timing for various operations on a typical PC}},
   year   = {2001},
   note   = {[vid. 13.04.2017]},
   url    = {http://norvig.com/21-days.html#answers},
@@ -167,6 +167,21 @@
   title = {{\it Cache Coherence}},
   note  = {[Online; navštíveno 14.04.2017]},
   url   = {https://www.d.umn.edu/~gshute/arch/cache-coherence.xhtml},
+}
+
+@Misc{OOHLang,
+  author = {Jonathan Blow},
+  title  = {{\it New programming language for games}},
+  year   = {2014},
+  note   = {[Online; navštíveno 19.04.2017]},
+  url    = {https://www.youtube.com/watch?v=TH9VCN6UkyQ},
+}
+
+@Misc{WhatIsECS,
+  title = {{\it What is an Entity System?}},
+  year  = {2014},
+  note  = {[Online; navštíveno 19.04.2017]},
+  url   = {http://entity-systems.wikidot.com/},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -10,4 +10,6 @@ Warning--to sort, need author or key in CpuIpc
 Warning--to sort, need author or key in DataLocality
 Warning--to sort, need author or key in CacheCoherence
 Warning--to sort, need author or key in DataOrientedDesignDice
-(There were 9 warnings)
+Warning--to sort, need author or key in WhatIsECS
+Warning--to sort, need author or key in UnderstandingECS
+(There were 11 warnings)

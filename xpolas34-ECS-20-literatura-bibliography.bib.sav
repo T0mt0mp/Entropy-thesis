@@ -169,4 +169,26 @@
   url   = {https://www.d.umn.edu/~gshute/arch/cache-coherence.xhtml},
 }
 
+@Misc{OOHLang,
+  author = {Jonathan Blow},
+  title  = {{\it New programming language for games}},
+  year   = {2014},
+  note   = {[Online; navštíveno 19.04.2017]},
+  url    = {https://www.youtube.com/watch?v=TH9VCN6UkyQ},
+}
+
+@Misc{WhatIsECS,
+  title = {{\it What is an Entity System?}},
+  year  = {2014},
+  note  = {[Online; navštíveno 19.04.2017]},
+  url   = {http://entity-systems.wikidot.com/},
+}
+
+@Misc{UnderstandingECS,
+  title = {{\it Understanding Component-Entity-Systems}},
+  year  = {2013},
+  note  = {[Online; navštíveno 19.04.2017]},
+  url   = {https://www.gamedev.net/resources/_/technical/game-programming/understanding-component-entity-systems-r3013},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

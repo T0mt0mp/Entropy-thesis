@@ -155,7 +155,7 @@ Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesign
 
 Množinu akcí, které lze nad entitou provést je definována komponenty, které jsou v entitě přítomny. Každá komponenta obsahuje, kromě dat, také akce, které lze nad entitou, která danou komponentu obsahuje, provést.
 
-Tato je často používaná (\emph{composition over inheritance}) v návrhu software a je mezikrokem od \emph{objektově orientované hierarchie} k \emph{datově orientované kompozici}. 
+Tato metoda je často používaná (\emph{composition over inheritance}) v návrhu software a je mezikrokem od \emph{objektově orientované hierarchie} k \emph{datově orientované kompozici}. 
 
 \begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_1}}
@@ -209,32 +209,81 @@ Komunikace mezi jednotlivými komponenty je při použití \emph{objektově orie
 
 \subsection{Datově orientovaná kompozice}
 \label{Chap:DOC}
-\todo{Popis, příklad, vyhodnocení výhod/nevýhod, komunikace}
 
+\emph{Datově orientovaná kompozice} (\emph{DOC}) je dalším krokem v rozdělování entit do logických celků -- do komponent. Podobně, jako \emph{objektově orientovaná kompozice}, \emph{DOC} rozděluje entity do menší části (komponenty), což umožňuje lepší modularitu výsledného software. Oproti \emph{OOC} však jednotlivé komponenty neobsahují žádnou logiku \footnote{Logikou je v tomto případě myšleno kód, který pracuje na vyšší úrovni, než pouze s daty dané komponenty. Blíže k tomuto v \ref{Chap:EntitySystem}}.
 
+Množinu akcí, kterou lze nad entitou vykonat, je opět definována přítomnými komponentami. Jelikož komponenty samy o sobě neobsahují logiku, je nutno akce definovat v okolním kódu. Jedním způsobem je přímý přístup ke komponentám a jejich datům, tato metoda bude použita v následujícím příkladě. Pro rozsáhlejší aplikace, kde je třeba lepší kontrola nad přístupy k jednotlivým komponentám, lze například využít \emph{systémy}, které implementují akce nad komponenty \footnote{Tato metoda je blíže popsána v sekci \ref{Chap:EntitySystem}}. Tento způsob je využit i v návrhu \emph{entitního systému}, o kterém je napsána tato práce.
 
-\begin{figure}[H]
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC1_1}}
 	\caption{Příklad datově orientované kompozice.}
+	\label{Fig:DOCHierarchy}
 \end{figure}
-\begin{figure}[H]
+
+Příklad návrhu entity a komponent lze vidět na obr. \ref{Fig:DOCHierarchy}. Mezi důležité změny, oproti \emph{OOC}, patří veřejný (\emph{public}) přístup ke členům entit. Entita je v tomto návrhu \footnote{Toto je pouze jeden způsob implementace \emph{datově orientované kompozice}.} reprezentována číslem (identifikátor), pomocí kterého lze komponenty jednoznačně přiřadit k entitám, které je vlastní. Implementace konkrétních entit je konceptuálně stejná, jako při použití \emph{objektově orientované kompozice}, příklad lze vidět na obr. \ref{Fig:OOCEntity}.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC2}}
 	\caption{Obsah paměti u datově orientované kompozice.}
+	\label{Fig:DOCMemory}
 \end{figure}
-\begin{figure}[H]
+
+Příklad organizace paměti, při použití \emph{DOC}, lze vidět na obr. \ref{Fig:DOCMemory}. Entity jsou uchovávány v homogenním seznamu. Jednotlivé identifikátory entit je možné mapovat na komponenty přímou indexací polí komponent.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC3}}
 	\caption{Využití procesorové \emph{cache} při použití datově orientované kompozice.}
+	\label{Fig:DOCCache}
 \end{figure}
-\blind[4]
 
-ciste knoceptualni
+Pro ukázku práce s vyrovnávací paměti je opět použit příklad iterace nad seznamem entit, které je nutno posunout v prostoru, podle jejich rychlosti. Pro vykonání této akce je tedy nutný přístup ke komponentám typu \textbf{Position} a \textbf{Velocity}. Nejdříve je opět přistoupeno k poli entit, čímž je načten příslušný řádek do vyrovnávací paměti. Jelikož je mapování identifikátorů entit realizováno pomocí přímé indexace \footnote{Za předpokladu, že identifikátory všech iterovaných entit nedovolují díry v poli komponent.} je možné po načtení řádku \emph{cache} pro dané dva typy komponent již následující přístupy do paměti realizovat přímo z vyrovnávací paměti. Obrázek \ref{Fig:DOCCache} obsahuje ilustraci stavu procesorové \emph{cache}.
 
-\section{Entitní systém}
+Komunikace mezi jednotlivými částmi je v případě \emph{datově orientované kompozice} rozdělená do dvou úrovní. První z nich, komunikace mezi komponentami, je vyřešena implicitně, jelikož akce mohou přistupovat k několika komponentám. Druhou je potom komunikace mezi zprostředkovateli akcí (např. \emph{systémy}). Tento typ komunikace je možné opět řešit pomocí systému zpráv, nebo událostí. 
+
+\noindent Mezi výhody \emph{DOC} patří: 
+\begin{itemize}
+	\item Efektivní skladování entit, které jsou reprezentovány identifikátorem.
+	\item Lepší využití procesorových \emph{cache}.
+	\item Možnost definování nových typů entit za běhu, použitím kompozice.
+	\item Definice typů entit v datech.
+	\item Odstraněna duplikace kódu a akumulace nechtěného stavu.
+	\item Možnost efektivní implementace akcí, mimo komponenty.
+	\item Možná vysoká úroveň optimalizace celého systému.
+\end{itemize}
+
+\noindent Její nevýhody jsou: 
+\begin{itemize}
+	\item Bez podpory v programovacích jazycích \footnote{Vzniká programovací jazyk, který bude tento typ kompozice podporovat \cite{OOHLang}.}.
+	\item Náročná implementace.
+\end{itemize}
+
+\pagebreak
+
+\noindent Mezi další vlastnosti patří:
+\begin{itemize}
+	\item Ztráta abstrakce při práci s komponentami.
+	\item Možnosti \emph{serializace} entit a komponent.
+	\item Akce mohou přistupovat k několika komponentám.
+\end{itemize}
+
+\section{Entity-Component-System}
+\label{Chap:EntitySystem} 
+
+Entitní systémy, postavené za použití \emph{datově orientované kompozice}, s využitím \emph{systémů} pro generování chování, se nazývají \emph{Entity-Component-System} (\emph{ECS} \cite{WhatIsECS} \cite{UnderstandingECS}) \footnote{Často používaným označením je také \uv{component base entity system}, nebo \uv{Component-Entity-System}.}. Tato část obsahuje popis obecných konceptů tohoto typu systémů, a vlastností, které z nich vyplývají.
+
 \subsection{Koncept}
 \todo{Představení základní architektury návrhového vzoru - entity, komponenty, systémy}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Entita reprezentována jako řádek v databázi. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS1}}
+	\caption{Entita reprezentována jako řádek v databázi.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS2}}
+	\caption{Vstupem \emph{systému} jsou entity, ze kterých si vybere pouze ty, které mají odpovídající komponenty. Na vybraných entitách provádí požadované akce.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS3}}
+	\caption{Filtr operuje nad entitou a informací o přítomnosti komponent.}
 \end{figure}
 \blind[5]
 
