@@ -184,4 +184,71 @@
   url   = {http://entity-systems.wikidot.com/},
 }
 
+@Misc{UnderstandingECS,
+  title = {{\it Understanding Component-Entity-Systems}},
+  year  = {2013},
+  note  = {[Online; navštíveno 19.04.2017]},
+  url   = {https://www.gamedev.net/resources/_/technical/game-programming/understanding-component-entity-systems-r3013},
+}
+
+@Misc{EntitySystemsFuture,
+  author = {Adam Martin},
+  title  = {{\it Entity Systems are the future of MMOG development}},
+  year   = {2007},
+  note   = {[Online; navštíveno 20.04.2017]},
+  url    = {http://t-machine.org/index.php/2007/11/11/entity-systems-are-the-future-of-mmog-development-part-2/},
+}
+
+@Misc{InstrAreData,
+  author = {Richard Fabian},
+  title  = {{\it It is all about the data}},
+  year   = {2013},
+  note   = {[Online; navštíveno 20.04.2017]},
+  url    = {http://www.dataorienteddesign.com/dodmain/node3.html#SECTION00310000000000000000},
+}
+
+@Misc{FrontierThreads,
+  author = {Ben Nicholson},
+  title  = {{\it Games: Playing with Threads}},
+  note   = {[Online; navštíveno 20.04.2017]},
+  url    = {http://www2.epcc.ed.ac.uk/downloads/lectures/BenNicholson/BenNicholson.pdf},
+}
+
+@Misc{TaskBasedParallelism,
+  title = {{\it Task-Based Programming}},
+  note  = {[Online; navštíveno 20.04.2017]},
+  url   = {https://software.intel.com/en-us/node/506100},
+}
+
+@Misc{ParallelGame,
+  author = {Jeffrey Andrews},
+  title  = {{\it Designing the Framework of a Parallel Game Engine}},
+  year   = {2015},
+  note   = {[Online; navštíveno 20.04.2017]},
+  url    = {https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine},
+}
+
+@Article{AmdahlLaw,
+  author  = {Mark D. Hill; Michael R. Marty},
+  title   = {{\it Amdahl’s Law in the Multicore Era}},
+  journal = {Cover Feature},
+  year    = {2008},
+  pages   = {6},
+  note    = {[Online; navštíveno 20.04.2017]},
+  url     = {http://research.cs.wisc.edu/multifacet/papers/ieeecomputer08_amdahl_multicore.pdf},
+}
+
+@Misc{KindsOfParallelism,
+  title = {{\it Kinds of parallelism}},
+  note  = {[Online; navštíveno 20.04.2017]},
+  url   = {http://www.cs.umd.edu/class/fall2013/cmsc433/lectures/concurrency-basics.pdf},
+}
+
+@Misc{CPUPerfHistory,
+  title = {{\it History of Processor Performance}},
+  year  = {2012},
+  note  = {[Online; navštíveno 20.04.2017]},
+  url   = {http://www.cs.columbia.edu/~sedwards/classes/2012/3827-spring/advanced-arch-2011.pdf},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

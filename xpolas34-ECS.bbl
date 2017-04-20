@@ -8,6 +8,11 @@
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\eprint}[2][]{\url{#2}}
 
+\bibitem{FalseSharing}
+{\it Avoiding and Identifying False Sharing Among Threads}. [Online;
+  navštíveno 20.04.2017].
+\newline\urlprefix\url{https://software.intel.com/sites/default/files/m/d/4/1/d/8/3-4-MemMgt_-_Avoiding_and_Identifying_False_Sharing_Among_Threads.pdf}
+
 \bibitem{CacheCoherence}
 {\it Cache Coherence}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://www.d.umn.edu/~gshute/arch/cache-coherence.xhtml}
@@ -24,9 +29,17 @@
 {\it Introduction to Data-Oriented Design}. [Online; navštíveno 13.04.2017].
 \newline\urlprefix\url{http://www.dice.se/wp-content/uploads/2014/12/Introduction_to_Data-Oriented_Design.pdf}
 
+\bibitem{KindsOfParallelism}
+{\it Kinds of parallelism}. [Online; navštíveno 20.04.2017].
+\newline\urlprefix\url{http://www.cs.umd.edu/class/fall2013/cmsc433/lectures/concurrency-basics.pdf}
+
 \bibitem{Pipelining}
 {\it Pipelining}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://web.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/pipe_title.html}
+
+\bibitem{TaskBasedParallelism}
+{\it Task-Based Programming}. [Online; navštíveno 20.04.2017].
+\newline\urlprefix\url{https://software.intel.com/en-us/node/506100}
 
 \bibitem{UnityGo}
 {\it Unity GameObject}. [Online; navštíveno 14.04.2017].
@@ -35,6 +48,11 @@
 \bibitem{ARM}
 \emph{{\it ARM Architecture}}. 2005, [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://www.scss.tcd.ie/~waldroj/3d1/arm_arm.pdf}
+
+\bibitem{CPUPerfHistory}
+{\it History of Processor Performance}. 2012, [Online; navštíveno
+  20.04.2017].
+\newline\urlprefix\url{http://www.cs.columbia.edu/~sedwards/classes/2012/3827-spring/advanced-arch-2011.pdf}
 
 \bibitem{AmdX86-64}
 \emph{{\it AMD64 Architecture Programmer’s Manual}}. 2013, [Online;
@@ -60,6 +78,11 @@ Acton, M.: {\it Data-Oriented Design and C++}. 2014, [Online; navštíveno
   13.04.2017].
 \newline\urlprefix\url{https://www.youtube.com/watch?v=rX0ItVEVjHc}
 
+\bibitem{ParallelGame}
+Andrews, J.: {\it Designing the Framework of a Parallel Game Engine}. 2015,
+  [Online; navštíveno 20.04.2017].
+\newline\urlprefix\url{https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine}
+
 \bibitem{OOHLang}
 Blow, J.: {\it New programming language for games}. 2014, [Online; navštíveno
   19.04.2017].
@@ -75,9 +98,29 @@ Fabian, R.: {\it Data-Oriented Design}. 2013, [Online; navštíveno
   12.04.2017].
 \newline\urlprefix\url{http://www.dataorienteddesign.com/dodmain/}
 
+\bibitem{InstrAreData}
+Fabian, R.: {\it It is all about the data}. 2013, [Online; navštíveno
+  20.04.2017].
+\newline\urlprefix\url{http://www.dataorienteddesign.com/dodmain/node3.html#SECTION00310000000000000000}
+
 \bibitem{DesignPatterns}
 Gamma, E.: \emph{{\it Design Patterns: Elements of Reusable Object-Oriented
   Software}}. Boston:Addison-Wesley, 1995, ISBN ISBN 0-201-63361-2.
+
+\bibitem{EntitySystemsFuture}
+Martin, A.: {\it Entity Systems are the future of MMOG development}. 2007,
+  [Online; navštíveno 20.04.2017].
+\newline\urlprefix\url{http://t-machine.org/index.php/2007/11/11/entity-systems-are-the-future-of-mmog-development-part-2/}
+
+\bibitem{AmdahlLaw}
+Marty, M. D. H. M.~R.: {\it Amdahl’s Law in the Multicore Era}. \emph{Cover
+  Feature}, 2008: str.~6, [Online; navštíveno 20.04.2017].
+\newline\urlprefix\url{http://research.cs.wisc.edu/multifacet/papers/ieeecomputer08_amdahl_multicore.pdf}
+
+\bibitem{FrontierThreads}
+Nicholson, B.: {\it Games: Playing with Threads}. [Online; navštíveno
+  20.04.2017].
+\newline\urlprefix\url{http://www2.epcc.ed.ac.uk/downloads/lectures/BenNicholson/BenNicholson.pdf}
 
 \bibitem{MemoryTiming}
 Norvig, P.: {\it Approximate timing for various operations on a typical PC}.

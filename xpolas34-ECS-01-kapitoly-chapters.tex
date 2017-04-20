@@ -269,43 +269,77 @@ Komunikace mezi jednotlivými částmi je v případě \emph{datově orientovan�
 \section{Entity-Component-System}
 \label{Chap:EntitySystem} 
 
-Entitní systémy, postavené za použití \emph{datově orientované kompozice}, s využitím \emph{systémů} pro generování chování, se nazývají \emph{Entity-Component-System} (\emph{ECS} \cite{WhatIsECS} \cite{UnderstandingECS}) \footnote{Často používaným označením je také \uv{component base entity system}, nebo \uv{Component-Entity-System}.}. Tato část obsahuje popis obecných konceptů tohoto typu systémů, a vlastností, které z nich vyplývají.
+Entitní systémy, postavené za použití \emph{datově orientované kompozice}, s využitím \emph{systémů} pro generování chování, se nazývají \emph{Entity-Component-System}  \footnote{Často používaným označením je také \uv{component base entity system},  \uv{Component-Entity-System}, nebo i \uv{Entity System}.}. Tato část obsahuje popis obecných konceptů tohoto typu systémů, a vlastností, které z nich vyplývají.
 
-\subsection{Koncept}
-\todo{Představení základní architektury návrhového vzoru - entity, komponenty, systémy}
-\begin{figure}[H]
+\subsection{Motivace a koncepty}
+
+\emph{Entity-Component-System} (\emph{ECS} \cite{WhatIsECS} \cite{UnderstandingECS}) je programovací paradigma \cite{EntitySystemsFuture}, založené na kompozici \footnote{Oproti \uv{Object Oriented Programming}, které využívá dědičnosti.}.  Základní myšlenkou je separace logiky (\emph{systémy}) a dat (\emph{entity}, \emph{komponenty}), čímž je umožněna jemnější modularita, celý entitní systém lze přirovnat k \emph{relační databázi}. Tato metoda vychází z \emph{datově orientované kompozice}, která je podrobněji popsána v části \ref{Chap:DOC}. 
+
+Entita je základním stavebním blokem \cite{EntitySystemsFuture}, který lze přirovnat k objektu z \emph{objektově orientovaného} návrhu. Oproti objektům nejsou však entity tvořeny z předem daného vzoru (např. třídy). Jejich chování a data, definují komponenty, které jsou k dané entitě přiřazeny. Entity lze reprezentovat pomocí jednoznačných identifikátorů (čísel), které mají podobnou funkci, jako \emph{primární klíče} v databázi, ilustrace tohoto přirovnání lze vidět na obr. \ref{Fig:ECSDB}.
+
+Komponenty jsou základními nosiči dat \footnote{Některé typy komponent -- např. značky -- nemusí nutně ani data obsahovat.} v \emph{ECS}. Po přiřazení komponent k entitám však mají komponenty i důležitější funkci -- určují chování entit. Kromě explicitních dat obsažených v komponentách existuje také, implicitně, informace o tom, zda určitá entita obsahuje (má přiřazen) daný typ komponenty. Často používaným názvem pro komponenty, je také \uv{aspekt} \cite{EntitySystemsFuture}. Každá entita má k sobě přiřazeno $0-1$ komponent daného typu, kde přítomnost komponenty znamená, že entita splňuje daný aspekt. V přirovnání \emph{ECS} k \emph{relační databázi}, lze o komponentách smýšlet jako o sloupcích (obr. \ref{Fig:ECSDB}) tabulky entit.
+
+\begin{figure}
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS1}}
-	\caption{Entita reprezentována jako řádek v databázi.}
+	\caption{Entita reprezentována jako řádek v databázi. Primárním klíčem je identifikátor entity.}
+	\label{Fig:ECSDB}
 \end{figure}
+
+Pokud bychom pokračovali s přirovnáním k \emph{OOP} -- entity jsou jednotlivé objekty, komponenty umožňují polymorfizmus -- potom systémy implementují chování, nebo metody jednotlivých komponent. Pro mnoho různých typů dat, kde každý typ vyžaduje vlastní chování, je \emph{OOP} výhodné, protože je možné data i operace uložit do jednoho nerozdělitelného celku. Pokud je však nutné vykonat stejnou akci na velkém množství různých typů, \emph{OOP} není optimálním řešením a \emph{ECS} je v tomto případě vhodnější \cite{EntitySystemsFuture}. 
+
+Každý systém provádí danou operaci na všech entitách, které obsahují požadované komponenty (\emph{aspekty}). Základní schéma systému lze vidět na obr. \ref{Fig:ECSSystem}. Výběr vhodných entity je proveden pomocí filtru, který operuje nad přítomností jednotlivých komponent (obr. \ref{Fig:ECSFilter}).
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS2}}
 	\caption{Vstupem \emph{systému} jsou entity, ze kterých si vybere pouze ty, které mají odpovídající komponenty. Na vybraných entitách provádí požadované akce.}
+	\label{Fig:ECSSystem}
 \end{figure}
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-ECS3}}
 	\caption{Filtr operuje nad entitou a informací o přítomnosti komponent.}
+	\label{Fig:ECSFilter}
 \end{figure}
-\blind[5]
 
-\subsection{Výhody zvolené reprezentace}
-\todo{Lokalita dat, instrukcí. Cache. Dynamičnost, prototypování. Serializace. Embedded skriptovací jazyky.}
-\blind[4]
+\subsection{Vlastnosti}
+
+Důvody, proč se \emph{ECS} často používá při návrhu moderních her je mnoho a většina z nich vzniká díky striktnímu oddělení logiky a dat. Komponenty je možné skladovat v sekvenčních blocích paměti, toto zlepšuje efektivitu využití procesorových \emph{cache}. Lokalita dat se vztahuje i na instrukce \cite{InstrAreData} \footnote{\emph{Instrukční cache} \cite{CpuMemoryGap}} a díky opakovanému provádění stejných operací nad velkým počtem entit dochází k vyšší efektivitě využití \emph{instrukční cache}. 
+
+Inherentní modularita \emph{ECS} dovoluje lepší dělení práce ve velkých týmech vývojářů. Každý systém musí předem specifikovat, o jaké entity (které aspekty musí splňovat) má zájem, tímto je zamezeno nechtěnému ovlivňování okolního kódu. Další výhodou, z pohledu organizace kódu, je přímočará \emph{refaktorizace} systémů a komponent.
+
+Jelikož komponenty obsahují pouze čistá data, bez propojení do externích modulů, je možné přistupovat k entitnímu systému také z vestavěného skriptovacího jazyka (např. \emph{LUA}). Skriptovací jazyky bývají hojně využívány jako součást \uv{gameplay} \footnote{Kód, který se stará o interakce virtuálních objektů ve hře.} funkcí, nebo \emph{umělé inteligence}. Pokročilou vlastností \emph{ECS} může také být přidávání nových typů komponent za běhu aplikace. Tyto, ale i další (např. \emph{serializace} komponent), funkce umožňují rychlé prototypování nových herních mechanik.
+
+Při správném rozvržení systémů a jejich požadovaných aspektů, je možné zaručit, že k ostatním komponentám nebude přistupováno. Toto umožňuje dosáhnout vyšší úrovně paralelizace celého systému, i přestože několik systémů může v jeden čas přistupovat ke stejné entitě. Paralelizace je dále podporována opakovaným prováděním stejných akcí nad velkým množstvím entit, které lze rozdělit na různá vlákna a zpracovat je odděleně.
 
 \section{Paralelizmus}
 \label{Chap:Parallelism}
-\todo{Důležitost, hardware - cache, popis možností paralelizace.}
-\blind[2]
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Paralelizmus uvnitř systémů. \todo{Vytvořit}}
+
+Vývoj moderních procesorů se ubírá směrem zvyšování počtu výpočetních jader \cite{CPUPerfHistory} a proto i moderní aplikace musí být schopné tato jádra využít. To je zvláště pravda pro vývoj her, které se snaží s hardware vytěžit maximální výkon. Paralelizace aplikací, jejichž části jsou úzce provázané je obzvláště problematické a proto vznikají nové způsoby tento typ software navrhovat -- jedním z nich je právě \emph{ECS}. 
+
+Paralelizmus lze obecně rozdělit na 2 typy -- datový a úkolový \cite{KindsOfParallelism}. Při použití datového paralelizmu je prováděna jedna akce, na různých datech (obdoba \emph{SIMD} u procesorů). Opačným přístupem je paralelizmus úkolový \cite{TaskBasedParallelism}, u kterého mohou běžet různé operace nad stejnými daty (\emph{MISD}). Ve většině případů je však používáno kombinací těchto dvou přístupů. Speciálním případem je vyhrazení celého vlákna jednomu modulu -- např. manažer zvuku -- který vyžaduje nízké odezvy \cite{FrontierThreads}.
+
+Výhodou paralelizmu je možnost rozložení práce na několik výpočetních jednotek, což umožňuje požadovanou akci provést rychleji. Využití paralelizmu však představuje mnoho nových typů problémů, které se u sekvenčního programování nevyskytují. Kromě obecně známých překážek, jako jsou synchronizace vláken, potenciální uváznutí (\emph{deadlock}), různých typů souběhu (\emph{race condition}), existují také problémy na hardwarové úrovni. Hlavním z nich je udržování koherence procesorových \emph{cache} \cite{CacheCoherence} a skrz to problém, který se nazývá \uv{false sharing} \cite{FalseSharing}. V případě, že několik vláken pracuje se stejným blokem paměti -- je načtený v jeho lokální vyrovnávací paměti -- je nutné \emph{cache} jednotlivých jader synchronizovat tak, aby každé z nich nepracovalo s jinými daty. Tento proces se nazývá \uv{udržování koherence vyrovnávacích pamětí}. Problém, který v tomto systému může nastat -- \uv{false sharing} -- vzniká v případě, kdy obě vlákna pracují nad stejnou pamětí \footnote{Paměť je součástí stejného řádku vyrovnávací paměti.}, ale nepracují se stejnými daty. Při každé změně bude nutno provést synchronizaci, i když není nutná, ilustraci tohoto jevu lze vidět na obr. \ref{Fig:PARFalseSharing}.
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-PAR0}}
+	\caption{Udržování koherence vyrovnávací paměti a \uv{false sharing} \cite{FalseSharing}. Synchronizace \emph{cache} je prováděna mezi jednotlivými jádry, přes specializovanou sběrnici.}
+	\label{Fig:PARFalseSharing}
 \end{figure}
-\blind[1]
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Paralelizmus na úrovni systémů. \todo{Vytvořit}}
+
+\emph{Entity-Component-System} paradigma je výhodné z pohledu více-jádrových systémů, díky možnosti téměř \cite{AmdahlLaw} dokonalé paralelizace na několika úrovních \cite{ParallelGame}. První úrovní paralelizace, kterou \emph{ECS} umožňuje, je datový paralelizmus, kde se uvnitř systému množina všech entit, které odpovídají požadavkům, rozdělí do množiny vláken, které mohou dané akce provádět odděleně \footnote{Některé typy akcí tento paralelizmus neumožňují - např. výpočet pozic objektů v grafu scény.}. Ilustrace principu, jak tento způsob pracuje lze vidět na obr. \ref{Fig:PARData}. Dalším způsobem paralelizace je možnost spouštět jednotlivé systémy na oddělených vláknech (obr. \ref{Fig:PARSystem}), tato metoda je ovšem použitelná pouze pro systémy, které nezapisují do komponent, které jsou zároveň používány v jiném systému. 
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-PAR1}}
+	\caption{Paralelizmus uvnitř systémů je příkladem datového paralelizmu \cite{KindsOfParallelism}.}
+	\label{Fig:PARData}
 \end{figure}
-\blind[1]
-%https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-PAR2}}
+	\caption{Paralelizmus na úrovni systémů, kdy několik systémů běží zároveň.}
+	\label{Fig:PARSystem}
+\end{figure}
+
+Jednoduchý systém může pracovat způsobem transformační funkce, jejíž vstupní parametry jsou komponenty, které systém požaduje a výstupem je zápis (změna) jedné z těchto komponent. Jelikož je ovšem vhodné, při paralelním přístupu k aktuálnímu stavu herního světa, aby všechny systémy dokázaly přečíst původní data beze změn, lze funkci systémů změnit. Systémy mohou místo zápisu nových hodnot do stejných komponent (vstupů) zapsat výsledek do \uv{následujícího stavu} \cite{FrontierThreads} \footnote{Tento způsob je často používán ve funkcionálních jazycích.}. Při generování nového stavu je nutné určit okamžik, kde se následující stav stane stavem aktuálním, čímž se celý herní svět \uv{posune}.
 
 \chapter{Návrh entitního systému}
 \todo{Co by to melo umet, priority}

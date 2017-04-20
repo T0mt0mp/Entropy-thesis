@@ -12,4 +12,8 @@ Warning--to sort, need author or key in CacheCoherence
 Warning--to sort, need author or key in DataOrientedDesignDice
 Warning--to sort, need author or key in WhatIsECS
 Warning--to sort, need author or key in UnderstandingECS
-(There were 11 warnings)
+Warning--to sort, need author or key in CPUPerfHistory
+Warning--to sort, need author or key in KindsOfParallelism
+Warning--to sort, need author or key in TaskBasedParallelism
+Warning--to sort, need author or key in FalseSharing
+(There were 15 warnings)
