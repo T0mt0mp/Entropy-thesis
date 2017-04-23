@@ -344,37 +344,63 @@ Jednoduchý systém může pracovat způsobem transformační funkce, jejíž vs
 \chapter{Návrh entitního systému}
 \todo{Co by to melo umet, priority}
 
+Obsahem této kapitoly je popis návrhu entitního systému založeného na \emph{ECS} paradigmatu, které bylo představeno v předchozí kapitole. Nejdříve je prezentováno základní rozdělení systému na jednotlivé části a komunikace mezi nimi. Následuje popis návrhu podsystémů -- \emph{komponenty}, \emph{systémy} a \emph{entity}. Každá část obsahuje představení návrhu a jeho zdůvodnění. Následuje návrh paralelního přístupu k entitnímu systému a jeho tok řízení.
+
 \section{Přehled a komunikace}
 \todo{Postup seznámení s návrhem top -> down}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Návrhový diagram komponentního systému. \todo{Vytvořit}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES1}}
+	\caption{Rozdělení entitního systému do modulů.}
 \end{figure}
 \blind[1]
 \todo{High-level design, propojení. Universe, action-cache.}
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Přehled návrhu komponentního systému a komunikace mezi jeho částmi. \todo{Vytvořit - HLB diagram}}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES2}}
+	\caption{Třída \textbf{Universe} je rozhraním entitního systému.}
 \end{figure}
 \blind[3]
 
 \section{Komponenty a jejich nosiče}
 \todo{Komponenta POD. Trivial constructor, copy. Paměť a typy nosičů. Typy komponent - tag, normal.}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES5}}
+	\caption{Diagram tříd podsystému zprávy \emph{komponent}.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES8}}
+	\caption{Sekvenční diagram přidání komponenty.}
+\end{figure}
 \blind[4]
+sequence diagram
+
+\section{Reprezentace entit}
+\todo{Entita, id, generace. Alternativy a důvody. metadata}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES6}}
+	\caption{Diagram tříd podsystému zprávy \emph{entit}.}
+\end{figure}
+\blind[3]
 sequence diagram
 
 \section{Systémy a skupiny}
 \todo{Volnost použití systémů. Uživatelem definované chování. Filtry - require, reject. Cache pomocí skupin entit.}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES3}}
+	\caption{Diagram tříd podsystému zprávy \emph{systémů}.}
+\end{figure}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES4}}
+	\caption{Diagram tříd podsystému zprávy \emph{skupin}.}
+\end{figure}
 \blind[5]
-sequence diagram
-
-\section{Reprezentace entit}
-\todo{Entita, id, generace. Alternativy a důvody.}
-\blind[3]
 sequence diagram
 
 \section{Paralelní přístup}
 \todo{Podporované způsoby paralelizace, návrh, zdůvodnění. Entity paralellization. System parallelization. Diskuze na téma, zda je paralelní přístup potřeba.}
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES7}}
+	\caption{Diagram tříd podsystému zprávy \emph{akcí}.}
+\end{figure}
 \blind[5]
 
 \section{Tok řízení}
@@ -382,8 +408,12 @@ sequence diagram
 
 Refresh!
 \begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES9}}
+	\caption{Digram toku řízení komponentního systému.}
+\end{figure}
+\begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{Digram toku řízení komponentního systému. \todo{Vytvořit - Control flow diagram}}
+	\caption{\todo{Paralelní refresh}}
 \end{figure}
 \blind[3]
 
