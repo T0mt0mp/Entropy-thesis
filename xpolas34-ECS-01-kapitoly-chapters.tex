@@ -342,52 +342,106 @@ Výhodou paralelizmu je možnost rozložení práce na několik výpočetních j
 Jednoduchý systém může pracovat způsobem transformační funkce, jejíž vstupní parametry jsou komponenty, které systém požaduje a výstupem je zápis (změna) jedné z těchto komponent. Jelikož je ovšem vhodné, při paralelním přístupu k aktuálnímu stavu herního světa, aby všechny systémy dokázaly přečíst původní data beze změn, lze funkci systémů změnit. Systémy mohou místo zápisu nových hodnot do stejných komponent (vstupů) zapsat výsledek do \uv{následujícího stavu} \cite{FrontierThreads} \footnote{Tento způsob je často používán ve funkcionálních jazycích.}. Při generování nového stavu je nutné určit okamžik, kde se následující stav stane stavem aktuálním, čímž se celý herní svět \uv{posune}.
 
 \chapter{Návrh entitního systému}
-\todo{Co by to melo umet, priority}
 
 Obsahem této kapitoly je popis návrhu entitního systému založeného na \emph{ECS} paradigmatu, které bylo představeno v předchozí kapitole. Nejdříve je prezentováno základní rozdělení systému na jednotlivé části a komunikace mezi nimi. Následuje popis návrhu podsystémů -- \emph{komponenty}, \emph{systémy} a \emph{entity}. Každá část obsahuje představení návrhu a jeho zdůvodnění. Následuje návrh paralelního přístupu k entitnímu systému a jeho tok řízení.
 
 \section{Přehled a komunikace}
-\todo{Postup seznámení s návrhem top -> down}
+
+Entitní systém je, podobně jako \emph{ECS} paradigma, rozdělený do několika částí -- modulů -- kde cílem jednotlivých částí je zpráva některé z domén \emph{ECS}. Diagram reprezentující toto rozdělení lze vidět na obr. \ref{Fig:DESModules}. Mezi tyto moduly patří -- zpráva systémů a skupin, zpráva komponent, zpráva entit a zpráva akcí. Bližší popis a návrh jednotlivých částí obsahují následující části této kapitoly.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES1}}
 	\caption{Rozdělení entitního systému do modulů.}
+	\label{Fig:DESModules}
 \end{figure}
-\blind[1]
-\todo{High-level design, propojení. Universe, action-cache.}
+
+Funkcionalita celého systému je zastřešena třídou \textbf{Universe} (obr. \ref{Fig:DESUniverse}), skrz kterou je uživateli umožněn přístup k jednotlivým podsystémům. Pro každou operaci nad entitním systémem existuje metoda uvnitř třídy \textbf{Universe} -- tento návrh umožňuje jednotný vstupní bod. Nevýhodou je vysoké množství metod v této třídě. Další důležitou funkcionalitou třídy \textbf{Universe} je zprostředkování komunikace mezi jednotlivými moduly -- např. přidání komponenty má dvě části, skutečná operace nad nosičem komponent a úpravu metadat (obr. \ref{Fig:DESAddComp} a obr. \ref{Fig:DESAddEnt}). 
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES2}}
-	\caption{Třída \textbf{Universe} je rozhraním entitního systému.}
+	\caption{Třída \textbf{Universe} je rozhraním entitního systému. Diagram neobsahuje specifikaci všech metod třídy, kvůli jejich vysokému počtu.}
+	\label{Fig:DESUniverse}
 \end{figure}
-\blind[3]
 
 \section{Komponenty a jejich nosiče}
-\todo{Komponenta POD. Trivial constructor, copy. Paměť a typy nosičů. Typy komponent - tag, normal.}
+
+Komponenty jsou definovány jako základní datové jednotky v \emph{ECS}, kde každá entita má k sobě přiřazeno 0-1 komponent daného typu. Komponenty, jak s nimi pracuje tento návrh, mohou být jakékoliv třídy \footnote{Obecný typ komponenty je \textbf{Component}. Pokud to implementační jazyk vyžaduje, je možné požít abstraktní třídu stejného jména, ze které budou všechny konkrétní komponenty dědit.} a nemusí obsahovat žádné specifické akce. Každá komponenta má přiřazen unikátní identifikátor -- \textbf{CompId} -- tento identifikátor je neměnný po dobu běhu entitního systému. Komponenty by měly být pasivní datové struktury \footnote{\emph{Plain old data structure} (\emph{POD}) -- struktura reprezentovaná kolekcí hodnot.}, se kterými lze pracovat jako s čistou pamětí (přesuny, kopírování, atp.).
+
+O zprávu komponent se stará podsystém zprávy komponent, jehož diagram lze vidět na obr. \ref{Fig:DESCompDiag}. Modul se skládá dvou částí -- registrace typů komponent a nosiče komponent. Veškerá komunikace probíhá skrz třídu \textbf{Component Manager}, která obsahuje metody pro registrace komponent a jejich následná asociace k entitám. 
+
+V první fázi práce s tímto modulem je třeba registrovat typy komponent, které budou následně používány. Nové komponenty jsou registrovány pomocí metody \textbf{registerComponent} \footnote{Této metodě je třeba předat typ komponenty, která má být registrována, čehož lze docílit pomocí např. \emph{template} (C++), nebo \emph{generics} (Java)}, která vytvoří mapování z daného typu na jeho registr (\textbf{ComponentRegister}). Tohoto registru je následně využito pro získání specifického nosiče komponent.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES5}}
 	\caption{Diagram tříd podsystému zprávy \emph{komponent}.}
+	\label{Fig:DESCompDiag}
 \end{figure}
+
+Každý typ komponent je uložen ve vlastním kontejneru -- tzv. nosič komponent. Nosičem je třída, která dědí z \textbf{BaseComponentHolder} a implementuje všechny požadované operace, přičemž si může každá komponenta zvolit typ nosiče \footnote{Opět pomocí mechanizmu \emph{template}, nebo obdobných vlastností jiných jazyků.}. Hlavní funkcí nosiče je mapování identifikátorů entit (\textbf{EntityId}) na přiřazené komponenty. 
+
+Různé implementace nosičů, specifické pro určené komponenty, umožňují vyšší úroveň optimalizace pro předpokládané využití komponent. Pokud je např. jisté, že téměř všechny entity budou obsahovat určitý typ komponenty, je možné implementovat nosič jako jednoduché pole, kde mapovací funkcí je prostá indexace komponent pomocí identifikátoru entit. Naopak, pokud je předpokladem, že komponenta bude využívána nízkým počtem entit, nosič může být implementován jako strom, kde klíčem je identifikátor entity. Speciálním typem komponenty je \emph{značka} (\emph{tag}), která neobsahuje žádná data, ale vzniká implicitní informace o tom, zda má entita danou značku přiřazenu, čehož lze využít pro např. rozdělení entit do skupin.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES8}}
-	\caption{Sekvenční diagram přidání komponenty.}
+	\caption{Sekvenční diagram přidání komponenty, pokračuje na obr. \ref{Fig:DESAddEnt}.}
+	\label{Fig:DESAddComp}
 \end{figure}
-\blind[4]
-sequence diagram
+
+Operace přidání komponenty je rozdělena do dvou částí, první z nich, která pracuje nad \textbf{ComponentManager} lze vidět na obr. \ref{Fig:DESAddComp}. Po úspěšném přidání komponenty následuje modifikace metadat, kterými se zabývá následující část kapitoly o návrhu.
 
 \section{Reprezentace entit}
-\todo{Entita, id, generace. Alternativy a důvody. metadata}
+
+Entita, jako koncept z \emph{ECS}, je distribuovaný objekt, složený z komponent. Pro každou entitu existuje 1-0..1 mapování na každý typ komponent. Vyvstává tedy požadavek ne jednoznačný identifikátor entit, který by plnil funkci \emph{primárního klíče} v tabulce (obr. \ref{Fig:ECSDB}) entit.
+
+Pro účely tohoto entitního systému je identifikátor složen ze dvou čísel -- ID a generace. ID je v tomto případě skutečný \emph{primární klíč}, pomocí kterého jsou jednotlivé řádky v tabulce entit indexované \footnote{Používá se tedy i při mapování komponent na entity uvnitř nosičů komponent.}. Generační číslo odlišuje různé generace entit, které zabíraly stejný řádek v tabulce (stejné ID) a je inkrementováno při každém smazání entity. Generační čísla identifikátorů, skrz které je přistupováno k systému jsou porovnány s aktuální generací dané entity, čímž je zamezen přístup ke smazaným entitám.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES6}}
 	\caption{Diagram tříd podsystému zprávy \emph{entit}.}
+	\label{Fig:DESEntityDiagram}
 \end{figure}
-\blind[3]
-sequence diagram
+
+Podsystém zprávy entit, jehož diagram tříd lze vidět na obr. \ref{Fig:DESEntityDiagram}, lze přirovnat k relační databázi. Systém obsahuje jednu tabulku entit, kde každý řádek reprezentuje slot pro entitu. Identifikátor entity je složen z indexu řádku v tabulce a jeho generační hodnoty. Každý řádek obsahuje aktuální číslo generace a množinu \emph{bool} hodnot -- metadat. Ilustraci možné konfigurace tabulky metadat lze vidět na obr. \ref{Fig:DESMetadata}. Výhodou této reprezentace je konstantní složitost přístupu k metadatům dané entity \footnote{Indexace tabulky pomocí \emph{ID} části identifikátoru.}. 
+
+Jelikož je mapováni identifikátorů entit na komponenty již součástí nosičů komponent, tabulka již tuto informaci nemusí obsahovat. Výhodné je však udržování informace o existenci komponent pro jednotlivé entity, které může být použito pro efektivní filtrování entit. Udržování tohoto typu informace je možné díky jednotnému rozhraní pro práci s komponenty (\textbf{Universe}). Mezi typy metadat použitých v tomto návrhu patří: 
+\begin{itemize}
+	\item Aktivita -- Entita může být ve stavu aktivní, nebo neaktivní.
+	\item Obsazenost -- řádek je použitý, nebo prázdný. 
+	\item Přítomnosti každého registrovaného typu komponent.
+	\item Přítomnost entity ve skupinách \footnote{Více o skupinách je součástí části. \ref{Chap:SysGroup} .}.
+\end{itemize}
+
+\begin{figure}
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES11}}
+	\caption{Tabulka metadat, indexy jednotlivých entit jsou implicitní indexy řádků.}
+	\label{Fig:DESMetadata}
+\end{figure}
+
+Důležitou součástí \emph{ECS} je možnost pracovat pouze s entitami, které mají požadované komponenty (\uv{aspekty}). Z tohoto důvodu je součástí zprávy entit i možnost filtrování (třída \textbf{EntityFilter}). Filtrovat lze pomocí seznamu požadovaných komponent, ale je také možno definovat zakázané komponenty, nebo specifikovat požadovanou úroveň aktivity entit (aktivní/neaktivní).
+
+Poslední částí podsystému zprávy entit je třída \textbf{Entity}, jejíž funkcionalita zjednodušuje práci s \emph{ECS}. Operace na ní provedené jsou pouze přesměrovány na \textbf{Universe}, spolu s příslušným identifikátorem entity. Pomocí této třídy lze také \emph{ECS} propojit s okolním \emph{objektově orientovaným} kódem.
+
+\begin{figure}[H]
+	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES10}}
+	\caption{Sekvenční diagram modifikace metadat při přidání komponenty, pokračování obr. \ref{Fig:DESAddComp}.}
+	\label{Fig:DESAddEnt}
+\end{figure}
+
+Nevýhodou udržování informací o přítomnosti komponent na dvou místech je, že při každé změně je nutné, aby byla provedena i v metadatech. Příkladem tohoto problému je operace přidání komponenty, jejíž sekvenční diagram lze vidět na obr. \ref{Fig:DESAddComp}. Pokud je první fáze (přidání komponenty z pohledu \textbf{Component Manager}) úspěšná, je nutné upravit metadata.
 
 \section{Systémy a skupiny}
+\label{Chap:SysGroup}
 \todo{Volnost použití systémů. Uživatelem definované chování. Filtry - require, reject. Cache pomocí skupin entit.}
+
+\emph{Systém} lze redukovat na vstupní množinu entit a akci, kterou na nich provádí. Entity jsou specifikovány pomocí množiny komponent (aspektů), které musejí obsahovat. Na této základní definici dále staví návrh tohoto entitního systému a rozšiřuje ho o další funkcionalitu. 
+
+
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES3}}
 	\caption{Diagram tříd podsystému zprávy \emph{systémů}.}
 \end{figure}
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES4}}
 	\caption{Diagram tříd podsystému zprávy \emph{skupin}.}
@@ -429,6 +483,8 @@ Refresh!
 \section{Komponenty}
 \todo{Rekapitulace vlastností, které komponenta musi splnit. Registrace, generování identifikátorů. Uživatelské nosiče}
 \blind[3]
+
+Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracuje s komponenty, mělo by být mapování mezi typem komponent a jejich nosiči (skrz registr komponent) implementováno
 
 \section{Systémy a skupiny}
 \todo{Super třída, filtry, přístup - iterace. Přidání systému, volitelná skupina - added/removed.}
