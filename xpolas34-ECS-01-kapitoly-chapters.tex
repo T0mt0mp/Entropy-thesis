@@ -431,7 +431,6 @@ Nevýhodou udržování informací o přítomnosti komponent na dvou místech je
 
 \section{Systémy a skupiny}
 \label{Chap:SysGroup}
-\todo{Volnost použití systémů. Uživatelem definované chování. Filtry - require, reject. Cache pomocí skupin entit.}
 
 \emph{Systém}, podle \emph{ECS} paradigmatu, obsahuje pravidla pro výběr vhodných entit a akce, které na nich provádí. Entity jsou filtrováni pomocí množiny požadovaných komponent (aspektů). Vstupem \emph{systému} je tedy seznam entit, které vyhovují filtračním pravidlům a jeho cílem je transformovat dané entity a jejich komponenty pomocí definované akce. Tato myšlenka je základem podsystémy zprávy \emph{systémů}. 
 
@@ -445,23 +444,43 @@ Jednou z nevýhodou použití \emph{skupin} je nutnost skupiny udržovat aktuál
 	\label{Fig:DESSystemDiagram}
 \end{figure}
 
-Třídní diagram podsystému zprávy  lze vidět na obr. \ref{Fig:DESSystemDiagram}. 
-
 Cílem podsystému zprávy \emph{systému} (obr. \ref{Fig:DESSystemDiagram}), je údržba systémů a jejich vazba na skupiny. Třída \textbf{SystemManager} umožňuje přidávání a odběr nových systémů. \emph{Systémy} jsou definovány uživatelem, ktery vytvoří vlastní třídu, která dědí ze základní třídy \textbf{System}. Dále uživatel musí specifikovat požadované vlastnosti entit -- vyžadované / zakázané komponenty a úroveň aktivity. Následně je možné nový typ \emph{systému} přidat pomocí manažerské třídy. 
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES4}}
 	\caption{Diagram tříd podsystému zprávy \emph{skupin}.}
+	\label{Fig:DESGroupDiag}
 \end{figure}
 
+\emph{Skupiny} (\textbf{EntityGroup}) obsahují 3 seřazené seznamy entitních identifikátorů, jejich významy jsou následující -- přidané entity, odebrané entity a skutečný seznam všech vyhovujících entit. Důvod pro existenci prvních dvou je primárně umožnit uživateli propojit entitní systém se systémy okolními, které (např. fyzikální simulace) potřebují objekty registrovat.
 
+Důležitou vlastnosti \emph{skupin} je možnost přidávat a odebírat je za běhu aplikace \footnote{Některé systémy nemusí zpracovávat entity po celý běh aplikace.}. Tato vlastnost je umožněna skrz podsystém zprávy \emph{skupin} (\ref{Fig:DESGroupDiag}). Každá \emph{skupina} obsahuje \uv{počítadlo referencí}, které reprezentuje na kolika různých místech je \emph{skupina} používána. V případě, že počítadlo dosáhne hodnoty 0, je \emph{skupina} odstraněna (nebo je pouze zastaven její běh). Zpráva \emph{skupin} závisí na entitních metadatech, které umožňují efektivnější aktualizace jejich obsahu \footnote{Více o tomto problému je součástí implementační části \ref{Chap:ImplSystem}.}.
 
 \section{Paralelní přístup}
 \todo{Podporované způsoby paralelizace, návrh, zdůvodnění. Entity paralellization. System parallelization. Diskuze na téma, zda je paralelní přístup potřeba.}
+
+Díky modulárnímu návrhu entitního systému, který byl zatím předveden je implementace základních typů paralelního přístupu velmi přímočará. Mezi základní typy paralelizmu, který entitní systém podporuje jsou paralelizmus na úrovni entit a paralelizmus na úrovni systému.
+
+Paralelizmus na úrovni entit využívá \emph{datového paralelizmu}, kde množina entit, nad kterou systém vykonává akce je rozdělena mezi požadovaný počet paralelních vláken. Tento typ paralelizmu je vhodný pouze v případech, kdy akce vykonávají transformace na entitách (a jejich komponentách), bez potřeby informací z ostatních entit. 
+
+Paralelizmus na úrovni systémů lze přirovnat k \emph{úkolovému paralelizmu}, kde každé vlákno zpracovává rozdílný systém. Tento způsob má opět omezení -- systémy nemohou přistupovat ke stejným komponentám (stejných entit). 
+
+Tyto způsoby paralelizmu je možno kombinovat, ale v některých situacích není možné použít ani jeden z nich. Další nevýhodou je nemožnost používat metody pro manipulaci entit (aktivita, rušení entit aj.) z několika vláken, jelikož tyto metody používají globální kontext. Jedním řešením je použití zámků (např. vzájemné vyloučení -- \uv{mutex}), které budou tyto metody chránit před problémy souběhu (\uv{race condition}). Zámky jsou čistým způsobem, jak implementovat bezpečný paralelizmus, ale vysokém počtu operací zamčení a odemčení je možné ztratit výkon, který byl získán paralelním zpracováním \footnote{Pokud jsou operace chráněné zámky používány často, je možné paralelní aplikaci redukovat na aplikaci sekvenční.}. Kvůli těmto nevýhodám je součástí návrhu také třetí metoda paralelizace -- pomocí \emph{množin změn}.
+
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES7}}
 	\caption{Diagram tříd podsystému zprávy \emph{akcí}.}
+	\label{Fig:DESActionDiag}
 \end{figure}
+
+Základem podsystému \emph{množin změn} (\uv{changeset}), jehož diagram lze vidět na obr. \ref{Fig:DESActionDiag}, jsou \emph{akce}. \emph{Akce} 
+
+\emph{Akce} jsou rozděleny do dvou typů -- změny metadat a změny komponent. 
+
+pokud potreba akce
+Pripady napr pripojeni skriptovaciho jazyka
+mutex na normalni createEntity
+
 \blind[5]
 
 \section{Tok řízení}
@@ -494,8 +513,12 @@ Refresh!
 Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracuje s komponenty, mělo by být mapování mezi typem komponent a jejich nosiči (skrz registr komponent) implementováno
 
 \section{Systémy a skupiny}
+\label{Chap:ImplSystem}
 \todo{Super třída, filtry, přístup - iterace. Přidání systému, volitelná skupina - added/removed.}
 \blind[3]
+
+Vime, ktere akce na entitach probihaji
+3-way merge group
 
 \section{Správa entit}
 \todo{Potřebné informace, implementace, datové struktury, optimalizace}
