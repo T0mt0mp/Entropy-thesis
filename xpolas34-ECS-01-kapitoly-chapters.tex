@@ -433,21 +433,28 @@ Nevýhodou udržování informací o přítomnosti komponent na dvou místech je
 \label{Chap:SysGroup}
 \todo{Volnost použití systémů. Uživatelem definované chování. Filtry - require, reject. Cache pomocí skupin entit.}
 
-\emph{Systém} lze redukovat na vstupní množinu entit a akci, kterou na nich provádí. Entity jsou specifikovány pomocí množiny komponent (aspektů), které musejí obsahovat. Na této základní definici dále staví návrh tohoto entitního systému a rozšiřuje ho o další funkcionalitu. 
+\emph{Systém}, podle \emph{ECS} paradigmatu, obsahuje pravidla pro výběr vhodných entit a akce, které na nich provádí. Entity jsou filtrováni pomocí množiny požadovaných komponent (aspektů). Vstupem \emph{systému} je tedy seznam entit, které vyhovují filtračním pravidlům a jeho cílem je transformovat dané entity a jejich komponenty pomocí definované akce. Tato myšlenka je základem podsystémy zprávy \emph{systémů}. 
 
+Předpokladem, při návrhu tohoto entitního systému je, že i přeš vysoký počet entit, které se v systému mohou nacházet v jeden okamžik, bude množství skutečně používaných entit \footnote{Těch, které budou používány jako součást některého ze systémů.} nižší. Z tohoto předpokladu vychází myšlenka \emph{skupin}, které jsou plní funkcí vyrovnávací paměti \emph{systémů}. \emph{Skupina} je množinou entit, které splňují požadavky specifikované filtrem. Oproti původnímu návrhu, kdy každý \emph{systém} iteruje (lineárně prochází) nad seznamem všech existujících entit v entitním systému, se při použití skupin již prochází pouze takové entity, které odpovídají požadavkům daného systému.
 
+Jednou z nevýhodou použití \emph{skupin} je nutnost skupiny udržovat aktuální, čímž je pověřen podsystém zprávy \emph{skupin}. Díky potřebě udržování seznamu entitních identifikátorů způsobuje tento systém také vyšší použití paměti. Poslední důležitou vlastností je, že tato funkce předpokládá, že množina všech entit je větší, než množina používaných entit. Pokud tento předpoklad neplatí, potom není vhodné systém \emph{skupin} používat.
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES3}}
 	\caption{Diagram tříd podsystému zprávy \emph{systémů}.}
+	\label{Fig:DESSystemDiagram}
 \end{figure}
+
+Třídní diagram podsystému zprávy  lze vidět na obr. \ref{Fig:DESSystemDiagram}. 
+
+Cílem podsystému zprávy \emph{systému} (obr. \ref{Fig:DESSystemDiagram}), je údržba systémů a jejich vazba na skupiny. Třída \textbf{SystemManager} umožňuje přidávání a odběr nových systémů. \emph{Systémy} jsou definovány uživatelem, ktery vytvoří vlastní třídu, která dědí ze základní třídy \textbf{System}. Dále uživatel musí specifikovat požadované vlastnosti entit -- vyžadované / zakázané komponenty a úroveň aktivity. Následně je možné nový typ \emph{systému} přidat pomocí manažerské třídy. 
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES4}}
 	\caption{Diagram tříd podsystému zprávy \emph{skupin}.}
 \end{figure}
-\blind[5]
-sequence diagram
+
+
 
 \section{Paralelní přístup}
 \todo{Podporované způsoby paralelizace, návrh, zdůvodnění. Entity paralellization. System parallelization. Diskuze na téma, zda je paralelní přístup potřeba.}
@@ -516,6 +523,7 @@ Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracu
 \section{Zhodnocení}
 \todo{Výkon, návrh, jednoduchost}
 \blind[3]
+
 
 \chapter{Vyhodnocení}
 \todo{Shrnutí, popis co bude v této kapitole}

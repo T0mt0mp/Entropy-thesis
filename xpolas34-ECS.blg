@@ -1,6 +1,9 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: xpolas34-ECS.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: xpolas34-ECS.aux
 The style file: bib-styles/czechiso.bst
 Database file #1: xpolas34-ECS-20-literatura-bibliography.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--to sort, need author or key in UnityGo
 Warning--to sort, need author, organization, or key in IntelX86-64
 Warning--to sort, need author, organization, or key in AmdX86-64
@@ -16,4 +19,45 @@ Warning--to sort, need author or key in CPUPerfHistory
 Warning--to sort, need author or key in KindsOfParallelism
 Warning--to sort, need author or key in TaskBasedParallelism
 Warning--to sort, need author or key in FalseSharing
+You've used 30 entries,
+            3151 wiz_defined-function locations,
+            801 strings with 9758 characters,
+and the built_in function-call counts, 8231 in all, are:
+= -- 568
+> -- 120
+< -- 1
++ -- 60
+- -- 30
+* -- 369
+:= -- 827
+add.period$ -- 58
+call.type$ -- 30
+change.case$ -- 104
+chr.to.int$ -- 0
+cite$ -- 45
+duplicate$ -- 870
+empty$ -- 950
+format.name$ -- 30
+if$ -- 1813
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 207
+newline$ -- 129
+num.names$ -- 30
+pop$ -- 584
+preamble$ -- 1
+purify$ -- 75
+quote$ -- 0
+skip$ -- 292
+stack$ -- 0
+substring$ -- 213
+swap$ -- 343
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 118
+warning$ -- 15
+while$ -- 32
+width$ -- 32
+write$ -- 254
 (There were 15 warnings)
