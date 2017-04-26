@@ -457,15 +457,16 @@ Cílem podsystému zprávy \emph{systému} (obr. \ref{Fig:DESSystemDiagram}), je
 Důležitou vlastnosti \emph{skupin} je možnost přidávat a odebírat je za běhu aplikace \footnote{Některé systémy nemusí zpracovávat entity po celý běh aplikace.}. Tato vlastnost je umožněna skrz podsystém zprávy \emph{skupin} (\ref{Fig:DESGroupDiag}). Každá \emph{skupina} obsahuje \uv{počítadlo referencí}, které reprezentuje na kolika různých místech je \emph{skupina} používána. V případě, že počítadlo dosáhne hodnoty 0, je \emph{skupina} odstraněna (nebo je pouze zastaven její běh). Zpráva \emph{skupin} závisí na entitních metadatech, které umožňují efektivnější aktualizace jejich obsahu \footnote{Více o tomto problému je součástí implementační části \ref{Chap:ImplSystem}.}.
 
 \section{Paralelní přístup}
-\todo{Podporované způsoby paralelizace, návrh, zdůvodnění. Entity paralellization. System parallelization. Diskuze na téma, zda je paralelní přístup potřeba.}
 
 Díky modulárnímu návrhu entitního systému, který byl zatím předveden je implementace základních typů paralelního přístupu velmi přímočará. Mezi základní typy paralelizmu, který entitní systém podporuje jsou paralelizmus na úrovni entit a paralelizmus na úrovni systému.
 
 Paralelizmus na úrovni entit využívá \emph{datového paralelizmu}, kde množina entit, nad kterou systém vykonává akce je rozdělena mezi požadovaný počet paralelních vláken. Tento typ paralelizmu je vhodný pouze v případech, kdy akce vykonávají transformace na entitách (a jejich komponentách), bez potřeby informací z ostatních entit. 
 
-Paralelizmus na úrovni systémů lze přirovnat k \emph{úkolovému paralelizmu}, kde každé vlákno zpracovává rozdílný systém. Tento způsob má opět omezení -- systémy nemohou přistupovat ke stejným komponentám (stejných entit). 
+Paralelizmus na úrovni systémů lze přirovnat k \emph{úkolovému paralelizmu}, kde každé vlákno zpracovává rozdílný systém. Tento způsob má opět omezení -- systémy nemohou přistupovat ke stejným komponentám (stejných entit). Tyto dva způsoby paralelizmu lze kombinovat.
 
-Tyto způsoby paralelizmu je možno kombinovat, ale v některých situacích není možné použít ani jeden z nich. Další nevýhodou je nemožnost používat metody pro manipulaci entit (aktivita, rušení entit aj.) z několika vláken, jelikož tyto metody používají globální kontext. Jedním řešením je použití zámků (např. vzájemné vyloučení -- \uv{mutex}), které budou tyto metody chránit před problémy souběhu (\uv{race condition}). Zámky jsou čistým způsobem, jak implementovat bezpečný paralelizmus, ale vysokém počtu operací zamčení a odemčení je možné ztratit výkon, který byl získán paralelním zpracováním \footnote{Pokud jsou operace chráněné zámky používány často, je možné paralelní aplikaci redukovat na aplikaci sekvenční.}. Kvůli těmto nevýhodám je součástí návrhu také třetí metoda paralelizace -- pomocí \emph{množin změn}.
+V situacích, kdy není možné použít ani jednu z těchto možností, nebo při manipulaci globálního kontextu z několika vláken, např. mazání entit, změna aktivity, je nutné použít jiné řešení. Jedním způsobem, jak tento problém vyřešit, je použití zámků (např. vzájemné vyloučení -- \uv{mutex}), které budou tyto metody chránit před problémy souběhu (\uv{race condition}). Zámky jsou čistým způsobem, jak implementovat bezpečný paralelizmus, ale vysokém počtu operací zamčení a odemčení je možné ztratit výkon, který byl získán paralelním zpracováním \footnote{Pokud jsou operace chráněné zámky používány často, je možné paralelní aplikaci redukovat na aplikaci sekvenční.}. Kvůli těmto nevýhodám je součástí návrhu také třetí metoda paralelizace -- pomocí \emph{množin změn}.
+
+\emph{Množiny změn} umožňují jednotlivým vláknům odkládat provedení požadovaných operací na pozdější dobu, kdy již bude možné zaručit, že nedojde k problémům souběhu. Aktuální stav světa (entit, komponent apod.), pro každé vlákno, je vytvořen překrytím stavu globálního světa danou \emph{množinou změn}. Pokud vlákno použije operaci přidání komponenty, ke specifikované entitě, skutečné vykonání operace nad globálním kontextem bude odloženo, ale informace o této operaci bude přidána do \emph{množiny změn} aktuálního vlákna.
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES7}}
@@ -473,30 +474,38 @@ Tyto způsoby paralelizmu je možno kombinovat, ale v některých situacích nen
 	\label{Fig:DESActionDiag}
 \end{figure}
 
-Základem podsystému \emph{množin změn} (\uv{changeset}), jehož diagram lze vidět na obr. \ref{Fig:DESActionDiag}, jsou \emph{akce}. \emph{Akce} 
+Základem podsystému \emph{množin změn}, jehož diagram lze vidět na obr. \ref{Fig:DESActionDiag}, jsou třídy \textbf{ActionCache} a textbf{ChangeSet}. Úkolem \textbf{ActionCache} je zajistit přístup k instanci \emph{množin změn}, která bude pro každé vlákno unikátní. Dále umožňuje také potvrzení (\textbf{commitSC}), nebo zrušení (\textbf{resetCS}) \emph{množiny změn} aktuálního vlákna. 
 
-\emph{Akce} jsou rozděleny do dvou typů -- změny metadat a změny komponent. 
+Zajímavým problémem je odložená tvorba entit a následné provádění operací nad nimi. Pro operace, které jsou provedeny nad \emph{reálnými} entitami \footnote{Takové entity, které jsou již vytvořeny v globálním kontextu.} je možno specifikovat cílovou entitu pomocí jejího identifikátoru. Jedním možným řešením je zakázat provádění operací nad dočasnými entitami, nebo zrušit koncept dočasných entit kompletně a provádět operace vytvoření entity okamžitě \footnote{Toto by znamenalo použití zámků na celý podsystém zprávy entit a metadat.}. Druhým řešením, které je součástí tohoto návrhu, je přiřazení speciálního typu identifikátoru dočasným entitám, který bude později převeden na identifikátor reálné entity. Operace, jejíž provedení je odloženo na později, mají postfix \uv{\textbf{D}} (\uv{deferred}) a operace, které pracují s dočasnými entitami jsou zakončeny \uv{\textbf{T}} (\uv{temporary}).
 
-pokud potreba akce
-Pripady napr pripojeni skriptovaciho jazyka
-mutex na normalni createEntity
-
-\blind[5]
+\emph{Množiny změn} samotné jsou reprezentovány třídou \textbf{ChangeSet}, která obsahuje odložené \emph{akce}. \emph{Akce} je možno rozdělit na typy podle změn:
+\begin{itemize}
+	\item Změny metadat -- rušení entit, změna aktivity entit.
+	\item Změny komponent -- přidání/odebrání komponent, změna hodnot komponent.
+\end{itemize}
+\noindent a podle cílové entity: 
+\begin{itemize}
+	\item Reálné entity -- operace obsahuje identifikátor reálné entity.
+	\item Dočasné entity -- operace obsahuje identifikátor dočasné entity.
+\end{itemize}
 
 \section{Tok řízení}
-\todo{Popsat předpokládaný tok řízení, jak se bude používat. Registrace. Iterace. Refresh.}
 
-Refresh!
+Výše navržený entitní systém se vždy nachází v jedné z následujících fází -- \emph{inicializace}, \emph{iterace} nebo \emph{obnova}. Diagram řízení toku, který tyto fáze obsahuje, lze vidět na obr. \ref{Fig:DESFlow}.
+
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES9}}
+	\begin{center}
+	\tmpframe{\includegraphics[width=0.9\linewidth]{BAC-DES9}}
+	\end{center}
 	\caption{Digram toku řízení komponentního systému.}
+	\label{Fig:DESFlow}
 \end{figure}
-\begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
-	\caption{\todo{Paralelní refresh}}
-\end{figure}
-\blind[3]
 
+Prvním krokem ve fázi inicializace je konstrukce (vytvoření instance) třídy \textbf{Universe}, jejíž součástí je inicializace jednotlivých podsystémů. Potom je již možno registrovat typy komponent, které je potvrzeno závěrečnou inicializací objektu \textbf{Universe} \footnote{Po inicializaci již není možno přidávat nové typy komponent.}, čímž se entitní systém přesunuje do fáze \emph{iterace}. 
+
+Fáze \emph{iterace} umožňuje plný přístup k entitnímu systému ze strany uživatele. Kromě práce s entitami a komponentami, je také možné přidávat a odebírat \emph{systémy} a \emph{skupiny}. Obsah jednotlivých \emph{skupin} je v této fázi konstantní, čímž je umožněna práce \emph{systémům}. V okamžiku, kdy již neběží žádné \emph{systémy} je možné přejít do fáze \emph{obnovy}, použitím operace \textbf{refresh}.
+
+Úkolem \emph{obnovovací} fáze je posunutí entitního systému do následujícího stavu, ze stavu aktuálního a dokončení operací, které by vedly k porušení konzistence systému. Tohoto cíle je dosaženo postupným voláním operace \textbf{refresh} na jednotlivé podsystémy, jejichž pořadí lze vidět na obr. \ref{Fig:DESFlow}. Obnova entitního podsystému umožňuje dokončení operací přidání a odebrání \emph{skupin}, u kterých je nutné měnit počet sloupců v tabulce metadat. Následuje aplikace \emph{množin změn}, kdy jsou dokončeny odložené operace. Obnova pokračuje volání \textbf{refresh} nad jednotlivými nosiči komponent, kterým je tímto umožněna reorganizace dat. Poslední částí je příprava obsahu \emph{skupin} pro příští fázi \emph{iterace}. Po dokončení obnovy je systém opět uveden do fáze \emph{iterace}.
 
 \chapter{Implementace}
 \todo{Shrnutí návrhu}
@@ -512,6 +521,11 @@ Refresh!
 
 Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracuje s komponenty, mělo by být mapování mezi typem komponent a jejich nosiči (skrz registr komponent) implementováno
 
+\section{Správa entit}
+\todo{Potřebné informace, implementace, datové struktury, optimalizace}
+\blind[3]
+identifikátor dočasných entit
+
 \section{Systémy a skupiny}
 \label{Chap:ImplSystem}
 \todo{Super třída, filtry, přístup - iterace. Přidání systému, volitelná skupina - added/removed.}
@@ -520,18 +534,13 @@ Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracu
 Vime, ktere akce na entitach probihaji
 3-way merge group
 
-\section{Správa entit}
-\todo{Potřebné informace, implementace, datové struktury, optimalizace}
+\section{Podpora paralelizmu}
+\todo{2 způsoby paralelizmu - dělení skupin, change-sety}
 \blind[3]
 
 \section{Obnovovací fáze}
 \todo{Pořadí refresh. Obnovení aktuality skupin.}
 \blind[2]
-
-\section{Podpora paralelizmu}
-\todo{2 způsoby paralelizmu - dělení skupin, change-sety}
-\blind[3]
-
 
 \chapter{Použití knihovny}
 
@@ -592,6 +601,7 @@ Vime, ktere akce na entitach probihaji
 \blind[1]
 \todo{Možnosti rozšíření}
 \blind[1]
+dynamicke komponenty za behu
 
 %\begin{figure}
 %	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}
