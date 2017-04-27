@@ -251,4 +251,70 @@
   url   = {http://www.cs.columbia.edu/~sedwards/classes/2012/3827-spring/advanced-arch-2011.pdf},
 }
 
+@Misc{FalseSharing,
+  title = {{\it Avoiding and Identifying False Sharing Among Threads}},
+  note  = {[Online; navštíveno 20.04.2017]},
+  url   = {https://software.intel.com/sites/default/files/m/d/4/1/d/8/3-4-MemMgt_-_Avoiding_and_Identifying_False_Sharing_Among_Threads.pdf},
+}
+
+@Misc{EntityX,
+  author = {Thomas Alec},
+  title  = {{\it EntityX - A fast, type-safe C++ Entity-Component system}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {https://github.com/alecthomas/entityx/tree/master},
+}
+
+@Misc{ArtemisCpp,
+  author = {Stefan Nguyen},
+  title  = {{\it C++ port of Artemis Entity System Framework}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {https://github.com/vinova/Artemis-Cpp/tree/master},
+}
+
+@Misc{Anax,
+  author = {Martin Miguel},
+  title  = {{\it Anax -- An open source C++ entity system}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {https://github.com/miguelmartin75/anax/tree/master},
+}
+
+@Misc{ArtemisJava,
+  author = {Adrian Papari},
+  title  = {{\it Artemis ECS}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {https://github.com/junkdog/artemis-odb/tree/master},
+}
+
+@Misc{Ashley,
+  author = {David Saltares},
+  title  = {{\it Ashley ECS}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {https://github.com/libgdx/ashley},
+}
+
+@Misc{IsoCpp,
+  title = {{\it Domovská stránka ISO C++ standardu}},
+  note  = {[Online; navštíveno 27.04.2017]},
+  url   = {https://isocpp.org/},
+}
+
+@Misc{Cpp14,
+  title = {{\it C++14 Language Extensions}},
+  note  = {[Online; navštíveno 27.04.2017]},
+  url   = {https://isocpp.org/wiki/faq/cpp14-language},
+}
+
+@Misc{Cpp14VarTemplate,
+  title = {{\it C++14 Variable Templates}},
+  note  = {[Online; navštíveno 27.04.2017]},
+  url   = {https://isocpp.org/wiki/faq/cpp14-language#variable-templates},
+}
+
+@Misc{CppMetaprogramming,
+  author = {Peter dimov},
+  title  = {{\it Simple C++11 metaprogramming}},
+  note   = {[Online; navštíveno 27.04.2017]},
+  url    = {http://www.pdimov.com/cpp2/simple_cxx11_metaprogramming.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

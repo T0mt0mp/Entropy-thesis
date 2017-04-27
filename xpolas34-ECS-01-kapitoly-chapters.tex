@@ -53,7 +53,7 @@ Tato se věnuje teorii \emph{entitních systémů}, jejich historii a požadavk�
 
 \section{Entitní systémy a jejich historie}
 
-\emph{Entitní systém} je část herního enginu, který zprostředkovává zprávu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
+\emph{Entitní systém} je část herního enginu, který zprostředkovává správu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
 
 \todo{historie}
 
@@ -345,9 +345,11 @@ Jednoduchý systém může pracovat způsobem transformační funkce, jejíž vs
 
 Obsahem této kapitoly je popis návrhu entitního systému založeného na \emph{ECS} paradigmatu, které bylo představeno v předchozí kapitole. Nejdříve je prezentováno základní rozdělení systému na jednotlivé části a komunikace mezi nimi. Následuje popis návrhu podsystémů -- \emph{komponenty}, \emph{systémy} a \emph{entity}. Každá část obsahuje představení návrhu a jeho zdůvodnění. Následuje návrh paralelního přístupu k entitnímu systému a jeho tok řízení.
 
+Při návrhu entitního systému byly použity poznatky z teoretické části této práce a \emph{open-source} implementace entitních systémů založených na \emph{ECS} paradigmatu -- \emph{EntityX} \cite{EntityX}, \emph{ArtemisCpp} \cite{ArtemisCpp}, \emph{Anax} \cite{Anax}, \emph{Artemis} \cite{ArtemisJava} a \emph{Ashley} \cite{Ashley}.
+
 \section{Přehled a komunikace}
 
-Entitní systém je, podobně jako \emph{ECS} paradigma, rozdělený do několika částí -- modulů -- kde cílem jednotlivých částí je zpráva některé z domén \emph{ECS}. Diagram reprezentující toto rozdělení lze vidět na obr. \ref{Fig:DESModules}. Mezi tyto moduly patří -- zpráva systémů a skupin, zpráva komponent, zpráva entit a zpráva akcí. Bližší popis a návrh jednotlivých částí obsahují následující části této kapitoly.
+Entitní systém je, podobně jako \emph{ECS} paradigma, rozdělený do několika částí -- modulů -- kde cílem jednotlivých částí je správa některé z domén \emph{ECS}. Diagram reprezentující toto rozdělení lze vidět na obr. \ref{Fig:DESModules}. Mezi tyto moduly patří -- správa systémů a skupin, správa komponent, správa entit a správa akcí. Bližší popis a návrh jednotlivých částí obsahují následující části této kapitoly.
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES1}}
@@ -367,13 +369,13 @@ Funkcionalita celého systému je zastřešena třídou \textbf{Universe} (obr. 
 
 Komponenty jsou definovány jako základní datové jednotky v \emph{ECS}, kde každá entita má k sobě přiřazeno 0-1 komponent daného typu. Komponenty, jak s nimi pracuje tento návrh, mohou být jakékoliv třídy \footnote{Obecný typ komponenty je \textbf{Component}. Pokud to implementační jazyk vyžaduje, je možné požít abstraktní třídu stejného jména, ze které budou všechny konkrétní komponenty dědit.} a nemusí obsahovat žádné specifické akce. Každá komponenta má přiřazen unikátní identifikátor -- \textbf{CompId} -- tento identifikátor je neměnný po dobu běhu entitního systému. Komponenty by měly být pasivní datové struktury \footnote{\emph{Plain old data structure} (\emph{POD}) -- struktura reprezentovaná kolekcí hodnot.}, se kterými lze pracovat jako s čistou pamětí (přesuny, kopírování, atp.).
 
-O zprávu komponent se stará podsystém zprávy komponent, jehož diagram lze vidět na obr. \ref{Fig:DESCompDiag}. Modul se skládá dvou částí -- registrace typů komponent a nosiče komponent. Veškerá komunikace probíhá skrz třídu \textbf{Component Manager}, která obsahuje metody pro registrace komponent a jejich následná asociace k entitám. 
+O správu komponent se stará podsystém správy komponent, jehož diagram lze vidět na obr. \ref{Fig:DESCompDiag}. Modul se skládá dvou částí -- registrace typů komponent a nosiče komponent. Veškerá komunikace probíhá skrz třídu \textbf{Component Manager}, která obsahuje metody pro registrace komponent a jejich následná asociace k entitám. 
 
 V první fázi práce s tímto modulem je třeba registrovat typy komponent, které budou následně používány. Nové komponenty jsou registrovány pomocí metody \textbf{registerComponent} \footnote{Této metodě je třeba předat typ komponenty, která má být registrována, čehož lze docílit pomocí např. \emph{template} (C++), nebo \emph{generics} (Java)}, která vytvoří mapování z daného typu na jeho registr (\textbf{ComponentRegister}). Tohoto registru je následně využito pro získání specifického nosiče komponent.
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES5}}
-	\caption{Diagram tříd podsystému zprávy \emph{komponent}.}
+	\caption{Diagram tříd podsystému správy \emph{komponent}.}
 	\label{Fig:DESCompDiag}
 \end{figure}
 
@@ -397,11 +399,11 @@ Pro účely tohoto entitního systému je identifikátor složen ze dvou čísel
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES6}}
-	\caption{Diagram tříd podsystému zprávy \emph{entit}.}
+	\caption{Diagram tříd podsystému správy \emph{entit}.}
 	\label{Fig:DESEntityDiagram}
 \end{figure}
 
-Podsystém zprávy entit, jehož diagram tříd lze vidět na obr. \ref{Fig:DESEntityDiagram}, lze přirovnat k relační databázi. Systém obsahuje jednu tabulku entit, kde každý řádek reprezentuje slot pro entitu. Identifikátor entity je složen z indexu řádku v tabulce a jeho generační hodnoty. Každý řádek obsahuje aktuální číslo generace a množinu \emph{bool} hodnot -- metadat. Ilustraci možné konfigurace tabulky metadat lze vidět na obr. \ref{Fig:DESMetadata}. Výhodou této reprezentace je konstantní složitost přístupu k metadatům dané entity \footnote{Indexace tabulky pomocí \emph{ID} části identifikátoru.}. 
+Podsystém správy entit, jehož diagram tříd lze vidět na obr. \ref{Fig:DESEntityDiagram}, lze přirovnat k relační databázi. Systém obsahuje jednu tabulku entit, kde každý řádek reprezentuje slot pro entitu. Identifikátor entity je složen z indexu řádku v tabulce a jeho generační hodnoty. Každý řádek obsahuje aktuální číslo generace a množinu \emph{bool} hodnot -- metadat. Ilustraci možné konfigurace tabulky metadat lze vidět na obr. \ref{Fig:DESMetadata}. Výhodou této reprezentace je konstantní složitost přístupu k metadatům dané entity \footnote{Indexace tabulky pomocí \emph{ID} části identifikátoru.}. 
 
 Jelikož je mapováni identifikátorů entit na komponenty již součástí nosičů komponent, tabulka již tuto informaci nemusí obsahovat. Výhodné je však udržování informace o existenci komponent pro jednotlivé entity, které může být použito pro efektivní filtrování entit. Udržování tohoto typu informace je možné díky jednotnému rozhraní pro práci s komponenty (\textbf{Universe}). Mezi typy metadat použitých v tomto návrhu patří: 
 \begin{itemize}
@@ -417,12 +419,13 @@ Jelikož je mapováni identifikátorů entit na komponenty již součástí nosi
 	\label{Fig:DESMetadata}
 \end{figure}
 
-Důležitou součástí \emph{ECS} je možnost pracovat pouze s entitami, které mají požadované komponenty (\uv{aspekty}). Z tohoto důvodu je součástí zprávy entit i možnost filtrování (třída \textbf{EntityFilter}). Filtrovat lze pomocí seznamu požadovaných komponent, ale je také možno definovat zakázané komponenty, nebo specifikovat požadovanou úroveň aktivity entit (aktivní/neaktivní).
+Důležitou součástí \emph{ECS} je možnost pracovat pouze s entitami, které mají požadované komponenty (\uv{aspekty}). Z tohoto důvodu je součástí správy entit i možnost filtrování (třída \textbf{EntityFilter}). Filtrovat lze pomocí seznamu požadovaných komponent, ale je také možno definovat zakázané komponenty, nebo specifikovat požadovanou úroveň aktivity entit (aktivní/neaktivní).
 
-Poslední částí podsystému zprávy entit je třída \textbf{Entity}, jejíž funkcionalita zjednodušuje práci s \emph{ECS}. Operace na ní provedené jsou pouze přesměrovány na \textbf{Universe}, spolu s příslušným identifikátorem entity. Pomocí této třídy lze také \emph{ECS} propojit s okolním \emph{objektově orientovaným} kódem.
+Poslední částí podsystému správy entit je třída \textbf{Entity}, jejíž funkcionalita zjednodušuje práci s \emph{ECS}. Operace na ní provedené jsou pouze přesměrovány na \textbf{Universe}, spolu s příslušným identifikátorem entity. Pomocí této třídy lze také \emph{ECS} propojit s okolním \emph{objektově orientovaným} kódem.
 
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES10}}
+	\centering
+	\tmpframe{\includegraphics[width=.6\linewidth]{BAC-DES10}}
 	\caption{Sekvenční diagram modifikace metadat při přidání komponenty, pokračování obr. \ref{Fig:DESAddComp}.}
 	\label{Fig:DESAddEnt}
 \end{figure}
@@ -432,29 +435,31 @@ Nevýhodou udržování informací o přítomnosti komponent na dvou místech je
 \section{Systémy a skupiny}
 \label{Chap:SysGroup}
 
-\emph{Systém}, podle \emph{ECS} paradigmatu, obsahuje pravidla pro výběr vhodných entit a akce, které na nich provádí. Entity jsou filtrováni pomocí množiny požadovaných komponent (aspektů). Vstupem \emph{systému} je tedy seznam entit, které vyhovují filtračním pravidlům a jeho cílem je transformovat dané entity a jejich komponenty pomocí definované akce. Tato myšlenka je základem podsystémy zprávy \emph{systémů}. 
+\emph{Systém}, podle \emph{ECS} paradigmatu, obsahuje pravidla pro výběr vhodných entit a akce, které na nich provádí. Entity jsou filtrováni pomocí množiny požadovaných komponent (aspektů). Vstupem \emph{systému} je tedy seznam entit, které vyhovují filtračním pravidlům a jeho cílem je transformovat dané entity a jejich komponenty pomocí definované akce. Tato myšlenka je základem podsystémy správy \emph{systémů}. 
 
 Předpokladem, při návrhu tohoto entitního systému je, že i přeš vysoký počet entit, které se v systému mohou nacházet v jeden okamžik, bude množství skutečně používaných entit \footnote{Těch, které budou používány jako součást některého ze systémů.} nižší. Z tohoto předpokladu vychází myšlenka \emph{skupin}, které jsou plní funkcí vyrovnávací paměti \emph{systémů}. \emph{Skupina} je množinou entit, které splňují požadavky specifikované filtrem. Oproti původnímu návrhu, kdy každý \emph{systém} iteruje (lineárně prochází) nad seznamem všech existujících entit v entitním systému, se při použití skupin již prochází pouze takové entity, které odpovídají požadavkům daného systému.
 
-Jednou z nevýhodou použití \emph{skupin} je nutnost skupiny udržovat aktuální, čímž je pověřen podsystém zprávy \emph{skupin}. Díky potřebě udržování seznamu entitních identifikátorů způsobuje tento systém také vyšší použití paměti. Poslední důležitou vlastností je, že tato funkce předpokládá, že množina všech entit je větší, než množina používaných entit. Pokud tento předpoklad neplatí, potom není vhodné systém \emph{skupin} používat.
+Jednou z nevýhodou použití \emph{skupin} je nutnost skupiny udržovat aktuální, čímž je pověřen podsystém správy \emph{skupin}. Díky potřebě udržování seznamu entitních identifikátorů způsobuje tento systém také vyšší použití paměti. Poslední důležitou vlastností je, že tato funkce předpokládá, že množina všech entit je větší, než množina používaných entit. Pokud tento předpoklad neplatí, potom není vhodné systém \emph{skupin} používat.
 
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES3}}
-	\caption{Diagram tříd podsystému zprávy \emph{systémů}.}
+	\centering
+	\tmpframe{\includegraphics[width=.7\linewidth]{BAC-DES3}}
+	\caption{Diagram tříd podsystému správy \emph{systémů}.}
 	\label{Fig:DESSystemDiagram}
 \end{figure}
 
-Cílem podsystému zprávy \emph{systému} (obr. \ref{Fig:DESSystemDiagram}), je údržba systémů a jejich vazba na skupiny. Třída \textbf{SystemManager} umožňuje přidávání a odběr nových systémů. \emph{Systémy} jsou definovány uživatelem, ktery vytvoří vlastní třídu, která dědí ze základní třídy \textbf{System}. Dále uživatel musí specifikovat požadované vlastnosti entit -- vyžadované / zakázané komponenty a úroveň aktivity. Následně je možné nový typ \emph{systému} přidat pomocí manažerské třídy. 
+Cílem podsystému správy \emph{systému} (obr. \ref{Fig:DESSystemDiagram}), je údržba systémů a jejich vazba na skupiny. Třída \textbf{SystemManager} umožňuje přidávání a odběr nových systémů. \emph{Systémy} jsou definovány uživatelem, ktery vytvoří vlastní třídu, která dědí ze základní třídy \textbf{System}. Dále uživatel musí specifikovat požadované vlastnosti entit -- vyžadované / zakázané komponenty a úroveň aktivity. Následně je možné nový typ \emph{systému} přidat pomocí manažerské třídy. 
 
 \begin{figure}[H]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES4}}
-	\caption{Diagram tříd podsystému zprávy \emph{skupin}.}
+	\centering
+	\tmpframe{\includegraphics[width=.7\linewidth]{BAC-DES4}}
+	\caption{Diagram tříd podsystému správy \emph{skupin}.}
 	\label{Fig:DESGroupDiag}
 \end{figure}
 
 \emph{Skupiny} (\textbf{EntityGroup}) obsahují 3 seřazené seznamy entitních identifikátorů, jejich významy jsou následující -- přidané entity, odebrané entity a skutečný seznam všech vyhovujících entit. Důvod pro existenci prvních dvou je primárně umožnit uživateli propojit entitní systém se systémy okolními, které (např. fyzikální simulace) potřebují objekty registrovat.
 
-Důležitou vlastnosti \emph{skupin} je možnost přidávat a odebírat je za běhu aplikace \footnote{Některé systémy nemusí zpracovávat entity po celý běh aplikace.}. Tato vlastnost je umožněna skrz podsystém zprávy \emph{skupin} (\ref{Fig:DESGroupDiag}). Každá \emph{skupina} obsahuje \uv{počítadlo referencí}, které reprezentuje na kolika různých místech je \emph{skupina} používána. V případě, že počítadlo dosáhne hodnoty 0, je \emph{skupina} odstraněna (nebo je pouze zastaven její běh). Zpráva \emph{skupin} závisí na entitních metadatech, které umožňují efektivnější aktualizace jejich obsahu \footnote{Více o tomto problému je součástí implementační části \ref{Chap:ImplSystem}.}.
+Důležitou vlastnosti \emph{skupin} je možnost přidávat a odebírat je za běhu aplikace \footnote{Některé systémy nemusí zpracovávat entity po celý běh aplikace.}. Tato vlastnost je umožněna skrz podsystém správy \emph{skupin} (\ref{Fig:DESGroupDiag}). Každá \emph{skupina} obsahuje \uv{počítadlo referencí}, které reprezentuje na kolika různých místech je \emph{skupina} používána. V případě, že počítadlo dosáhne hodnoty 0, je \emph{skupina} odstraněna (nebo je pouze zastaven její běh). Zpráva \emph{skupin} závisí na entitních metadatech, které umožňují efektivnější aktualizace jejich obsahu \footnote{Více o tomto problému je součástí implementační části \ref{Chap:ImplSystem}.}.
 
 \section{Paralelní přístup}
 
@@ -470,13 +475,13 @@ V situacích, kdy není možné použít ani jednu z těchto možností, nebo p�
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DES7}}
-	\caption{Diagram tříd podsystému zprávy \emph{akcí}.}
+	\caption{Diagram tříd podsystému správy \emph{akcí}.}
 	\label{Fig:DESActionDiag}
 \end{figure}
 
 Základem podsystému \emph{množin změn}, jehož diagram lze vidět na obr. \ref{Fig:DESActionDiag}, jsou třídy \textbf{ActionCache} a textbf{ChangeSet}. Úkolem \textbf{ActionCache} je zajistit přístup k instanci \emph{množin změn}, která bude pro každé vlákno unikátní. Dále umožňuje také potvrzení (\textbf{commitSC}), nebo zrušení (\textbf{resetCS}) \emph{množiny změn} aktuálního vlákna. 
 
-Zajímavým problémem je odložená tvorba entit a následné provádění operací nad nimi. Pro operace, které jsou provedeny nad \emph{reálnými} entitami \footnote{Takové entity, které jsou již vytvořeny v globálním kontextu.} je možno specifikovat cílovou entitu pomocí jejího identifikátoru. Jedním možným řešením je zakázat provádění operací nad dočasnými entitami, nebo zrušit koncept dočasných entit kompletně a provádět operace vytvoření entity okamžitě \footnote{Toto by znamenalo použití zámků na celý podsystém zprávy entit a metadat.}. Druhým řešením, které je součástí tohoto návrhu, je přiřazení speciálního typu identifikátoru dočasným entitám, který bude později převeden na identifikátor reálné entity. Operace, jejíž provedení je odloženo na později, mají postfix \uv{\textbf{D}} (\uv{deferred}) a operace, které pracují s dočasnými entitami jsou zakončeny \uv{\textbf{T}} (\uv{temporary}).
+Zajímavým problémem je odložená tvorba entit a následné provádění operací nad nimi. Pro operace, které jsou provedeny nad \emph{reálnými} entitami \footnote{Takové entity, které jsou již vytvořeny v globálním kontextu.} je možno specifikovat cílovou entitu pomocí jejího identifikátoru. Jedním možným řešením je zakázat provádění operací nad dočasnými entitami, nebo zrušit koncept dočasných entit kompletně a provádět operace vytvoření entity okamžitě \footnote{Toto by znamenalo použití zámků na celý podsystém správy entit a metadat.}. Druhým řešením, které je součástí tohoto návrhu, je přiřazení speciálního typu identifikátoru dočasným entitám, který bude později převeden na identifikátor reálné entity. Operace, jejíž provedení je odloženo na později, mají postfix \uv{\textbf{D}} (\uv{deferred}) a operace, které pracují s dočasnými entitami jsou zakončeny \uv{\textbf{T}} (\uv{temporary}).
 
 \emph{Množiny změn} samotné jsou reprezentovány třídou \textbf{ChangeSet}, která obsahuje odložené \emph{akce}. \emph{Akce} je možno rozdělit na typy podle změn:
 \begin{itemize}
@@ -508,31 +513,82 @@ Fáze \emph{iterace} umožňuje plný přístup k entitnímu systému ze strany 
 Úkolem \emph{obnovovací} fáze je posunutí entitního systému do následujícího stavu, ze stavu aktuálního a dokončení operací, které by vedly k porušení konzistence systému. Tohoto cíle je dosaženo postupným voláním operace \textbf{refresh} na jednotlivé podsystémy, jejichž pořadí lze vidět na obr. \ref{Fig:DESFlow}. Obnova entitního podsystému umožňuje dokončení operací přidání a odebrání \emph{skupin}, u kterých je nutné měnit počet sloupců v tabulce metadat. Následuje aplikace \emph{množin změn}, kdy jsou dokončeny odložené operace. Obnova pokračuje volání \textbf{refresh} nad jednotlivými nosiči komponent, kterým je tímto umožněna reorganizace dat. Poslední částí je příprava obsahu \emph{skupin} pro příští fázi \emph{iterace}. Po dokončení obnovy je systém opět uveden do fáze \emph{iterace}.
 
 \chapter{Implementace}
-\todo{Shrnutí návrhu}
-\blind[2]
 
-\section{Použité knihovny a přenositelnost}
-\todo{zduvodneni pouziti c++ Zdůvodnění nepoužití knihoven. C++14, Linux, Windows. Header-only}
-\blind[2]
+Tato kapitola obsahuje popis implementace výše popsaného návrhu entitního systému, založeného na \emph{ECS} paradigmatu, přičemž jsou zde zmíněny pouze zajímavější implementační detaily. V první části je zdůvodněn výběr implementačního jazyka a použitých knihoven. Následují části zaměřené na jednotlivé podsystémy entitního systému -- \emph{komponenty}, \emph{entity} a \emph{systémy}. Závěr kapitoly je zaměřen na implementaci paralelního přístupu a \emph{obnovovací} fázi. Výsledným produktem této implementace je knihovna, která umožňuje práci s entitním systémem za využití \emph{ECS} paradigmatu. 
+
+Dosavadní návrh entitního systémy lze shrnout do tří částí. První z nich je správa komponent, kde komponenty jsou základní datové bloky, ze kterých se dále skládají entity. Komponenty jsou uchovávány v \emph{nosičích} komponent, které zprostředkovávají mapování entit na jejich komponenty. Druhou částí entitního systému jsou entity samotné. Entita je definována identifikátorem, který jednoznačně určuje danou entitu. Identifikátor je složen ze dvou částí -- index a generace. Poslední částí jsou \emph{systémy}, které provádějí akce nad entitami. \emph{Systém} je složen z definice entit, o které má zájem -- které komponenty entita má obsahovat -- a z akce, kterou nad vybranými entitami provádí. Součástí správy \emph{systémů} jsou také \emph{skupiny}, které operují jako vyrovnávací paměť a obsahují seznam entit pro daný \emph{systém}. 
+
+\section{Implementační nástroje a přenositelnost}
+
+Pro implementaci byl zvolen programovací jazyk \emph{C++} \cite{IsoCpp}, ve standardu \emph{C++14} \cite{Cpp14}. Jazyk \emph{C++} byl vybrán díky jeho dlouhodobému používání v herním průmyslu, jako primární implementační jazyk mnoha herních \emph{enginů}. Mezi jeho další výhody patří optimalizované překladače, nebo možnosti výběru z několika programovacích paradigmat. Jazyk byl použit ve standardu \emph{C++14}, který kromě ulehčení práce s typy obsahuje také možnosti použití \emph{šablon proměnných} (\emph{variable templates} \cite{Cpp14VarTemplate}). 
+
+Další důležitou vlastnosti, která byla zvážena při výběru implementačního jazyka, je přenositelnost vytvořené knihovny na různé hardwarové architektury a operační systémy. Díky standardu \emph{C++} je možné psát přenositelný kód, který je následně přeložen na specifické instrukce pro cílovou platformu a výsledné chování aplikace j stejné \footnote{Překlad knihovny byl testován za použití překladačů \emph{GCC}, \emph{Clang} a \emph{MSVC}, více ke specifikaci testovacích systémů lze najít v kapitole \ref{Chap:Results}.}. 
+
+Pro implementaci entitního systému byly použity pouze standardní knihovny jazyka \emph{C++}, čímž jsou zmírněny potenciální komplikace při používání výsledné knihovny. Při vývoji bylo také použito \emph{šablonového metaprogramování} \cite{CppMetaprogramming}, které umožňuje práci s typy.
 
 \section{Komponenty}
-\todo{Rekapitulace vlastností, které komponenta musi splnit. Registrace, generování identifikátorů. Uživatelské nosiče}
-\blind[3]
 
-Jelikož je metoda \textbf{getHolder} volána při každé operaci, která pracuje s komponenty, mělo by být mapování mezi typem komponent a jejich nosiči (skrz registr komponent) implementováno
+Komponenty lze definovat jako třídy (nebo struktury), pro která platí určitá omezení. Prvním z nich je požadavek, aby komponenta obsahovala pouze data, která lze kopírovat jako čistou paměť (\emph{POD}), jelikož volání konstruktorů a destruktorů není zaručeno. Komponenta může obsahovat konstruktory, které inicializují data na jejich požadovanou hodnotu, ale vždy musí existovat výchozí konstruktor \footnote{Konstruktor bez parametrů.}. Komponenty také mohou specifikovat, který nosič by měl být použit pro jejich uchovávání \footnote{Pokud není specifikován, je použit výchozí nosič.}. Typ nosiče je definován v zanořeném typu s názvem \textbf{HolderT}.
+
+Registrace komponent je prováděna pomocí statických šablon proměnných, kde pro každý typ komponent je vytvořena při překladu \footnote{Díky tomu, že jsou registry statické proměnné.} instance typu \textbf{ComponentRegister} (diagram na obr. \ref{Fig:DESCompDiag}). Tento registr obsahuje kromě informací o komponentě také instance jejího nosiče. Díky \emph{šablonovému metaprogramování} je možné přímé mapování komponenty na instanci jejího nosiče za překladu programu, což umožňuje překladači vyšší úroveň optimalizace.
+
+Knihovna obsahuje několik typů základních nosičů komponent. Prvním z nich je implementace využívající standardní mapu (\textbf{std::map}), která mapuje identifikátory entit přímo na instance jednotlivých komponent. Tento typ nosiče je výhodný pro komponenty, které nejsou příliš často používané. Dalším krokem je nosič, který obsahuje souvislé pole komponent a mapu, která umožňuje mapování identifikátoru entity na index do pole komponent. Tento nosič je výhodný v případech, kdy komponenty stále nejsou příliš časté, ale jsou zpracovávány v blocích. Poslední typ nosiče je implementován jako čisté pole komponent, kde je mapování prováděno přímou indexací, pomocí identifikátoru entity. Výhodou je konstantní složitost přístupu k jednotlivým komponentám, nevýhodou potom paměťová náročnost v případě, kdy daný komponent neobsahuje každá entita. 
+
+Uživatelům knihovny je umožněna implementace vlastních nosičů komponent, vytvořením vlastní třídy, která dědí ze základní třídy \textbf{BaseComponentHolder}. Jelikož informace, zda entita obsahuje daný komponent, je zpravována podsystémem entit, je velmi jednoduché implementovat např. nosič značek \footnote{Značka je komponent, který neobsahuje žádná data.}. 
 
 \section{Správa entit}
-\todo{Potřebné informace, implementace, datové struktury, optimalizace}
-\blind[3]
-identifikátor dočasných entit
+
+Entity jsou definované pomocí identifikátorů, složených ze dvou částí -- index a generace. Index určuje číslo řádku v tabulce entit a je také používán pro mapování komponent na entity. Generace určuje specifickou entitu, která \uv{obývá} daný řádek tabulky entit. Tento identifikátor je implementovaný jako třída \textbf{EntityId}, která, na rozdíl od návrhu, obsahuje pouze jedno číslo, rozdělené pomocí bitových operací do dvou částí (obr. \ref{Fig:IMPLIdent}). Ve výchozím nastavení knihovny je identifikátor reprezentován 32-bitovým číslem bez znaménka, indexová část zabírá 24 bitů a generace 8 bitů \footnote{Tato nastavení lze změnit v hlavičkovém souboru.}. Validní identifikátor obsahuje indexové číslo, které není rovné nule. Speciálním případem identifikátoru je identifikátor dočasné entity, jehož generační číslo je rovno maximální hodnotě (255 pro výchozí nastavení).
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=\linewidth]{BAC-IMPL1}}
+	\end{center}
+	\caption{Rozdělení identifikátoru entit na generaci a index.}
+	\label{Fig:IMPLIdent}
+\end{figure}
+
+Informace o entitách je uložena v tabulce entit, která obsahuje -- aktuální generaci, přítomnost komponentů, přítomnost entity ve skupinách, aktivitu a informaci o tom, zda je daný řádek použitý. Až na generaci lze všechny informace reprezentovat jedním bitem, který je vždy ve stavu '1' (\emph{true}) nebo '0' (\emph{false}). Jelikož standardní množina bitů (\textbf{std::bitset}) nezaručuje uložení bitů v souvislé paměti, vznikla za tímto účelem třída \textbf{InfoBitset}. Kromě souvislého uložení paměťových bloků, které obsahují jednotlivé bity, má \textbf{InfoBitset} další výhodu v tom, že výše zmíněné paměťové bloky jsou uloženy ve třídě samotné a tudíž je možné její instance přesouvat pomocí operací s pamětí (\emph{std::memcpy} atp.).
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=\linewidth]{BAC-IMPL2}}
+	\end{center}
+	\caption{Implementace tabulky metadat pomocí množin bitů \textbf{InfoBitset}. Tabulka obsahuje následující informace -- komponenty, skupiny, aktivitu, použití řádku a generaci. Z této množiny informací jsou všechny, až na generaci, reprezentovány pomocí množin bitů.}
+	\label{Fig:IMPLMetadata}
+\end{figure}
+
+Existují dva způsoby, jak organizovat jednotlivé bitové množiny -- horizontálně a vertikálně, ilustraci lze vidět na obr. \ref{Fig:IMPLMetadata}. Horizontální tabulka metadat obsahuje jednotlivé sloupce v bitech stejné množiny bitů, na rozdíl od vertikální tabulky metadat, kdy pro každý typ metadat (např. každý typ komponent) existuje oddělený sloupec množin bitů. 
+
+Mezi výhody horizontálního ukládání metadat patří jednodušší implementace a rychlejší filtrování \footnote{Filtrování je v tomto případě pouze bitová operace \emph{AND}.}. Velkou nevýhodou je však problematický paralelní přístup k jednotlivým bitům, jelikož není možné zaručit atomické bitové operace -- operace nad jedním bitem ovlivňují celý blok bitové paměti. 
+
+Vertikální metadata naopak umožňují paralelní přístup k odděleným sloupcům, díky čemuž je také použita ve finální implementaci této knihovny. Středem tabulky je třída \textbf{MetadataGroup}, která umožňuje udržovat skupinu sloupců metadat. Sloupce tabulky metadat jsou rozděleny do tří skupin -- komponenty, skupiny a ostatní. Skupina ostatních metadat obsahuje aktivitu entit a využitelnost řádku.
+
+Operace vytvoření entity je realizována přidáním řádku do tabulky entit, nebo, pokud je dostatek volný identifikátorů, použití již dříve vytvořeného řádku. Při operaci mazáni entit, je důležitou součástí inkrementace generačního čísla, které identifikuje jednotlivé entity, které existovaly na stejném řádku. Při recyklaci řádku má nově vytvořená entita stejný index, ale rozdílné generační číslo. Jelikož by při opakovaném vytváření a mazání stejných entit mohlo dojít k rychlému vyčerpání generačních čísel a jejich přetečení \footnote{Není samo o sobě chyba, ale je vhodné se vyhnout příliš vysoké frekvenci opakováni generačních čísel.}, je seznam volných řádků implementován jako oboustranná fronta.
 
 \section{Systémy a skupiny}
 \label{Chap:ImplSystem}
-\todo{Super třída, filtry, přístup - iterace. Přidání systému, volitelná skupina - added/removed.}
-\blind[3]
 
-Vime, ktere akce na entitach probihaji
-3-way merge group
+\emph{Systémy} jsou vytvářeny uživateli knihovny, děděním základní třídy \textbf{System}. Následně je nutné \emph{systém} přidat použitím metody \textbf{addSystem}, která také zaručí jeho inicializaci a přiřazení \emph{skupiny}. Instance daného \emph{systému} je spravována knihovnou samotnou.
+
+Definice požadovaných entit je přístupná uživateli skrz typové proměnné \textbf{Require} a \textbf{Reject}. Jejich výchozí hodnota je prázdná, což znamená, že \emph{systém} přijímá všechny (aktivní) entity. Požadovanou hodnotu lze specifikovat skrz pomocné seznamy typů následujícím způsobem: 
+
+\begin{lstlisting}[language=C++]
+	using Require = ent::Require<PositionC, MovementC>;
+	using Reject = ent::Reject<>;
+\end{lstlisting}
+
+\noindent kde \textbf{PositionC} a \textbf{MovementC} jsou požadované komponenty. \emph{Systémy} dále obsahují pomocné metody, které umožňují přístup k jednotlivým typům entitních seznamů -- přidané (\textbf{foreachAdded}), odebrané (\textbf{foreachRemoved}) a celý seznam (\textbf{foreach}). 
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=\linewidth]{BAC-IMPL3}}
+	\end{center}
+	\caption{Aktualizace seznamů \emph{skupin}.}
+	\label{Fig:IMPLMerge}
+\end{figure}
+
+Středem \emph{skupin} je třída \textbf{EntityGroup}, jejíž úkolem je udržování seznamů přidaných, odebraných a vyhovujících entit. Jelikož všechny operace musí procházet skrz rozhraní knihovny (\textbf{Universe}), je možné tvořit seznam entit, které se změnily. Během fáze \emph{obnovení} je seznam použit pro generování nových seznamů přidaných a odebraných entit, pro každou \emph{skupinu}. Operace synchronizace \emph{skupin} je dokončena tří-směrným sloučením seznamů přidaných, odebraných a aktuálních entit. Ilustraci tohoto postupu lze vidět na obr. \ref{Fig:IMPLMerge}.
 
 \section{Podpora paralelizmu}
 \todo{2 způsoby paralelizmu - dělení skupin, change-sety}
@@ -541,6 +597,12 @@ Vime, ktere akce na entitach probihaji
 \section{Obnovovací fáze}
 \todo{Pořadí refresh. Obnovení aktuality skupin.}
 \blind[2]
+
+Moznosti rozsireni? 
+dynamicke komponenty
+tvorba entit po vetsich mnozstvich
+volitelne pouziti skupin, aktivita entit
+Co neni hotove, potreba dodelat
 
 \chapter{Použití knihovny}
 
@@ -552,22 +614,26 @@ Vime, ktere akce na entitach probihaji
 \todo{Komponentní návrh}
 \blind[3]
 
+ukazka kodu
+
 \section{Zhodnocení}
 \todo{Výkon, návrh, jednoduchost}
 \blind[3]
 
 
 \chapter{Vyhodnocení}
+\label{Chap:Results}
 \todo{Shrnutí, popis co bude v této kapitole}
 \blind[1]
-
-\section{Testování knihovny}
-\todo{Unit testing, benchmarky}
-\blind[2]
 
 \section{Testované sestavy}
 \todo{Hardware sestavy - PC, notebook. Tabulka identifikace}
 \blind[1]
+prekladece, verze, flagy
+
+\section{Testování knihovny}
+\todo{Unit testing, benchmarky}
+\blind[2]
 
 \section{Výkonnostní testy}
 \todo{Výkon při různých zatíženích - procenta přidaných/odebraných. Grafy.}

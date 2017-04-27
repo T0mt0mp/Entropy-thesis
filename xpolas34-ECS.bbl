@@ -13,6 +13,14 @@
   navštíveno 20.04.2017].
 \newline\urlprefix\url{https://software.intel.com/sites/default/files/m/d/4/1/d/8/3-4-MemMgt_-_Avoiding_and_Identifying_False_Sharing_Among_Threads.pdf}
 
+\bibitem{Cpp14}
+{\it C++14 Language Extensions}. [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://isocpp.org/wiki/faq/cpp14-language}
+
+\bibitem{Cpp14VarTemplate}
+{\it C++14 Variable Templates}. [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://isocpp.org/wiki/faq/cpp14-language#variable-templates}
+
 \bibitem{CacheCoherence}
 {\it Cache Coherence}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://www.d.umn.edu/~gshute/arch/cache-coherence.xhtml}
@@ -20,6 +28,10 @@
 \bibitem{DataLocality}
 {\it Data Locality}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{http://docs.roguewave.com/threadspotter/2011.2/manual_html_linux/manual_html/ch_intro_locality.html}
+
+\bibitem{IsoCpp}
+{\it Domovská stránka ISO C++ standardu}. [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://isocpp.org/}
 
 \bibitem{CpuIpc}
 {\it Instruction scheduling}. [Online; navštíveno 14.04.2017].
@@ -78,6 +90,11 @@ Acton, M.: {\it Data-Oriented Design and C++}. 2014, [Online; navštíveno
   13.04.2017].
 \newline\urlprefix\url{https://www.youtube.com/watch?v=rX0ItVEVjHc}
 
+\bibitem{EntityX}
+Alec, T.: {\it EntityX - A fast, type-safe C++ Entity-Component system}.
+  [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://github.com/alecthomas/entityx/tree/master}
+
 \bibitem{ParallelGame}
 Andrews, J.: {\it Designing the Framework of a Parallel Game Engine}. 2015,
   [Online; navštíveno 20.04.2017].
@@ -87,6 +104,11 @@ Andrews, J.: {\it Designing the Framework of a Parallel Game Engine}. 2015,
 Blow, J.: {\it New programming language for games}. 2014, [Online; navštíveno
   19.04.2017].
 \newline\urlprefix\url{https://www.youtube.com/watch?v=TH9VCN6UkyQ}
+
+\bibitem{CppMetaprogramming}
+Dimov, P.: {\it Simple C++11 metaprogramming}. [Online; navštíveno
+  27.04.2017].
+\newline\urlprefix\url{http://www.pdimov.com/cpp2/simple_cxx11_metaprogramming.html}
 
 \bibitem{DODComponents}
 Fabian, R.: {\it Component Based Objects}. 2013, [Online; navštíveno
@@ -117,6 +139,16 @@ Marty, M. D. H. M.~R.: {\it Amdahl’s Law in the Multicore Era}. \emph{Cover
   Feature}, 2008: str.~6, [Online; navštíveno 20.04.2017].
 \newline\urlprefix\url{http://research.cs.wisc.edu/multifacet/papers/ieeecomputer08_amdahl_multicore.pdf}
 
+\bibitem{Anax}
+Miguel, M.: {\it Anax -- An open source C++ entity system}. [Online;
+  navštíveno 27.04.2017].
+\newline\urlprefix\url{https://github.com/miguelmartin75/anax/tree/master}
+
+\bibitem{ArtemisCpp}
+Nguyen, S.: {\it C++ port of Artemis Entity System Framework}. [Online;
+  navštíveno 27.04.2017].
+\newline\urlprefix\url{https://github.com/vinova/Artemis-Cpp/tree/master}
+
 \bibitem{FrontierThreads}
 Nicholson, B.: {\it Games: Playing with Threads}. [Online; navštíveno
   20.04.2017].
@@ -131,6 +163,14 @@ Norvig, P.: {\it Approximate timing for various operations on a typical PC}.
 Nystrom, R.: {\it Game Programming Patterns}, [Online; navštíveno
   12.04.2017].
 \newline\urlprefix\url{http://gameprogrammingpatterns.com/contents.html}
+
+\bibitem{ArtemisJava}
+Papari, A.: {\it Artemis ECS}. [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://github.com/junkdog/artemis-odb/tree/master}
+
+\bibitem{Ashley}
+Saltares, D.: {\it Ashley ECS}. [Online; navštíveno 27.04.2017].
+\newline\urlprefix\url{https://github.com/libgdx/ashley}
 
 \bibitem{Ps4Xbox}
 Shimp, A.~L.: {\it Xbox One: Hardware Analysis \& Comparison to Playstation 4}.
