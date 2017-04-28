@@ -591,18 +591,71 @@ Definice požadovaných entit je přístupná uživateli skrz typové proměnné
 Středem \emph{skupin} je třída \textbf{EntityGroup}, jejíž úkolem je udržování seznamů přidaných, odebraných a vyhovujících entit. Jelikož všechny operace musí procházet skrz rozhraní knihovny (\textbf{Universe}), je možné tvořit seznam entit, které se změnily. Během fáze \emph{obnovení} je seznam použit pro generování nových seznamů přidaných a odebraných entit, pro každou \emph{skupinu}. Operace synchronizace \emph{skupin} je dokončena tří-směrným sloučením seznamů přidaných, odebraných a aktuálních entit. Ilustraci tohoto postupu lze vidět na obr. \ref{Fig:IMPLMerge}.
 
 \section{Podpora paralelizmu}
-\todo{2 způsoby paralelizmu - dělení skupin, change-sety}
-\blind[3]
 
-\section{Obnovovací fáze}
-\todo{Pořadí refresh. Obnovení aktuality skupin.}
-\blind[2]
+Knihovna podporuje tři typy paralelního přístupu -- systémy, entity a \emph{množiny změn}. Pro paralelní zpracování několika systémů, které nepřistupují ke stejným komponentám, nebylo třeba příliš práce, díky způsobu, kterým je knihovna navržena a využití \emph{vertikální} tabulky metadat. Paralelizací na úrovni entit je myšleno rozdělení \emph{skupiny} entit jednoho \emph{systému} mezi několik vláken, které dané entity zpracovávají odděleně \footnote{Bez použití operací, které ovlivňují globální kontext -- odebírání komponent apod.}. Jelikož je tabulka metadat implementována pomocí \emph{bitových množin}, které nezaručují bezpečnost operací práce s bity, při přístupu z několika vláken zároveň, bylo třeba implementovat speciální typ \emph{iterátoru} -- třída \textbf{EntityListParallel}. Úkolem tohoto \emph{iterátoru} je rozdělení seznamu entit do daného množství (podle počtu vláken) podmnožin.
 
-Moznosti rozsireni? 
-dynamicke komponenty
-tvorba entit po vetsich mnozstvich
-volitelne pouziti skupin, aktivita entit
-Co neni hotove, potreba dodelat
+Při implementaci \emph{množin změn} vyvstaly problémy s typovým systémem jazyka \emph{C++}. Akce nad komponenty -- přidání, odebrání a změny hodnot -- vyžadovaly oddělené seznamy, které je možné uniformě aplikovat v \emph{obnovovací fázi}. Tento problém byl vyřešen využitím \emph{šablonového metaprogramování}, kde ve \emph{fázi registrace} jsou registrovány také instance třídy \textbf{ComponentExtractor}. Tato třída následně operuje jako most mezi třídou \textbf{ActionCache} a specifickými seznamy komponent.
+
+\section{Obnovení konzistence}
+
+Cílem \emph{obnovovací fáze} (\textbf{refresh}) je uvedení entitního systému konzistentního stavu a dokončení operací, které nemohly být provedeny při jeho aktivním používání. Základní postup obnovy lze vidět na alg. \ref{Alg:Refresh}. Zajímavou částí je obnova \emph{skupin}, která využívá seznamu změněných entit, díky kterému není třeba procházet všechny entity, ale pouze ty, které byly změněny od poslední obnovy konzistence. Tento seznam je tvořen při normálním používání entitního systému a při obnovovací fázi \emph{správy akcí}, kdy jsou aplikovány \emph{množiny změn}. Seznamy jsou implementovány jako seřazené pole identifikátorů entit, kdy každé vlákno, které pracuje s entitním systémem má tento seznam vlastní. Před předáním seznamu obnovovací funkci \emph{správy skupin}, je nutné ho vytvořit spojením seznamů jednotlivých vláken.
+
+\begin{algorithm}
+	\caption{Postup obnovení}
+	\label{Alg:Refresh}
+	
+	\begin{algorithmic}[1]
+		\algblock[EMBlock]{EMBlockStart}{EMBlockEnd}
+		\algtext{EMBlockStart}{\textbf{Obnova správy entit}}
+		\algtext*{EMBlockEnd}
+		\algblock[ACBlock]{ACBlockStart}{ACBlockEnd}
+		\algtext{ACBlockStart}{\textbf{Obnova správy akcí}}
+		\algtext*{ACBlockEnd}
+		\algblock[CMBlock]{CMBlockStart}{CMBlockEnd}
+		\algtext{CMBlockStart}{\textbf{Obnova správy komponent}}
+		\algtext*{CMBlockEnd}
+		\algblock[GMBlock]{GMBlockStart}{GMBlockEnd}
+		\algtext{GMBlockStart}{\textbf{Obnova správy skupin}}
+		\algtext*{GMBlockEnd}
+		
+		\Function{refresh}{}
+			\EMBlockStart
+				\State Finalizace přidání skupin
+			\EMBlockEnd
+			\ACBlockStart
+				\State Smazat označené entity
+				\State Přidat nové entity
+				\State Přidat/odebrat komponenty
+				\State Změna aktivity entit
+			\ACBlockEnd
+			\CMBlockStart
+				\State Obnova jednotlivých nosičů komponent
+			\CMBlockEnd
+			\GMBlockStart
+				\State Obnova skupin -- vyprázdnění seznamů přidaných a odebraných entit
+				\State Odebrání nepoužívaných skupin
+				\State Kontrola seznamu změněných entit a synchronizace skupin
+				\State Dokončení operace synchronizace skupin
+			\GMBlockEnd
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+\pagebreak
+\section{Možnosti rozšíření}
+
+Obsah kapitoly \uv{implementace} obsahuje stav knihovny, tak, jak byla odevzdána s touto technickou zprávou, i když již umožňuje všechny funkce popsané v kapitole \uv{návrh}, nelze ji považovat za dokončenou. Aktuální stav implementace lze nalézt v \emph{GIT repozitáři} \cite{EntropyGit}, pod jménem \uv{Entropy}. Následují možné směry, jak rozšířit a vylepšit tuto základní implementaci: 
+
+\begin{itemize}
+	\item \textbf{Vazba na vestavěné skriptovací jazyky} -- Umožnit přístup k entitnímu systému skrz některý z často používaných vestavěných skriptovacích jazyků -- např. \emph{LUA}. 
+	\item \textbf{Datově definované entity} -- Podpora definice entit a komponent v externích souborech (např. formátu \emph{JSON}) a možnosti serializace komponent.
+	\item \textbf{Dynamické komponenty} -- Díky způsobu implementace tabulky metadat je teoreticky možné přidávat nové typy komponent i za běhu aplikace. Spojení této vlastnosti s vazbou na skriptovací jazyk by umožnilo případným herním návrhářům větší volnost, bez nutnosti opakovaných úprav a následného překládání zdrojového kódu v jazyce \emph{C++}.
+	\item \textbf{Tvorba entit} -- Možnosti tvorby entit po blocích a specifikace identifikátoru vytvořené entity.
+	\item \textbf{Volitelné použití skupin} -- Pro \emph{skupiny}, které obsahují téměř všechny entity je výhodnější iterovat nad všemi entitami. 
+	\item \textbf{Skupiny pro neaktivní entity} -- \emph{Skupiny} již tuto vlastnost obsahují, ale pro tuto chvíli není možné specifikovat požadovanou aktivitu entit.
+	\item \textbf{Bezpečnost entit} -- Rozdělit entity na bezpečné a nebezpečné, kdy pro nebezpečné entity jsou provedeny kontroly při každém přístupu k entitnímu systému.
+	\item \textbf{Paralelizace obnovovací fáze} -- Jednotlivé akce, které jsou prováděny součástí obnovovací fáze lze paralelizovat, ale tato vlastnost zatím není implementována.
+\end{itemize}
 
 \chapter{Použití knihovny}
 

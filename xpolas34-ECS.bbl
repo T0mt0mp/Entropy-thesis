@@ -168,6 +168,11 @@ Nystrom, R.: {\it Game Programming Patterns}, [Online; navštíveno
 Papari, A.: {\it Artemis ECS}. [Online; navštíveno 27.04.2017].
 \newline\urlprefix\url{https://github.com/junkdog/artemis-odb/tree/master}
 
+\bibitem{EntropyGit}
+Polášek, T.: {\it Entropy -- Entity-Component-System library}. [Online;
+  navštíveno 28.04.2017].
+\newline\urlprefix\url{https://github.com/T0mt0mp/Entropy}
+
 \bibitem{Ashley}
 Saltares, D.: {\it Ashley ECS}. [Online; navštíveno 27.04.2017].
 \newline\urlprefix\url{https://github.com/libgdx/ashley}
