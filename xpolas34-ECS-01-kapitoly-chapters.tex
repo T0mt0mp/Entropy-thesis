@@ -676,13 +676,55 @@ ukazka kodu
 
 \chapter{Vyhodnocení}
 \label{Chap:Results}
-\todo{Shrnutí, popis co bude v této kapitole}
-\blind[1]
+
+Obsahem této kapitoly je vyhodnocení výsledné implementace z pohledy výkonosti a použitelnosti. Nejdříve je představena konfigurace systémů, na kterých byla testována a použitých překladačů. Následuje popis programů, které byly při testování použity a jejich výsledky. Na závěr je implementovaný entitní systém porovnán s podobnými \emph{open-source} knihovnami. 
 
 \section{Testované sestavy}
-\todo{Hardware sestavy - PC, notebook. Tabulka identifikace}
-\blind[1]
-prekladece, verze, flagy
+
+Součástí vývoje knihovny bylo prováděno její testování na konfiguracích uvedených v tabulce \ref{Tab:HW}. Překlad byl prováděn za použití nejvyšší úrovně optimalizace (\emph{-O3}, \emph{\O2}), použité překladače a jejich verze lze najít v tabulce \ref{Tab:Compiler}. 
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c | c |}
+			\hline
+			\textbf{ID} & \textbf{CPU} & \textbf{Operační paměť} \\
+			\hline
+			1 & Intel Core i7-4710HQ CPU @ 2.50\,GHz -- 4 cores (8 threads) & 8\,GB DDR3 @ 1600\,MHz \\
+			\hline
+			2 & Intel Core i5-4670K CPU @ 3.40\,GHz -- 4 cores (4 threads) & 24\,GB DDR3 @ 1600\,MHz \\
+			\hline
+		\end{tabular}\\[1em]
+		\begin{tabular}{| c | c |}
+			\hline
+			\textbf{ID} & \textbf{Operační systém} \\
+			\hline
+			1 & Linux x86\_64, Fedora 25 -- kernel 4.9.3-200.fc25.x86\_64 \\
+			\hline
+			2 & Windows x86\_64, Windows 10 Pro -- version 1607, OS build 14393.447 \\
+			\hline
+		\end{tabular}
+		\caption{Tabulka s testovanými hardwarovými konfiguracemi.}
+		\label{Tab:HW}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c | c |}
+			\hline
+			\textbf{ID} & \textbf{Překladač} & \textbf{Verze} \\
+			\hline
+			1 & GCC & 6.3.1 20161221 (Red Hat 6.3.1-1) \\
+			\hline
+			1 & Clang & 3.8.0 \\
+			\hline
+			2 & Microsoft C/C++ Optimizing Compiler & 19.10.24728 \\
+			\hline
+		\end{tabular}\\[1em]
+		\caption{Tabulka s testovanými překladači jazyka \emph{C++}.}
+		\label{Tab:Compiler}
+	\end{center}
+\end{table}
 
 \section{Testování knihovny}
 \todo{Unit testing, benchmarky}
