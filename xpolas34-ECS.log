@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  29 APR 2017 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  30 APR 2017 18:14
 entering extended mode
 **./xpolas34-ECS.tex
 (xpolas34-ECS.tex
@@ -1437,7 +1437,7 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 \@vyskaobr=\skip105
 \@sirkaobr=\skip106
 
-<template-fig/VUT_symbol_barevne_CMYK_CZ.pdf, id=156, 167.13641pt x 165.87971pt
+<template-fig/VUT_symbol_barevne_CMYK_CZ.pdf, id=152, 167.13641pt x 165.87971pt
 >
 File: template-fig/VUT_symbol_barevne_CMYK_CZ.pdf Graphic file (type pdf)
  <use template-fig/VUT_symbol_barevne_CMYK_CZ.pdf>
@@ -1474,7 +1474,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ...7}Z\IeC {\'a}v\IeC {\v e}r}{46}{chapter.7}
+l.39 ...7}Z\IeC {\'a}v\IeC {\v e}r}{48}{chapter.7}
                                                    [1
 
 
@@ -1531,7 +1531,7 @@ e 66.
 
 [4
 
-] <figures/BAC-DOD1.pdf, id=282, 462.72874pt x 238.8925pt>
+] <figures/BAC-DOD1.pdf, id=277, 462.72874pt x 238.8925pt>
 File: figures/BAC-DOD1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOD1.pdf>
@@ -1542,7 +1542,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 86--87
 [][] 
  []
 
-[5] <figures/BAC-OOP1.pdf, id=307, 743.77875pt x 362.35374pt>
+[5] <figures/BAC-OOP1.pdf, id=302, 743.77875pt x 362.35374pt>
 File: figures/BAC-OOP1.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP1.pdf>
@@ -1554,7 +1554,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 108--109
  []
 
 [6 <./figures/BAC-DOD1.pdf>]
-<figures/BAC-OOP2.pdf, id=322, 442.65375pt x 323.2075pt>
+<figures/BAC-OOP2.pdf, id=317, 442.65375pt x 323.2075pt>
 File: figures/BAC-OOP2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP2.pdf>
@@ -1565,7 +1565,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 118--119
 [][] 
  []
 
-<figures/BAC-OOP3.pdf, id=326, 377.41pt x 182.6825pt>
+<figures/BAC-OOP3.pdf, id=321, 377.41pt x 182.6825pt>
 File: figures/BAC-OOP3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP3.pdf>
@@ -1577,7 +1577,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 126--127
  []
 
 [7 <./figures/BAC-OOP1.pdf>] [8 <./figures/BAC-OOP2.pdf> <./figures/BAC-OOP3.pd
-f>] <figures/BAC-OOC1_1.pdf, id=354, 502.87875pt x 401.5pt>
+f>] <figures/BAC-OOC1_1.pdf, id=349, 502.87875pt x 401.5pt>
 File: figures/BAC-OOC1_1.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC1_1.pdf>
@@ -1588,7 +1588,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 161--162
 [][] 
  []
 
-<figures/BAC-OOC1_2.pdf, id=356, 462.72874pt x 246.9225pt>
+<figures/BAC-OOC1_2.pdf, id=351, 462.72874pt x 246.9225pt>
 File: figures/BAC-OOC1_2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC1_2.pdf>
@@ -1599,7 +1599,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 169--170
 [][] 
  []
 
-<figures/BAC-OOC2.pdf, id=359, 522.95375pt x 283.0575pt>
+<figures/BAC-OOC2.pdf, id=354, 522.95375pt x 283.0575pt>
 File: figures/BAC-OOC2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC2.pdf>
@@ -1611,7 +1611,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 177--178
  []
 
 [9] [10 <./figures/BAC-OOC1_1.pdf>] [11 <./figures/BAC-OOC1_2.pdf> <./figures/B
-AC-OOC2.pdf>] <figures/BAC-OOC3.pdf, id=391, 416.55624pt x 82.3075pt>
+AC-OOC2.pdf>] <figures/BAC-OOC3.pdf, id=386, 416.55624pt x 82.3075pt>
 File: figures/BAC-OOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC3.pdf>
@@ -1623,7 +1623,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 187--188
  []
 
 [12 <./figures/BAC-OOC3.pdf>]
-<figures/BAC-DOC1_1.pdf, id=409, 502.87875pt x 383.4325pt>
+<figures/BAC-DOC1_1.pdf, id=404, 502.87875pt x 383.4325pt>
 File: figures/BAC-DOC1_1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC1_1.pdf>
@@ -1634,7 +1634,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 218--219
 [][] 
  []
 
-<figures/BAC-DOC2.pdf, id=413, 362.35374pt x 303.1325pt>
+<figures/BAC-DOC2.pdf, id=408, 362.35374pt x 303.1325pt>
 File: figures/BAC-DOC2.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC2.pdf>
@@ -1645,7 +1645,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 226--227
 [][] 
  []
 
-<figures/BAC-DOC3.pdf, id=415, 416.55624pt x 82.3075pt>
+<figures/BAC-DOC3.pdf, id=410, 416.55624pt x 82.3075pt>
 File: figures/BAC-DOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC3.pdf>
@@ -1657,7 +1657,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 234--235
  []
 
 [13 <./figures/BAC-DOC1_1.pdf>] [14 <./figures/BAC-DOC2.pdf>] [15 <./figures/BA
-C-DOC3.pdf>] <figures/BAC-ECS1.pdf, id=461, 412.54124pt x 222.8325pt>
+C-DOC3.pdf>] <figures/BAC-ECS1.pdf, id=456, 412.54124pt x 222.8325pt>
 File: figures/BAC-ECS1.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS1.pdf>
@@ -1668,7 +1668,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 283--284
 [][] 
  []
 
-<figures/BAC-ECS2.pdf, id=465, 382.42876pt x 222.8325pt>
+<figures/BAC-ECS2.pdf, id=460, 382.42876pt x 222.8325pt>
 File: figures/BAC-ECS2.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS2.pdf>
@@ -1679,7 +1679,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 293--294
 [][] 
  []
 
-<figures/BAC-ECS3.pdf, id=466, 322.20375pt x 102.3825pt>
+<figures/BAC-ECS3.pdf, id=461, 322.20375pt x 102.3825pt>
 File: figures/BAC-ECS3.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS3.pdf>
@@ -1691,7 +1691,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 298--299
  []
 
 [16] [17 <./figures/BAC-ECS1.pdf> <./figures/BAC-ECS2.pdf>] [18 <./figures/BAC-
-ECS3.pdf>] <figures/BAC-PAR0.pdf, id=519, 282.05376pt x 202.7575pt>
+ECS3.pdf>] <figures/BAC-PAR0.pdf, id=514, 282.05376pt x 202.7575pt>
 File: figures/BAC-PAR0.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR0.pdf>
@@ -1703,7 +1703,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 323--324
  []
 
 [19 <./figures/BAC-PAR0.pdf>]
-<figures/BAC-PAR1.pdf, id=541, 543.02875pt x 238.8925pt>
+<figures/BAC-PAR1.pdf, id=536, 543.02875pt x 238.8925pt>
 File: figures/BAC-PAR1.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR1.pdf>
@@ -1714,7 +1714,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 331--332
 [][] 
  []
 
-<figures/BAC-PAR2.pdf, id=543, 290.08376pt x 238.8925pt>
+<figures/BAC-PAR2.pdf, id=538, 290.08376pt x 238.8925pt>
 File: figures/BAC-PAR2.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR2.pdf>
@@ -1727,7 +1727,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 337--338
 
 [20 <./figures/BAC-PAR1.pdf>] [21 <./figures/BAC-PAR2.pdf>]
 Kapitola 3.
-<figures/BAC-DES1.pdf, id=570, 452.69125pt x 202.7575pt>
+<figures/BAC-DES1.pdf, id=565, 452.69125pt x 202.7575pt>
 File: figures/BAC-DES1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES1.pdf>
@@ -1741,7 +1741,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 355--356
 [22
 
  <./figures/BAC-DES1.pdf>]
-<figures/BAC-DES2.pdf, id=588, 673.51625pt x 192.72pt>
+<figures/BAC-DES2.pdf, id=583, 673.51625pt x 192.72pt>
 File: figures/BAC-DES2.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES2.pdf>
@@ -1752,7 +1752,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 363--364
 [][] 
  []
 
-<figures/BAC-DES5.pdf, id=593, 543.02875pt x 403.5075pt>
+<figures/BAC-DES5.pdf, id=588, 543.02875pt x 403.5075pt>
 File: figures/BAC-DES5.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES5.pdf>
@@ -1764,7 +1764,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 377--378
  []
 
 [23 <./figures/BAC-DES2.pdf>]
-<figures/BAC-DES8.pdf, id=609, 553.06625pt x 283.0575pt>
+<figures/BAC-DES8.pdf, id=604, 553.06625pt x 283.0575pt>
 File: figures/BAC-DES8.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES8.pdf>
@@ -1776,7 +1776,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 387--388
  []
 
 [24 <./figures/BAC-DES5.pdf>]
-<figures/BAC-DES6.pdf, id=622, 773.89125pt x 413.545pt>
+<figures/BAC-DES6.pdf, id=617, 773.89125pt x 413.545pt>
 File: figures/BAC-DES6.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES6.pdf>
@@ -1788,7 +1788,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 401--402
  []
 
 [25 <./figures/BAC-DES8.pdf>]
-<figures/BAC-DES11.pdf, id=636, 315.1775pt x 122.4575pt>
+<figures/BAC-DES11.pdf, id=631, 315.1775pt x 122.4575pt>
 File: figures/BAC-DES11.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES11.pdf>
@@ -1799,7 +1799,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 417--418
 [][] 
  []
 
-<figures/BAC-DES10.pdf, id=637, 362.35374pt x 283.0575pt>
+<figures/BAC-DES10.pdf, id=632, 362.35374pt x 283.0575pt>
 File: figures/BAC-DES10.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES10.pdf>
@@ -1807,21 +1807,21 @@ Package pdftex.def Info: figures/BAC-DES10.pdf used on input line 428.
 (pdftex.def)             Requested size: 259.49171pt x 202.7085pt.
  [26 <./figures/BAC-DES6.pdf>] [27 <./figures/BAC-DES11.pdf> <./figures/BAC-DES
 10.pdf>]
-<figures/BAC-DES3.pdf, id=663, 472.76625pt x 353.32pt>
+<figures/BAC-DES3.pdf, id=658, 472.76625pt x 353.32pt>
 File: figures/BAC-DES3.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES3.pdf>
 Package pdftex.def Info: figures/BAC-DES3.pdf used on input line 446.
 (pdftex.def)             Requested size: 302.73593pt x 226.25342pt.
 
-<figures/BAC-DES4.pdf, id=665, 452.69125pt x 443.6575pt>
+<figures/BAC-DES4.pdf, id=660, 452.69125pt x 443.6575pt>
 File: figures/BAC-DES4.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES4.pdf>
 Package pdftex.def Info: figures/BAC-DES4.pdf used on input line 455.
 (pdftex.def)             Requested size: 302.73593pt x 296.69386pt.
  [28 <./figures/BAC-DES3.pdf>] [29 <./figures/BAC-DES4.pdf>] <figures/BAC-DES7.
-pdf, id=691, 824.07875pt x 393.47pt>
+pdf, id=686, 824.07875pt x 393.47pt>
 File: figures/BAC-DES7.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES7.pdf>
@@ -1840,7 +1840,7 @@ kátní. Dále umoº-¬uje také po-tvr-zení (\T1/lmr/bx/n/10.95 commitSC\T1/lmr/m/n/
  []
 
 [30 <./figures/BAC-DES7.pdf>]
-<figures/BAC-DES9.pdf, id=706, 524.96124pt x 273.02pt>
+<figures/BAC-DES9.pdf, id=701, 524.96124pt x 273.02pt>
 File: figures/BAC-DES9.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES9.pdf>
@@ -1850,7 +1850,7 @@ Package pdftex.def Info: figures/BAC-DES9.pdf used on input line 503.
 Kapitola 4.
 [33
 
-] <figures/BAC-IMPL1.pdf, id=744, 302.12875pt x 62.2325pt>
+] <figures/BAC-IMPL1.pdf, id=739, 302.12875pt x 62.2325pt>
 File: figures/BAC-IMPL1.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL1.pdf>
@@ -1861,7 +1861,7 @@ Overfull \hbox (0.81pt too wide) in paragraph at lines 545--546
  [] 
  []
 
-[34] <figures/BAC-IMPL2.pdf, id=757, 402.50375pt x 142.5325pt>
+[34] <figures/BAC-IMPL2.pdf, id=752, 402.50375pt x 142.5325pt>
 File: figures/BAC-IMPL2.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL2.pdf>
@@ -1882,7 +1882,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-<figures/BAC-IMPL3.pdf, id=773, 352.31625pt x 232.87pt>
+<figures/BAC-IMPL3.pdf, id=768, 352.31625pt x 232.87pt>
 File: figures/BAC-IMPL3.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL3.pdf>
@@ -1946,156 +1946,165 @@ Package blindtext Warning: czech not defined, using English instead.
 [41]
 Kapitola 6.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 680.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 680.
-
-
-Overfull \hbox (36.16833pt too wide) in paragraph at lines 690--698
+Overfull \hbox (36.16833pt too wide) in paragraph at lines 688--696
  [] 
  []
 
 [42
 
 ]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 752.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 733.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<figures/entityCreationGraph.pdf, id=829, 505.89pt x 505.89pt>
+File: figures/entityCreationGraph.pdf Graphic file (type pdf)
 
+<use figures/entityCreationGraph.pdf>
+Package pdftex.def Info: figures/entityCreationGraph.pdf used on input line 756
+.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
+ [43]
+<figures/movementSystemGraph.pdf, id=838, 505.89pt x 505.89pt>
+File: figures/movementSystemGraph.pdf Graphic file (type pdf)
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 733.
+<use figures/movementSystemGraph.pdf>
+Package pdftex.def Info: figures/movementSystemGraph.pdf used on input line 766
+.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
+ [44 <./figures/entityCreationGraph.pdf> <./figures/movementSystemGraph.pdf>]
+<figures/advancedMovementSystemLowGraph.pdf, id=860, 505.89pt x 505.89pt>
+File: figures/advancedMovementSystemLowGraph.pdf Graphic file (type pdf)
 
+<use figures/advancedMovementSystemLowGraph.pdf>
+Package pdftex.def Info: figures/advancedMovementSystemLowGraph.pdf used on inp
+ut line 776.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 733.
+<figures/advancedMovementSystemHighGraph.pdf, id=861, 505.89pt x 505.89pt>
+File: figures/advancedMovementSystemHighGraph.pdf Graphic file (type pdf)
 
+<use figures/advancedMovementSystemHighGraph.pdf>
+Package pdftex.def Info: figures/advancedMovementSystemHighGraph.pdf used on in
+put line 777.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 737.
+<figures/holdersS.pdf, id=864, 505.89pt x 505.89pt>
+File: figures/holdersS.pdf Graphic file (type pdf)
+ <use figures/holdersS.pdf>
+Package pdftex.def Info: figures/holdersS.pdf used on input line 787.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
+<figures/holdersM.pdf, id=865, 505.89pt x 505.89pt>
+File: figures/holdersM.pdf Graphic file (type pdf)
+ <use figures/holdersM.pdf>
+Package pdftex.def Info: figures/holdersM.pdf used on input line 788.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 737.
+<figures/holdersL.pdf, id=866, 505.89pt x 505.89pt>
+File: figures/holdersL.pdf Graphic file (type pdf)
+ <use figures/holdersL.pdf>
+Package pdftex.def Info: figures/holdersL.pdf used on input line 789.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
+<figures/holdersRS.pdf, id=867, 505.89pt x 505.89pt>
+File: figures/holdersRS.pdf Graphic file (type pdf)
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 739.
+<use figures/holdersRS.pdf>
+Package pdftex.def Info: figures/holdersRS.pdf used on input line 790.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
+<figures/holdersRM.pdf, id=868, 505.89pt x 505.89pt>
+File: figures/holdersRM.pdf Graphic file (type pdf)
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 739.
+<use figures/holdersRM.pdf>
+Package pdftex.def Info: figures/holdersRM.pdf used on input line 791.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-[43]
+<figures/holdersRL.pdf, id=869, 505.89pt x 505.89pt>
+File: figures/holdersRL.pdf Graphic file (type pdf)
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 741.
+<use figures/holdersRL.pdf>
+Package pdftex.def Info: figures/holdersRL.pdf used on input line 792.
+(pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
+ [45 <./figures/advancedMovementSystemLowGraph.pdf> <./figures/advancedMovement
+SystemHighGraph.pdf>]
+<figures/entityParallelGraph.pdf, id=891, 505.89pt x 505.89pt>
+File: figures/entityParallelGraph.pdf Graphic file (type pdf)
 
+<use figures/entityParallelGraph.pdf>
+Package pdftex.def Info: figures/entityParallelGraph.pdf used on input line 802
+.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 741.
+<figures/entityChangesetGraph.pdf, id=892, 505.89pt x 505.89pt>
+File: figures/entityChangesetGraph.pdf Graphic file (type pdf)
 
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 745.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 745.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 745.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 749.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 749.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 749.
-
-[44]
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 753.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 753.
-
-
-Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 753.
-
-[45]
+<use figures/entityChangesetGraph.pdf>
+Package pdftex.def Info: figures/entityChangesetGraph.pdf used on input line 80
+3.
+(pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
+ [46 <./figures/holdersS.pdf> <./figures/holdersM.pdf> <./figures/holdersL.pdf>
+ <./figures/holdersRS.pdf> <./figures/holdersRM.pdf> <./figures/holdersRL.pdf>]
+ [47 <./figures/entityParallelGraph.pdf> <./figures/entityChangesetGraph.pdf>]
 Kapitola 7.
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 758.
+(blindtext)                 on input line 813.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 758.
+(blindtext)                 on input line 813.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 760.
+(blindtext)                 on input line 815.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 760.
+(blindtext)                 on input line 815.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 762.
+(blindtext)                 on input line 817.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 762.
+(blindtext)                 on input line 817.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 764.
+(blindtext)                 on input line 819.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 764.
+(blindtext)                 on input line 819.
 
-[46
+[48
 
 ]
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 766.
+(blindtext)                 on input line 821.
 
 
 Package blindtext Warning: czech not defined, using English instead.
-(blindtext)                 on input line 766.
+(blindtext)                 on input line 821.
 
-) (xpolas34-ECS.bbl [47]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 14.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [48
+) (xpolas34-ECS.bbl [49] [50
 
 ]
 LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 84.
- [49]) [50] [51
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 89.
+ [51]) [52] [53
 
 ]
 \c@ttl@toc@chapters=\count332
- (xpolas34-ECS-30-prilohy-appendices.tex
+
+(xpolas34-ECS-30-prilohy-appendices.tex
 P\IeC {\v r}\IeC {\'\i }loha A.
-[52
+[54
 
 ]
 P\IeC {\v r}\IeC {\'\i }loha B.
@@ -2104,7 +2113,7 @@ P\IeC {\v r}\IeC {\'\i }loha B.
 \openout5 = `xpolas34-ECS.ptc'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 280.
- [53
+ [55
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
@@ -2112,7 +2121,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 280.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 280.
 Package rerunfilecheck Info: File `xpolas34-ECS.out' has not changed.
-(rerunfilecheck)             Checksum: 41ED59A10BBE0B7CCA51828EB7D06C7F;5466.
+(rerunfilecheck)             Checksum: EDEC3438A88CEAFD7711DEFEEE5ABD9E;5359.
 
 
 LaTeX Warning: There were undefined references.
@@ -2123,10 +2132,10 @@ LaTeX Warning: There were undefined references.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24723 strings out of 493333
- 400882 string characters out of 3139188
- 508373 words of memory out of 3000000
- 27601 multiletter control sequences out of 15000+200000
+ 24796 strings out of 493333
+ 402821 string characters out of 3139188
+ 507852 words of memory out of 3000000
+ 27654 multiletter control sequences out of 15000+200000
  127020 words of font info for 97 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,60p,10410b,3646s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2149,9 +2158,9 @@ r9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmtt10.pfb>
-Output written on xpolas34-ECS.pdf (56 pages, 2453656 bytes).
+Output written on xpolas34-ECS.pdf (58 pages, 2524934 bytes).
 PDF statistics:
- 1037 PDF objects out of 1200 (max. 8388607)
- 220 named destinations out of 1000 (max. 500000)
- 491 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1162 PDF objects out of 1200 (max. 8388607)
+ 228 named destinations out of 1000 (max. 500000)
+ 543 words of extra memory for PDF output out of 10000 (max. 10000000)
 

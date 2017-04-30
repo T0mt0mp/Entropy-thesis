@@ -324,4 +324,10 @@
   url    = {https://github.com/T0mt0mp/Entropy},
 }
 
+@Misc{RHome,
+  title = {{\it The R Project for Statistical Computing}},
+  note  = {[Online; navštíveno 28.04.2017]},
+  url   = {https://www.r-project.org/},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

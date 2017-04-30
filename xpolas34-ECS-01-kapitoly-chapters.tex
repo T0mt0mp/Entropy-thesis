@@ -677,7 +677,7 @@ ukazka kodu
 \chapter{Vyhodnocení}
 \label{Chap:Results}
 
-Obsahem této kapitoly je vyhodnocení výsledné implementace z pohledy výkonosti a použitelnosti. Nejdříve je představena konfigurace systémů, na kterých byla testována a použitých překladačů. Následuje popis programů, které byly při testování použity a jejich výsledky. Na závěr je implementovaný entitní systém porovnán s podobnými \emph{open-source} knihovnami. 
+Obsahem této kapitoly je vyhodnocení výsledné implementace z pohledy výkonosti a použitelnosti. První část představuje hardwarové a softwarové konfigurace systémů, na kterých bylo prováděno testování. Následuje popis použitých nástrojů, použitých ve vyhodnocení a jejich výsledků. Poslední část obsahuje porovnání implementace představené v této práci s podobnými volně dostupnými knihovnami.
 
 \section{Testované sestavy}
 
@@ -716,40 +716,97 @@ Součástí vývoje knihovny bylo prováděno její testování na konfiguracíc
 			\hline
 			1 & GCC & 6.3.1 20161221 (Red Hat 6.3.1-1) \\
 			\hline
-			1 & Clang & 3.8.0 \\
+			1 & Clang & 3.9.1 \\
 			\hline
 			2 & Microsoft C/C++ Optimizing Compiler & 19.10.24728 \\
 			\hline
 		\end{tabular}\\[1em]
-		\caption{Tabulka s testovanými překladači jazyka \emph{C++}.}
+		\caption{Tabulka s testovanými překladači jazyka \emph{C++}. \textbf{ID} obsahuje identifikátor z tab. \ref{Tab:HW}.}
 		\label{Tab:Compiler}
 	\end{center}
 \end{table}
 
 \section{Testování knihovny}
-\todo{Unit testing, benchmarky}
-\blind[2]
+
+Důležitou součástí vývoje bylo testování knihovny pomocí metody \emph{unit testing}. Pro tento účel je využito jednoduché knihovny v jazyce \emph{C++} \footnote{Tato knihovna byla vytvořena autorem této práce a není jiným způsobem zveřejněna.}, která umožňuje psát testy přímo ve zdrojovém kódu. Kromě testování bylo také prováděno profilování různých částí knihovny, kvůli možným optimalizacím, k čemuž bylo opět využita výše zmíněná knihovna. 
+
+Kromě nástrojů zabudovaných přímo do zdrojového kódu byly také použity externí aplikace : 
+\begin{itemize}
+	\item \textbf{GDB -- GNU Debugger}
+	\item \textbf{Valgrind} -- Primárně moduly -- \emph{callgrind}, \emph{cachegrind}, \emph{helgrind} a \emph{massif}.
+	\item \textbf{ms\_print}
+	\item \textbf{KCachegrind}
+\end{itemize}
 
 \section{Výkonnostní testy}
-\todo{Výkon při různých zatíženích - procenta přidaných/odebraných. Grafy.}
-\blind[1]
-\todo{Porovnání nosičů komponent. Grafy.}
-\blind[1]
-\todo{Seriové vs paralelní - počet vláken. Grafy.}
-\blind[1]
 
-\section{Porovnání}
-\todo{Výkonostní porovnání oproti jiným ECS knihovnám, Unity? Grafy.}
-\blind[2]
+Tato část obsahuje výsledky výkonnostních testů spuštěných ná výše popsané implementaci entitního systému. Hlavním cílem je předvést co knihovna aktuální implementace knihovny zvládá a jak porovnat ji s jinými implementacemi entitních systémů založených na \emph{ECS}. Kromě výkonosti implementace jsou zde také ukázány vlastnosti, které pramení z návrhu systému, jako např. časová složitost jednotlivých operací.
 
-\subsection{Implementace}
-\todo{Použité knihovny, základní popis implementace}
-\blind[2]
+Kromě implementace, který navrhuje tato práce (nazvaná \textbf{Entropy}), jsou zde také ukázány jiné \emph{open-source} knihovny, nad kterými jsou taktéž provedeny testy. Mezi testované knihovny patří:
+\begin{itemize}
+	\item \textbf{Anax} \cite{Anax} -- Jako jediná z ostatních knihoven používá podobný koncept \emph{skupin}, jako \textbf{Entropy}.
+	\item \textbf{ArtemisCpp} \cite{ArtemisCpp} -- Implementace knihovny \textbf{Artemis} \cite{ArtemisJava} v jazyce \emph{C++}.
+	\item \textbf{EntityX} \cite{EntityX} -- Obsahuje i pokročilejší funkce, např. systém událostí. Z těchto knihoven je \textbf{EntityX} nejvíce dokončená a optimalizovaná.
+\end{itemize}
 
-\subsection{Výsledek}
-\todo{Poznatky a výsledky získané ze hry. Grafy?}
-\blind[2]
+Všechny testy a výsledky, které jsou zobrazeny v této sekci byly provedeny na hardwarové konfiguraci č. \emph{1} \ref{Tab:HW}. Zdrojové kódy, knihoven i testovaných bloků, byly přeloženy pomocí překladače \emph{GCC} \ref{Tab:Compiler}, s parametry \texttt{-std=c++1z -O3}. Jednotlivé testovací scénáře byly následně spouštěny po uzamčení procesoru do módu nejvyššího výkonu, spolu s příkazem \texttt{nice -20}. Výsledná data byla zpracována aplikací \emph{R} \cite{RHome}, jejíž výstupem jsou prezentované grafy.
 
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{entityCreationGraph}}
+	\end{center}
+	\caption{Graf výsledků pro přidání určitého počtu entit.}
+	\label{Fig:EVALEntity}
+\end{figure}
+
+Obsahem prvního scénáře je tvorba určitého počtu entit, výsledný graf lze najít na obr. \ref{Fig:EVALEntity}. Hodnota na ose Y určuje počet nanosekund, kolik trvá provedení jedné operace -- přidání entity a dvou komponent. Z průběhu grafu lze určit, že počet přidaných entit nezvyšuje čas potřebný k přidání dalších entit. Toto umožňuje entitnímu systému obsahovat vysoké množství entit, bez omezení rychlosti vykonávání následujících akcí. Jelikož mají všechny knihovny podobné chování, rozdílem jsou zde pouze konstantní faktory.
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{movementSystemGraph}}
+	\end{center}
+	\caption{Jednoduchá iterace pohybového \emph{systému}.}
+	\label{Fig:EVALMovSys}
+\end{figure}
+
+Předmětem druhého scénáře je již reálnější případ použití entitního systému -- pohyb entit. V tomto případě jsou použity dva typy komponent -- pozice a rychlost -- kde každá z nich obsahuje dvě pole (X a Y). Dále případ obsahuje \emph{systém}, jehož úkolem je iterace nad entitami, které obsahují oba dva typy komponent a následný posun entity o její rychlost. V první části je vytvořeno $10\,000$ entit, ze kterých pouze určený počet (na ose X) má přiřazeno požadované komponenty. Následuje měřená část, kdy systém prochází vyhovující entity, nad kterými provádí pohybovou akci. Výsledný graf lze najít na obr. \ref{Fig:EVALMovSys}, osa Y obsahuje čas na jednu iteraci systému.
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{advancedMovementSystemLowGraph}}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{advancedMovementSystemHighGraph}}
+	\end{center}
+	\caption{Iterace s daným procentem měnících se komponent.}
+	\label{Fig:EVALAdvMovSys}
+\end{figure}
+
+Následující testovací scénář porovnává, jakým způsobem se jednotlivé implementace chovají, v případě, kdy entity mohou měnit svou množinu komponent. Základní strategie je podobná, jako v případě pohybového systému, ale nyní existují dva \emph{systémy}. První z nich je stejný, jako v prvním případě. Druhý iteruje nad všemi entitami a náhodně přidává/odebírá komponenty, čímž se množina entit, nad kterou první systém iteruje, mění. Pravděpodobnost, že \emph{systém} změní entitu, je zobrazena na ose X, osa Y opět obsahuje čas, který průměrně trvá jedna iterace. Výsledné grafy -- nižší a  vyšší pravděpodobnosti -- lze najít na obr. \ref{Fig:EVALAdvMovSys}. V tomto případě je knihovna \textbf{Entropy}, výhodná až do určité hranice \footnote{Tuto hranici lze posouvat vylepšením implementace a optimalizací.}, kdy je režie práce se \emph{skupinami} vyšší, než jejich výkoností zisk. Knihovny, které nepoužívají \emph{skupiny} musí iterovat nad všemi entitami, čímž jejich průběhy získávají lineární charakter.
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersS}}
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersM}} 
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersL}} \\
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRS}}
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRM}} 
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRL}}
+	\end{center}
+	\caption{Porovnání nosičů komponent pro komponenty různých velikostí.}
+	\label{Fig:EVALHolders}
+\end{figure}
+
+Dalším testovaným aspektem výsledné knihovny je porovnání různých typů \emph{nosičů komponent}. Test je založen na přidání daného počtu entit (na ose X) a každé entitě je přidán jedna komponenta. Každý nosič je testován se třemi typy komponent -- malé (16 bytů), střední (64 bytů) a velké (128 bytů). Následuje cyklus, kdy je přistoupeno k vytvořeným komponentám. Grafickou reprezentaci získaných dat lze vidět na grafech na obr. \ref{Fig:EVALHolders}, přičemž první řada grafů reprezentuje sekvenční přístup ke komponentám a druhá náhodný přístup. 
+
+\begin{figure}[H]
+	\begin{center}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{entityParallelGraph}}
+		\tmpframe{\includegraphics[width=0.49\linewidth]{entityChangesetGraph}}
+	\end{center}
+	\caption{Paralelní použití knihovny s daným počtem vláken.}
+	\label{Fig:EVALPar}
+\end{figure}
+
+Cílem závěrečného scénáře je otestovat, jak výhodné je použití několika vláken při přístupu k entitnímu systému. Testovaný systém operuje podobným způsobem, jako v případě pohybového systému. V první části je vytvořeno $10\,000$ entit, kde každé z nich jsou přiřazeny dvě komponenty -- pozice a rychlost. Cílem výpočetního \emph{systému} je pohyb všech entit, přičtením rychlosti k jednotlivým složkám komponenty pozice. Výsledné grafy lze vidět na obr. \ref{Fig:EVALPar}. V prvním případě je celková množina entit rozdělena mezi jednotlivá vlákna, naproti ve druhém případě jsou použity \emph{množiny změn}. Průběhy potvrzují, že více vláken pomáhá k dřívějšímu dokončení výpočtu. Dále je možné určit počet vláken, od kterého již nedochází k zlepšení -- v tomto případě 7-8 vláken \footnote{Procesor, na kterém byly tyto testo prováděny, obsahuje 4 jádra a 8 vláken.} -- nicméně relativní zlepšení se snižuje s každým přidaným vláknem.
 
 \chapter{Závěr}
 \todo{Využití komponentních systémů a aktuální stav} 

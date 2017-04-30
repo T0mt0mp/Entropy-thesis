@@ -53,6 +53,11 @@
 {\it Task-Based Programming}. [Online; navštíveno 20.04.2017].
 \newline\urlprefix\url{https://software.intel.com/en-us/node/506100}
 
+\bibitem{RHome}
+{\it The R Project for Statistical Computing}. [Online; navštíveno
+  28.04.2017].
+\newline\urlprefix\url{https://www.r-project.org/}
+
 \bibitem{UnityGo}
 {\it Unity GameObject}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://docs.unity3d.com/ScriptReference/GameObject.html}
