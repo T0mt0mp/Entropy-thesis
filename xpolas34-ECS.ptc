@@ -1,7 +1,7 @@
 \select@language {czech}
 \contentsline {chapter}{\numberline {1}\IeC {\'U}vod}{3}{chapter.1}
 \contentsline {chapter}{\numberline {2}Teoretick\IeC {\'y} rozbor}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Entitn\IeC {\'\i } syst\IeC {\'e}my a jejich historie}{4}{section.2.1}
+\contentsline {section}{\numberline {2.1}Entitn\IeC {\'\i } syst\IeC {\'e}my}{4}{section.2.1}
 \contentsline {section}{\numberline {2.2}Po\IeC {\v z}adavky na n\IeC {\'a}vrh}{4}{section.2.2}
 \contentsline {section}{\numberline {2.3}Architektura modern\IeC {\'\i }ch po\IeC {\v c}\IeC {\'\i }ta\IeC {\v c}\IeC {\r u}}{5}{section.2.3}
 \contentsline {section}{\numberline {2.4}Datov\IeC {\v e} orientovan\IeC {\'y} n\IeC {\'a}vrh}{5}{section.2.4}
@@ -12,34 +12,35 @@
 \contentsline {section}{\numberline {2.6}Entity-Component-System}{16}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Motivace a koncepty}{16}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}Vlastnosti}{18}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Paralelizmus}{18}{section.2.7}
-\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}P\IeC {\v r}ehled a komunikace}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Komponenty a jejich nosi\IeC {\v c}e}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}Reprezentace entit}{25}{section.3.3}
-\contentsline {section}{\numberline {3.4}Syst\IeC {\'e}my a skupiny}{27}{section.3.4}
-\contentsline {section}{\numberline {3.5}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{29}{section.3.5}
-\contentsline {section}{\numberline {3.6}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{31}{section.3.6}
-\contentsline {chapter}{\numberline {4}Implementace}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}Implementa\IeC {\v c}n\IeC {\'\i } n\IeC {\'a}stroje a p\IeC {\v r}enositelnost}{33}{section.4.1}
-\contentsline {section}{\numberline {4.2}Komponenty}{34}{section.4.2}
-\contentsline {section}{\numberline {4.3}Spr\IeC {\'a}va entit}{34}{section.4.3}
-\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{36}{section.4.4}
-\contentsline {section}{\numberline {4.5}Podpora paralelizmu}{37}{section.4.5}
-\contentsline {section}{\numberline {4.6}Obnoven\IeC {\'\i } konzistence}{38}{section.4.6}
-\contentsline {section}{\numberline {4.7}Mo\IeC {\v z}nosti roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i }}{39}{section.4.7}
-\contentsline {chapter}{\numberline {5}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{40}{chapter.5}
-\contentsline {section}{\numberline {5.1}Demo hra}{40}{section.5.1}
-\contentsline {section}{\numberline {5.2}N\IeC {\'a}vrh}{40}{section.5.2}
-\contentsline {section}{\numberline {5.3}Zhodnocen\IeC {\'\i }}{41}{section.5.3}
-\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i }}{42}{chapter.6}
-\contentsline {section}{\numberline {6.1}Testovan\IeC {\'e} sestavy}{42}{section.6.1}
-\contentsline {section}{\numberline {6.2}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{43}{section.6.2}
-\contentsline {section}{\numberline {6.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{43}{section.6.3}
-\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{48}{chapter.7}
-\contentsline {chapter}{Literatura}{50}{chapter*.2}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{53}{section*.3}
+\contentsline {section}{\numberline {2.7}Existuj\IeC {\'\i }c\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{18}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}EntityX}{19}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Artemis}{19}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Anax}{19}{subsection.2.7.3}
+\contentsline {section}{\numberline {2.8}Paralelizmus}{19}{section.2.8}
+\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}P\IeC {\v r}ehled a komunikace}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Komponenty a jejich nosi\IeC {\v c}e}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Reprezentace entit}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Syst\IeC {\'e}my a skupiny}{28}{section.3.4}
+\contentsline {section}{\numberline {3.5}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{30}{section.3.5}
+\contentsline {section}{\numberline {3.6}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{32}{section.3.6}
+\contentsline {chapter}{\numberline {4}Implementace}{34}{chapter.4}
+\contentsline {section}{\numberline {4.1}Implementa\IeC {\v c}n\IeC {\'\i } n\IeC {\'a}stroje a p\IeC {\v r}enositelnost}{34}{section.4.1}
+\contentsline {section}{\numberline {4.2}Komponenty}{35}{section.4.2}
+\contentsline {section}{\numberline {4.3}Spr\IeC {\'a}va entit}{35}{section.4.3}
+\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{37}{section.4.4}
+\contentsline {section}{\numberline {4.5}Podpora paralelizmu}{38}{section.4.5}
+\contentsline {section}{\numberline {4.6}Obnoven\IeC {\'\i } konzistence}{39}{section.4.6}
+\contentsline {section}{\numberline {4.7}Mo\IeC {\v z}nosti roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i }}{40}{section.4.7}
+\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i }}{41}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testovan\IeC {\'e} sestavy}{41}{section.5.1}
+\contentsline {section}{\numberline {5.2}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{42}{section.5.2}
+\contentsline {section}{\numberline {5.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{42}{section.5.3}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{47}{chapter.6}
+\contentsline {chapter}{Literatura}{48}{chapter*.2}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{52}{section*.3}
 \ttl@starttoc {chapters@1}
-\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{54}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manu\IeC {\'a}l}{55}{appendix.B}
+\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{53}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manu\IeC {\'a}l}{54}{appendix.B}
+\contentsline {chapter}{\numberline {C}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{55}{appendix.C}
 \contentsfinish 

@@ -8,6 +8,10 @@
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\eprint}[2][]{\url{#2}}
 
+\bibitem{ThreadSafety}
+{\it API thread safety classifications}. [Online; navštíveno 11.04.2017].
+\newline\urlprefix\url{https://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzahw/rzahwapico.htm}
+
 \bibitem{FalseSharing}
 {\it Avoiding and Identifying False Sharing Among Threads}. [Online;
   navštíveno 20.04.2017].
@@ -58,9 +62,17 @@
   28.04.2017].
 \newline\urlprefix\url{https://www.r-project.org/}
 
+\bibitem{Unity}
+{\it Unity}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://unity3d.com/}
+
 \bibitem{UnityGo}
 {\it Unity GameObject}. [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{https://docs.unity3d.com/ScriptReference/GameObject.html}
+
+\bibitem{UnrealEngine}
+{\it Unreal engine 4}. [Online; navštíveno 14.04.2017].
+\newline\urlprefix\url{https://www.unrealengine.com/}
 
 \bibitem{ARM}
 \emph{{\it ARM Architecture}}. 2005, [Online; navštíveno 14.04.2017].
@@ -104,6 +116,16 @@ Alec, T.: {\it EntityX - A fast, type-safe C++ Entity-Component system}.
 Andrews, J.: {\it Designing the Framework of a Parallel Game Engine}. 2015,
   [Online; navštíveno 20.04.2017].
 \newline\urlprefix\url{https://software.intel.com/en-us/articles/designing-the-framework-of-a-parallel-game-engine}
+
+\bibitem{CPPObjectMemoryLayout}
+Bendersky, E.: {\it Dumping a C++ object`s memory layout with Clang}. [Online;
+  navštíveno 13.04.2017].
+\newline\urlprefix\url{http://eli.thegreenplace.net/2012/12/17/dumping-a-c-objects-memory-layout-with-clang}
+
+\bibitem{DungeonSiege}
+Bilas, S.: {\it A Data-Driven Game Object System }. 2002, [Online; navštíveno
+  12.04.2017].
+\newline\urlprefix\url{http://scottbilas.com/files/2002/gdc_san_jose/game_objects_slides.pdf}
 
 \bibitem{OOHLang}
 Blow, J.: {\it New programming language for games}. 2014, [Online; navštíveno
@@ -178,13 +200,19 @@ Polášek, T.: {\it Entropy -- Entity-Component-System library}. [Online;
   navštíveno 28.04.2017].
 \newline\urlprefix\url{https://github.com/T0mt0mp/Entropy}
 
+\bibitem{ParallelECS}
+Romeo, V.: {\it Analysis of entity encoding techniques, design and
+  implementation of a multithreaded compile-time Entity-Component-System C++14
+  library}. 2016, [Online; navštíveno 12.04.2017].
+\newline\urlprefix\url{https://www.researchgate.net/publication/305730566_Analysis_of_entity_encoding_techniques_design_and_implementation_of_a_multithreaded_compile-time_Entity-Component-System_C14_library}
+
 \bibitem{Ashley}
 Saltares, D.: {\it Ashley ECS}. [Online; navštíveno 27.04.2017].
 \newline\urlprefix\url{https://github.com/libgdx/ashley}
 
 \bibitem{Ps4Xbox}
-Shimp, A.~L.: {\it Xbox One: Hardware Analysis \& Comparison to Playstation 4}.
-  2013, [Online; navštíveno 14.04.2017].
+Shimp, A.~L.: {\it Xbox One: Hardware Analysis and Comparison to Playstation
+  4}. 2013, [Online; navštíveno 14.04.2017].
 \newline\urlprefix\url{http://www.anandtech.com/show/6972/xbox-one-hardware-compared-to-playstation-4/2}
 
 \bibitem{CpuMemoryGap}

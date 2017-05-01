@@ -91,7 +91,7 @@
   year=2017,             %rok odevzdání / year of submission
   date=\today,           %datum odevzdani / submission date
   %Nazev prace / thesis title
-  title.cs={Komponentní systém pro herní grafický \\engine},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
+  title.cs={Komponentní systém pro \\herní grafický engine},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
   title.en={Graphic Engine Based on Entity Component System}, %nazev prace v anglictine / thesis title in english
   %Autor / Author
   author={Tomáš Polášek},   %cele jmeno a prijmeni autora / full name and surname of the author
@@ -129,21 +129,23 @@
 }
 
 %Abstrakt (cesky, slovensky ci anglicky) / Abstract (in czech, slovak or english)
-\abstract[cs]{Cílem této práce je návrh a implementace knihovny pro správu entit tvořených pomocí kompozice z menších částí. Součástí práce je analýza dnes používaných technik pro práci s entitami -- \emph{objektově orientovaná dědičnost}, \emph{objektově orientovaná kompozice} a \emph{datově orientovaná kompozice} -- a jejich porovnání. \\
-Práce navrhuje komponentní systém pro jazyk C++, který je možno začlenit do existujících projektů. Vytvořené řešení umožňuje dynamickou kompozici entit za běhu aplikace z komponent definovaných za překladu. Systém je navržen s ohledem na snadnou paralelizaci a je uživatelsky rozšiřitelný. \\
-Výsledná knihovna umožňuje návrh aplikací za použití techniky \emph{datově orientované kompozice}.}
-\abstract[en]{The goal of this bachelor thesis is to design and implement a library for management of entities created using \emph{data-oriented composition}. Analysis of the ways entities are used in todays software is performed -- \emph{object-oriented inheritance}, \emph{object-oriented composition} and \emph{data-oriented composition}. \\
-Thesis proposes component system for C++ programming language, which can be easily integrated into existing projects. Presented solution allows dynamic composition of entities during application runtime from components defined at compile-time. System is designed with parallelization and user customization in mind. \\
-Resulting library allows experimentation and designing  of applications using \emph{data-oriented composition} pattern, without the need to implement the whole system.}
+%\abstract[cs]{Cílem této práce je návrh a implementace knihovny pro správu entit tvořených pomocí kompozice z menších částí. Součástí práce je analýza dnes používaných technik pro práci s entitami -- \emph{objektově orientovaná dědičnost}, \emph{objektově orientovaná kompozice} a \emph{datově orientovaná kompozice} -- a jejich porovnání. \\
+%Práce navrhuje komponentní systém pro jazyk C++, který je možno začlenit do existujících projektů. Vytvořené řešení umožňuje dynamickou kompozici entit za běhu aplikace z komponent definovaných za překladu. Systém je navržen s ohledem na snadnou paralelizaci a je uživatelsky rozšiřitelný. \\
+%Výsledná knihovna umožňuje návrh aplikací za použití techniky \emph{datově orientované kompozice}.}
+\abstract[cs]{Cílem této bakalářské práce je návrh a implementace knihovny pro správu entit, která umožňuje návrh pomocí \emph{Entity-Component-System} paradigmatu. Součástí práce je analýza aktuálního stavu návrhu software, z pohledu vývoje her a rozbor dnes používaných technik pro práci s entitami včetně srovnání jejich výhod. Dále se práce zabývá důvody, proč tento nový způsob návrhu her lépe vyhovuje architektuře hardware moderních počítačů, primárně se zaměřením na paměťovou hierarchii.\\
+V práci je dále navržen entitní systém, který umožňuje dynamickou kompozici entit za běhu aplikace z komponent definovaných před jejím spuštěním. Výsledný systém je navržen s ohledem na snadnou paralelizaci a umožňuje uživatelské rozšíření. Následně je provedena implementace výše zmíněného návrhu v programovacím jazyce \emph{C++}. \\
+Výsledkem této bakalářské práce je multiplatformní knihovna, pojmenovaná \emph{Entropy}, která uživatelům zpřístupňuje návrh aplikace pomocí \emph{ECS} paradigmatu.}
+\abstract[en]{The goal of this bachelor thesis is the design and implementation of a library for entity management, which allows software design using \emph{Entity-Component-System} paradigm. Analysis of the current state of software design is presented, including comparison of techniques used for entity representation. Potential advantages are discussed from the hardware point of view, primarily using the memory hierarchy found in modern computers. \\
+Thesis proposes design of an entity system, using the \emph{ECS} paradigm, which allows dynamic composition of entities during runtime of application, from predefined components. The resulting system is designed with easy parallelization and user customizability in mind. The design is then implemented using the \emph{C++} programming language.\\
+The result of this bachelor thesis is multi-platform library, called \emph{Entropy}, which enables the users to design applications using \emph{ECS} paradigm.}
 
 %Klicova slova (cesky, slovensky ci anglicky) / Keywords (in czech, slovak or english)
-\keywords[cs]{Komponentní systém, Entitní systém, ECS, Kompozice, Data-oriented design, Paralelizmus, C++}
-\keywords[en]{Component system, Entity-component system, ECS, Composition, Data-oriented design, Parallel, C++}
+\keywords[cs]{Komponentní systém, Entitní systém, ECS, Kompozice, Data-oriented design, Paralelismus, C++}
+\keywords[en]{Component system, Entity-component system, Entity-component-system, ECS, Composition, Data-oriented design, Parallelism, C++}
 
 %Prohlaseni (u anglicky psane prace anglicky, u slovensky psane prace slovensky)
 %Declaration (for thesis in english should be in english)
-\declaration{Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana X...
-Další informace mi poskytli...
+\declaration{Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana Ing. Michala Španěla, Ph.D.
 Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 
 % \declaration{Hereby I declare that this bachelor's thesis was prepared as an original author’s work under the supervision of Mr. X
@@ -151,8 +153,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 % All the relevant information sources, which were used during preparation of this thesis, are properly cited and included in the list of references.}
 
 %Podekovani (nepovinne, nejlepe v jazyce prace) / Acknowledgement (optional, ideally in the language of the thesis)
-\acknowledgment{V této sekci je možno uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc
-(externí zadavatel, konzultant, apod.).}
+\acknowledgment{Děkuji vedoucímu bakalářské práce, panu Ing. Michalu Španělovi, Ph.D. za odborné vedení a konzultace problémů, které se při její tvorbě vyskytly.}
 %\acknowledgment{Here it is possible to express thanks to the supervisor and to the people which provided professional help
 %(external submitter, consultant, etc.).}
 

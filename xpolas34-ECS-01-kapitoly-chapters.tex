@@ -45,17 +45,16 @@ Cílem práce je návrh a implementace \emph{entitního systému} založeného n
 \end{itemize}
 Mezi další požadavky, z pohledu \emph{herního enginu}, jsou efektivní práce s velkým množstvím \emph{entit}, kde většina z nich nemusí být aktuálně používána a také komunikace mezi jednotlivými \emph{komponenty} a \emph{entitami}.
 
-Práce je rozdělena do čtyř logických celků -- teoretická část, návrh systému, implementace a vyhodnocení. Kapitola \ref{Chap:Theory} popisuje aktuální stav návrhu \emph{software}, primárně z pohledu herního vývoje. Nejdříve zde jsou přiblíženy požadavky na \emph{entitní systémy}. Následuje porovnání aktuálně používaných způsobů reprezentace \emph{entit}, jejich výhody a nevýhody. Závěr obsahuje způsoby využití vícevláknových konfigurací. Kapitola \ref{Chap:Design} zahrnuje kompletní návrh \emph{entitního systému}, který je obecný -- nezávislý na implementačním jazyce. Nejdříve je uveden přehled celého systému, následuje podrobnější popis jeho částí a rozbor různých způsobů řešení. Další kapitola (\ref{Chap:Implementation}) je věnována implementaci v jazyce C++. Následuje kapitola \ref{Chap:Demo}, ve které je předvedena funkčnost systému na návrhu a implementaci demo hry. Poslední kapitola shrnuje výsledný systém z pohledu výkonosti a srovnává jej s podobnými \emph{open-source} knihovnami.
+Práce je rozdělena do čtyř logických celků -- teoretická část, návrh systému, implementace a vyhodnocení. Kapitola \ref{Chap:Theory} popisuje aktuální stav návrhu \emph{software}, primárně z pohledu herního vývoje. Nejdříve zde jsou přiblíženy požadavky na \emph{entitní systémy}. Následuje porovnání aktuálně používaných způsobů reprezentace \emph{entit}, jejich výhody a nevýhody. Závěr obsahuje způsoby využití vícevláknových konfigurací. Kapitola \ref{Chap:Design} zahrnuje kompletní návrh \emph{entitního systému}, který je obecný -- nezávislý na implementačním jazyce. Nejdříve je uveden přehled celého systému, následuje podrobnější popis jeho částí a rozbor různých způsobů řešení. Další kapitola (\ref{Chap:Implementation}) je věnována implementaci v jazyce C++. Následuje kapitola \ref{Chap:Demo}, ve které je předvedena funkčnost systému na návrhu a implementaci demo hry. Poslední kapitola shrnuje výsledný systém z pohledu výkonosti a srovnává jej s podobnými volně přístupnými knihovnami.
 
 \chapter{Teoretický rozbor}
+\label{Chap:Theory}
 
-Tato se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na kompozici, definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které jsou dnes používány.
+Tato kapitola se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na kompozici a definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které jsou dnes používány.
 
-\section{Entitní systémy a jejich historie}
+\section{Entitní systémy}
 
 \emph{Entitní systém} je část herního enginu, který zprostředkovává správu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
-
-\todo{historie}
 
 \section{Požadavky na návrh}
 
@@ -93,6 +92,7 @@ Základem \emph{DOD} je důkladná analýza aplikačních dat -- jejich obor hod
 Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání \emph{entit} zabývá sekce \ref{Chap:DOC}.
 
 \section{Reprezentace entit}
+\label{Chap:Representation}
 
 Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit}\cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě a \emph{chování} jsou operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
 
@@ -273,7 +273,7 @@ Entitní systémy, postavené za použití \emph{datově orientované kompozice}
 
 \subsection{Motivace a koncepty}
 
-\emph{Entity-Component-System} (\emph{ECS} \cite{WhatIsECS} \cite{UnderstandingECS}) je programovací paradigma \cite{EntitySystemsFuture}, založené na kompozici \footnote{Oproti \uv{Object Oriented Programming}, které využívá dědičnosti.}.  Základní myšlenkou je separace logiky (\emph{systémy}) a dat (\emph{entity}, \emph{komponenty}), čímž je umožněna jemnější modularita, celý entitní systém lze přirovnat k \emph{relační databázi}. Tato metoda vychází z \emph{datově orientované kompozice}, která je podrobněji popsána v části \ref{Chap:DOC}. 
+\emph{Entity-Component-System} (\emph{ECS} \cite{WhatIsECS} \cite{UnderstandingECS}) je programovací paradigma \cite{EntitySystemsFuture}, založené na kompozici. Základní myšlenkou je separace logiky (\emph{systémy}) a dat (\emph{entity}, \emph{komponenty}), čímž je umožněna jemnější modularita, celý entitní systém lze přirovnat k \emph{relační databázi}. Tato metoda vychází z \emph{datově orientované kompozice}, která je podrobněji popsána v části \ref{Chap:DOC}. 
 
 Entita je základním stavebním blokem \cite{EntitySystemsFuture}, který lze přirovnat k objektu z \emph{objektově orientovaného} návrhu. Oproti objektům nejsou však entity tvořeny z předem daného vzoru (např. třídy). Jejich chování a data, definují komponenty, které jsou k dané entitě přiřazeny. Entity lze reprezentovat pomocí jednoznačných identifikátorů (čísel), které mají podobnou funkci, jako \emph{primární klíče} v databázi, ilustrace tohoto přirovnání lze vidět na obr. \ref{Fig:ECSDB}.
 
@@ -310,6 +310,30 @@ Jelikož komponenty obsahují pouze čistá data, bez propojení do externích m
 
 Při správném rozvržení systémů a jejich požadovaných aspektů, je možné zaručit, že k ostatním komponentám nebude přistupováno. Toto umožňuje dosáhnout vyšší úrovně paralelizace celého systému, i přestože několik systémů může v jeden čas přistupovat ke stejné entitě. Paralelizace je dále podporována opakovaným prováděním stejných akcí nad velkým množstvím entit, které lze rozdělit na různá vlákna a zpracovat je odděleně.
 
+\section{Existující řešení}
+
+Tato část obsahuje porovnání existujících knihoven, které umožňují práci s entitními systémy založenými na \emph{ECS} paradigmatu. Kromě základního popisu jsou zde také uvedeny výhody a nevýhody daných přístupů. Mezi další známé knihovny pro tvorbu her, které používají komponentní přístup, patří \emph{Unity}, \emph{Unreal Engine}, nebo např. \emph{libGDX} (knihovna \emph{Ashley} \cite{Ashley})
+
+\subsection{EntityX}
+
+\textbf{EntityX} \cite{EntityX} je implementace entitního systému v programovacím jazyce \emph{C++}, která silně využívá vlastností standardu \emph{C++11} a \emph{šablonového metaprogramování} \cite{CppMetaprogramming}. Toto umožňuje příjemnější práci s typy, pro uživatele této knihovny. Entity jsou v tomto případě nepřímo mapovány (pomocí identifikátorů) na komponenty, které jsou uloženy v souvislých polích, což umožňuje efektivní využití vyrovnávací paměti. 
+
+Kromě základní implementace entitního systému, podle \emph{ECS}, knihovna také umožňuje uživatelům knihovny reagovat, když entity \uv{vcházejí}, nebo \uv{vycházejí} do \emph{systémů}, čímž dovoluje entitní systém propojit s okolním kódem.
+
+Mezi hlavní nevýhody patří delší doba překladu výsledné aplikace -- výsledek použití šablon. Vlastnost, která je na jednu stranu výhodou, ale má i jisté nepříjemné stránky, je nemožnost registrace nových typů komponent za běhu aplikace. Výhodou je v tomto případě možnost vyšší optimalizace výsledné přeložené aplikace.
+
+\subsection{Artemis}
+
+\textbf{Artemis} \cite{ArtemisJava} je původně knihovna implementovaná pro jazyk \emph{Java}, ale existuje i mnoho implementací pro další jazyky, např. \emph{C++} \cite{ArtemisCpp}. Knihovna využívá \emph{generického programování} jazyka \emph{Java}, čímž opět umožňuje uživateli příjemnější práci. Oproti ostatním knihovnám podporuje vyšší granularitu filtrování entit, kdy je možné specifikovat, které komponenty entita musí, může a nesmí obsahovat. Další zajímavou vlastností je speciální typ komponent -- značky -- které neobsahují žádná data, ale umožňují entity dělit do skupin. 
+
+Knihovna také umožňuje využití pokročilých funkcí, jako sdružování entit a jejich tvorba ve vyšších počtech, nebo entitní \emph{archetypy}, které fungují jako předloha pro další entity.
+
+Knihovna \textbf{Artemis} je ze všech představených knihoven nejvíce dokončená a existují již i projekty, které ji používají.
+
+\subsection{Anax}
+
+Kromě základní implementaci vlastností \emph{ECS}, obsahuje knihovna \textbf{Anax} \cite{Anax} také pojem \emph{skupin}. \emph{Skupiny} obsahují před generovaný seznam entit, skrz který \emph{systémy} iterují. Výhodou tohoto přístupu je možnost rychlé práce s celým seznamem entit, které vyhovují určitému filtru. Mezi nevýhody patří nutnost tyto seznamy udržovat. Podobně, jako \textbf{EntityX}, je tato knihovna implementována v jazyce \emph{C++}. 
+
 \section{Paralelizmus}
 \label{Chap:Parallelism}
 
@@ -342,6 +366,7 @@ Výhodou paralelizmu je možnost rozložení práce na několik výpočetních j
 Jednoduchý systém může pracovat způsobem transformační funkce, jejíž vstupní parametry jsou komponenty, které systém požaduje a výstupem je zápis (změna) jedné z těchto komponent. Jelikož je ovšem vhodné, při paralelním přístupu k aktuálnímu stavu herního světa, aby všechny systémy dokázaly přečíst původní data beze změn, lze funkci systémů změnit. Systémy mohou místo zápisu nových hodnot do stejných komponent (vstupů) zapsat výsledek do \uv{následujícího stavu} \cite{FrontierThreads} \footnote{Tento způsob je často používán ve funkcionálních jazycích.}. Při generování nového stavu je nutné určit okamžik, kde se následující stav stane stavem aktuálním, čímž se celý herní svět \uv{posune}.
 
 \chapter{Návrh entitního systému}
+\label{Chap:Design}
 
 Obsahem této kapitoly je popis návrhu entitního systému založeného na \emph{ECS} paradigmatu, které bylo představeno v předchozí kapitole. Nejdříve je prezentováno základní rozdělení systému na jednotlivé části a komunikace mezi nimi. Následuje popis návrhu podsystémů -- \emph{komponenty}, \emph{systémy} a \emph{entity}. Každá část obsahuje představení návrhu a jeho zdůvodnění. Následuje návrh paralelního přístupu k entitnímu systému a jeho tok řízení.
 
@@ -513,6 +538,7 @@ Fáze \emph{iterace} umožňuje plný přístup k entitnímu systému ze strany 
 Úkolem \emph{obnovovací} fáze je posunutí entitního systému do následujícího stavu, ze stavu aktuálního a dokončení operací, které by vedly k porušení konzistence systému. Tohoto cíle je dosaženo postupným voláním operace \textbf{refresh} na jednotlivé podsystémy, jejichž pořadí lze vidět na obr. \ref{Fig:DESFlow}. Obnova entitního podsystému umožňuje dokončení operací přidání a odebrání \emph{skupin}, u kterých je nutné měnit počet sloupců v tabulce metadat. Následuje aplikace \emph{množin změn}, kdy jsou dokončeny odložené operace. Obnova pokračuje volání \textbf{refresh} nad jednotlivými nosiči komponent, kterým je tímto umožněna reorganizace dat. Poslední částí je příprava obsahu \emph{skupin} pro příští fázi \emph{iterace}. Po dokončení obnovy je systém opět uveden do fáze \emph{iterace}.
 
 \chapter{Implementace}
+\label{Chap:Implementation}
 
 Tato kapitola obsahuje popis implementace výše popsaného návrhu entitního systému, založeného na \emph{ECS} paradigmatu, přičemž jsou zde zmíněny pouze zajímavější implementační detaily. V první části je zdůvodněn výběr implementačního jazyka a použitých knihoven. Následují části zaměřené na jednotlivé podsystémy entitního systému -- \emph{komponenty}, \emph{entity} a \emph{systémy}. Závěr kapitoly je zaměřen na implementaci paralelního přístupu a \emph{obnovovací} fázi. Výsledným produktem této implementace je knihovna, která umožňuje práci s entitním systémem za využití \emph{ECS} paradigmatu. 
 
@@ -643,6 +669,7 @@ Cílem \emph{obnovovací fáze} (\textbf{refresh}) je uvedení entitního systé
 
 \pagebreak
 \section{Možnosti rozšíření}
+\label{Chap:ExtensionOptions}
 
 Obsah kapitoly \uv{implementace} obsahuje stav knihovny, tak, jak byla odevzdána s touto technickou zprávou, i když již umožňuje všechny funkce popsané v kapitole \uv{návrh}, nelze ji považovat za dokončenou. Aktuální stav implementace lze nalézt v \emph{GIT repozitáři} \cite{EntropyGit}, pod jménem \uv{Entropy}. Následují možné směry, jak rozšířit a vylepšit tuto základní implementaci: 
 
@@ -657,22 +684,22 @@ Obsah kapitoly \uv{implementace} obsahuje stav knihovny, tak, jak byla odevzdán
 	\item \textbf{Paralelizace obnovovací fáze} -- Jednotlivé akce, které jsou prováděny součástí obnovovací fáze lze paralelizovat, ale tato vlastnost zatím není implementována.
 \end{itemize}
 
-\chapter{Použití knihovny}
+%\chapter{Použití knihovny}
+%\label{Chap:Demo}
 
-\section{Demo hra}
-\todo{Popis principů hry}
-\blind[1]
+%\section{Demo hra}
+%\todo{Popis principů hry}
+%\blind[1]
 
-\section{Návrh}
-\todo{Komponentní návrh}
-\blind[3]
+%\section{Návrh}
+%\todo{Komponentní návrh}
+%\blind[3]
 
-ukazka kodu
+%ukazka kodu
 
-\section{Zhodnocení}
-\todo{Výkon, návrh, jednoduchost}
-\blind[3]
-
+%\section{Zhodnocení}
+%\todo{Výkon, návrh, jednoduchost}
+%\blind[3]
 
 \chapter{Vyhodnocení}
 \label{Chap:Results}
@@ -780,7 +807,7 @@ Předmětem druhého scénáře je již reálnější případ použití entitn�
 	\label{Fig:EVALAdvMovSys}
 \end{figure}
 
-Následující testovací scénář porovnává, jakým způsobem se jednotlivé implementace chovají, v případě, kdy entity mohou měnit svou množinu komponent. Základní strategie je podobná, jako v případě pohybového systému, ale nyní existují dva \emph{systémy}. První z nich je stejný, jako v prvním případě. Druhý iteruje nad všemi entitami a náhodně přidává/odebírá komponenty, čímž se množina entit, nad kterou první systém iteruje, mění. Pravděpodobnost, že \emph{systém} změní entitu, je zobrazena na ose X, osa Y opět obsahuje čas, který průměrně trvá jedna iterace. Výsledné grafy -- nižší a  vyšší pravděpodobnosti -- lze najít na obr. \ref{Fig:EVALAdvMovSys}. V tomto případě je knihovna \textbf{Entropy}, výhodná až do určité hranice \footnote{Tuto hranici lze posouvat vylepšením implementace a optimalizací.}, kdy je režie práce se \emph{skupinami} vyšší, než jejich výkoností zisk. Knihovny, které nepoužívají \emph{skupiny} musí iterovat nad všemi entitami, čímž jejich průběhy získávají lineární charakter.
+Následující testovací scénář porovnává, jakým způsobem se jednotlivé implementace chovají, v případě, kdy entity mohou měnit svou množinu komponent. Základní strategie je podobná, jako v případě pohybového systému, ale nyní existují dva \emph{systémy}. První z nich je stejný, jako v prvním případě. Druhý iteruje nad všemi entitami a náhodně přidává/odebírá komponenty, čímž se množina entit, nad kterou první systém iteruje, mění. Pravděpodobnost, že \emph{systém} změní entitu, je zobrazena na ose X, osa Y opět obsahuje čas, který průměrně trvá jedna iterace. Výsledné grafy -- nižší a  vyšší pravděpodobnosti -- lze najít na obr. \ref{Fig:EVALAdvMovSys}. V tomto případě je knihovna \textbf{Entropy}, výhodná až do určité hranice \footnote{Tuto hranici lze posouvat vylepšením implementace a optimalizací.}, kdy je režie práce se \emph{skupinami} vyšší, než jejich výkoností zisk. Knihovny, které nepoužívají \emph{skupiny} musí iterovat nad všemi entitami, čímž jejich průběhy získávají lineární charakter. Mezi možná vylepšení knihovny \textbf{Entropy} patří rozdělení seznamu změněných entit do několika seznamů pro každou \emph{skupinu} zvlášť a filtrování pouze podle změněných atributů entit.
 
 \begin{figure}[H]
 	\begin{center}
@@ -809,17 +836,20 @@ Dalším testovaným aspektem výsledné knihovny je porovnání různých typů
 Cílem závěrečného scénáře je otestovat, jak výhodné je použití několika vláken při přístupu k entitnímu systému. Testovaný systém operuje podobným způsobem, jako v případě pohybového systému. V první části je vytvořeno $10\,000$ entit, kde každé z nich jsou přiřazeny dvě komponenty -- pozice a rychlost. Cílem výpočetního \emph{systému} je pohyb všech entit, přičtením rychlosti k jednotlivým složkám komponenty pozice. Výsledné grafy lze vidět na obr. \ref{Fig:EVALPar}. V prvním případě je celková množina entit rozdělena mezi jednotlivá vlákna, naproti ve druhém případě jsou použity \emph{množiny změn}. Průběhy potvrzují, že více vláken pomáhá k dřívějšímu dokončení výpočtu. Dále je možné určit počet vláken, od kterého již nedochází k zlepšení -- v tomto případě 7-8 vláken \footnote{Procesor, na kterém byly tyto testo prováděny, obsahuje 4 jádra a 8 vláken.} -- nicméně relativní zlepšení se snižuje s každým přidaným vláknem.
 
 \chapter{Závěr}
-\todo{Využití komponentních systémů a aktuální stav} 
-\blind[1]
-\todo{Návrh, prototypy, priority} 
-\blind[1]
-\todo{Implementace, rozšiřitelnost, přenositelnost}
-\blind[1]
-\todo{Experimenty, srovnání, demo hra}
-\blind[1]
-\todo{Možnosti rozšíření}
-\blind[1]
-dynamicke komponenty za behu
+
+Cílem této bakalářské práce je návrh a následná implementace entitního systému, který umožňuje návrh aplikací za použití \emph{Entity-Component-System} paradigmatu. Důležitou částí bylo studium způsobů, jakým je možno navrhovat hry a jejich vývoj s postupem času, který vedl ke vzniku tvorby entit pomocí kompozice a následně výše zmíněnému paradigmatu. Dále bylo důležitým tématem studium moderní architektury počítačových systémů, primárně hierarchie pamětí, a její využití při psaní efektivnějších aplikací. \emph{Datově orientovaný} návrh, který se tímto tématem zabývá, je základem \emph{ECS} architektury.
+
+Další důležitou částí této práce bylo studium aktuálně existujících implementací a jejich vlastností, které byly ve zkratce popsány i v této zprávě. Následně byly zmíněné znalosti použity při návrhu vlastního entitního systému. Kromě základních vlastností \emph{ECS}, patřilo mezi priority také paralelní přístup, který je u jiných knihoven v mnoha případech nemožný. Před vytvořením výsledného návrhu, tak, jak je popsán v práci samotné, vzniklo několik prototypů, jejichž cílem bylo určit vhodnost návrhu a jeho proveditelnost v jazyce \emph{C++}. 
+
+Implementace byla provedena v programovacím jazyce \emph{C++}, mezi jehož výhody patří vysoká efektivnost výsledných aplikací. Při implementaci byly použity pokročilé vlastnosti jazyka, jako jsou \emph{šablony} a \emph{šablonové metaprogramování}, které umožňují vyšší úroveň práce s typy. Dále bylo využito standardní knihovny a menších knihoven, dříve vytvořených autorem této práce. 
+
+%Implementace byla provedena v přenositelným způsobem, který umožňuje využití knihovny na více platformách. 
+
+%Závěrečnou částí implementace je její testování na operačních systémech \emph{Windows} a \emph{Linux}.
+
+Výsledkem práce je multiplatformní knihovna \textbf{Entropy}, která umožňuje práci s entitním systémem, založeným na \emph{Entity-Component-System} paradigmatu. Hlavním úspěchem je možnost paralelního přístupu, který jiné, volně dostupné, knihovny nepodporují. Při porovnání výsledné implementace se knihovna \textbf{Entropy} výkonnostně řadí mezi ty rychlejší a s dalšími optimalizacemi je možné rychlost dále vylepšovat. Aktuální verze knihovny je k dispozici v repositáři \emph{Git} \cite{EntropyGit} a bude dále autorem vyvíjena. Mezi možné optimalizace patří -- např. paralelizace \emph{obnovovací} fáze, k čemuž je již připravena, rozdělení seznamů změněných entit, podle \emph{skupin}, které jednotlivé změny ovlivňují, nebo kompletní konverze filtrování na použití \emph{bitových množin}.
+
+Jak bylo zmíněno výše, autor bude dále pokračovat ve vývoji výsledné knihovny. Mezi plánovaná rozšíření, která jsou hlouběji popsána v části \ref{Chap:ExtensionOptions}, patří vazba entitního systému na vestavěny skriptovací jazyk. Tímto bude umožněno herním návrhářům měnit chováni hry, bez nutnosti opětovného překládání celé hry. Další vlastností, která využívá právě vazby na skriptovací jazyk, je možnost přidávat nové typy komponent za běhu aplikace, nebo definovat entity v externích souborech (např. formátu \emph{JSON}). 
 
 %\begin{figure}
 %	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}

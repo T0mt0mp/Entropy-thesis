@@ -41,7 +41,8 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Entitn\IeC {\'\i } syst\IeC {\'e}my a jejich historie}{4}{section.2.1}}
+\newlabel{Chap:Theory}{{2}{4}{Teoretický rozbor}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Entitn\IeC {\'\i } syst\IeC {\'e}my}{4}{section.2.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Po\IeC {\v z}adavky na n\IeC {\'a}vrh}{4}{section.2.2}}
 \citation{Pipelining}
 \citation{CpuIpc}
@@ -61,6 +62,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad transformace pole struktur na strukturu pol\IeC {\'\i }.}}{6}{figure.2.1}}
 \newlabel{Fig:SOAASO}{{2.1}{6}{Příklad transformace pole struktur na strukturu polí}{figure.2.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.5}Reprezentace entit}{6}{section.2.5}}
+\newlabel{Chap:Representation}{{2.5}{6}{Reprezentace entit}{section.2.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Objektov\IeC {\v e} orientovan\IeC {\'a} hierarchie}{6}{subsection.2.5.1}}
 \citation{DataOrientedDesignDice}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad objektov\IeC {\v e} orientovan\IeC {\'e} hierarchie.}}{7}{figure.2.2}}
@@ -103,181 +105,198 @@
 \newlabel{Fig:ECSSystem}{{2.13}{17}{Vstupem \emph {systému} jsou entity, ze kterých si vybere pouze ty, které mají odpovídající komponenty. Na vybraných entitách provádí požadované akce}{figure.2.13}{}}
 \citation{InstrAreData}
 \citation{CpuMemoryGap}
+\citation{Ashley}
+\citation{EntityX}
+\citation{CppMetaprogramming}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces Filtr operuje nad entitou a informac\IeC {\'\i } o p\IeC {\v r}\IeC {\'\i }tomnosti komponent.}}{18}{figure.2.14}}
+\newlabel{Fig:ECSFilter}{{2.14}{18}{Filtr operuje nad entitou a informací o přítomnosti komponent}{figure.2.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Vlastnosti}{18}{subsection.2.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}Existuj\IeC {\'\i }c\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{18}{section.2.7}}
+\citation{ArtemisJava}
+\citation{ArtemisCpp}
+\citation{Anax}
 \citation{CPUPerfHistory}
 \citation{KindsOfParallelism}
 \citation{TaskBasedParallelism}
 \citation{FrontierThreads}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces Filtr operuje nad entitou a informac\IeC {\'\i } o p\IeC {\v r}\IeC {\'\i }tomnosti komponent.}}{18}{figure.2.14}}
-\newlabel{Fig:ECSFilter}{{2.14}{18}{Filtr operuje nad entitou a informací o přítomnosti komponent}{figure.2.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Vlastnosti}{18}{subsection.2.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}Paralelizmus}{18}{section.2.7}}
-\newlabel{Chap:Parallelism}{{2.7}{18}{Paralelizmus}{section.2.7}{}}
 \citation{CacheCoherence}
 \citation{FalseSharing}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}EntityX}{19}{subsection.2.7.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Artemis}{19}{subsection.2.7.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.3}Anax}{19}{subsection.2.7.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.8}Paralelizmus}{19}{section.2.8}}
+\newlabel{Chap:Parallelism}{{2.8}{19}{Paralelizmus}{section.2.8}{}}
 \citation{FalseSharing}
 \citation{FalseSharing}
 \citation{AmdahlLaw}
 \citation{ParallelGame}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Udr\IeC {\v z}ov\IeC {\'a}n\IeC {\'\i } koherence vyrovn\IeC {\'a}vac\IeC {\'\i } pam\IeC {\v e}ti a \quotedblbase false sharing\textquotedblleft  \cite  {FalseSharing}. Synchronizace \emph  {cache} je prov\IeC {\'a}d\IeC {\v e}na mezi jednotliv\IeC {\'y}mi j\IeC {\'a}dry, p\IeC {\v r}es specializovanou sb\IeC {\v e}rnici.}}{19}{figure.2.15}}
-\newlabel{Fig:PARFalseSharing}{{2.15}{19}{Udržování koherence vyrovnávací paměti a \uv {false sharing} \cite {FalseSharing}. Synchronizace \emph {cache} je prováděna mezi jednotlivými jádry, přes specializovanou sběrnici}{figure.2.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.15}{\ignorespaces Udr\IeC {\v z}ov\IeC {\'a}n\IeC {\'\i } koherence vyrovn\IeC {\'a}vac\IeC {\'\i } pam\IeC {\v e}ti a \quotedblbase false sharing\textquotedblleft  \cite  {FalseSharing}. Synchronizace \emph  {cache} je prov\IeC {\'a}d\IeC {\v e}na mezi jednotliv\IeC {\'y}mi j\IeC {\'a}dry, p\IeC {\v r}es specializovanou sb\IeC {\v e}rnici.}}{20}{figure.2.15}}
+\newlabel{Fig:PARFalseSharing}{{2.15}{20}{Udržování koherence vyrovnávací paměti a \uv {false sharing} \cite {FalseSharing}. Synchronizace \emph {cache} je prováděna mezi jednotlivými jádry, přes specializovanou sběrnici}{figure.2.15}{}}
 \citation{KindsOfParallelism}
 \citation{FrontierThreads}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Paralelizmus uvnit\IeC {\v r} syst\IeC {\'e}m\IeC {\r u} je p\IeC {\v r}\IeC {\'\i }kladem datov\IeC {\'e}ho paralelizmu \cite  {KindsOfParallelism}.}}{20}{figure.2.16}}
-\newlabel{Fig:PARData}{{2.16}{20}{Paralelizmus uvnitř systémů je příkladem datového paralelizmu \cite {KindsOfParallelism}}{figure.2.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.17}{\ignorespaces Paralelizmus na \IeC {\'u}rovni syst\IeC {\'e}m\IeC {\r u}, kdy n\IeC {\v e}kolik syst\IeC {\'e}m\IeC {\r u} b\IeC {\v e}\IeC {\v z}\IeC {\'\i } z\IeC {\'a}rove\IeC {\v n}.}}{21}{figure.2.17}}
-\newlabel{Fig:PARSystem}{{2.17}{21}{Paralelizmus na úrovni systémů, kdy několik systémů běží zároveň}{figure.2.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.16}{\ignorespaces Paralelizmus uvnit\IeC {\v r} syst\IeC {\'e}m\IeC {\r u} je p\IeC {\v r}\IeC {\'\i }kladem datov\IeC {\'e}ho paralelizmu \cite  {KindsOfParallelism}.}}{21}{figure.2.16}}
+\newlabel{Fig:PARData}{{2.16}{21}{Paralelizmus uvnitř systémů je příkladem datového paralelizmu \cite {KindsOfParallelism}}{figure.2.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.17}{\ignorespaces Paralelizmus na \IeC {\'u}rovni syst\IeC {\'e}m\IeC {\r u}, kdy n\IeC {\v e}kolik syst\IeC {\'e}m\IeC {\r u} b\IeC {\v e}\IeC {\v z}\IeC {\'\i } z\IeC {\'a}rove\IeC {\v n}.}}{22}{figure.2.17}}
+\newlabel{Fig:PARSystem}{{2.17}{22}{Paralelizmus na úrovni systémů, kdy několik systémů běží zároveň}{figure.2.17}{}}
 \citation{EntityX}
 \citation{ArtemisCpp}
 \citation{Anax}
 \citation{ArtemisJava}
 \citation{Ashley}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{22}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}N\IeC {\'a}vrh entitn\IeC {\'\i }ho syst\IeC {\'e}mu}{23}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}P\IeC {\v r}ehled a komunikace}{22}{section.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Rozd\IeC {\v e}len\IeC {\'\i } entitn\IeC {\'\i }ho syst\IeC {\'e}mu do modul\IeC {\r u}.}}{22}{figure.3.1}}
-\newlabel{Fig:DESModules}{{3.1}{22}{Rozdělení entitního systému do modulů}{figure.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces T\IeC {\v r}\IeC {\'\i }da \textbf  {Universe} je rozhran\IeC {\'\i }m entitn\IeC {\'\i }ho syst\IeC {\'e}mu. Diagram neobsahuje specifikaci v\IeC {\v s}ech metod t\IeC {\v r}\IeC {\'\i }dy, kv\IeC {\r u}li jejich vysok\IeC {\'e}mu po\IeC {\v c}tu.}}{23}{figure.3.2}}
-\newlabel{Fig:DESUniverse}{{3.2}{23}{Třída \textbf {Universe} je rozhraním entitního systému. Diagram neobsahuje specifikaci všech metod třídy, kvůli jejich vysokému počtu}{figure.3.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Komponenty a jejich nosi\IeC {\v c}e}{23}{section.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {komponent}.}}{24}{figure.3.3}}
-\newlabel{Fig:DESCompDiag}{{3.3}{24}{Diagram tříd podsystému správy \emph {komponent}}{figure.3.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Sekven\IeC {\v c}n\IeC {\'\i } diagram p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } komponenty, pokra\IeC {\v c}uje na obr. \ref  {Fig:DESAddEnt}.}}{25}{figure.3.4}}
-\newlabel{Fig:DESAddComp}{{3.4}{25}{Sekvenční diagram přidání komponenty, pokračuje na obr. \ref {Fig:DESAddEnt}}{figure.3.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Reprezentace entit}{25}{section.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {entit}.}}{26}{figure.3.5}}
-\newlabel{Fig:DESEntityDiagram}{{3.5}{26}{Diagram tříd podsystému správy \emph {entit}}{figure.3.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Tabulka metadat, indexy jednotliv\IeC {\'y}ch entit jsou implicitn\IeC {\'\i } indexy \IeC {\v r}\IeC {\'a}dk\IeC {\r u}.}}{27}{figure.3.6}}
-\newlabel{Fig:DESMetadata}{{3.6}{27}{Tabulka metadat, indexy jednotlivých entit jsou implicitní indexy řádků}{figure.3.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Sekven\IeC {\v c}n\IeC {\'\i } diagram modifikace metadat p\IeC {\v r}i p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } komponenty, pokra\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i } obr. \ref  {Fig:DESAddComp}.}}{27}{figure.3.7}}
-\newlabel{Fig:DESAddEnt}{{3.7}{27}{Sekvenční diagram modifikace metadat při přidání komponenty, pokračování obr. \ref {Fig:DESAddComp}}{figure.3.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Syst\IeC {\'e}my a skupiny}{27}{section.3.4}}
-\newlabel{Chap:SysGroup}{{3.4}{27}{Systémy a skupiny}{section.3.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {syst\IeC {\'e}m\IeC {\r u}}.}}{28}{figure.3.8}}
-\newlabel{Fig:DESSystemDiagram}{{3.8}{28}{Diagram tříd podsystému správy \emph {systémů}}{figure.3.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {skupin}.}}{29}{figure.3.9}}
-\newlabel{Fig:DESGroupDiag}{{3.9}{29}{Diagram tříd podsystému správy \emph {skupin}}{figure.3.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{29}{section.3.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {akc\IeC {\'\i }}.}}{30}{figure.3.10}}
-\newlabel{Fig:DESActionDiag}{{3.10}{30}{Diagram tříd podsystému správy \emph {akcí}}{figure.3.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{31}{section.3.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Digram toku \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } komponentn\IeC {\'\i }ho syst\IeC {\'e}mu.}}{31}{figure.3.11}}
-\newlabel{Fig:DESFlow}{{3.11}{31}{Digram toku řízení komponentního systému}{figure.3.11}{}}
+\newlabel{Chap:Design}{{3}{23}{Návrh entitního systému}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}P\IeC {\v r}ehled a komunikace}{23}{section.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Rozd\IeC {\v e}len\IeC {\'\i } entitn\IeC {\'\i }ho syst\IeC {\'e}mu do modul\IeC {\r u}.}}{23}{figure.3.1}}
+\newlabel{Fig:DESModules}{{3.1}{23}{Rozdělení entitního systému do modulů}{figure.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces T\IeC {\v r}\IeC {\'\i }da \textbf  {Universe} je rozhran\IeC {\'\i }m entitn\IeC {\'\i }ho syst\IeC {\'e}mu. Diagram neobsahuje specifikaci v\IeC {\v s}ech metod t\IeC {\v r}\IeC {\'\i }dy, kv\IeC {\r u}li jejich vysok\IeC {\'e}mu po\IeC {\v c}tu.}}{24}{figure.3.2}}
+\newlabel{Fig:DESUniverse}{{3.2}{24}{Třída \textbf {Universe} je rozhraním entitního systému. Diagram neobsahuje specifikaci všech metod třídy, kvůli jejich vysokému počtu}{figure.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Komponenty a jejich nosi\IeC {\v c}e}{24}{section.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {komponent}.}}{25}{figure.3.3}}
+\newlabel{Fig:DESCompDiag}{{3.3}{25}{Diagram tříd podsystému správy \emph {komponent}}{figure.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Sekven\IeC {\v c}n\IeC {\'\i } diagram p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } komponenty, pokra\IeC {\v c}uje na obr. \ref  {Fig:DESAddEnt}.}}{26}{figure.3.4}}
+\newlabel{Fig:DESAddComp}{{3.4}{26}{Sekvenční diagram přidání komponenty, pokračuje na obr. \ref {Fig:DESAddEnt}}{figure.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Reprezentace entit}{26}{section.3.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {entit}.}}{27}{figure.3.5}}
+\newlabel{Fig:DESEntityDiagram}{{3.5}{27}{Diagram tříd podsystému správy \emph {entit}}{figure.3.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Tabulka metadat, indexy jednotliv\IeC {\'y}ch entit jsou implicitn\IeC {\'\i } indexy \IeC {\v r}\IeC {\'a}dk\IeC {\r u}.}}{28}{figure.3.6}}
+\newlabel{Fig:DESMetadata}{{3.6}{28}{Tabulka metadat, indexy jednotlivých entit jsou implicitní indexy řádků}{figure.3.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Sekven\IeC {\v c}n\IeC {\'\i } diagram modifikace metadat p\IeC {\v r}i p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } komponenty, pokra\IeC {\v c}ov\IeC {\'a}n\IeC {\'\i } obr. \ref  {Fig:DESAddComp}.}}{28}{figure.3.7}}
+\newlabel{Fig:DESAddEnt}{{3.7}{28}{Sekvenční diagram modifikace metadat při přidání komponenty, pokračování obr. \ref {Fig:DESAddComp}}{figure.3.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Syst\IeC {\'e}my a skupiny}{28}{section.3.4}}
+\newlabel{Chap:SysGroup}{{3.4}{28}{Systémy a skupiny}{section.3.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {syst\IeC {\'e}m\IeC {\r u}}.}}{29}{figure.3.8}}
+\newlabel{Fig:DESSystemDiagram}{{3.8}{29}{Diagram tříd podsystému správy \emph {systémů}}{figure.3.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {skupin}.}}{30}{figure.3.9}}
+\newlabel{Fig:DESGroupDiag}{{3.9}{30}{Diagram tříd podsystému správy \emph {skupin}}{figure.3.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Paraleln\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }stup}{30}{section.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagram t\IeC {\v r}\IeC {\'\i }d podsyst\IeC {\'e}mu spr\IeC {\'a}vy \emph  {akc\IeC {\'\i }}.}}{31}{figure.3.10}}
+\newlabel{Fig:DESActionDiag}{{3.10}{31}{Diagram tříd podsystému správy \emph {akcí}}{figure.3.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Tok \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i }}{32}{section.3.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Digram toku \IeC {\v r}\IeC {\'\i }zen\IeC {\'\i } komponentn\IeC {\'\i }ho syst\IeC {\'e}mu.}}{32}{figure.3.11}}
+\newlabel{Fig:DESFlow}{{3.11}{32}{Digram toku řízení komponentního systému}{figure.3.11}{}}
 \citation{IsoCpp}
 \citation{Cpp14}
 \citation{Cpp14VarTemplate}
 \citation{CppMetaprogramming}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementace}{33}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementace}{34}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Implementa\IeC {\v c}n\IeC {\'\i } n\IeC {\'a}stroje a p\IeC {\v r}enositelnost}{33}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Komponenty}{34}{section.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Spr\IeC {\'a}va entit}{34}{section.4.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Rozd\IeC {\v e}len\IeC {\'\i } identifik\IeC {\'a}toru entit na generaci a index.}}{35}{figure.4.1}}
-\newlabel{Fig:IMPLIdent}{{4.1}{35}{Rozdělení identifikátoru entit na generaci a index}{figure.4.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Implementace tabulky metadat pomoc\IeC {\'\i } mno\IeC {\v z}in bit\IeC {\r u} \textbf  {InfoBitset}. Tabulka obsahuje n\IeC {\'a}sleduj\IeC {\'\i }c\IeC {\'\i } informace -- komponenty, skupiny, aktivitu, pou\IeC {\v z}it\IeC {\'\i } \IeC {\v r}\IeC {\'a}dku a generaci. Z t\IeC {\'e}to mno\IeC {\v z}iny informac\IeC {\'\i } jsou v\IeC {\v s}echny, a\IeC {\v z} na generaci, reprezentov\IeC {\'a}ny pomoc\IeC {\'\i } mno\IeC {\v z}in bit\IeC {\r u}.}}{35}{figure.4.2}}
-\newlabel{Fig:IMPLMetadata}{{4.2}{35}{Implementace tabulky metadat pomocí množin bitů \textbf {InfoBitset}. Tabulka obsahuje následující informace -- komponenty, skupiny, aktivitu, použití řádku a generaci. Z této množiny informací jsou všechny, až na generaci, reprezentovány pomocí množin bitů}{figure.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{36}{section.4.4}}
-\newlabel{Chap:ImplSystem}{{4.4}{36}{Systémy a skupiny}{section.4.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Aktualizace seznam\IeC {\r u} \emph  {skupin}.}}{37}{figure.4.3}}
-\newlabel{Fig:IMPLMerge}{{4.3}{37}{Aktualizace seznamů \emph {skupin}}{figure.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Podpora paralelizmu}{37}{section.4.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Obnoven\IeC {\'\i } konzistence}{38}{section.4.6}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Postup obnoven\IeC {\'\i }}}{38}{algocf.1}}
-\newlabel{Alg:Refresh}{{1}{38}{Obnovení konzistence}{algocf.1}{}}
+\newlabel{Chap:Implementation}{{4}{34}{Implementace}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Implementa\IeC {\v c}n\IeC {\'\i } n\IeC {\'a}stroje a p\IeC {\v r}enositelnost}{34}{section.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Komponenty}{35}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Spr\IeC {\'a}va entit}{35}{section.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Rozd\IeC {\v e}len\IeC {\'\i } identifik\IeC {\'a}toru entit na generaci a index.}}{36}{figure.4.1}}
+\newlabel{Fig:IMPLIdent}{{4.1}{36}{Rozdělení identifikátoru entit na generaci a index}{figure.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Implementace tabulky metadat pomoc\IeC {\'\i } mno\IeC {\v z}in bit\IeC {\r u} \textbf  {InfoBitset}. Tabulka obsahuje n\IeC {\'a}sleduj\IeC {\'\i }c\IeC {\'\i } informace -- komponenty, skupiny, aktivitu, pou\IeC {\v z}it\IeC {\'\i } \IeC {\v r}\IeC {\'a}dku a generaci. Z t\IeC {\'e}to mno\IeC {\v z}iny informac\IeC {\'\i } jsou v\IeC {\v s}echny, a\IeC {\v z} na generaci, reprezentov\IeC {\'a}ny pomoc\IeC {\'\i } mno\IeC {\v z}in bit\IeC {\r u}.}}{36}{figure.4.2}}
+\newlabel{Fig:IMPLMetadata}{{4.2}{36}{Implementace tabulky metadat pomocí množin bitů \textbf {InfoBitset}. Tabulka obsahuje následující informace -- komponenty, skupiny, aktivitu, použití řádku a generaci. Z této množiny informací jsou všechny, až na generaci, reprezentovány pomocí množin bitů}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Syst\IeC {\'e}my a skupiny}{37}{section.4.4}}
+\newlabel{Chap:ImplSystem}{{4.4}{37}{Systémy a skupiny}{section.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Aktualizace seznam\IeC {\r u} \emph  {skupin}.}}{38}{figure.4.3}}
+\newlabel{Fig:IMPLMerge}{{4.3}{38}{Aktualizace seznamů \emph {skupin}}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Podpora paralelizmu}{38}{section.4.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Obnoven\IeC {\'\i } konzistence}{39}{section.4.6}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Postup obnoven\IeC {\'\i }}}{39}{algocf.1}}
+\newlabel{Alg:Refresh}{{1}{39}{Obnovení konzistence}{algocf.1}{}}
 \citation{EntropyGit}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}Mo\IeC {\v z}nosti roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i }}{39}{section.4.7}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{40}{chapter.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Mo\IeC {\v z}nosti roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i }}{40}{section.4.7}}
+\newlabel{Chap:ExtensionOptions}{{4.7}{40}{Možnosti rozšíření}{section.4.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i }}{41}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Demo hra}{40}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}N\IeC {\'a}vrh}{40}{section.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Zhodnocen\IeC {\'\i }}{41}{section.5.3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i }}{42}{chapter.6}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{Chap:Results}{{6}{42}{Vyhodnocení}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Testovan\IeC {\'e} sestavy}{42}{section.6.1}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Tabulka s testovan\IeC {\'y}mi hardwarov\IeC {\'y}mi konfiguracemi.}}{42}{table.6.1}}
-\newlabel{Tab:HW}{{6.1}{42}{Tabulka s testovanými hardwarovými konfiguracemi}{table.6.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Tabulka s testovan\IeC {\'y}mi p\IeC {\v r}eklada\IeC {\v c}i jazyka \emph  {C++}. \textbf  {ID} obsahuje identifik\IeC {\'a}tor z tab. \ref  {Tab:HW}.}}{42}{table.6.2}}
-\newlabel{Tab:Compiler}{{6.2}{42}{Tabulka s testovanými překladači jazyka \emph {C++}. \textbf {ID} obsahuje identifikátor z tab. \ref {Tab:HW}}{table.6.2}{}}
+\newlabel{Chap:Results}{{5}{41}{Vyhodnocení}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Testovan\IeC {\'e} sestavy}{41}{section.5.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Tabulka s testovan\IeC {\'y}mi hardwarov\IeC {\'y}mi konfiguracemi.}}{41}{table.5.1}}
+\newlabel{Tab:HW}{{5.1}{41}{Tabulka s testovanými hardwarovými konfiguracemi}{table.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Tabulka s testovan\IeC {\'y}mi p\IeC {\v r}eklada\IeC {\v c}i jazyka \emph  {C++}. \textbf  {ID} obsahuje identifik\IeC {\'a}tor z tab. \ref  {Tab:HW}.}}{41}{table.5.2}}
+\newlabel{Tab:Compiler}{{5.2}{41}{Tabulka s testovanými překladači jazyka \emph {C++}. \textbf {ID} obsahuje identifikátor z tab. \ref {Tab:HW}}{table.5.2}{}}
 \citation{Anax}
 \citation{ArtemisCpp}
 \citation{ArtemisJava}
 \citation{EntityX}
 \citation{RHome}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{43}{section.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{43}{section.6.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Graf v\IeC {\'y}sledk\IeC {\r u} pro p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e}ho po\IeC {\v c}tu entit.}}{44}{figure.6.1}}
-\newlabel{Fig:EVALEntity}{{6.1}{44}{Graf výsledků pro přidání určitého počtu entit}{figure.6.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Jednoduch\IeC {\'a} iterace pohybov\IeC {\'e}ho \emph  {syst\IeC {\'e}mu}.}}{44}{figure.6.2}}
-\newlabel{Fig:EVALMovSys}{{6.2}{44}{Jednoduchá iterace pohybového \emph {systému}}{figure.6.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Iterace s dan\IeC {\'y}m procentem m\IeC {\v e}n\IeC {\'\i }c\IeC {\'\i }ch se komponent.}}{45}{figure.6.3}}
-\newlabel{Fig:EVALAdvMovSys}{{6.3}{45}{Iterace s daným procentem měnících se komponent}{figure.6.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } nosi\IeC {\v c}\IeC {\r u} komponent pro komponenty r\IeC {\r u}zn\IeC {\'y}ch velikost\IeC {\'\i }.}}{46}{figure.6.4}}
-\newlabel{Fig:EVALHolders}{{6.4}{46}{Porovnání nosičů komponent pro komponenty různých velikostí}{figure.6.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces Paraleln\IeC {\'\i } pou\IeC {\v z}it\IeC {\'\i } knihovny s dan\IeC {\'y}m po\IeC {\v c}tem vl\IeC {\'a}ken.}}{47}{figure.6.5}}
-\newlabel{Fig:EVALPar}{{6.5}{47}{Paralelní použití knihovny s daným počtem vláken}{figure.6.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Z\IeC {\'a}v\IeC {\v e}r}{48}{chapter.7}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{42}{section.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{42}{section.5.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Graf v\IeC {\'y}sledk\IeC {\r u} pro p\IeC {\v r}id\IeC {\'a}n\IeC {\'\i } ur\IeC {\v c}it\IeC {\'e}ho po\IeC {\v c}tu entit.}}{43}{figure.5.1}}
+\newlabel{Fig:EVALEntity}{{5.1}{43}{Graf výsledků pro přidání určitého počtu entit}{figure.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Jednoduch\IeC {\'a} iterace pohybov\IeC {\'e}ho \emph  {syst\IeC {\'e}mu}.}}{43}{figure.5.2}}
+\newlabel{Fig:EVALMovSys}{{5.2}{43}{Jednoduchá iterace pohybového \emph {systému}}{figure.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Iterace s dan\IeC {\'y}m procentem m\IeC {\v e}n\IeC {\'\i }c\IeC {\'\i }ch se komponent.}}{44}{figure.5.3}}
+\newlabel{Fig:EVALAdvMovSys}{{5.3}{44}{Iterace s daným procentem měnících se komponent}{figure.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Porovn\IeC {\'a}n\IeC {\'\i } nosi\IeC {\v c}\IeC {\r u} komponent pro komponenty r\IeC {\r u}zn\IeC {\'y}ch velikost\IeC {\'\i }.}}{45}{figure.5.4}}
+\newlabel{Fig:EVALHolders}{{5.4}{45}{Porovnání nosičů komponent pro komponenty různých velikostí}{figure.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Paraleln\IeC {\'\i } pou\IeC {\v z}it\IeC {\'\i } knihovny s dan\IeC {\'y}m po\IeC {\v c}tem vl\IeC {\'a}ken.}}{46}{figure.5.5}}
+\newlabel{Fig:EVALPar}{{5.5}{46}{Paralelní použití knihovny s daným počtem vláken}{figure.5.5}{}}
+\citation{EntropyGit}
 \bibstyle{bib-styles/czechiso}
 \bibdata{xpolas34-ECS-20-literatura-bibliography}
-\bibcite{FalseSharing}{1}
-\bibcite{Cpp14}{2}
-\bibcite{Cpp14VarTemplate}{3}
-\bibcite{CacheCoherence}{4}
-\bibcite{DataLocality}{5}
-\bibcite{IsoCpp}{6}
-\bibcite{CpuIpc}{7}
-\bibcite{DataOrientedDesignDice}{8}
-\bibcite{KindsOfParallelism}{9}
-\bibcite{Pipelining}{10}
-\bibcite{TaskBasedParallelism}{11}
-\bibcite{RHome}{12}
-\bibcite{UnityGo}{13}
-\bibcite{ARM}{14}
-\@writefile{toc}{\contentsline {chapter}{Literatura}{50}{chapter*.2}}
-\bibcite{CPUPerfHistory}{15}
-\bibcite{AmdX86-64}{16}
-\bibcite{UnderstandingECS}{17}
-\bibcite{WhatIsECS}{18}
-\bibcite{IntelX86-64}{19}
-\bibcite{DataOrientedDesignCppCon}{20}
-\bibcite{EntityX}{21}
-\bibcite{ParallelGame}{22}
-\bibcite{OOHLang}{23}
-\bibcite{CppMetaprogramming}{24}
-\bibcite{DODComponents}{25}
-\bibcite{DOD}{26}
-\bibcite{InstrAreData}{27}
-\bibcite{DesignPatterns}{28}
-\bibcite{EntitySystemsFuture}{29}
-\bibcite{AmdahlLaw}{30}
-\bibcite{Anax}{31}
-\bibcite{ArtemisCpp}{32}
-\bibcite{FrontierThreads}{33}
-\bibcite{MemoryTiming}{34}
-\bibcite{GameDesignPatterns}{35}
-\bibcite{ArtemisJava}{36}
-\bibcite{EntropyGit}{37}
-\bibcite{Ashley}{38}
-\bibcite{Ps4Xbox}{39}
-\bibcite{CpuMemoryGap}{40}
-\bibcite{EvolveHierarchy}{41}
-\@writefile{toc}{\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{53}{section*.3}}
-\ttl@writefile{ptc}{\ttl@starttoc{chapters@1}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{54}{appendix.A}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{47}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Manu\IeC {\'a}l}{55}{appendix.B}}
+\bibcite{ThreadSafety}{1}
+\bibcite{FalseSharing}{2}
+\bibcite{Cpp14}{3}
+\bibcite{Cpp14VarTemplate}{4}
+\bibcite{CacheCoherence}{5}
+\bibcite{DataLocality}{6}
+\bibcite{IsoCpp}{7}
+\bibcite{CpuIpc}{8}
+\bibcite{DataOrientedDesignDice}{9}
+\bibcite{KindsOfParallelism}{10}
+\bibcite{Pipelining}{11}
+\bibcite{TaskBasedParallelism}{12}
+\bibcite{RHome}{13}
+\bibcite{Unity}{14}
+\@writefile{toc}{\contentsline {chapter}{Literatura}{48}{chapter*.2}}
+\bibcite{UnityGo}{15}
+\bibcite{UnrealEngine}{16}
+\bibcite{ARM}{17}
+\bibcite{CPUPerfHistory}{18}
+\bibcite{AmdX86-64}{19}
+\bibcite{UnderstandingECS}{20}
+\bibcite{WhatIsECS}{21}
+\bibcite{IntelX86-64}{22}
+\bibcite{DataOrientedDesignCppCon}{23}
+\bibcite{EntityX}{24}
+\bibcite{ParallelGame}{25}
+\bibcite{CPPObjectMemoryLayout}{26}
+\bibcite{DungeonSiege}{27}
+\bibcite{OOHLang}{28}
+\bibcite{CppMetaprogramming}{29}
+\bibcite{DODComponents}{30}
+\bibcite{DOD}{31}
+\bibcite{InstrAreData}{32}
+\bibcite{DesignPatterns}{33}
+\bibcite{EntitySystemsFuture}{34}
+\bibcite{AmdahlLaw}{35}
+\bibcite{Anax}{36}
+\bibcite{ArtemisCpp}{37}
+\bibcite{FrontierThreads}{38}
+\bibcite{MemoryTiming}{39}
+\bibcite{GameDesignPatterns}{40}
+\bibcite{ArtemisJava}{41}
+\bibcite{EntropyGit}{42}
+\bibcite{ParallelECS}{43}
+\bibcite{Ashley}{44}
+\bibcite{Ps4Xbox}{45}
+\bibcite{CpuMemoryGap}{46}
+\bibcite{EvolveHierarchy}{47}
+\@writefile{toc}{\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{52}{section*.3}}
+\ttl@writefile{ptc}{\ttl@starttoc{chapters@1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{53}{appendix.A}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Manu\IeC {\'a}l}{54}{appendix.B}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{55}{appendix.C}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
