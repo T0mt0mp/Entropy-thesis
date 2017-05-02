@@ -222,8 +222,10 @@
 %Nazev prace (v jazyce prace) / thesis title (in the language of the thesis)
 \iftoggle{slovak_used}{
   \def\@title{\@title@CS}
+  \def\@titleMain{\@titleMain@CS}
 }{
   \def\@title{\ifczech\@title@CS\else\@title@EN\fi}
+  \def\@titleMain{\ifczech\@titleMain@CS\else\@titleMain@EN\fi}
 }
 
 %Jmeno, prijmeni, tituly autora / name surname and the titles of the author
@@ -240,7 +242,9 @@
 %-----------------------------------------------------------------------------
 %Parametry 
 \define@key{projinfo}{title.cs}{\global\def\@title@CS{#1}}
+\define@key{projinfo}{titleMain.cs}{\global\def\@titleMain@CS{#1}}
 \define@key{projinfo}{title.en}{\global\def\@title@EN{#1}}
+\define@key{projinfo}{titleMain.en}{\global\def\@titleMain@EN{#1}}
 \define@key{projinfo}{department}{\set@department{#1}}
 \define@key{projinfo}{project}{\set@project{#1}}
 \define@key{projinfo}{year}{\def\@year{#1}}
@@ -561,8 +565,8 @@
 
 \vfill
 
-\mkuctxtt{18}{\ifslovak\@title@CS\else\ifczech\@title@CS\else\@title@EN\fi\fi}
-\mkuctxtt{10}{\ifslovak\@title@EN\else\ifczech\@title@EN\else\@title@CS\fi\fi}
+\mkuctxtt{18}{\ifslovak\@titleMain@CS\else\ifczech\@titleMain@CS\else\@titleMain@EN\fi\fi}
+\mkuctxtt{10}{\ifslovak\@titleMain@EN\else\ifczech\@titleMain@EN\else\@titleMain@CS\fi\fi}
 
 \vfill
 

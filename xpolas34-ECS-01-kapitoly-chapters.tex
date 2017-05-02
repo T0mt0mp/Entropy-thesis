@@ -33,76 +33,77 @@ První dokumentované použití se objevuje ve hře \emph{Dungeon Siege}\cite{Du
 
 \chapter{Úvod}
 
-Díky rostoucím požadavkům na moderní hry -- jak ve složitosti herních principů, tak i věrnosti grafické reprezentace -- se stále zvyšují požadavky na \emph{herní engine}, použitých v jejich tvorbě. Mezi hlavní požadavky patří široké využití v mnoha herních žánrech, možnosti multiplatformního nasazení, efektivní použití dostupného hardware, ale také jednoduchost a efektivita práce ve velkých týmech. Tyto, ale i další problémy řeší návrhový vzor \emph{entity-component-system}, který v základu používá \emph{kompozici} místo \emph{dědičnosti}.
+Díky rostoucím požadavkům na moderní hry -- jak ve složitosti herních principů, tak i věrnosti grafické reprezentace -- se stále zvyšují požadavky na \emph{herní engine}, použitých v jejich tvorbě. Mezi hlavní požadavky patří široké využití v mnoha herních žánrech, možnosti multiplatformního nasazení, efektivní použití dostupného hardware, ale také jednoduchost a efektivita práce ve velkých týmech. Tyto, ale i další problémy řeší způsob návrhu pomocí \emph{Entity-component-system} paradigmatu, který v základu používá \emph{kompozici} místo \emph{dědičnosti}.
 
-Jelikož je tato metoda vcelku nová, širší využití začíná až v posledních letech, existuje mnoho návrhů, jak by \emph{entitní systém} založený na kompozici měl vypadat. Nejčastěji je návrh rozdělen do tří celků -- \emph{entita}, \emph{komponent} a \emph{systém}. Často se také využívá tzv. \emph{datově orientovaného návrhu}\cite{DOD}, který specifikuje návrh aplikace za použití analýzy vstupních a výstupních dat jednotlivých částí.
+Jelikož je tato metoda vcelku nová, širší využití začíná až v posledních letech, existuje mnoho návrhů, jak by \emph{entitní systém} založený na kompozici měl vypadat. Nejčastěji je návrh rozdělen do tří celků -- \emph{entita}, \emph{komponent} a \emph{systém}. Výhodou je striktní oddělení logiky od dat a možnosti uložení dat do souvislých datových struktur, čímž je dosaženo efektivnější využití výpočetního hardware.
 
-Cílem práce je návrh a implementace \emph{entitního systému} založeného na \emph{datově orientované kompozici}. Hlavními požadavky na tento systém jsou: 
+Cílem této bakalářské práce je návrh a implementace \emph{entitního systému} založeného na \emph{datově orientované kompozici}. Hlavními požadavky na tento systém jsou: 
 \begin{itemize}
-	\item Použitelnost ve vícevláknových aplikacích.
+	\item Možnosti paralelního přístupu.
 	\item Efektivní využití hardwarových prostředků.
 	\item Jednoduché rozhraní a integrace do existujících projektů.
 \end{itemize}
-Mezi další požadavky, z pohledu \emph{herního enginu}, jsou efektivní práce s velkým množstvím \emph{entit}, kde většina z nich nemusí být aktuálně používána a také komunikace mezi jednotlivými \emph{komponenty} a \emph{entitami}.
+Mezi další požadavky, z pohledu herního vývoje, jsou efektivní práce s velkým množstvím \emph{entit}, kde většina z nich nemusí být aktuálně používána a také komunikace mezi jednotlivými \emph{komponenty} a \emph{entitami}.
 
-Práce je rozdělena do čtyř logických celků -- teoretická část, návrh systému, implementace a vyhodnocení. Kapitola \ref{Chap:Theory} popisuje aktuální stav návrhu \emph{software}, primárně z pohledu herního vývoje. Nejdříve zde jsou přiblíženy požadavky na \emph{entitní systémy}. Následuje porovnání aktuálně používaných způsobů reprezentace \emph{entit}, jejich výhody a nevýhody. Závěr obsahuje způsoby využití vícevláknových konfigurací. Kapitola \ref{Chap:Design} zahrnuje kompletní návrh \emph{entitního systému}, který je obecný -- nezávislý na implementačním jazyce. Nejdříve je uveden přehled celého systému, následuje podrobnější popis jeho částí a rozbor různých způsobů řešení. Další kapitola (\ref{Chap:Implementation}) je věnována implementaci v jazyce C++. Následuje kapitola \ref{Chap:Demo}, ve které je předvedena funkčnost systému na návrhu a implementaci demo hry. Poslední kapitola shrnuje výsledný systém z pohledu výkonosti a srovnává jej s podobnými volně přístupnými knihovnami.
+Práce je rozdělena do čtyř logických celků -- teoretická část, návrh systému, implementace a vyhodnocení. Kapitola teorie (\ref{Chap:Theory}) popisuje aktuální stav návrhu software, z pohledu vývoje her a důvody vzniku \emph{ECS} paradigmatu. Nejdříve jsou zde přiblíženy požadavky na \emph{entitní systémy}, následuje porovnání aktuálně používaných způsobů reprezentace \emph{entit} a srovnání jejich výhod a nevýhod. Závěr se zabývá způsoby, jak využít více-jádrové hardwarové konfigurace. Kapitola návrh (\ref{Chap:Design}) zahrnuje kompletní návrh \emph{entitního systému}, který je obecný -- nezávislý na implementačním jazyce. Úvod obsahuje přehled celého systému, další sekce pokračují podrobnějším popisem jeho částí a rozborem různých způsobů řešení. Následující kapitola -- implementace (\ref{Chap:Implementation}) -- je věnována implementaci výše zmíněného návrhu v programovacím jazyce \emph{C++}. Závěrečná kapitola (\ref{Chap:Results}) shrnuje vlastnosti výsledného systému z pohledu výkonosti a srovnává jej s podobnými volně dostupnými knihovnami.
 
 \chapter{Teoretický rozbor}
 \label{Chap:Theory}
 
-Tato kapitola se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na kompozici a definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které jsou dnes používány.
+Tato kapitola se věnuje teorii \emph{entitních systémů}, jejich historii a požadavkům na ně kladeným. Dále obsahuje rozbor běžně používaných způsobů reprezentace \emph{entit} a srovnává jejich výhody a nevýhody. Následuje popis vlastního \emph{entitního systému} založeného na \emph{ECS} paradigmatu a definice hlavních pojmů -- \emph{entita}, \emph{komponent} a \emph{systém}. Na závěr se věnuje metodám paralelizmu, které budou zváženy pro následující návrh entitního systému.
 
 \section{Entitní systémy}
 
-\emph{Entitní systém} je část herního enginu, který zprostředkovává správu \emph{entit} -- objektů ve virtuálním světě. Alternativní název, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
+\emph{Entitní systém} je část herního enginu, který zprostředkovává správu \emph{entit} -- objektů ve virtuálním světě. Alternativní název pro \emph{entitu}, který se také často používá, je \emph{herní objekt} (\emph{Game Object} \cite{UnityGo}). Primární funkcí \emph{entit} je propojení jednotlivých modulů a částí aplikace, které jsou vyvíjeny odděleně -- např. herní logika a simulace fyziky.
 
 \section{Požadavky na návrh}
 
-Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají techniky pro organizaci kódu a knihy \emph{návrhových vzorů}\cite{DesignPatterns}\cite{GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat \emph{software}. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému. Tyto techniky umožňují pracovat velkému množství programátorů na jednom projektu.
+Stále zvyšující se požadavky na složitost herních principů, věrnost grafické reprezentace a velikost virtuálních světů mnohonásobně ztěžují návrh \emph{herních enginů}, na kterých jsou hry stavěny. Dalším problémem je znovupoužitelnost již vytvořených částí, nejen ve stejném projektu, ale stále častěji i v dalších hrách. Z výše zmíněných důvodů vznikají techniky pro organizaci kódu a knihy \emph{návrhových vzorů} \cite{DesignPatterns, GameDesignPatterns}, které obsahují zkušenosti a prověřené způsoby jak navrhovat software. Důležitou vlastností správného návrhu, je také modularita -- oddělení částí systému -- která umožňuje velkému množství programátorů pracovat na jednom projektu. Základem \emph{Entity-Component-System} paradigmatu je striktní oddělení logiky a dat, čímž je umožněna vysoká úroveň modularity. 
 
-Mezi techniky dnes používané patří primárně \emph{objektově orientované návrh}, ale stále častěji také návrh \emph{datově orientovaný}, kterým se zabývá část \ref{Chap:DDD}.
-
-Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedním z důležitých rozhodnutí v návrhu \emph{herního enginu}. Entity jsou často používány pro komunikaci mezi jednotlivými podsystémy -- např. vykreslení efektu, který vznikl v \emph{gameplay} kódu. Přílišná provázanost však většinou znamená zvýšený výskyt programovacích chyb (\emph{bugs}) \cite{GameDesignPatterns}. Podrobněji se tímto zabývá sekce \ref{Chap:Representation}.
+Způsob reprezentace \emph{entit} -- objektů ve virtuálním světě -- je jedním z důležitých rozhodnutí v návrhu \emph{herního enginu}. Entity jsou často používány pro komunikaci mezi jednotlivými podsystémy -- např. přidání efektu z herní logiky. Přílišná provázanost však většinou znamená zvýšený výskyt programovacích chyb (\emph{bugs}) \cite{GameDesignPatterns}. Podrobněji se tímto zabývá sekce \ref{Chap:Representation}.
 
 \section{Architektura moderních počítačů}
 
-Důležitou součástí tvorby her je analýza cílového hardware, na kterém hra poběží. Velkou výhodou je v dnešní době velmi vysoká podobnost všech různých herních systémů. Stolní počítače, ale i některé nové konzole (\emph{Playstation 4} a \emph{Xbox One} \cite{Ps4Xbox}), již všechny používají architekturu procesorů \emph{x86} \cite{IntelX86-64} \cite{AmdX86-64}. Stále důležitější platformou jsou také mobilní zařízení, které používají architekturu procesorů \emph{ARM} \cite{ARM}. Výhodou, z pohledu návrhu \emph{software}, je velmi podobná architektura paměti, která umožňuje optimalizace, které fungují na všech často používaných platformách.
+Důležitou součástí tvorby her je analýza cílové platformy, na které hra poběží. Velkou výhodou je v dnešní době podobnost všech různých herních systémů. Stolní počítače, ale i některé nové herní konzole (\emph{Playstation 4} a \emph{Xbox One} \cite{Ps4Xbox}), používají architekturu procesorů \emph{x86} \cite{IntelX86-64, AmdX86-64}. Stále důležitější platformou jsou také mobilní zařízení, které většinou používají architekturu procesorů \emph{ARM} \cite{ARM}. Díky podobnosti paměťových hierarchií na těchto platformách, je možné implementovat optimalizace, které vylepšují výkon výsledných aplikací na všech cílových systémech.
 
-Moderní procesory dokáží velmi rychle vykonávat jednoduché instrukce a za použití mechanizmů (např. \emph{pipelining} \cite{Pipelining}) se stále zvyšuje počet instrukcí za jeden cyklus (\emph{Instructions per Cycle} \cite{CpuIpc}). Problém nadchází v případě, kdy procesor operuje s daty, které nejsou k dispozici v jeho registrech. Rozdíl v rychlosti procesorů a pamětí stále roste \cite{CpuMemoryGap}, způsobem minimalizace tohoto rozdílu jsou procesorové \emph{cache} (\emph{vyrovnávací paměť}).
+Moderní procesory dokáží velmi rychle vykonávat jednoduché instrukce a za použití mechanizmů (např. \emph{pipelining} \cite{Pipelining}) se stále zvyšuje počet instrukcí za jeden cyklus (\emph{Instructions per Cycle} \cite{CpuIpc}). Problém nastává v případě, kdy procesor operuje s daty, které nejsou k dispozici v jeho registrech, jelikož rozdíl v rychlosti procesorů a pamětí stále roste \cite{CpuMemoryGap}. Kvůli těmto rozdílům existuje hierarchie procesorových vyrovnávacích pamětí (\emph{cache}), jejichž cílem je minimalizace rozdílů rychlostí jednotlivých pamětí.
 
-Právě díky rozdílům rychlostí jednotlivých typů pamětí \cite{MemoryTiming} vznikají nové způsoby, jak navrhovat aplikace, které umožňují efektivně využívat hierarchii procesorových \emph{cache}. Jedním z nich je \emph{datově orientovaný návrh}, kterým se zabývá následující sekce. Mezi důležité parametry pro efektivní využití \emph{cache} patří lokalita odkazů \cite{DataLocality} a udržování jejich koherence \cite{CacheCoherence}. Lokalita odkazů je primárně dělena na 2 typy -- časová a prostorová. Časovou lokalitou je myšleno opakované používání stejných dat, kdy se data při prvním použití zapíší do \emph{cache} a dále již není třeba přístup k hlavní paměti. Načítání dat do \emph{cache} je prováděno v blocích (\emph{cache line}), které jsou specifikovány pro každý procesor. Program, který využívá data, které jsou v paměti blízko (vejdou se do jedné \emph{cache line}) má dobrou prostorovou lokalitu odkazů. Udržování koherence procesorových \emph{cache} se primárně projevuje ve více-jádrových systémech a podrobněji se jím zabývá sekce \ref{Chap:Parallelism}.
+Právě díky rozdílům rychlostí jednotlivých typů pamětí \cite{MemoryTiming} vznikají nové způsoby, jak navrhovat aplikace, které umožňují efektivně využívat hierarchii procesorových vyrovnávacích pamětí. Jedním z nich je \emph{datově orientovaný} návrh, ze kterého vychází \emph{ECS} paradigma.
+
+Mezi důležité parametry pro efektivní využití \emph{cache} patří lokalita dat \cite{DataLocality} a -- v případě více-jádrových systému -- udržování jejich koherence \cite{CacheCoherence}. Lokalita dat je primárně dělena na 2 typy -- časová a prostorová. Časovou lokalitou je myšleno opakované používání stejných dat, kdy se při prvním použití data přesunou do vyrovnávací paměti  a dále je k nim již přistupováno skrz rychlejší paměť. Načítání dat do \emph{cache} je prováděno v blocích (\emph{cache line}), jejichž velikost je specifická pro každý procesor. Program, který přistupuje k datům, jejichž vzdálenost v paměti není příliš velká (vejdou se do jedné \emph{cache line}) využívá prostorové lokality dat, kdy výsledkem je méně přístupů do pomalejších pamětí. Udržování koherence procesorových \emph{cache} se primárně projevuje ve více-jádrových systémech a podrobněji se jím zabývá sekce \ref{Chap:Parallelism}.
 
 \section{Datově orientovaný návrh}
 \label{Chap:DDD}
 
-Dnes nejpoužívanější způsob návrhu -- \emph{objektově orientovaný} (\emph{OOD}) -- umožňuje abstrahovat od fyzického hardware, na kterém výsledná aplikace běží a řešit daný problém jeho dekompozicí do objektů. Základní stavební kámen je v tomto případě objekt -- agregace hodnot a proveditelných operací. Toto umožňuje řešení problémů transformací objektů z reálného světa na objekty virtuální, se kterými dokáží lidé pracovat a zároveň jsou interpretovatelné i překladači programovacích jazyků. Toto je však problematické pro moderní výpočetní hardware, který je optimalizovaný na jednoduché datové transformace.
+Dnes nejpoužívanější způsob návrhu -- \emph{objektově orientovaný} (\emph{OOD}) -- umožňuje abstrahovat od fyzického hardware, na kterém výsledná aplikace běží a řešit daný problém jeho dekompozicí do tříd. Základní stavební jednotkou je v tomto případě třída -- agregace hodnot a  množiny operací nad ní proveditelnou. Toto umožňuje řešení problémů transformací objektů z reálného světa na objekty virtuální, se kterými dokáží lidé pracovat a zároveň jsou interpretovatelné i překladači programovacích jazyků. Toto je však problematické pro moderní výpočetní hardware, který je velmi výkonný v případě opakovaného provádění jednoduchých datových transformací. Dalším problémem je využití pouze části dat, která daný objekt obsahuje, čímž jsou tato data zbytečně načtena do vyrovnávací paměti.
 
-Kvůli výše zmíněnému problému a stále vyšší potřebě optimalizace se objevuje \emph{datově orientovaný návrh}\cite{DOD} (\emph{DOD}), který se naopak zaměřuje na data, které aplikace používá. Nevýhodou je snížení čitelnosti výsledného kódu a složitější transformace návrhu aplikace -- řešení problému -- ve výsledný program. Základní myšlenkou je oddělení dat a operací nad nimi, toto umožňuje efektivnější využití paměti a procesorových \emph{cache}.
+Kvůli výše zmíněným problémům vzniká \emph{datově orientovaný návrh}\cite{DOD} (\emph{DOD}), jehož cílem, na rozdíl od \emph{OOD}, je analýza dat, se kterými aplikace pracuje a následovné použití jednoduchých transformací. Nevýhodou využití \emph{OOD} je snížení čitelnosti výsledného kódu a složitější transformace návrhu aplikace -- řešení problému -- ve výsledný program. Základní myšlenkou je oddělení dat a operací nad nimi, čímž je umožněno efektivnějšího využití procesorových vyrovnávacích pamětí.
 
-Častým příkladem rozdílů mezi \emph{OOD} a \emph{DOD} je transformace seznamu struktur (\emph{SOA}) ve strukturu seznamů (\emph{AOS}), který lze vidět na obr. \ref{Fig:SOAASO}.
+Základem \emph{DOD} je důkladná analýza aplikačních dat -- jejich obor hodnot, transformace, definice vstupních dat, požadovaný výstup atp. Často je využíváno datové struktury pole, jejíž vlastnosti umožňují rychlou iteraci. Mezi výhody \emph{DOD} patří také lepší lokalita dat, čímž je zvýšena datová propustnost výsledné aplikace. Díky těmto vlastnostem je \emph{DOD} často využíván při návrhu software, který vyžaduje vysokou úroveň optimalizace -- v tomto případě při návrhu her\cite{DataOrientedDesignDice, DataOrientedDesignCppCon}.
+
+Častým příkladem rozdílů mezi \emph{OOD} a \emph{DOD} je transformace pole struktur (\emph{AOS}) v strukturu polí (\emph{SOA}), jejíž ilustraci lze vidět na obr. \ref{Fig:SOAASO}.
 
 \begin{figure}[]
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOD1}}
+	\centering
+	\tmpframe{\includegraphics[width=0.6\linewidth]{BAC-DOD1}}
 	\caption{Příklad transformace pole struktur na strukturu polí.}
 	\label{Fig:SOAASO}
 \end{figure}
 
-Základem \emph{DOD} je důkladná analýza aplikačních dat -- jejich obor hodnot, transformace, definice vstupních dat, požadovaný výstup atp. Často je využíváno datové struktury pole, jehož vlastnosti umožňují rychlou iteraci. Mezi výhody \emph{DOD} patří také dobrá lokalita dat a odkazů, což umožňuje efektivní využití procesorových \emph{cache}. Díky těmto vlastnostem se \emph{DOD} stále častěji používá v herním průmyslu\cite{DataOrientedDesignDice}\cite{DataOrientedDesignCppCon}.
-
-Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání \emph{entit} zabývá sekce \ref{Chap:DOC}.
+%Entitní systém navržený v této práci vychází z principů \emph{DOD} -- \emph{datově orientovaná kompozice}\cite{DODComponents}. Blíže se tímto způsobem skládání \emph{entit} zabývá sekce \ref{Chap:DOC}.
 
 \section{Reprezentace entit}
 \label{Chap:Representation}
 
-Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit}\cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě a \emph{chování} jsou operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
+Tato sekce obsahuje rozbor nejpoužívanějších způsobů reprezentace \emph{entit} \cite{EvolveHierarchy} a jejich \emph{chování}. Pod pojmem \emph{entita} je myšlen objekt ve virtuálním světě. \emph{Chování}, nebo \emph{aspekt}, definuje operace, které \emph{entita} dokáže provést -- pohyb, vykreslení, kolize atp.
 
-Jednotlivé reprezentace jsou srovnány na příkladu jednoduché 2D \emph{shoot'em up} hry. Metody jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware. Závěry zde vyvozené jsou primárně zaměřené na \emph{třídní} objektově orientované jazyky (\emph{C++}, \emph{JAVA}, \emph{Python} atp.), ale částečně je lze aplikovat i na \emph{objektově orientované} programovací jazyky obecně.
+Pro ilustraci návrhu pomocí jednotlivých metod je použit ukázkový návrh jednoduché 2D \uv{shoot'em up} hry, kde prezentovaný návrh není nutně optimální, ale ukazuje vlastnosti dané metody. Dílčí reprezentace entit jsou hodnoceny na základě složitosti implementace, návrhu s jejich použitím a výhodnosti z pohledu hardware. Závěry zde vyvozené jsou primárně zaměřené na \emph{třídní} objektově orientované jazyky (\emph{C++}, \emph{JAVA}, \emph{Python} atp.), ale částečně je lze aplikovat i na \emph{objektově orientované} programovací jazyky obecně.
 
 \subsection{Objektově orientovaná hierarchie}
 
-Pod pojmem \emph{objektově orientovaná hierarchie} (\emph{OOH} \cite{GameDesignPatterns}) je míněn způsob skládání nových typů entit za využití \emph{dědičnosti} a často také \emph{polymorfismu}. Příklad hierarchie, navržené pro ukázkovou 2D hru, lze vidět na obr. \ref{Fig:OOPHierarchy}. V kořenu stromu hierarchie je, v případě \emph{OOH}, bázová třída, která umožňuje uniformní skladování entit. Konkrétní entity, které existují v herním světě, jsou listy ve stromy dědičnosti.
+Pod pojmem \emph{objektově orientovaná hierarchie} (\emph{OOH} \cite{GameDesignPatterns}) je míněn způsob skládání nových typů entit za využití \emph{dědičnosti}. Příklad hierarchie, navržené pro ukázkovou 2D hru, lze vidět na obr. \ref{Fig:OOPHierarchy}. V kořenu stromu hierarchie je, v případě \emph{OOH}, bázová třída, která umožňuje uniformní skladování entit. Konkrétní entity, které existují v herním světě, jsou listy ve stromu dědičnosti.
 
-Množina akcí entity je nastřádána průchodem stromu dědičnosti od kořene k listu, kde se konkrétní entita nachází. Existují dva často používané způsoby definice těchto akcí. První z nich je přímá definice metody v děděné třídě, tohoto je využíváno v případě akcí, které nezávisí na typu entity -- např. vykreslení. Druhým je potom využití polymorfizmu -- virtuálních metod.
+Množina akcí entity je nastřádána průchodem stromu dědičnosti od kořene k listu, kde se konkrétní entita nachází. Existují dva často používané způsoby definice těchto akcí, kdy u první z nich je akce specifikována přímo v supertřídě. Druhým je potom použití \emph{polymorfizmu}, kdy děděné třídy specifikují pouze, že akce by měla existovat, ale definici nechávají na podtřídě.
 
 \begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP1}}
@@ -110,31 +111,30 @@ Množina akcí entity je nastřádána průchodem stromu dědičnosti od kořene
 	\label{Fig:OOPHierarchy}
 \end{figure}
 
-Hierarchie dědičnosti, která je v tomto příkladě použita lze vidět na obr. \ref{Fig:OOPHierarchy} -- pouze ilustrační, pro předvedení problémů. Bázová třída \textbf{Entity} obsahuje kód pro vykreslování, dále se hierarchie dělí na entity pohyblivé a statické. Prvním problémem je umístění entit, které jsou v pozadí -- nelze do nich narazit. Dalším příkladem problémů s \emph{OOH} je přidání třídy \textbf{StationaryGun} (nepohyblivá zbraň), u které není optimální třída, ze které by měla dědit.
+Hierarchii dědičnosti, která je v tomto příkladě použita lze vidět na obr. \ref{Fig:OOPHierarchy}. Bázová třída \textbf{Entity} obsahuje kód pro vykreslování, dále se hierarchie dělí na \emph{entity} pohyblivé a statické. Prvním problémem je umístění entit, které jsou v pozadí -- nelze do nich narazit. V tomto případě je nutné rozdělit nepohyblivé \emph{entity} do dvou podtypů, čímž dochází k duplikaci kódu ve třídách \textbf{Meteorite} a \textbf{BgMeteorite}. Dalším příkladem problémů s \emph{OOH} je přidání nepohyblivá zbraně -- třídy \textbf{StationaryGun}. Zbraň je v tomto případě nepřítelem, ale zároveň je také nepohyblivá. Tyto problémy lze u prezentované hierarchie opravit, ale pro větší projekty to již nemusí být možné. 
 
-Pro příklad využití paměti je využit seznam pohybujících se entit, jejichž pozice musí být každý snímek hry aktualizována o jejich rychlost. Ilustrace možné organizace paměti lze vidět na obr. \ref{Fig:OOPMemory}. Hlavní seznam obsahuje ukazatele na entity, které je potřeba aktualizovat. Instance jednotlivých konkrétních typů jsou uloženy ve vlastních seznamech.
-
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP2}}
-	\caption{Obsah paměti u objektově orientovaných hierarchií.}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.6\linewidth]{BAC-OOP2}}
+	\caption{Příklad obsahu paměti, při využití \emph{objektově orientované hierarchie}.}
 	\label{Fig:OOPMemory}
 \end{figure}
 
-Při operaci aktualizace je iterováno přes hlavní seznam ukazatelů a na každý objekt je zavolána metoda, která aktualizuje pozici o jeho rychlost. Postup práce s hlavní pamětí a \emph{cache} je následující \footnote{Postup neuvažuje různé vrstvy paměti \emph{cache} a předpokládá, že k požadovanému bloku paměti zatím nebylo přistoupeno. Velikost řádku vyrovnávací paměti je nastavena tak, aby nedošlo k překrytí paměti ukazatelů a paměti instancí.}. Prvním krokem je načtení bloku paměti o velikosti řádku vyrovnávací paměti (\emph{cache}), který obsahuje požadované ukazatele. Následuje dereference prvního z ukazatelů, která zapříčiní čtení dalšího řádků paměti, který již obsahuje iterované objekty. Ilustrace obsahu paměti \emph{cache} lze vidět na obr. \ref{Fig:OOPCache}. Díky způsobu, kterým jsou entity skládány, obsahují jednotlivé objekty kromě požadovaných informací -- pozice a rychlost -- také data, která nejsou používána. Výsledkem je neoptimální využití procesorových \emph{cache} \cite{DataOrientedDesignDice}.
+Pro příklad využití paměti je využit seznam pohybujících se entit, jejichž pozice musí být každý snímek hry aktualizována, aplikací jejich rychlosti. Ilustraci možné organizace paměti lze vidět na obr. \ref{Fig:OOPMemory}. Středem je pole ukazatelů, které obsahuje entity, které je potřeba aktualizovat. Instance jednotlivých konkrétních typů jsou uloženy v oddělených polích.
 
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOP3}}
-	\caption{Využití procesorové \emph{cache} při použití objektově orientované entitní hierarchie.}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.6\linewidth]{BAC-OOP3}}
+	\caption{Využití vyrovnávací paměti při použití \emph{objektově orientované} entitní hierarchie. Uvedený příklad pracuje s objektem \uv{střely}.}
 	\label{Fig:OOPCache}
 \end{figure}
 
-Komunikace jednotlivých částí je při použití \emph{OOH} implicitní -- pomocí \emph{public} a \emph{protected} členů. 
+Při operaci aktualizace je iterováno přes hlavní pole ukazatelů a na každý objekt je aplikována metoda, která aktualizuje jeho pozici přičtením rychlosti. Postup práce s hlavní pamětí a hierarchií vyrovnávacích pamětí je následující\footnote{Postup neuvažuje různé vrstvy paměti \emph{cache} a předpokládá, že k požadovanému bloku paměti zatím nebylo přistoupeno. Velikost řádku vyrovnávací paměti je nastavena tak, aby nedošlo k překrytí paměti ukazatelů a paměti instancí.}. Prvním krokem je načtení bloku paměti, který obsahuje část pole ukazatelů do vyrovnávací paměti. Následuje dereference prvního z ukazatelů, která zapříčiní přesun dalšího řádku paměti, který již obsahuje iterované objekty. Ilustrace obsahu paměti \emph{cache} lze vidět na obr. \ref{Fig:OOPCache}. Entity kromě požadovaných informací -- pozice a rychlost -- obsahují také data, která nejsou využita. Výsledkem je neoptimální využití procesorových \emph{cache} \cite{DataOrientedDesignDice}.
 
-\pagebreak
+Komunikace jednotlivých částí je při použití \emph{OOH} implicitní -- pomocí \emph{public} a \emph{protected} členů. 
 
 \noindent Mezi výhody \emph{OOH} patří: 
 \begin{itemize}
-	\item Jednoduchá implementace.
 	\item Podpora tříd zabudována do mnoha programovacích jazyků.
 	\item Použití standardních návrhových metod z objektově orientovaného návrhu.
 	\item Implicitní propojení a komunikace mezi děděnými částmi.
@@ -146,57 +146,60 @@ Komunikace jednotlivých částí je při použití \emph{OOH} implicitní -- po
 	\item Duplikace kódu v různých větvích stromu dědičnosti.
 	\item Zvyšující se složitost umisťování nových typů entit.
 	\item Typy entit jsou specifikovány ve zdrojovém kódu.
-	\item Statické typování \footnote{Může být výhodou v některých případech, např. optimalizace, které vykonává překladač.}, nemožnost tvorby nových typů za běhu programu.
+	\item Statické typování\footnote{Může být výhodou v některých případech, např. optimalizace, které vykonává překladač.}, nemožnost tvorby nových typů za běhu programu.
 \end{itemize}
 
 \subsection{Objektově orientovaná kompozice}
 
-Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesignPatterns}) je myšlena tvorba entit z menších částí -- komponent -- kde komponenty obsahují data i množinu proveditelných akcí. Entita je při použití \emph{OOC} kontejner, který obaluje seznam komponent (kompozice). Příklad návrhu množiny komponent lze vidět na obr. \ref{Fig:OOCHierarchy}, kontejnerovou třídou je v tomto případě \textbf{Entity}.
+Pod pojmem \emph{objektově orientovaná kompozice} (\emph{OOC} \cite{GameDesignPatterns}) je myšlena tvorba entit z menších částí -- komponent -- kde komponenty obsahují data a množinu proveditelných akcí. Entita je při použití \emph{OOC} kontejner, který obaluje seznam komponent (\emph{kompozice}). Příklad návrhu množiny komponent lze vidět na obr. \ref{Fig:OOCHierarchy}, kontejnerem je v tomto případě třída \textbf{Entity}.
 
-Množinu akcí, které lze nad entitou provést je definována komponenty, které jsou v entitě přítomny. Každá komponenta obsahuje, kromě dat, také akce, které lze nad entitou, která danou komponentu obsahuje, provést.
-
-Tato metoda je často používaná (\emph{composition over inheritance}) v návrhu software a je mezikrokem od \emph{objektově orientované hierarchie} k \emph{datově orientované kompozici}. 
-
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_1}}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.7\linewidth]{BAC-OOC1_1}}
 	\caption{Příklad objektově orientované kompozice.}
 	\label{Fig:OOCHierarchy}
 \end{figure}
 
+Jelikož komponenty obsahují kromě dat také akce, lze množinu akcí, kterou lze nad výslednou entitou provést, definovat jako sjednocení množin akcí jednotlivých vlastněných komponent. Tato vlastnost umožňuje dynamickou tvorbu entit za běhu aplikace, jejichž chování je definováno přítomnými komponentami.
+
+Tato metoda je často používána\footnote{\uv{Composition over inheritance}} v návrhu software a je mezikrokem od \emph{objektově orientované hierarchie} k \emph{datově orientované kompozici}. 
+
 Příkladem využití těchto komponent, pro implementaci stejné množiny konkrétních entit, jako v případě použití \emph{OOH}, lze vidět na obr. \ref{Fig:OOCEntity}. Oproti využití dědičnosti se zde již lze jednoduše vyhnout problému s umístěním entit do stromu dědičnosti. Přidání typu \textbf{StationaryGun} je již také bezproblémové, díky možnosti libovolné kombinace jednotlivých komponent.
 
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC1_2}}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.7\linewidth]{BAC-OOC1_2}}
 	\caption{Využití kompozice pro tvorbu herních objektů. Konkrétní typy entit jsou zde reprezentovány řádky, jednotlivé komponenty jsou potom sloupce. Přítomnost komponenty je vyznačena znakem \uv{\emph{x}}.}
 	\label{Fig:OOCEntity}
 \end{figure}
 
-Existuje mnoho způsobů, jak tuto základní myšlenku kompozice z menších částí implementovat. Jednou z možností je vyhradit pro každý typ komponenty pozici v seznamu ukazatelů \footnote{Mezi další způsoby patří mapy nebo dynamické seznamy. Možným řešením je také použití obecných ukazatelů a typových proměnných. }. V tomto návrhu je entita redukována na seznam ukazatelů, kde každá komponenta je buď přítomna (ukazatel je nastavený), nebo nepřítomna (ukazatel je \emph{NULL}). Výhodou této implementace je rychlost. Primární nevýhodou je potom neefektivní využití paměti, pro větší množství druhů komponent. Ilustraci této implementace lze vidět na obr. \ref{Fig:OOCImpl}. 
+Existuje mnoho způsobů, jak tuto základní myšlenku kompozice z menších částí implementovat. Jednou z možností je vyhradit pro každý typ komponenty pozici v seznamu ukazatelů\footnote{Mezi další způsoby patří mapy nebo dynamické seznamy. Možným řešením je také použití obecných ukazatelů a typových proměnných. }. V tomto návrhu je entita redukována na seznam ukazatelů, kde každá komponenta je buď přítomna (ukazatel je nastavený), nebo nepřítomna (ukazatel je \emph{NULL}). Výhodou této implementace je rychlost, nevýhodou je využití paměti, pro větší množství druhů komponent. Ilustraci této implementace lze vidět na obr. \ref{Fig:OOCImpl}. 
 
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC2}}
-	\caption{Obsah paměti u objektově orientované kompozice. Zde je entita implementována pomocí seznamu ukazatelů.}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.7\linewidth]{BAC-OOC2}}
+	\caption{Obsah paměti u \emph{objektově orientované kompozice}. Zde je entita implementována pomocí seznamu ukazatelů.}
 	\label{Fig:OOCImpl}
 \end{figure}
 
-Jako příklad práce s pamětí je použita iterace nad seznamem entit, u kterých je nutno provést aktualizaci pozice, podle jejich rychlosti. V tomto příkladě je použita implementace pomocí statického seznamu ukazatelů, podle obr. \ref{Fig:OOCImpl}.
+Jako příklad práce s pamětí je opět použita iterace nad seznamem entit, u kterých je nutno provést aktualizaci pozice přičtením jejich rychlosti. V tomto příkladě je použita implementace pomocí statického seznamu ukazatelů, podle obr. \ref{Fig:OOCImpl}.
 
-Podobně, jako u použití \emph{OOH}, je zde iterováno přes seznam, který však tentokrát obsahuje již jednotlivé instance typu \textbf{Entity} \footnote{Předpokládá se, že všechny entity obsahují komponenty typu \textbf{Position} a \textbf{Velocity}}. Využití vyrovnávací paměti, za stejných předpokladů, jako u příkladu v případě \emph{OOH}, je následující. Nejdříve je načten seznam entit a jejich ukazatelů na jednotlivé komponenty. Požadovaná operace potřebuje pouze ukazatele na komponenty typu \textbf{Position} a \textbf{Velocity}, ostatní jsou v tomto případě zbytečné \footnote{Záleží na implementaci, tuto neefektivitu je možné řešit optimalizacemi. }. Následuje přístup k požadovaným komponentám skrz ukazatele v první entitě. Tímto je načten blok paměti, pro každou komponentu, do vyrovnávací paměti. Po provedení operace nad první entitou a přístupu k dalším jsou již následující komponenty přístupné z \emph{cache}. 
+Podobně, jako při použití \emph{OOH}, je zde iterováno nad polem entit, který však tentokrát obsahuje již jednotlivé instance typu \textbf{Entity}\footnote{Předpokládá se, že všechny entity obsahují komponenty typu \textbf{Position} a \textbf{Velocity}.}. Využití vyrovnávací paměti, za stejných předpokladů, jako v případě \emph{OOH}, je následující. Nejdříve je načten seznam entit a jejich ukazatelů na jednotlivé komponenty. Požadovaná operace potřebuje pouze ukazatele na komponenty typu \textbf{Position} a \textbf{Velocity}, ostatní jsou v tomto případě zbytečné. Následuje přístup k požadovaným komponentám skrz ukazatele v první entitě. Tímto je načten blok paměti, pro každou komponentu, do vyrovnávací paměti. Po provedení první operace jsou již následující komponenty přístupné z vyrovnávací paměti. 
 
-\begin{figure}
-	\tmpframe{\includegraphics[width=\linewidth]{BAC-OOC3}}
+\begin{figure}[H]
+	\centering
+	\tmpframe{\includegraphics[width=0.7\linewidth]{BAC-OOC3}}
 	\caption{Využití procesorové \emph{cache} při použití objektově orientované kompozice.}
 	\label{Fig:OOCCache}
 \end{figure}
 
-Komunikace mezi jednotlivými komponenty je při použití \emph{objektově orientované kompozice} problematické. Příkladem by mohla být \emph{umělá inteligence}, která potřebuje změnit rychlost entity. Jelikož jsou jednotlivé komponenty samostatné (\emph{encapsulation}) objekty, oddělené od ostatních komponent, které jsou součástí stejné entity, není mezi nimi možná přímá komunikace. Jedním možným řešením je přidání systému zpráv \footnote{Zprávy, ale i události jsou možným řešením.}, který má přístup k entitě, jako celku a předat odkaz na tento systém jednotlivým komponentám.
+Komunikace mezi jednotlivými komponenty je při použití \emph{objektově orientované kompozice} problematické. Jelikož jsou jednotlivé komponenty samostatné objekty, nepřístupné z ostatních komponent stejné entity, není mezi nimi možná přímá komunikace. Jedním možným řešením je přidání systému zpráv, který má přístup k celé entitě, včetně jejích komponent. Dílčí komponenty se následně mohou dotazovat na typy zpráv, které je zajímají, nebo je možné využít návrhového vzoru \emph{pozorovatel}. Dalším řešením je umožnit komponentám přímou komunikace předáním ukazatelů na entitu, nebo na další komponentu, se kterou může daná komponenta komunikovat. Nevýhodou v případě přímé komunikace je bližší vazba výsledných komponent, což může způsobit chyby při změně některé z komunikujících stran.
 
 \noindent Mezi výhody \emph{OOC} patří: 
 \begin{itemize}
 	\item Uniformní instance všech typů entit, liší se pouze v přítomných komponentách.
-	\item Lepší využití procesorových \emph{cache}.
+	\item Lepší využití vyrovnávacích pamětí.
 	\item Možnost definování nových typů entit za běhu, použitím kompozice.
-	\item Definice typů entit v datech.
 	\item Komponenty, které entita vlastní, jsou přístupny z jednoho místa.
 	\item Odstraněna duplikace kódu a akumulace nechtěného stavu.
 \end{itemize}
@@ -207,14 +210,16 @@ Komunikace mezi jednotlivými komponenty je při použití \emph{objektově orie
 	\item Komunikace mezi komponentami není implicitní, je nutno ji implementovat. 
 \end{itemize}
 
+\pagebreak
+
 \subsection{Datově orientovaná kompozice}
 \label{Chap:DOC}
 
-\emph{Datově orientovaná kompozice} (\emph{DOC}) je dalším krokem v rozdělování entit do logických celků -- do komponent. Podobně, jako \emph{objektově orientovaná kompozice}, \emph{DOC} rozděluje entity do menší části (komponenty), což umožňuje lepší modularitu výsledného software. Oproti \emph{OOC} však jednotlivé komponenty neobsahují žádnou logiku \footnote{Logikou je v tomto případě myšleno kód, který pracuje na vyšší úrovni, než pouze s daty dané komponenty. Blíže k tomuto v \ref{Chap:EntitySystem}}.
+\emph{Datově orientovaná kompozice} (\emph{DOC}) je dalším krokem v separaci dat a logiky. Podobně, jako \emph{objektově orientovaná kompozice}, \emph{DOC} rozděluje entity do menší části -- komponent -- což umožňuje lepší modularitu výsledného software. Oproti \emph{OOC} však jednotlivé komponenty neobsahují žádnou logiku \footnote{Logikou je v tomto případě myšleno kód, který pracuje na vyšší úrovni, než pouze s daty dané komponenty. Blíže k tomuto v \ref{Chap:EntitySystem}}.
 
 Množinu akcí, kterou lze nad entitou vykonat, je opět definována přítomnými komponentami. Jelikož komponenty samy o sobě neobsahují logiku, je nutno akce definovat v okolním kódu. Jedním způsobem je přímý přístup ke komponentám a jejich datům, tato metoda bude použita v následujícím příkladě. Pro rozsáhlejší aplikace, kde je třeba lepší kontrola nad přístupy k jednotlivým komponentám, lze například využít \emph{systémy}, které implementují akce nad komponenty \footnote{Tato metoda je blíže popsána v sekci \ref{Chap:EntitySystem}}. Tento způsob je využit i v návrhu \emph{entitního systému}, o kterém je napsána tato práce.
 
-\begin{figure}
+\begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC1_1}}
 	\caption{Příklad datově orientované kompozice.}
 	\label{Fig:DOCHierarchy}
@@ -222,7 +227,7 @@ Množinu akcí, kterou lze nad entitou vykonat, je opět definována přítomný
 
 Příklad návrhu entity a komponent lze vidět na obr. \ref{Fig:DOCHierarchy}. Mezi důležité změny, oproti \emph{OOC}, patří veřejný (\emph{public}) přístup ke členům entit. Entita je v tomto návrhu \footnote{Toto je pouze jeden způsob implementace \emph{datově orientované kompozice}.} reprezentována číslem (identifikátor), pomocí kterého lze komponenty jednoznačně přiřadit k entitám, které je vlastní. Implementace konkrétních entit je konceptuálně stejná, jako při použití \emph{objektově orientované kompozice}, příklad lze vidět na obr. \ref{Fig:OOCEntity}.
 
-\begin{figure}
+\begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC2}}
 	\caption{Obsah paměti u datově orientované kompozice.}
 	\label{Fig:DOCMemory}
@@ -230,7 +235,7 @@ Příklad návrhu entity a komponent lze vidět na obr. \ref{Fig:DOCHierarchy}. 
 
 Příklad organizace paměti, při použití \emph{DOC}, lze vidět na obr. \ref{Fig:DOCMemory}. Entity jsou uchovávány v homogenním seznamu. Jednotlivé identifikátory entit je možné mapovat na komponenty přímou indexací polí komponent.
 
-\begin{figure}
+\begin{figure}[H]
 	\tmpframe{\includegraphics[width=\linewidth]{BAC-DOC3}}
 	\caption{Využití procesorové \emph{cache} při použití datově orientované kompozice.}
 	\label{Fig:DOCCache}
