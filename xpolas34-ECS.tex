@@ -92,7 +92,7 @@
   date=\today,           %datum odevzdani / submission date
   %Nazev prace / thesis title
   title.cs={Komponentní systém pro herní grafický engine},  %nazev prace v cestine ci slovenstine (dle zadani) / thesis title in czech language (according to assignment)
-  titleMain.cs={Komponentní systém pro \\herní grafický engine},
+  titleMain.cs={Komponentní systém\\ pro herní grafický engine},
   title.en={Graphic Engine Based on Entity Component System}, %nazev prace v anglictine / thesis title in english
   %Autor / Author
   titleMain.en={Graphic Engine Based on Entity Component System},
@@ -134,12 +134,12 @@
 %\abstract[cs]{Cílem této práce je návrh a implementace knihovny pro správu entit tvořených pomocí kompozice z menších částí. Součástí práce je analýza dnes používaných technik pro práci s entitami -- \emph{objektově orientovaná dědičnost}, \emph{objektově orientovaná kompozice} a \emph{datově orientovaná kompozice} -- a jejich porovnání. \\
 %Práce navrhuje komponentní systém pro jazyk C++, který je možno začlenit do existujících projektů. Vytvořené řešení umožňuje dynamickou kompozici entit za běhu aplikace z komponent definovaných za překladu. Systém je navržen s ohledem na snadnou paralelizaci a je uživatelsky rozšiřitelný. \\
 %Výsledná knihovna umožňuje návrh aplikací za použití techniky \emph{datově orientované kompozice}.}
-\abstract[cs]{Cílem této bakalářské práce je návrh a implementace knihovny pro správu entit, která umožňuje návrh aplikací pomocí \emph{Entity-Component-System} paradigmatu. Součástí práce je analýza aktuálního stavu návrhu software, z pohledu vývoje her a rozbor dnes používaných technik pro práci s entitami včetně srovnání jejich výhod a nevýhod. Následně se práce zabývá důvody, proč tento způsob návrhu používat a jakým způsobem využití kompozice ovlivňuje výkon aplikací, ve vztahu k hardwarové architektuře moderních počítačů, se zaměřením na paměťovou hierarchii.\\
-V práci je dále navržen entitní systém, který umožňuje dynamickou kompozici entit za běhu aplikace z předem definovaných komponent. Výsledný systém je navržen s ohledem na snadnou paralelizaci a umožňuje uživatelské rozšíření. Následně je provedena implementace výše zmíněného návrhu v programovacím jazyce \emph{C++}. \\
-Výsledkem této bakalářské práce je multiplatformní knihovna, pojmenovaná \emph{Entropy}, která uživatelům zpřístupňuje návrh aplikace pomocí \emph{ECS} paradigmatu.}
-\abstract[en]{The goal of this bachelor thesis is the design and implementation of a library for entity management, which allows software design using \emph{Entity-Component-System} paradigm. Analysis of the current state of software design is presented, including comparison of techniques used for entity representation. Potential advantages of composition are discussed from the hardware point of view, primarily based on the memory hierarchy found in modern computers. \\
-Thesis proposes design of an entity system, using the \emph{ECS} paradigm, which allows dynamic composition of entities during runtime of application, from predefined components. The resulting system is designed with easy parallelization and user customizability in mind. The design is then implemented using the \emph{C++} programming language.\\
-The result of this bachelor thesis is multi-platform library, named \emph{Entropy}, which enables its users to design applications using \emph{ECS} paradigm.}
+\abstract[cs]{Cílem této bakalářské práce je návrh a implementace knihovny pro správu entit, která umožňuje vývoj pomocí \emph{Entity-Component-System} paradigmatu. Součástí práce je analýza aktuálního stavu návrhu software, z pohledu vývoje her a rozbor dnes používaných technik pro práci s entitami včetně srovnání jejich výhod a nevýhod. Následně se práce zabývá důvody, proč tuto metodu návrhu používat a jakým způsobem využití kompozice ovlivňuje výkon aplikací, ve vztahu k hardwarové architektuře moderních počítačů, se zaměřením na paměťovou hierarchii.\\
+V práci je dále navržen entitní systém, který umožňuje dynamickou kompozici entit za běhu aplikace z předem definovaných komponent. Výsledný systém je navržen s ohledem na snadnou paralelizaci vykonávaných akcí a umožňuje uživatelské rozšíření, ve směru datových struktur k uchovávání komponent. \\
+Výsledkem této bakalářské práce je multiplatformní knihovna v programovacím jazyce \emph{C++}, pojmenovaná \emph{Entropy}, která vývojářům zpřístupňuje návrh aplikací pomocí \emph{ECS} paradigmatu.}
+\abstract[en]{The goal of this bachelor thesis is the design and implementation of a library for entity management which allows software development using the \emph{Entity-Component-System} paradigm. Analysis of the current state of software design is presented, including comparison of techniques used for entity representation. Potential advantages of composition are discussed from the hardware point of view, primarily based on the memory hierarchy found in modern computers. \\
+Thesis proposes design of an entity system, using the \emph{ECS} paradigm, which allows dynamic composition of entities during runtime of application from predefined components. The resulting system is designed to allow for easy parallelization of performed actions and user customizability of component data structures.\\
+The result of this bachelor thesis is a \emph{C++} multi-platform library, named \emph{Entropy}, which enables its users to design applications using the \emph{ECS} paradigm.}
 
 %Klicova slova (cesky, slovensky ci anglicky) / Keywords (in czech, slovak or english)
 \keywords[cs]{Komponentní systém, Entitní systém, Entity-Component-System, ECS, Kompozice, Data-oriented design, Paralelismus, C++, Návrh her}
@@ -167,6 +167,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
 \usepackage[czech, linesnumbered, lined, algoruled, longend, norelsize]{algorithm2e}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
+\usepackage{subcaption}
 
 \begin{document}
   % Vysazeni titulnich stran / Typesetting of the title pages

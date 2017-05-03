@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  2 MAY 2017 16:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  3 MAY 2017 19:41
 entering extended mode
 **./xpolas34-ECS.tex
 (xpolas34-ECS.tex
@@ -1353,44 +1353,74 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 Package: algpseudocode 
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (xpolas34-ECS.aux)
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen185
+\captionmargin@=\dimen186
+\captionwidth=\dimen187
+\caption@tempdima=\dimen188
+\caption@indent=\dimen189
+\caption@parindent=\dimen190
+\caption@hangindent=\dimen191
+)
+\c@ContinuedFloat=\count324
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: hypcap package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+))
+\c@subfigure=\count325
+\c@subtable=\count326
+)
+(xpolas34-ECS.aux)
 \openout1 = `xpolas34-ECS.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 171.
-LaTeX Font Info:    ... okay on input line 171.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 171.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 172.
+LaTeX Font Info:    ... okay on input line 172.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 172.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 171.
+LaTeX Info: Redefining \selectfont on input line 172.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count324
-\scratchdimen=\dimen185
+\scratchcounter=\count327
+\scratchdimen=\dimen192
 \scratchbox=\box60
-\nofMPsegments=\count325
-\nofMParguments=\count326
+\nofMPsegments=\count328
+\nofMParguments=\count329
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count327
-\MPscratchDim=\dimen186
-\MPnumerator=\count328
-\makeMPintoPDFobject=\count329
+\MPscratchCnt=\count330
+\MPscratchDim=\dimen193
+\MPnumerator=\count331
+\makeMPintoPDFobject=\count332
 \everyMPtoPDFconversion=\toks30
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1405,9 +1435,9 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\c@lstlisting=\count330
+\c@lstlisting=\count333
 \AtBeginShipoutBox=\box61
-Package hyperref Info: Link coloring ON on input line 171.
+Package hyperref Info: Link coloring ON on input line 172.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1415,17 +1445,19 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count331
+\c@section@level=\count334
 )
-LaTeX Info: Redefining \ref on input line 171.
-LaTeX Info: Redefining \pageref on input line 171.
-LaTeX Info: Redefining \nameref on input line 171.
+LaTeX Info: Redefining \ref on input line 172.
+LaTeX Info: Redefining \pageref on input line 172.
+LaTeX Info: Redefining \nameref on input line 172.
 
 (xpolas34-ECS.out) (xpolas34-ECS.out)
 \@outlinefile=\write3
 \openout3 = `xpolas34-ECS.out'.
 
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 177.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 178.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tex-gyre\t1qhv.fd"
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
@@ -1442,21 +1474,21 @@ File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 File: template-fig/VUT_symbol_barevne_CMYK_CZ.pdf Graphic file (type pdf)
  <use template-fig/VUT_symbol_barevne_CMYK_CZ.pdf>
 Package pdftex.def Info: template-fig/VUT_symbol_barevne_CMYK_CZ.pdf used on in
-put line 177.
+put line 178.
 (pdftex.def)             Requested size: 116.65646pt x 115.17995pt.
-LaTeX Font Info:    Try loading font information for T1+fos on input line 177.
+LaTeX Font Info:    Try loading font information for T1+fos on input line 178.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\opensans\t1fos.fd"
 File: t1fos.fd 2011/11/11 Fontinst v1.927 font definitions for T1/fos.
 )
 LaTeX Font Info:    Font shape `T1/fos/bx/n' in size <18> not available
-(Font)              Font shape `T1/fos/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/fos/b/n' tried instead on input line 178.
 LaTeX Font Info:    Font shape `T1/fos/bx/n' in size <11> not available
-(Font)              Font shape `T1/fos/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/fos/b/n' tried instead on input line 178.
 LaTeX Font Info:    Font shape `T1/fos/bx/n' in size <14> not available
-(Font)              Font shape `T1/fos/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/fos/b/n' tried instead on input line 178.
 LaTeX Font Info:    Font shape `T1/fos/bx/n' in size <10> not available
-(Font)              Font shape `T1/fos/b/n' tried instead on input line 177.
+(Font)              Font shape `T1/fos/b/n' tried instead on input line 178.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./template-fig/VUT_symbol
@@ -1474,7 +1506,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ...eC {\'e}ho m\IeC {\'e}dia}{51}{appendix.A}
+l.42 ...eC {\'e}ho m\IeC {\'e}dia}{48}{appendix.A}
                                                    [1
 
 
@@ -1506,8 +1538,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.50 \chapter
-             {Teoretick√Ω rozbor} [3
+l.52 \chapter
+             {Entitn√≠ syst√©my a jejich vyu≈æit√≠} [3
 
 ]
 Kapitola 2.
@@ -1517,289 +1549,213 @@ Kapitola 2.
 File: figures/BAC-DOD1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOD1.pdf>
-Package pdftex.def Info: figures/BAC-DOD1.pdf used on input line 88.
-(pdftex.def)             Requested size: 259.49171pt x 133.96843pt.
+Package pdftex.def Info: figures/BAC-DOD1.pdf used on input line 90.
+(pdftex.def)             Requested size: 277.63939pt x 143.3366pt.
  [5]
 <figures/BAC-OOP1.pdf, id=292, 743.77875pt x 362.35374pt>
 File: figures/BAC-OOP1.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP1.pdf>
-Package pdftex.def Info: figures/BAC-OOP1.pdf used on input line 109.
-(pdftex.def)             Requested size: 432.4818pt x 210.70163pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 109--110
-[][] 
- []
-
-[6 <./figures/BAC-DOD1.pdf>]
+Package pdftex.def Info: figures/BAC-OOP1.pdf used on input line 112.
+(pdftex.def)             Requested size: 371.88846pt x 181.17642pt.
+ [6 <./figures/BAC-DOD1.pdf>]
 <figures/BAC-OOP2.pdf, id=305, 442.65375pt x 323.2075pt>
 File: figures/BAC-OOP2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP2.pdf>
-Package pdftex.def Info: figures/BAC-OOP2.pdf used on input line 118.
-(pdftex.def)             Requested size: 259.49171pt x 189.47755pt.
+Package pdftex.def Info: figures/BAC-OOP2.pdf used on input line 121.
+(pdftex.def)             Requested size: 265.59428pt x 193.926pt.
 
 <figures/BAC-OOP3.pdf, id=307, 377.41pt x 182.6825pt>
 File: figures/BAC-OOP3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP3.pdf>
-Package pdftex.def Info: figures/BAC-OOP3.pdf used on input line 127.
-(pdftex.def)             Requested size: 259.49171pt x 125.60504pt.
+Package pdftex.def Info: figures/BAC-OOP3.pdf used on input line 130.
+(pdftex.def)             Requested size: 226.44774pt x 109.61034pt.
  [7 <./figures/BAC-OOP1.pdf> <./figures/BAC-OOP2.pdf>] <figures/BAC-OOC1_1.pdf,
  id=325, 502.87875pt x 401.5pt>
 File: figures/BAC-OOC1_1.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC1_1.pdf>
-Package pdftex.def Info: figures/BAC-OOC1_1.pdf used on input line 158.
-(pdftex.def)             Requested size: 302.73593pt x 241.7044pt.
+Package pdftex.def Info: figures/BAC-OOC1_1.pdf used on input line 161.
+(pdftex.def)             Requested size: 301.72957pt x 240.90184pt.
  [8 <./figures/BAC-OOP3.pdf>]
-<figures/BAC-OOC1_2.pdf, id=342, 462.72874pt x 246.9225pt>
+<figures/BAC-OOC1_2.pdf, id=344, 462.72874pt x 246.9225pt>
 File: figures/BAC-OOC1_2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC1_2.pdf>
-Package pdftex.def Info: figures/BAC-OOC1_2.pdf used on input line 171.
-(pdftex.def)             Requested size: 302.73593pt x 161.5489pt.
+Package pdftex.def Info: figures/BAC-OOC1_2.pdf used on input line 174.
+(pdftex.def)             Requested size: 277.63939pt x 148.15462pt.
  [9 <./figures/BAC-OOC1_1.pdf>]
 <figures/BAC-OOC2.pdf, id=356, 522.95375pt x 283.0575pt>
 File: figures/BAC-OOC2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC2.pdf>
-Package pdftex.def Info: figures/BAC-OOC2.pdf used on input line 180.
-(pdftex.def)             Requested size: 302.73593pt x 163.86247pt.
+Package pdftex.def Info: figures/BAC-OOC2.pdf used on input line 183.
+(pdftex.def)             Requested size: 313.77466pt x 169.8358pt.
  [10 <./figures/BAC-OOC1_2.pdf> <./figures/BAC-OOC2.pdf>] <figures/BAC-OOC3.pdf
 , id=374, 416.55624pt x 82.3075pt>
 File: figures/BAC-OOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC3.pdf>
-Package pdftex.def Info: figures/BAC-OOC3.pdf used on input line 191.
-(pdftex.def)             Requested size: 302.73593pt x 59.82022pt.
+Package pdftex.def Info: figures/BAC-OOC3.pdf used on input line 194.
+(pdftex.def)             Requested size: 249.93567pt x 49.38486pt.
  [11 <./figures/BAC-OOC3.pdf>]
 <figures/BAC-DOC1_1.pdf, id=387, 502.87875pt x 383.4325pt>
 File: figures/BAC-DOC1_1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC1_1.pdf>
-Package pdftex.def Info: figures/BAC-DOC1_1.pdf used on input line 224.
-(pdftex.def)             Requested size: 302.73593pt x 230.82771pt.
+Package pdftex.def Info: figures/BAC-DOC1_1.pdf used on input line 227.
+(pdftex.def)             Requested size: 301.72957pt x 230.06126pt.
 
 <figures/BAC-DOC2.pdf, id=390, 362.35374pt x 303.1325pt>
 File: figures/BAC-DOC2.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC2.pdf>
-Package pdftex.def Info: figures/BAC-DOC2.pdf used on input line 233.
-(pdftex.def)             Requested size: 302.73593pt x 253.26044pt.
+Package pdftex.def Info: figures/BAC-DOC2.pdf used on input line 236.
+(pdftex.def)             Requested size: 217.41393pt x 181.8809pt.
  [12 <./figures/BAC-DOC1_1.pdf>]
 <figures/BAC-DOC3.pdf, id=403, 416.55624pt x 82.3075pt>
 File: figures/BAC-DOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC3.pdf>
-Package pdftex.def Info: figures/BAC-DOC3.pdf used on input line 242.
-(pdftex.def)             Requested size: 302.73593pt x 59.82022pt.
+Package pdftex.def Info: figures/BAC-DOC3.pdf used on input line 245.
+(pdftex.def)             Requested size: 249.93567pt x 49.38486pt.
  [13 <./figures/BAC-DOC2.pdf> <./figures/BAC-DOC3.pdf>] <figures/BAC-ECS1.pdf, 
 id=427, 412.54124pt x 222.8325pt>
 File: figures/BAC-ECS1.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS1.pdf>
-Package pdftex.def Info: figures/BAC-ECS1.pdf used on input line 287.
-(pdftex.def)             Requested size: 302.73593pt x 163.52321pt.
+Package pdftex.def Info: figures/BAC-ECS1.pdf used on input line 292.
+(pdftex.def)             Requested size: 247.52666pt x 133.70053pt.
  [14]
 <figures/BAC-ECS3.pdf, id=444, 322.20375pt x 102.3825pt>
 File: figures/BAC-ECS3.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS3.pdf>
-Package pdftex.def Info: figures/BAC-ECS3.pdf used on input line 299.
-(pdftex.def)             Requested size: 302.73593pt x 96.2005pt.
+Package pdftex.def Info: figures/BAC-ECS3.pdf used on input line 303.
+(pdftex.def)             Requested size: 193.32373pt x 61.42996pt.
 
 <figures/BAC-ECS2.pdf, id=447, 382.42876pt x 222.8325pt>
 File: figures/BAC-ECS2.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS2.pdf>
-Package pdftex.def Info: figures/BAC-ECS2.pdf used on input line 308.
-(pdftex.def)             Requested size: 302.73593pt x 176.40636pt.
+Package pdftex.def Info: figures/BAC-ECS2.pdf used on input line 312.
+(pdftex.def)             Requested size: 229.45901pt x 133.70053pt.
  [15 <./figures/BAC-ECS1.pdf> <./figures/BAC-ECS3.pdf>] [16 <./figures/BAC-ECS2
-.pdf>] [17]
-<figures/BAC-PAR0.pdf, id=507, 282.05376pt x 202.7575pt>
+.pdf>]
+<figures/BAC-PAR0.pdf, id=488, 282.05376pt x 202.7575pt>
 File: figures/BAC-PAR0.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR0.pdf>
-Package pdftex.def Info: figures/BAC-PAR0.pdf used on input line 357.
-(pdftex.def)             Requested size: 432.4818pt x 310.91716pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 357--358
-[][] 
- []
-
-[18 <./figures/BAC-PAR0.pdf>]
-<figures/BAC-PAR1.pdf, id=528, 543.02875pt x 238.8925pt>
+Package pdftex.def Info: figures/BAC-PAR0.pdf used on input line 360.
+(pdftex.def)             Requested size: 169.23355pt x 121.65543pt.
+ [17]
+<figures/BAC-PAR1.pdf, id=511, 543.02875pt x 238.8925pt>
 File: figures/BAC-PAR1.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR1.pdf>
-Package pdftex.def Info: figures/BAC-PAR1.pdf used on input line 365.
-(pdftex.def)             Requested size: 432.4818pt x 190.26855pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 365--366
-[][] 
- []
-
-<figures/BAC-PAR2.pdf, id=530, 290.08376pt x 238.8925pt>
+Package pdftex.def Info: figures/BAC-PAR1.pdf used on input line 369.
+(pdftex.def)             Requested size: 325.81975pt x 143.3366pt.
+ [18 <./figures/BAC-PAR0.pdf> <./figures/BAC-PAR1.pdf>] <figures/BAC-PAR2.pdf, 
+id=536, 290.08376pt x 238.8925pt>
 File: figures/BAC-PAR2.pdf Graphic file (type pdf)
 
 <use figures/BAC-PAR2.pdf>
-Package pdftex.def Info: figures/BAC-PAR2.pdf used on input line 371.
-(pdftex.def)             Requested size: 432.4818pt x 356.18353pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 371--372
-[][] 
- []
-
-[19 <./figures/BAC-PAR1.pdf>] [20 <./figures/BAC-PAR2.pdf>]
+Package pdftex.def Info: figures/BAC-PAR2.pdf used on input line 378.
+(pdftex.def)             Requested size: 174.05159pt x 143.3366pt.
+ [19 <./figures/BAC-PAR2.pdf>]
 Kapitola 3.
-<figures/BAC-DES1.pdf, id=557, 452.69125pt x 202.7575pt>
+<figures/BAC-DES1.pdf, id=552, 452.69125pt x 202.7575pt>
 File: figures/BAC-DES1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES1.pdf>
-Package pdftex.def Info: figures/BAC-DES1.pdf used on input line 390.
-(pdftex.def)             Requested size: 432.4818pt x 193.70447pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 390--391
-[][] 
- []
-
-[21
+Package pdftex.def Info: figures/BAC-DES1.pdf used on input line 400.
+(pdftex.def)             Requested size: 271.61684pt x 121.65543pt.
+ [20
 
  <./figures/BAC-DES1.pdf>]
-<figures/BAC-DES2.pdf, id=569, 673.51625pt x 192.72pt>
+<figures/BAC-DES2.pdf, id=564, 673.51625pt x 162.6075pt>
 File: figures/BAC-DES2.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES2.pdf>
-Package pdftex.def Info: figures/BAC-DES2.pdf used on input line 398.
-(pdftex.def)             Requested size: 432.4818pt x 123.75206pt.
+Package pdftex.def Info: figures/BAC-DES2.pdf used on input line 421.
+(pdftex.def)             Requested size: 404.11287pt x 97.56525pt.
 
-Overfull \hbox (0.81pt too wide) in paragraph at lines 398--399
-[][] 
- []
-
-<figures/BAC-DES5.pdf, id=574, 543.02875pt x 403.5075pt>
+<figures/BAC-DES5.pdf, id=568, 512.91624pt x 313.17pt>
 File: figures/BAC-DES5.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES5.pdf>
-Package pdftex.def Info: figures/BAC-DES5.pdf used on input line 412.
-(pdftex.def)             Requested size: 432.4818pt x 321.378pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 412--413
-[][] 
- []
-
-[22 <./figures/BAC-DES2.pdf>]
-<figures/BAC-DES8.pdf, id=591, 553.06625pt x 283.0575pt>
+Package pdftex.def Info: figures/BAC-DES5.pdf used on input line 436.
+(pdftex.def)             Requested size: 307.75212pt x 187.90344pt.
+ [21 <./figures/BAC-DES2.pdf>]
+<figures/BAC-DES8.pdf, id=582, 553.06625pt x 283.0575pt>
 File: figures/BAC-DES8.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES8.pdf>
-Package pdftex.def Info: figures/BAC-DES8.pdf used on input line 422.
-(pdftex.def)             Requested size: 432.4818pt x 221.34111pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 422--423
-[][] 
- []
-
-[23 <./figures/BAC-DES5.pdf>]
-<figures/BAC-DES6.pdf, id=604, 773.89125pt x 413.545pt>
+Package pdftex.def Info: figures/BAC-DES8.pdf used on input line 447.
+(pdftex.def)             Requested size: 331.8423pt x 169.8358pt.
+ [22 <./figures/BAC-DES5.pdf> <./figures/BAC-DES8.pdf>] <figures/BAC-DES6.pdf, 
+id=598, 673.51625pt x 353.32pt>
 File: figures/BAC-DES6.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES6.pdf>
-Package pdftex.def Info: figures/BAC-DES6.pdf used on input line 436.
-(pdftex.def)             Requested size: 432.4818pt x 231.10403pt.
+Package pdftex.def Info: figures/BAC-DES6.pdf used on input line 462.
+(pdftex.def)             Requested size: 404.11287pt x 211.99364pt.
 
-Overfull \hbox (0.81pt too wide) in paragraph at lines 436--437
-[][] 
- []
-
-[24 <./figures/BAC-DES8.pdf>]
-<figures/BAC-DES11.pdf, id=618, 315.1775pt x 122.4575pt>
+<figures/BAC-DES11.pdf, id=602, 241.90375pt x 122.4575pt>
 File: figures/BAC-DES11.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES11.pdf>
-Package pdftex.def Info: figures/BAC-DES11.pdf used on input line 452.
-(pdftex.def)             Requested size: 432.4818pt x 168.04414pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 452--453
-[][] 
- []
-
-<figures/BAC-DES10.pdf, id=619, 362.35374pt x 283.0575pt>
+Package pdftex.def Info: figures/BAC-DES11.pdf used on input line 471.
+(pdftex.def)             Requested size: 217.71135pt x 110.21071pt.
+ [23 <./figures/BAC-DES6.pdf>]
+<figures/BAC-DES10.pdf, id=615, 362.35374pt x 283.0575pt>
 File: figures/BAC-DES10.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES10.pdf>
-Package pdftex.def Info: figures/BAC-DES10.pdf used on input line 463.
-(pdftex.def)             Requested size: 259.49171pt x 202.7085pt.
- [25 <./figures/BAC-DES6.pdf>] [26 <./figures/BAC-DES11.pdf> <./figures/BAC-DES
-10.pdf>]
-<figures/BAC-DES3.pdf, id=645, 472.76625pt x 353.32pt>
+Package pdftex.def Info: figures/BAC-DES10.pdf used on input line 490.
+(pdftex.def)             Requested size: 217.41393pt x 169.8358pt.
+ [24 <./figures/BAC-DES11.pdf>]
+<figures/BAC-DES3.pdf, id=628, 623.32875pt x 363.3575pt>
 File: figures/BAC-DES3.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES3.pdf>
-Package pdftex.def Info: figures/BAC-DES3.pdf used on input line 481.
-(pdftex.def)             Requested size: 302.73593pt x 226.25342pt.
-
-<figures/BAC-DES4.pdf, id=647, 452.69125pt x 443.6575pt>
-File: figures/BAC-DES4.pdf Graphic file (type pdf)
-
-<use figures/BAC-DES4.pdf>
-Package pdftex.def Info: figures/BAC-DES4.pdf used on input line 490.
-(pdftex.def)             Requested size: 302.73593pt x 296.69386pt.
- [27 <./figures/BAC-DES3.pdf>] [28 <./figures/BAC-DES4.pdf>] <figures/BAC-DES7.
-pdf, id=673, 824.07875pt x 393.47pt>
+Package pdftex.def Info: figures/BAC-DES3.pdf used on input line 508.
+(pdftex.def)             Requested size: 374.00014pt x 218.01617pt.
+ [25 <./figures/BAC-DES10.pdf>] [26 <./figures/BAC-DES3.pdf>] <figures/BAC-DES7
+.pdf, id=652, 824.07875pt x 343.2825pt>
 File: figures/BAC-DES7.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES7.pdf>
-Package pdftex.def Info: figures/BAC-DES7.pdf used on input line 512.
-(pdftex.def)             Requested size: 432.4818pt x 206.49678pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 512--513
-[][] 
- []
-
-
-Overfull \hbox (5.39351pt too wide) in paragraph at lines 517--518
-\T1/lmr/m/it/10.95 ∫in zm•n\T1/lmr/m/n/10.95 , kter· bude pro ka∫dÈ vl·kno uni-
-k·tnÌ. D·le umo∫-¨uje takÈ po-tvr-zenÌ (\T1/lmr/bx/n/10.95 commitSC\T1/lmr/m/n/
-10.95 ),
- []
-
-[29 <./figures/BAC-DES7.pdf>]
-<figures/BAC-DES9.pdf, id=688, 524.96124pt x 273.02pt>
+Package pdftex.def Info: figures/BAC-DES7.pdf used on input line 534.
+(pdftex.def)             Requested size: 412.03836pt x 171.64082pt.
+ [27 <./figures/BAC-DES7.pdf>]
+<figures/BAC-DES9.pdf, id=666, 524.96124pt x 273.02pt>
 File: figures/BAC-DES9.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES9.pdf>
-Package pdftex.def Info: figures/BAC-DES9.pdf used on input line 538.
-(pdftex.def)             Requested size: 389.23097pt x 202.43573pt.
- [30 <./figures/BAC-DES9.pdf>] [31]
+Package pdftex.def Info: figures/BAC-DES9.pdf used on input line 560.
+(pdftex.def)             Requested size: 314.97917pt x 163.81326pt.
+ [28 <./figures/BAC-DES9.pdf>] [29]
 Kapitola 4.
-[32
+[30
 
-] <figures/BAC-IMPL1.pdf, id=726, 302.12875pt x 62.2325pt>
+] <figures/BAC-IMPL1.pdf, id=700, 302.12875pt x 62.2325pt>
 File: figures/BAC-IMPL1.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL1.pdf>
-Package pdftex.def Info: figures/BAC-IMPL1.pdf used on input line 581.
-(pdftex.def)             Requested size: 432.4818pt x 89.08295pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 581--582
- [] 
- []
-
-[33] <figures/BAC-IMPL2.pdf, id=737, 402.50375pt x 142.5325pt>
+Package pdftex.def Info: figures/BAC-IMPL1.pdf used on input line 607.
+(pdftex.def)             Requested size: 211.48868pt x 43.56244pt.
+ [31]
+<figures/BAC-IMPL2.pdf, id=709, 402.50375pt x 132.495pt>
 File: figures/BAC-IMPL2.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL2.pdf>
-Package pdftex.def Info: figures/BAC-IMPL2.pdf used on input line 591.
-(pdftex.def)             Requested size: 432.4818pt x 153.14766pt.
-
-Overfull \hbox (0.81pt too wide) in paragraph at lines 591--592
- [] 
- []
-
-[34 <./figures/BAC-IMPL1.pdf> <./figures/BAC-IMPL2.pdf>]
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+Package pdftex.def Info: figures/BAC-IMPL2.pdf used on input line 617.
+(pdftex.def)             Requested size: 281.7507pt x 92.74585pt.
+ [32 <./figures/BAC-IMPL1.pdf> <./figures/BAC-IMPL2.pdf>] ("C:\Program Files\Mi
+KTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -1808,156 +1764,151 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-<figures/BAC-IMPL3.pdf, id=754, 352.31625pt x 232.87pt>
+<figures/BAC-IMPL3.pdf, id=725, 352.31625pt x 232.87pt>
 File: figures/BAC-IMPL3.pdf Graphic file (type pdf)
 
 <use figures/BAC-IMPL3.pdf>
-Package pdftex.def Info: figures/BAC-IMPL3.pdf used on input line 621.
-(pdftex.def)             Requested size: 432.4818pt x 285.8563pt.
+Package pdftex.def Info: figures/BAC-IMPL3.pdf used on input line 649.
+(pdftex.def)             Requested size: 246.61969pt x 163.00787pt.
+ [33 <./figures/BAC-IMPL3.pdf>]
+LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 676.
 
-Overfull \hbox (0.81pt too wide) in paragraph at lines 621--622
- [] 
- []
-
-[35] [36 <./figures/BAC-IMPL3.pdf>]
-Overfull \hbox (17.0pt too wide) detected at line 678
+Overfull \hbox (17.0pt too wide) detected at line 726
 [][] 
  []
 
-[37] [38]
+[34] [35]
 Kapitola 5.
 
-Overfull \hbox (36.16833pt too wide) in paragraph at lines 725--733
+Overfull \hbox (36.16833pt too wide) in paragraph at lines 774--782
  [] 
  []
 
-[39
+[36
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 789.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 838.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<figures/entityCreationGraph.pdf, id=806, 505.89pt x 505.89pt>
+<figures/entityCreationGraph.pdf, id=787, 505.89pt x 505.89pt>
 File: figures/entityCreationGraph.pdf Graphic file (type pdf)
 
 <use figures/entityCreationGraph.pdf>
-Package pdftex.def Info: figures/entityCreationGraph.pdf used on input line 793
+Package pdftex.def Info: figures/entityCreationGraph.pdf used on input line 842
 .
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
- [40]
-<figures/movementSystemGraph.pdf, id=816, 505.89pt x 505.89pt>
+ [37]
+<figures/movementSystemGraph.pdf, id=796, 505.89pt x 505.89pt>
 File: figures/movementSystemGraph.pdf Graphic file (type pdf)
 
 <use figures/movementSystemGraph.pdf>
-Package pdftex.def Info: figures/movementSystemGraph.pdf used on input line 803
+Package pdftex.def Info: figures/movementSystemGraph.pdf used on input line 852
 .
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
- [41 <./figures/entityCreationGraph.pdf> <./figures/movementSystemGraph.pdf>]
-<figures/advancedMovementSystemLowGraph.pdf, id=838, 505.89pt x 505.89pt>
+ [38 <./figures/entityCreationGraph.pdf> <./figures/movementSystemGraph.pdf>]
+<figures/advancedMovementSystemLowGraph.pdf, id=818, 505.89pt x 505.89pt>
 File: figures/advancedMovementSystemLowGraph.pdf Graphic file (type pdf)
 
 <use figures/advancedMovementSystemLowGraph.pdf>
 Package pdftex.def Info: figures/advancedMovementSystemLowGraph.pdf used on inp
-ut line 813.
+ut line 862.
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-<figures/advancedMovementSystemHighGraph.pdf, id=839, 505.89pt x 505.89pt>
+<figures/advancedMovementSystemHighGraph.pdf, id=819, 505.89pt x 505.89pt>
 File: figures/advancedMovementSystemHighGraph.pdf Graphic file (type pdf)
 
 <use figures/advancedMovementSystemHighGraph.pdf>
 Package pdftex.def Info: figures/advancedMovementSystemHighGraph.pdf used on in
-put line 814.
+put line 863.
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-<figures/holdersS.pdf, id=842, 505.89pt x 505.89pt>
+<figures/holdersS.pdf, id=822, 505.89pt x 505.89pt>
 File: figures/holdersS.pdf Graphic file (type pdf)
  <use figures/holdersS.pdf>
-Package pdftex.def Info: figures/holdersS.pdf used on input line 824.
+Package pdftex.def Info: figures/holdersS.pdf used on input line 873.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-<figures/holdersM.pdf, id=843, 505.89pt x 505.89pt>
+<figures/holdersM.pdf, id=823, 505.89pt x 505.89pt>
 File: figures/holdersM.pdf Graphic file (type pdf)
  <use figures/holdersM.pdf>
-Package pdftex.def Info: figures/holdersM.pdf used on input line 825.
+Package pdftex.def Info: figures/holdersM.pdf used on input line 874.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-<figures/holdersL.pdf, id=844, 505.89pt x 505.89pt>
+<figures/holdersL.pdf, id=824, 505.89pt x 505.89pt>
 File: figures/holdersL.pdf Graphic file (type pdf)
  <use figures/holdersL.pdf>
-Package pdftex.def Info: figures/holdersL.pdf used on input line 826.
+Package pdftex.def Info: figures/holdersL.pdf used on input line 875.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-<figures/holdersRS.pdf, id=845, 505.89pt x 505.89pt>
+<figures/holdersRS.pdf, id=825, 505.89pt x 505.89pt>
 File: figures/holdersRS.pdf Graphic file (type pdf)
 
 <use figures/holdersRS.pdf>
-Package pdftex.def Info: figures/holdersRS.pdf used on input line 827.
+Package pdftex.def Info: figures/holdersRS.pdf used on input line 876.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-<figures/holdersRM.pdf, id=846, 505.89pt x 505.89pt>
+<figures/holdersRM.pdf, id=826, 505.89pt x 505.89pt>
 File: figures/holdersRM.pdf Graphic file (type pdf)
 
 <use figures/holdersRM.pdf>
-Package pdftex.def Info: figures/holdersRM.pdf used on input line 828.
+Package pdftex.def Info: figures/holdersRM.pdf used on input line 877.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
 
-<figures/holdersRL.pdf, id=847, 505.89pt x 505.89pt>
+<figures/holdersRL.pdf, id=827, 505.89pt x 505.89pt>
 File: figures/holdersRL.pdf Graphic file (type pdf)
 
 <use figures/holdersRL.pdf>
-Package pdftex.def Info: figures/holdersRL.pdf used on input line 829.
+Package pdftex.def Info: figures/holdersRL.pdf used on input line 878.
 (pdftex.def)             Requested size: 138.39734pt x 138.39842pt.
- [42 <./figures/advancedMovementSystemLowGraph.pdf> <./figures/advancedMovement
+ [39 <./figures/advancedMovementSystemLowGraph.pdf> <./figures/advancedMovement
 SystemHighGraph.pdf>]
-<figures/entityParallelGraph.pdf, id=870, 505.89pt x 505.89pt>
+<figures/entityParallelGraph.pdf, id=850, 505.89pt x 505.89pt>
 File: figures/entityParallelGraph.pdf Graphic file (type pdf)
 
 <use figures/entityParallelGraph.pdf>
-Package pdftex.def Info: figures/entityParallelGraph.pdf used on input line 839
+Package pdftex.def Info: figures/entityParallelGraph.pdf used on input line 888
 .
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
 
-<figures/entityChangesetGraph.pdf, id=871, 505.89pt x 505.89pt>
+<figures/entityChangesetGraph.pdf, id=851, 505.89pt x 505.89pt>
 File: figures/entityChangesetGraph.pdf Graphic file (type pdf)
 
 <use figures/entityChangesetGraph.pdf>
-Package pdftex.def Info: figures/entityChangesetGraph.pdf used on input line 84
-0.
+Package pdftex.def Info: figures/entityChangesetGraph.pdf used on input line 88
+9.
 (pdftex.def)             Requested size: 211.91844pt x 211.91655pt.
- [43 <./figures/holdersS.pdf> <./figures/holdersM.pdf> <./figures/holdersL.pdf>
+ [40 <./figures/holdersS.pdf> <./figures/holdersM.pdf> <./figures/holdersL.pdf>
  <./figures/holdersRS.pdf> <./figures/holdersRM.pdf> <./figures/holdersRL.pdf>]
- [44 <./figures/entityParallelGraph.pdf> <./figures/entityChangesetGraph.pdf>]
+ [41 <./figures/entityParallelGraph.pdf> <./figures/entityChangesetGraph.pdf>]
 Kapitola 6.
-) (xpolas34-ECS.bbl [45
+) (xpolas34-ECS.bbl [42
 
-] [46
+] [43
 
-]
-LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 101.
- [47]
+] [44]
 Overfull \hbox (176.8973pt too wide) in paragraph at lines 204--208
 \T1/lmtt/m/n/10.95 305730566[]Analysis[]of[]entity[]encoding[]techniques[]desig
 n[]and[]implementation[]of[]a[]multithreaded[]compile -[] 
  []
 
-[48]) [49] [50
+[45]) [46] [47
 
 ]
-\c@ttl@toc@chapters=\count332
+\c@ttl@toc@chapters=\count335
  (xpolas34-ECS-30-prilohy-appendices.tex
 P\IeC {\v r}\IeC {\'\i }loha A.
-[51
+[48
 
 ]
 P\IeC {\v r}\IeC {\'\i }loha B.
-[52
+[49
 
 ]
 P\IeC {\v r}\IeC {\'\i }loha C.
-[53
+[50
 
 ]
 Overfull \hbox (4.75438pt too wide) in paragraph at lines 58--59
@@ -1965,31 +1916,31 @@ Overfull \hbox (4.75438pt too wide) in paragraph at lines 58--59
 -vÈho kÛdu, po-mocÌ di-rek-tivy \T1/lmtt/m/n/10.95 include\T1/lmr/m/n/10.95 : 
  []
 
-[54] [55])
+[51] [52])
 \tf@ptc=\write5
 \openout5 = `xpolas34-ECS.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 283.
- [56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 283.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 284.
+ [53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 284.
  (xpolas34-ECS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 283.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 283.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 284.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 284.
 Package rerunfilecheck Info: File `xpolas34-ECS.out' has not changed.
-(rerunfilecheck)             Checksum: 6BC3FD90196C9EDBA0465D81D03D447C;5128.
+(rerunfilecheck)             Checksum: F8519D6A5AECCF8C6B62FEEFFC3FC5A6;5361.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 24965 strings out of 493333
- 404904 string characters out of 3139188
- 520241 words of memory out of 3000000
- 27742 multiletter control sequences out of 15000+200000
+ 26062 strings out of 493333
+ 425280 string characters out of 3139188
+ 539199 words of memory out of 3000000
+ 28828 multiletter control sequences out of 15000+200000
  127020 words of font info for 97 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,60p,10410b,4330s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,9n,60p,10410b,5202s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/P
 rogram Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKT
 eX 2.9/fonts/enc/dvips/opensans/opensans-03.enc}{C:/Program Files/MiKTeX 2.9/fo
@@ -2009,9 +1960,9 @@ r9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmtt10.pfb>
-Output written on xpolas34-ECS.pdf (59 pages, 2553417 bytes).
+Output written on xpolas34-ECS.pdf (56 pages, 2366771 bytes).
 PDF statistics:
- 1271 PDF objects out of 1440 (max. 8388607)
+ 1251 PDF objects out of 1440 (max. 8388607)
  309 named destinations out of 1000 (max. 500000)
- 527 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 522 words of extra memory for PDF output out of 10000 (max. 10000000)
 
