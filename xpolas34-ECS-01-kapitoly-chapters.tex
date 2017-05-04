@@ -763,11 +763,11 @@ Obsah kapitoly \uv{implementace} obsahuje stav knihovny, tak, jak byla odevzdán
 
 %Obsahem této kapitoly je vyhodnocení výsledné implementace z~pohledy výkonosti a použitelnosti. První část představuje hardwarové a softwarové konfigurace systémů, na kterých bylo prováděno testování. Následuje popis použitých nástrojů, použitých ve vyhodnocení a jejich výsledků. Poslední část obsahuje porovnání implementace představené v~této práci s~podobnými volně dostupnými knihovnami.
 
-Tato kapitola obsahuje vyhodnocení výsledné implementace knihovny \uv{Entropy} a její porovnání vůči ostatním, volně dostupným knihovnám. Mezi testované scénáře patří přidání určitého počtu entit a srovnání jakým způsobem se mění čas na přidání jedné entity. 
+Tato kapitola obsahuje vyhodnocení výsledné implementace knihovny \uv{Entropy} a její porovnání vůči ostatním, volně dostupným knihovnám. Mezi testované scénáře patří operace s~entitami, výpočetní \emph{systém}, přesun entit mezi \emph{skupinami}, nosiče komponent a paralelizmus.
 
 \section{Testované sestavy}
 
-Součástí vývoje knihovny bylo prováděno její testování na konfiguracích uvedených v~tabulce \ref{Tab:HW}. Překlad byl prováděn za použití nejvyšší úrovně optimalizace (\emph{-O3}, \emph{\O2}), použité překladače a jejich verze lze najít v~tabulce \ref{Tab:Compiler}. 
+Součástí vývoje knihovny bylo prováděno její testování na konfiguracích uvedených v~tabulce \ref{Tab:HW}. Překlad byl prováděn za použití nejvyšší úrovně optimalizace (\verb|-O3|, \verb|\O2|), použité překladače a jejich verze lze najít v~tabulce \ref{Tab:Compiler}. 
 
 \begin{table}[H]
 	\begin{center}
@@ -812,9 +812,9 @@ Součástí vývoje knihovny bylo prováděno její testování na konfiguracíc
 	\end{center}
 \end{table}
 
-\section{Testování knihovny}
+\section{Použité nástroje}
 
-Důležitou součástí vývoje bylo testování knihovny pomocí metody \emph{unit testing}. Pro tento účel je využito jednoduché knihovny v~jazyce \emph{C++} \footnote{Tato knihovna byla vytvořena autorem této práce a není jiným způsobem zveřejněna.}, která umožňuje psát testy přímo ve zdrojovém kódu. Kromě testování bylo také prováděno profilování různých částí knihovny, kvůli možným optimalizacím, k~čemuž bylo opět využita výše zmíněná knihovna. 
+Důležitou součástí vývoje bylo testování knihovny pomocí metody \emph{unit testing}. Pro tento účel je využito jednoduché knihovny v~jazyce \emph{C++}\footnote{Tato knihovna byla vytvořena autorem této práce a není jiným způsobem zveřejněna.}, která umožňuje psát testy přímo ve zdrojovém kódu. Kromě testování bylo také prováděno profilování různých částí knihovny, kvůli možným optimalizacím, k~čemuž bylo opět využita výše zmíněná knihovna. 
 
 Kromě nástrojů zabudovaných přímo do zdrojového kódu byly také použity externí aplikace : 
 \begin{itemize}
@@ -824,28 +824,44 @@ Kromě nástrojů zabudovaných přímo do zdrojového kódu byly také použity
 	\item \textbf{KCachegrind}
 \end{itemize}
 
+\noindent Pro tvorbu této práce byly také využity následující aplikace:
+\begin{itemize}
+	\item \textbf{draw.io} -- Tvorba diagramů, schémat a ilustrací.
+	\item \textbf{R} -- Grafy, které jsou použity v této kapitole.
+\end{itemize}
+
 \section{Výkonnostní testy}
 
-Tato část obsahuje výsledky výkonnostních testů spuštěných ná výše popsané implementaci entitního systému. Hlavním cílem je předvést co knihovna aktuální implementace knihovny zvládá a jak porovnat ji s~jinými implementacemi entitních systémů založených na \emph{ECS}. Kromě výkonosti implementace jsou zde také ukázány vlastnosti, které pramení z~návrhu systému, jako např. časová složitost jednotlivých operací.
+Tato část obsahuje výsledky výkonnostních testů spuštěných ná výše popsané implementaci entitního systému. Hlavním cílem je předvést co aktuální implementace knihovny zvládá a jak ji lze porovnat s~jinými implementacemi entitních systémů založených na \emph{ECS}. Kromě výkonosti implementace jsou zde také ukázány vlastnosti, které pramení z~návrhu systému, jako např. časová složitost jednotlivých operací.
 
-Kromě implementace, který navrhuje tato práce (nazvaná \textbf{Entropy}), jsou zde také ukázány jiné \emph{open-source} knihovny, nad kterými jsou taktéž provedeny testy. Mezi testované knihovny patří:
+Kromě implementace, kterou navrhuje tato práce (nazvaná \textbf{Entropy}), jsou zde také testovány jiné \emph{open-source} knihovny, mezi které patří:
 \begin{itemize}
-	\item \textbf{Anax} \cite{Anax} -- Jako jediná z~ostatních knihoven používá podobný koncept \emph{skupin}, jako \textbf{Entropy}.
+	\item \textbf{Anax} \cite{Anax}
 	\item \textbf{ArtemisCpp} \cite{ArtemisCpp} -- Implementace knihovny \textbf{Artemis} \cite{ArtemisJava} v~jazyce \emph{C++}.
 	\item \textbf{EntityX} \cite{EntityX} -- Obsahuje i pokročilejší funkce, např. systém událostí. Z~těchto knihoven je \textbf{EntityX} nejvíce dokončená a optimalizovaná.
 \end{itemize}
 
-Všechny testy a výsledky, které jsou zobrazeny v~této sekci byly provedeny na hardwarové konfiguraci č. \emph{1} \ref{Tab:HW}. Zdrojové kódy, knihoven i testovaných bloků, byly přeloženy pomocí překladače \emph{GCC} \ref{Tab:Compiler}, s~parametry \texttt{-std=c++1z -O3}. Jednotlivé testovací scénáře byly následně spouštěny po uzamčení procesoru do módu nejvyššího výkonu, spolu s~příkazem \texttt{nice -20}. Výsledná data byla zpracována aplikací \emph{R} \cite{RHome}, jejíž výstupem jsou prezentované grafy.
+Všechny testy a výsledky, které jsou zobrazeny v~této sekci byly provedeny na hardwarové konfiguraci č. 1 z tabulky \ref{Tab:HW}. Zdrojové kódy, knihoven i testovaných bloků, byly přeloženy pomocí překladačem \emph{GCC} (tabulka \ref{Tab:Compiler}), s~parametry \texttt{-std=c++1z -O3}. Jednotlivé testovací scénáře byly následně spouštěny po uzamčení procesoru do módu nejvyššího výkonu, spolu s~příkazem \texttt{nice -n -20}, který aplikaci spustí s vyšší prioritou. Výsledná data byla zpracována aplikací \emph{R} \cite{RHome}, jejíž výstupem jsou prezentované grafy.
+
+Pojem \uv{výpočet} v následujících sekcích vždy odkazuje na stejnou operaci, která má za úkol simulovat provedení výpočtu nad komponentami. V případě následujících scénářů je \uv{výpočtem} operace nad čísly s plovoucí řádovou čárkou a aplikace matematických funkcí \emph{sinus} a \emph{cosinus}.
+
+Ve všech případech, až na testování jednotlivých nosičů, jsou v testech používány dva typy komponent. Obě komponenty obsahují dva atributy typu \texttt{float} a v případě \textbf{Entropy} používají nosič typu pole. 
+
+\subsection{Tvorba entit}
 
 \begin{figure}[H]
 	\begin{center}
-		\tmpframe{\includegraphics[width=0.49\linewidth]{entityCreationGraph}}
+		\tmpframe{\includegraphics[scale=0.4]{entityCreationGraph}}
 	\end{center}
 	\caption{Graf výsledků pro přidání určitého počtu entit.}
 	\label{Fig:EVALEntity}
 \end{figure}
 
-Obsahem prvního scénáře je tvorba určitého počtu entit, výsledný graf lze najít na obr. \ref{Fig:EVALEntity}. Hodnota na ose Y určuje počet nanosekund, kolik trvá provedení jedné operace -- přidání entity a dvou komponent. Z~průběhu grafu lze určit, že počet přidaných entit nezvyšuje čas potřebný k~přidání dalších entit. Toto umožňuje entitnímu systému obsahovat vysoké množství entit, bez omezení rychlosti vykonávání následujících akcí. Jelikož mají všechny knihovny podobné chování, rozdílem jsou zde pouze konstantní faktory.
+Obsahem prvního scénáře je tvorba určitého počtu entit, včetně dvou menších (8B) komponent. Cílem tohoto testu je zjistit, jakou časovou složitost má operace v závislosti na přidaném počtu entit. Výsledný graf lze najít na obr. \ref{Fig:EVALEntity}, kde horizontální osa obsahuje počet vytvářených entit a vertikální čas vytvoření jedné z nich. 
+
+Z~grafu lze určit, že časová složitost tvorby entit pro knihovnu \textbf{Entropy}, v závislosti na jejich celkovém počtu, je \emph{konstantní}. Toto umožňuje entitnímu systému obsahovat vysoké množství entit, bez omezení rychlosti vykonávání následujících akcí. Rozdíl mezi knihovnou \textbf{Entropy} a ostatními knihovnami lze vysvětlit tím, že akce tvorby entity a přidání komponent musí identifikátor entity přidat do seznamu změněných entit.
+
+\subsection{Výpočetní systém}
 
 \begin{figure}[H]
 	\begin{center}
@@ -855,60 +871,94 @@ Obsahem prvního scénáře je tvorba určitého počtu entit, výsledný graf l
 	\label{Fig:EVALMovSys}
 \end{figure}
 
-Předmětem druhého scénáře je již reálnější případ použití entitního systému -- pohyb entit. V~tomto případě jsou použity dva typy komponent -- pozice a rychlost -- kde každá z~nich obsahuje dvě pole (X a Y). Dále případ obsahuje \emph{systém}, jehož úkolem je iterace nad entitami, které obsahují oba dva typy komponent a následný posun entity o~její rychlost. V~první části je vytvořeno $10\,000$ entit, ze kterých pouze určený počet (na ose X) má přiřazeno požadované komponenty. Následuje měřená část, kdy systém prochází vyhovující entity, nad kterými provádí pohybovou akci. Výsledný graf lze najít na obr. \ref{Fig:EVALMovSys}, osa Y obsahuje čas na jednu iteraci systému.
+Předmětem druhého scénáře je použití entitního systému k provedení \uv{výpočtu}. V první fázi testu je vytvořen určitý počet entit\footnote{V tomto případě $10\,000$.}, následně je náhodně vybráno procento z nich, kterým jsou přidány 2 komponenty. Výsledný graf lze najít na obr. \ref{Fig:EVALMovSys}, horizontální osa obsahuje procentuální zastoupení entit, nad kterými bylo iterováno a vertikální průměrný čas jedné iterace. Graf, kromě jednotlivých knihoven, obsahuje také využití paralelizace knihovny \textbf{Entropy}. V tomto případě byl celkový počet iterovných entit rozdělen mezi dvě, nebo čtyři výpočetní vlákna. 
+
+V grafu lze vidět lineární nárůst průměrné doby na jednu iteraci, který odpovídá zvyšujícímu se počtu iterovaných entit. Časový průběh pro knihovnu \textbf{ArtemisCpp}, je v tomto případě pravděpodobně způsoben implementací filtrování entit. Zajímavé průběhy mají také paralelní verze knihovny \textbf{Entropy}, kde se ukazuje nevýhoda rozdělení malého počtu entit mezi více vláken. 
+
+\subsection{Změny obsažených komponent}
 
 \begin{figure}[H]
-	\begin{center}
-		\tmpframe{\includegraphics[width=0.49\linewidth]{advancedMovementSystemLowGraph}}
-		\tmpframe{\includegraphics[width=0.49\linewidth]{advancedMovementSystemHighGraph}}
-	\end{center}
-	\caption{Iterace s~daným procentem měnících se komponent.}
-	\label{Fig:EVALAdvMovSys}
+	\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\tmpframe{\includegraphics[width=\textwidth]{advancedMovementSystemLowGraph}}
+		\caption{Nižsí procenta změn.}\label{Fig:EVALAdvMovSysLow}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\tmpframe{\includegraphics[width=\textwidth]{advancedMovementSystemHighGraph}}
+		\caption{Vyšší procenta změn.}\label{Fig:EVALAdvMovSysHigh}
+	\end{subfigure}
+	\caption{Iterace nad entitami s~daným procentem změn v obsažených komponentách.}
 \end{figure}
 
-Následující testovací scénář porovnává, jakým způsobem se jednotlivé implementace chovají, v~případě, kdy entity mohou měnit svou množinu komponent. Základní strategie je podobná, jako v~případě pohybového systému, ale nyní existují dva \emph{systémy}. První z~nich je stejný, jako v~prvním případě. Druhý iteruje nad všemi entitami a náhodně přidává/odebírá komponenty, čímž se množina entit, nad kterou první systém iteruje, mění. Pravděpodobnost, že \emph{systém} změní entitu, je zobrazena na ose X, osa Y opět obsahuje čas, který průměrně trvá jedna iterace. Výsledné grafy -- nižší a  vyšší pravděpodobnosti -- lze najít na obr. \ref{Fig:EVALAdvMovSys}. V~tomto případě je knihovna \textbf{Entropy}, výhodná až do určité hranice \footnote{Tuto hranici lze posouvat vylepšením implementace a optimalizací.}, kdy je režie práce se \emph{skupinami} vyšší, než jejich výkoností zisk. Knihovny, které nepoužívají \emph{skupiny} musí iterovat nad všemi entitami, čímž jejich průběhy získávají lineární charakter. Mezi možná vylepšení knihovny \textbf{Entropy} patří rozdělení seznamu změněných entit do několika seznamů pro každou \emph{skupinu} zvlášť a filtrování pouze podle změněných atributů entit.
+Následující testovací scénář porovnává, jakým způsobem se jednotlivé implementace chovají, v~případě, kdy entity mění svou množinu přítomných komponent. V první fázi je opět vytvořen stejný počet entit\footnote{Opět $10\,000$.}. Na rozdíl od předchozího případu jsou však oba komponenty přidány všem entitám. Kromě základního \emph{systému}, který provádí \uv{výpočet}, je zde také \emph{systém}, jehož úkolem je náhodně přidávat a odebírat komponenty. Tímto je simulována změna entit, čímž je vynucena aktualizace \emph{entitních skupin}. Výsledný graf je rozdělený na nižší procenta změn (obr. \ref{Fig:EVALAdvMovSysLow}) a vyšší procenta změn (obr. \ref{Fig:EVALAdvMovSysHigh}). Horizontální osa obsahuje v kolika procentech případů je množina komponent, které entita vlastní, změněna. Vertikální osa opět obsahuje průměrný čas na jednu iteraci obou systémů a následnou \emph{obnovovací fázi}.
+
+Z grafu lze vidět, že je knihovna \textbf{Entropy} dokáže udržet stejnou úroveň výkonu i přes to, že musí obnovovat obsah \emph{entitních skupin}. 
+
+\subsection{Nosiče komponent}
 
 \begin{figure}[H]
-	\begin{center}
+	\centering
+	\begin{subfigure}[b]{\textwidth}
 		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersS}}
 		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersM}} 
-		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersL}} \\
+		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersL}}
+		\caption{Sekvenční přístup, velikosti 16\,B, 64\,B a 128\,B.}\label{Fig:EVALHoldersSeq}
+	\end{subfigure}
+	\begin{subfigure}[b]{\textwidth}
 		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRS}}
 		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRM}} 
 		\tmpframe{\includegraphics[width=0.32\linewidth]{holdersRL}}
-	\end{center}
+		\caption{Náhodný přístup, velikosti 16\,B, 64\,B a 128\,B.}\label{Fig:EVALHoldersRand}
+	\end{subfigure}
 	\caption{Porovnání nosičů komponent pro komponenty různých velikostí.}
-	\label{Fig:EVALHolders}
 \end{figure}
 
-Dalším testovaným aspektem výsledné knihovny je porovnání různých typů \emph{nosičů komponent}. Test je založen na přidání daného počtu entit (na ose X) a každé entitě je přidán jedna komponenta. Každý nosič je testován se třemi typy komponent -- malé (16 bytů), střední (64 bytů) a velké (128 bytů). Následuje cyklus, kdy je přistoupeno k~vytvořeným komponentám. Grafickou reprezentaci získaných dat lze vidět na grafech na obr. \ref{Fig:EVALHolders}, přičemž první řada grafů reprezentuje sekvenční přístup ke komponentám a druhá náhodný přístup. 
+Dalším testovaným aspektem výsledné knihovny je porovnání různých typů \emph{nosičů komponent}. Po vytvoření stejného množství entit, jako v předchozích případech, začíná měřený úsek, kdy je každé entitě přidán daný typ komponenty. Každý nosič je testován se třemi typy komponent -- malé (16 bytů), střední (64 bytů) a velké (128 bytů). Tyto velikosti byly zvoleny, kvůli rozměrům řádku vyrovnávací paměti, která je v případě testované soustavy 64\,B. Následuje druhý měřený úsek, ve kterém je přistupováno k entitám a jejich komponentám. Poměr operací přidání k operacím přístupu je 1:20, čímž je simulována předpokládaná zátěž entitního systému. K jednotlivým komponentám je přistupováno sekvenčně (obr. \ref{Fig:EVALHoldersSeq}) a náhodně (obr. \ref{Fig:EVALHoldersSeq}).
+
+První vlastností, kterou lze z grafů vypozorovat, je na první pohled jednoznačná výhody nosiče typu \textbf{List}. Tento výsledek je dosažen implementací tohoto nosiče -- jednoduché pole, které je indexováno identifikátorem entit. Za tuto výhodu je zaplaceno vyšší paměťovou náročností, v případech, kdy není pole zaplněno. Zajímavou vlastnosti, kterou lze vidět na průbězích nosiče \textbf{List}, jsou \uv{zuby}, které vznikají kvůli alokaci většího bloku paměti.
+
+Pro komponenty nejmenší velikosti jsou nosiče \textbf{Map} a \textbf{MapList} na stejné úrovni. Důvodem je pravděpodobně lepší datová lokalita nosiče \textbf{MapList}, díky které je do vyrovnávací paměti načteno vyšší množství instancí čtených komponent. Tato výhoda je, v případě větších komponent, přebita režií udržování \emph{mapy} i \emph{pole}. 
+
+\subsection{Paralelní zpracování}
 
 \begin{figure}[H]
-	\begin{center}
-		\tmpframe{\includegraphics[width=0.49\linewidth]{entityParallelGraph}}
-		\tmpframe{\includegraphics[width=0.49\linewidth]{entityChangesetGraph}}
-	\end{center}
-	\caption{Paralelní použití knihovny s~daným počtem vláken.}
-	\label{Fig:EVALPar}
+		\centering
+	\begin{subfigure}[b]{0.49\textwidth}
+		\tmpframe{\includegraphics[width=\textwidth]{entityParallelGraph}}
+		\caption{Entitní paralelizmus.}\label{Fig:EVALPar}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\tmpframe{\includegraphics[width=\textwidth]{entityChangesetGraph}}
+		\caption{Množiny změn.}\label{Fig:EVALChangeset}
+	\end{subfigure}
+	\caption{Relativní urychlení testovaného výpočtu při použití daného počtu vláken.}
 \end{figure}
 
-Cílem závěrečného scénáře je otestovat, jak výhodné je použití několika vláken při přístupu k~entitnímu systému. Testovaný systém operuje podobným způsobem, jako v~případě pohybového systému. V~první části je vytvořeno $10\,000$ entit, kde každé z~nich jsou přiřazeny dvě komponenty -- pozice a rychlost. Cílem výpočetního \emph{systému} je pohyb všech entit, přičtením rychlosti k~jednotlivým složkám komponenty pozice. Výsledné grafy lze vidět na obr. \ref{Fig:EVALPar}. V~prvním případě je celková množina entit rozdělena mezi jednotlivá vlákna, naproti ve druhém případě jsou použity \emph{množiny změn}. Průběhy potvrzují, že více vláken pomáhá k~dřívějšímu dokončení výpočtu. Dále je možné určit počet vláken, od kterého již nedochází k~zlepšení -- v~tomto případě 7-8 vláken \footnote{Procesor, na kterém byly tyto testo prováděny, obsahuje 4 jádra a 8 vláken.} -- nicméně relativní zlepšení se snižuje s~každým přidaným vláknem.
+Cílem závěrečného scénáře je otestovat, jak výhodné je použití několika vláken při přístupu k~entitnímu systému. Testovaný systém opět zpracovává entity dříve použitým \uv{výpočtem}. V~první části je vytvořeno $10\,000$ entit, kde každé z~nich jsou přiřazeny dvě komponenty. V prvním případě (obr. \ref{Fig:EVALPar}) je množina entit rozdělena mezi jednotlivá vlákna. Ve druhém případě (obr. \ref{Fig:EVALChangeset}) je místo přímého zápisu výsledných hodnot použito \emph{množin změn}, s odloženým vykonáním. Součástí měřeného úseku je také obnova entitního systému. Horizontální osy obsahují počet vláken, který byl při zpravování použit. Vertikální obsahuje informaci o tom, kolikrát rychleji byly jednotlivé operace dokončeny. Tato hodnota je relativní, vůči základnímu případy, kdy je použito pouze jedno vlákno.
+
+Grafy ukazují téměř lineární škálování s počtem vláken, až do počtu fyzických jader testovaného systému (4 jádra). Následně lze na grafech vidět propad, při přechodu ze čtyř na pět vláken, který lze zdůvodnit režií na jejich tvorbu. Dalším možným zdůvodněním tohoto propadu je začátek využití technologie \emph{Hyper-threading}, kterou procesor na testovaném systému podporuje (2 vlákna na fyzické jádro). Využití maximálního možného počtu vláken lze na grafu vidět ve formě maxima, při použití 8 vláken. Následně výkon opět klesá, kvůli režii správy jednotlivých vláken.
+
+Graf použití \emph{množin změn} (obr. \ref{Fig:EVALChangeset}) ukazuje mírnější vzrůst relativní úrovně výkonu, která je způsobena odloženým zpracováním požadovaných akcí. Tuto situaci lze vylepšit dokončením implementace paralelní \emph{obnovovací fáze}.
+
+Škálování s počtem jader velmi závisí na složitosti úlohy, kterou jádra musí zpracovávat. Při jednoduchých operacích je režie na tvorbu vláken a údržba koherence vyrovnávacích pamětí příliš časově náročná na to, aby se paralelizace vyplatila.
 
 \chapter{Závěr}
 
-Cílem této bakalářské práce je návrh a následná implementace entitního systému, který umožňuje návrh aplikací za použití \emph{Entity-Component-System} paradigmatu. Důležitou částí bylo studium způsobů, jakým je možno navrhovat hry a jejich vývoj s~postupem času, který vedl ke vzniku tvorby entit pomocí kompozice a následně výše zmíněnému paradigmatu. Dále bylo důležitým tématem studium moderní architektury počítačových systémů, primárně hierarchie pamětí, a její využití při psaní efektivnějších aplikací. \emph{Datově orientovaný} návrh, který se tímto tématem zabývá, je základem \emph{ECS} architektury.
+Cílem této bakalářské práce byl návrh a následná implementace entitního systému, který umožňuje vývoj aplikací za použití \emph{Entity-Component-System} paradigmatu. Důležitou částí bylo studium aktuálních problému při vývoji her a architektury moderních počítačů, díky které \emph{ECS} paradigma vzniklo. 
 
-Další důležitou částí této práce bylo studium aktuálně existujících implementací a jejich vlastností, které byly ve zkratce popsány i v~této zprávě. Následně byly zmíněné znalosti použity při návrhu vlastního entitního systému. Kromě základních vlastností \emph{ECS}, patřilo mezi priority také paralelní přístup, který je u~jiných knihoven v~mnoha případech nemožný. Před vytvořením výsledného návrhu, tak, jak je popsán v~práci samotné, vzniklo několik prototypů, jejichž cílem bylo určit vhodnost návrhu a jeho proveditelnost v~jazyce \emph{C++}. 
+Při návrhu byly kromě základních vlastností \emph{ECS} také zohledněny požadavky na paralelní přístup, který je u jiných knihoven v mnoha případech nemožný. Před vytvořením výsledného návrhu vzniklo několik prototypů, jejichž cílem bylo určit vhodnost návrhu a~jeho proveditelnost v~jazyce \emph{C++}. 
 
-Implementace byla provedena v~programovacím jazyce \emph{C++}, mezi jehož výhody patří vysoká efektivnost výsledných aplikací. Při implementaci byly použity pokročilé vlastnosti jazyka, jako jsou \emph{šablony} a \emph{šablonové metaprogramování}, které umožňují vyšší úroveň práce s~typy. Dále bylo využito standardní knihovny a menších knihoven, dříve vytvořených autorem této práce. 
+%Další důležitou částí této práce bylo studium aktuálně existujících implementací a jejich vlastností, které byly ve zkratce popsány i v~této zprávě. Následně byly zmíněné znalosti použity při návrhu vlastního entitního systému. Kromě základních vlastností \emph{ECS}, patřilo mezi priority také paralelní přístup, který je u~jiných knihoven v~mnoha případech nemožný. Před vytvořením výsledného návrhu, tak, jak je popsán v~práci samotné, vzniklo několik prototypů, jejichž cílem bylo určit vhodnost návrhu a jeho proveditelnost v~jazyce \emph{C++}. 
+
+Implementace byla provedena v~programovacím jazyce \emph{C++}. Při implementaci byly použity pokročilé vlastnosti jazyka, jako jsou \emph{šablony} a \emph{šablonové metaprogramování}. Dále bylo využito standardní knihovny a menších knihoven, dříve vytvořených autorem této práce. 
 
 %Implementace byla provedena v přenositelným způsobem, který umožňuje využití knihovny na více platformách. 
 
 %Závěrečnou částí implementace je její testování na operačních systémech \emph{Windows} a \emph{Linux}.
 
-Výsledkem práce je multiplatformní knihovna \textbf{Entropy}, která umožňuje práci s~entitním systémem, založeným na \emph{Entity-Component-System} paradigmatu. Hlavním úspěchem je možnost paralelního přístupu, který jiné, volně dostupné, knihovny nepodporují. Při porovnání výsledné implementace se knihovna \textbf{Entropy} výkonnostně řadí mezi ty rychlejší a s~dalšími optimalizacemi je možné rychlost dále vylepšovat. Aktuální verze knihovny je k~dispozici v~repositáři \emph{Git} \cite{EntropyGit} a bude dále autorem vyvíjena. Mezi možné optimalizace patří -- např. paralelizace \emph{obnovovací} fáze, k~čemuž je již připravena, rozdělení seznamů změněných entit, podle \emph{skupin}, které jednotlivé změny ovlivňují, nebo kompletní konverze filtrování na použití \emph{bitových množin}.
+Výsledkem práce je multiplatformní knihovna \textbf{Entropy}, která umožňuje práci s~entitním systémem, založeným na \emph{Entity-Component-System} paradigmatu. Hlavním úspěchem je možnost paralelního přístupu, který jiné knihovny nepodporují. Při porovnání výsledné implementace se knihovna \textbf{Entropy} výkonnostně řadí mezi ty rychlejší, přičemž je možné knihovnu dále optimalizovat. Mezi možné optimalizace patří -- paralelizace \emph{obnovovací} fáze, rozdělení seznamů změněných entit podle \emph{skupin} nebo kompletní konverze filtrování na použití \emph{bitových množin}.
 
-Jak bylo zmíněno výše, autor bude dále pokračovat ve vývoji výsledné knihovny. Mezi plánovaná rozšíření, která jsou hlouběji popsána v~části \ref{Chap:ExtensionOptions}, patří vazba entitního systému na vestavěny skriptovací jazyk. Tímto bude umožněno herním návrhářům měnit chováni hry, bez nutnosti opětovného překládání celé hry. Další vlastností, která využívá právě vazby na skriptovací jazyk, je možnost přidávat nové typy komponent za běhu aplikace, nebo definovat entity v~externích souborech (např. formátu \emph{JSON}). 
+Autor bude dále pokračovat ve vývoji výsledné knihovny, jejíž aktuální verze je k~dispozici v~repositáři \emph{Git} \cite{EntropyGit}. Mezi plánovaná rozšíření patří vazba entitního systému na vestavěny skriptovací jazyk. Tímto bude umožněno herním návrhářům měnit chováni hry, bez nutnosti opětovného překládání celé hry. Další vlastností, která využívá právě vazby na skriptovací jazyk, je možnost přidávat nové typy komponent za běhu aplikace, nebo definovat entity v~externích souborech (např. formátu \emph{JSON}). 
 
 %\begin{figure}
 %	\tmpframe{\includegraphics[width=\linewidth]{TODO-image}}

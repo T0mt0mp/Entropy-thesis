@@ -34,12 +34,18 @@
 \contentsline {section}{\numberline {4.7}Mo\IeC {\v z}nosti roz\IeC {\v s}\IeC {\'\i }\IeC {\v r}en\IeC {\'\i }}{35}{section.4.7}
 \contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i }}{36}{chapter.5}
 \contentsline {section}{\numberline {5.1}Testovan\IeC {\'e} sestavy}{36}{section.5.1}
-\contentsline {section}{\numberline {5.2}Testov\IeC {\'a}n\IeC {\'\i } knihovny}{37}{section.5.2}
+\contentsline {section}{\numberline {5.2}Pou\IeC {\v z}it\IeC {\'e} n\IeC {\'a}stroje}{37}{section.5.2}
 \contentsline {section}{\numberline {5.3}V\IeC {\'y}konnostn\IeC {\'\i } testy}{37}{section.5.3}
-\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{42}{chapter.6}
-\contentsline {chapter}{Literatura}{43}{chapter*.39}
-\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{47}{section*.40}
-\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{48}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manu\IeC {\'a}l}{49}{appendix.B}
-\contentsline {chapter}{\numberline {C}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{50}{appendix.C}
+\contentsline {subsection}{\numberline {5.3.1}Tvorba entit}{38}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}V\IeC {\'y}po\IeC {\v c}etn\IeC {\'\i } syst\IeC {\'e}m}{39}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Zm\IeC {\v e}ny obsa\IeC {\v z}en\IeC {\'y}ch komponent}{40}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Nosi\IeC {\v c}e komponent}{41}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.5}Paraleln\IeC {\'\i } zpracov\IeC {\'a}n\IeC {\'\i }}{42}{subsection.5.3.5}
+\contentsline {chapter}{\numberline {6}Z\IeC {\'a}v\IeC {\v e}r}{43}{chapter.6}
+\contentsline {chapter}{Literatura}{44}{chapter*.39}
+\contentsline {chapter}{P\IeC {\v r}\IeC {\'\i }lohy}{48}{section*.40}
+\contentsline {chapter}{\numberline {A}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho pam\IeC {\v e}\IeC {\v t}ov\IeC {\'e}ho m\IeC {\'e}dia}{49}{appendix.A}
+\contentsline {chapter}{\numberline {B}Plak\IeC {\'a}t}{50}{appendix.B}
+\contentsline {chapter}{\numberline {C}Manu\IeC {\'a}l}{51}{appendix.C}
+\contentsline {chapter}{\numberline {D}Pou\IeC {\v z}it\IeC {\'\i } knihovny}{52}{appendix.D}
 \contentsfinish 
