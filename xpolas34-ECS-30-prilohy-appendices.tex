@@ -17,29 +17,48 @@
 
 \section*{Použití knihovny}
 
-Tato sekce obsahuje informace o tom, jak začít používat knihovnu \textbf{Entroy}.
-
 \subsection*{Požadavky}
 
 Pro správnou funkci vyžaduje knihovna následující nástroje: 
 \begin{itemize}
 	\item Překladač jazyka \emph{C++}, který podporuje standard jazyka \emph{C++14} -- mezi testované překladače patří GCC 6.3.1, Clang 3.9.1 a MSVC 19.10
-	\item (volitelné) CMake -- alespoň verze 2.8
+	\item (volitelné) CMake -- alespoň verze 2.8 (3.1 pro překlad porovnání, kvůli knihovně EntityX)
 \end{itemize}
+
+\subsection*{Stažení}
+
+Nejjednodušším způsobem, jak získat knihovnu \textbf{Entropy}, je klonováním jejího repositáře:
+
+\begin{lstlisting}[basicstyle=\ttfamily]
+  mkdir Entropy
+  git clone https://github.com/T0mt0mp/Entropy Entropy
+  cd Entropy
+  git submodule update --init --recursive
+\end{lstlisting}
 
 \subsection*{Překlad testů}
 
-Součástí knihovny \textbf{Entropy} jsou testy, které lze přeložit pomocí systému \emph{CMake}.
+Součástí knihovny \textbf{Entropy} jsou testy, které lze přeložit pomocí systému \emph{CMake}. 
 
-\begin{lstlisting}
-	cd Entropy && mkdir build && cd build
-	cmake ../ && make
+\begin{lstlisting}[basicstyle=\ttfamily]
+  mkdir build && cd build
+  cmake ../ -DCMAKE_BUILD_TYPE=Release
+\end{lstlisting}
+nebo pro operační systém Windows:
+\begin{lstlisting}[basicstyle=\ttfamily]
+  cmake ../ -DCMAKE_BUILD_TYPE=Release \
+    -G "Visual Studio 15 2017 Win64"
+\end{lstlisting}
+\pagebreak
+potom lze pro překlad použít:
+\begin{lstlisting}[basicstyle=\ttfamily]
+  cmake --build . --config Release
 \end{lstlisting}
 
-\noindent Výsledkem jsou spustitelné soubory v adresáři \texttt{build}.
+\noindent Výsledkem jsou spustitelné soubory v adresáři \texttt{build}, nebo \texttt{Release}:
 \begin{itemize}
 	\item \texttt{Comparison*} -- Porovnání různých volně dostupných knihoven.
-	\item \texttt{Test*} -- Testy knihovny \textbf{Entropy}
+	\item \texttt{Test*} -- Testy knihovny \textbf{Entropy}.
 	\item \texttt{gameTest} -- Testovací implementaci hry za použití knihovny \textbf{Entropy}.
 \end{itemize}
 
@@ -48,9 +67,9 @@ Součástí knihovny \textbf{Entropy} jsou testy, které lze přeložit pomocí 
 Po stažení knihovny ji lze nainstalovat do adresáře \texttt{/usr/local/include} následující sekvencí příkazů: 
 
 %\begin{lstlisting}[language=C++]
-\begin{lstlisting}
-	cd Entropy && mkdir build && cd build
-	cmake ../Entropy/ && make install
+\begin{lstlisting}[basicstyle=\ttfamily]
+  mkdir build && cd build
+  cmake ../Entropy/ && make install
 \end{lstlisting}
 
 \noindent Alternativně je možné manuálně nakopírovat obsah adresáře \texttt{Entropy/include/} (obsahuje složku \texttt{Entropy}) do systémového \texttt{include}, nebo jiného adresáře, kde ji překladač najde.
@@ -80,7 +99,7 @@ MyUniverse u;
 
 \subsubsection*{Entity}
 
-\emph{Entity} jsou v knihovně \textbf{Universe} jednoduché číselné identifikátory, kterým je možné přiřadit 0-1 \emph{komponent}. \emph{Entity} se mohou nacházet ve dvou stavech -- aktivní a neaktivní. Tvorba nových entit je možná skrz třídu \textbf{Universe}:
+\emph{Entity} jsou v knihovně \textbf{Entropy} jednoduché číselné identifikátory, kterým je možné přiřadit 0-1 \emph{komponent}. \emph{Entity} se mohou nacházet ve dvou stavech -- aktivní a neaktivní. Tvorba nových entit je možná skrz třídu \textbf{Universe}:
 
 \begin{lstlisting}[backgroundcolor = \color{lightgray}, language = C++, xleftmargin = 2cm, framexleftmargin = 1em, tabsize=4]
 using Entity = MyUniverse::EntityT;
@@ -110,7 +129,7 @@ struct PositionC
 Každý typ \emph{komponent} v knihovně \textbf{Entropy} má vlastní tzv. \emph{nosič komponent}. Nové typy \emph{nosičů} lze definovat skrz dědění třídy \textbf{BaseComponentHolder} a implementaci všech virtuálních metod. Knihovna \textbf{Entropy} obsahuje tři typy předdefinovaných nosičů:
 
 \begin{itemize}
-	\item \textbf{ComponentHolder} -- výchozí nosič pro komponenty, které nemají specifikovaný jiný. Používá \texttt{std::map}. Tento nosič je výhodný v případech, kdy nejsou entity, které obsahují daný typ komponenty nijak seřazené.
+	\item \textbf{ComponentHolder} -- Výchozí nosič pro komponenty, které nemají specifikovaný jiný. Používá \texttt{std::map}. Tento nosič je výhodný v případech, kdy nejsou entity, které obsahují daný typ komponenty nijak seřazené.
 	\item \textbf{ComponentHolderMapList} -- Používá \texttt{std::map}, který mapuje entity do souvislého pole komponent.
 	\item \textbf{ComponentHolderList} -- Používá pole, do kterého jsou přímo namapovány identifikátory entit. Tento nosič je výhodný pro případy, kdy každá entita obsahuje daný typ komponent.
 \end{itemize}
@@ -120,11 +139,12 @@ Každý typ \emph{komponent} v knihovně \textbf{Entropy} má vlastní tzv. \emp
 \begin{lstlisting}[backgroundcolor = \color{lightgray}, language = C++, xleftmargin = 2cm, framexleftmargin = 1em, tabsize=4]
 struct PositionC
 {
+	using HolderT = ent::ComponentHolderList<PositionC>;
+	
 	PositionC(float px, float py) :
 		x{px}, y{py} { }
 	PositionC() : 
 		x{0.0f}, y{0.0f}
-	using HolderT = ent::ComponentHolderList<PositionC>;
 	float x, y;
 };
 \end{lstlisting}
@@ -143,7 +163,7 @@ e.get<PositionC>->y;	// -> 2.0f
 
 \subsubsection*{Systémy}
 
-\emph{Systémy} umožňují iteraci nad entitami, tedy i nad komponentami, které vyhovují danému filtru. Jelikož komponenty neobsahují žádnou logiku, \emph{systémy} plní funkci tvorby akcí. Pokud bychom měli dva typy komponent -- \textbf{PositionC}, \textbf{MovementC} -- tak by deklarace \emph{systému}, který by iteroval nad entitami, které obsahují oba dva typy komponent, vypadala následovně:
+\emph{Systémy} umožňují iteraci nad entitami, tedy i nad komponentami, které vyhovují danému filtru. Jelikož komponenty neobsahují žádnou logiku, \emph{systémy} plní funkci tvorby akcí. Pokud bychom chtěli vytvořit systém, který bude iterovat nad entitami s komponenty typu \textbf{positionC} a \textbf{MovementC}, vypadala by jeho deklarace následovně:
 
 \begin{lstlisting}[backgroundcolor = \color{lightgray}, language = C++, xleftmargin = 2cm, framexleftmargin = 1em, tabsize=4]
 class MovementS : public MyUniverse::SystemT
@@ -170,7 +190,7 @@ void MovementS::doMove()
 }
 \end{lstlisting}
 
-\noindent Každá třída, která dědí z třídy \emph{System}, obsahuje 3 metody -- \texttt{foreach}, \texttt{foreachAdded} a \texttt{foreachRemoved} -- díky kterým lze iterovat před entity, které vyhovují specifikovanému filtru, které byly přidána a které byly odebrány. \emph{Systémy} lze přidat danému vesmíru voláním metody \texttt{addSystem<S>}.
+\noindent Děděná třída \emph{System}, obsahuje 3 metody -- \texttt{foreach}, \texttt{foreachAdded} a \texttt{foreachRemoved} -- díky kterým lze iterovat před entity vyhovující specifikovanému filtru. \emph{Systémy} lze přidat danému vesmíru voláním metody \texttt{addSystem<S>}.
 
 \subsubsection*{Kontrolní tok}
 
@@ -178,12 +198,12 @@ Důležitou součástí knihovny \textbf{Entropy} je tok kontroly, který postup
 \begin{enumerate}
 	\item Vytvoření instance třídy \textbf{Universe}.
 	\item Registrace komponent, metodou \texttt{registerComponent<C>}. Tento krok je možný pouze před inicializací!
-	\item Inicializace vesmíru zavoláním metody \texttt{init} na daná instanci třídy \textbf{Universe}.
+	\item Inicializace vesmíru zavoláním metody \texttt{init} na dané instanci třídy \textbf{Universe}.
 	\item Následně je již možná práce s entitním systémem -- přidávání \emph{systémů}, tvorba entit apod. \label{Enum:Work}
 	\item Kdykoliv lze z předchozí fáze přejít do fáze \emph{obnovy}, kdy je obnovena konzistence celého entitního systému. Po dokončení se systém vrací do kroku \ref{Enum:Work}.
 \end{enumerate}
 
-\noindent Součástí \emph{obnovovací} fáze je také aktualizace seznamů, nad kterými iterují \emph{systémy}. 
+\noindent Součástí \emph{obnovovací} fáze je také aktualizace seznamů, nad kterými \emph{systémy} iterují. 
 
 %\chapter{Konfigurační soubor} % Configuration file
 

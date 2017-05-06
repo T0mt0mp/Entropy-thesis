@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  4 MAY 2017 16:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.11)  6 MAY 2017 14:57
 entering extended mode
 **./xpolas34-ECS.tex
 (xpolas34-ECS.tex
@@ -1562,14 +1562,14 @@ l.52 \chapter
 Kapitola 2.
 [4
 
-] <figures/BAC-DOD1.pdf, id=276, 462.72874pt x 238.8925pt>
+] [5] <figures/BAC-DOD1.pdf, id=291, 462.72874pt x 238.8925pt>
 File: figures/BAC-DOD1.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOD1.pdf>
 Package pdftex.def Info: figures/BAC-DOD1.pdf used on input line 90.
 (pdftex.def)             Requested size: 277.63939pt x 143.3366pt.
- [5]
-<figures/BAC-OOP1.pdf, id=297, 743.77875pt x 362.35374pt>
+
+<figures/BAC-OOP1.pdf, id=295, 743.77875pt x 362.35374pt>
 File: figures/BAC-OOP1.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP1.pdf>
@@ -1583,12 +1583,12 @@ File: figures/BAC-OOP2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-OOP2.pdf used on input line 121.
 (pdftex.def)             Requested size: 265.59428pt x 193.926pt.
 
-<figures/BAC-OOP3.pdf, id=312, 377.41pt x 182.6825pt>
+<figures/BAC-OOP3.pdf, id=312, 479.7925pt x 182.6825pt>
 File: figures/BAC-OOP3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOP3.pdf>
 Package pdftex.def Info: figures/BAC-OOP3.pdf used on input line 130.
-(pdftex.def)             Requested size: 226.44774pt x 109.61034pt.
+(pdftex.def)             Requested size: 287.8777pt x 109.61034pt.
  [7 <./figures/BAC-OOP1.pdf> <./figures/BAC-OOP2.pdf>] <figures/BAC-OOC1_1.pdf,
  id=330, 502.87875pt x 401.5pt>
 File: figures/BAC-OOC1_1.pdf Graphic file (type pdf)
@@ -1597,7 +1597,7 @@ File: figures/BAC-OOC1_1.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-OOC1_1.pdf used on input line 161.
 (pdftex.def)             Requested size: 301.72957pt x 240.90184pt.
  [8 <./figures/BAC-OOP3.pdf>]
-<figures/BAC-OOC1_2.pdf, id=349, 462.72874pt x 246.9225pt>
+<figures/BAC-OOC1_2.pdf, id=348, 462.72874pt x 246.9225pt>
 File: figures/BAC-OOC1_2.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC1_2.pdf>
@@ -1611,12 +1611,12 @@ File: figures/BAC-OOC2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-OOC2.pdf used on input line 183.
 (pdftex.def)             Requested size: 313.77466pt x 169.8358pt.
  [10 <./figures/BAC-OOC1_2.pdf> <./figures/BAC-OOC2.pdf>] <figures/BAC-OOC3.pdf
-, id=379, 416.55624pt x 82.3075pt>
+, id=379, 503.8825pt x 82.3075pt>
 File: figures/BAC-OOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-OOC3.pdf>
 Package pdftex.def Info: figures/BAC-OOC3.pdf used on input line 194.
-(pdftex.def)             Requested size: 249.93567pt x 49.38486pt.
+(pdftex.def)             Requested size: 302.33183pt x 49.38486pt.
  [11 <./figures/BAC-OOC3.pdf>]
 <figures/BAC-DOC1_1.pdf, id=392, 502.87875pt x 383.4325pt>
 File: figures/BAC-DOC1_1.pdf Graphic file (type pdf)
@@ -1632,12 +1632,12 @@ File: figures/BAC-DOC2.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-DOC2.pdf used on input line 236.
 (pdftex.def)             Requested size: 217.41393pt x 181.8809pt.
  [12 <./figures/BAC-DOC1_1.pdf>]
-<figures/BAC-DOC3.pdf, id=408, 416.55624pt x 82.3075pt>
+<figures/BAC-DOC3.pdf, id=408, 498.86375pt x 82.3075pt>
 File: figures/BAC-DOC3.pdf Graphic file (type pdf)
 
 <use figures/BAC-DOC3.pdf>
 Package pdftex.def Info: figures/BAC-DOC3.pdf used on input line 245.
-(pdftex.def)             Requested size: 249.93567pt x 49.38486pt.
+(pdftex.def)             Requested size: 299.32056pt x 49.38486pt.
  [13 <./figures/BAC-DOC2.pdf> <./figures/BAC-DOC3.pdf>] <figures/BAC-ECS1.pdf, 
 id=432, 412.54124pt x 222.8325pt>
 File: figures/BAC-ECS1.pdf Graphic file (type pdf)
@@ -1646,11 +1646,11 @@ File: figures/BAC-ECS1.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-ECS1.pdf used on input line 292.
 (pdftex.def)             Requested size: 247.52666pt x 133.70053pt.
  [14]
-<figures/BAC-ECS3.pdf, id=449, 322.20375pt x 102.3825pt>
+<figures/BAC-ECS3.pdf, id=451, 322.20375pt x 102.3825pt>
 File: figures/BAC-ECS3.pdf Graphic file (type pdf)
 
 <use figures/BAC-ECS3.pdf>
-Package pdftex.def Info: figures/BAC-ECS3.pdf used on input line 303.
+Package pdftex.def Info: figures/BAC-ECS3.pdf used on input line 305.
 (pdftex.def)             Requested size: 193.32373pt x 61.42996pt.
 
 <figures/BAC-ECS2.pdf, id=452, 382.42876pt x 222.8325pt>
@@ -1727,11 +1727,11 @@ File: figures/BAC-DES11.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/BAC-DES11.pdf used on input line 471.
 (pdftex.def)             Requested size: 217.71135pt x 110.21071pt.
  [23 <./figures/BAC-DES6.pdf>]
-<figures/BAC-DES10.pdf, id=620, 362.35374pt x 283.0575pt>
+<figures/BAC-DES10.pdf, id=621, 362.35374pt x 283.0575pt>
 File: figures/BAC-DES10.pdf Graphic file (type pdf)
 
 <use figures/BAC-DES10.pdf>
-Package pdftex.def Info: figures/BAC-DES10.pdf used on input line 490.
+Package pdftex.def Info: figures/BAC-DES10.pdf used on input line 492.
 (pdftex.def)             Requested size: 217.41393pt x 169.8358pt.
  [24 <./figures/BAC-DES11.pdf>]
 <figures/BAC-DES3.pdf, id=633, 623.32875pt x 363.3575pt>
@@ -1801,14 +1801,10 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 770.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (36.16833pt too wide) in paragraph at lines 774--782
- [] 
- []
+) [36
 
-[36
-
-] <figures/entityCreationGraph.pdf, id=809, 505.89pt x 505.89pt>
+]
+<figures/entityCreationGraph.pdf, id=809, 505.89pt x 505.89pt>
 File: figures/entityCreationGraph.pdf Graphic file (type pdf)
 
 <use figures/entityCreationGraph.pdf>
@@ -1948,7 +1944,7 @@ P\IeC {\v r}\IeC {\'\i }loha D.
 [52
 
 ]
-Overfull \hbox (4.75438pt too wide) in paragraph at lines 60--61
+Overfull \hbox (4.75438pt too wide) in paragraph at lines 79--80
 \T1/lmr/m/n/10.95 P°ed je-jím po-u-ºi-tím je nutno kni-hovnu p°i-dat do zdro-jo
 -vého kódu, po-mocí di-rek-tivy \T1/lmtt/m/n/10.95 include\T1/lmr/m/n/10.95 : 
  []
@@ -1971,13 +1967,13 @@ Package rerunfilecheck Info: File `xpolas34-ECS.out' has not changed.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 27567 strings out of 493333
- 459201 string characters out of 3139188
- 564572 words of memory out of 3000000
- 30304 multiletter control sequences out of 15000+200000
+ 27613 strings out of 493333
+ 459759 string characters out of 3139188
+ 564644 words of memory out of 3000000
+ 30338 multiletter control sequences out of 15000+200000
  130010 words of font info for 98 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,60p,10410b,6047s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,60p,10410b,5355s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/P
 rogram Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKT
 eX 2.9/fonts/enc/dvips/opensans/opensans-03.enc}{C:/Program Files/MiKTeX 2.9/fo
@@ -1998,9 +1994,9 @@ lic/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:
 KTeX 2.9/fonts/type1/public/lm/lmri9.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt
 10.pfb>
-Output written on xpolas34-ECS.pdf (58 pages, 2384734 bytes).
+Output written on xpolas34-ECS.pdf (58 pages, 2406383 bytes).
 PDF statistics:
- 1306 PDF objects out of 1440 (max. 8388607)
- 333 named destinations out of 1000 (max. 500000)
+ 1320 PDF objects out of 1440 (max. 8388607)
+ 345 named destinations out of 1000 (max. 500000)
  530 words of extra memory for PDF output out of 10000 (max. 10000000)
 
