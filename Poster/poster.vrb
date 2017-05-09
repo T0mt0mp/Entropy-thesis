@@ -1,72 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dreuw & Deselaer's Poster
-% LaTeX Template
-% Version 1.0 (11/04/13)
-%
-% Created by:
-% Philippe Dreuw and Thomas Deselaers
-% http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------
-
-\documentclass[final,hyperref={pdfpagelabels=false}]{beamer}
-
-\usepackage[orientation=portrait,size=a4,scale=1.4]{beamerposter} % Use the beamerposter package for laying out the poster with a portrait orientation and an a0 paper size
-
-\usetheme{I6pd2} % Use the I6pd2 theme supplied with this template
-
-\usepackage[czech,slovak,english]{babel}
-\usepackage[utf8]{inputenc} %kodovani / encoding
-\usepackage[T1]{fontenc}
-\usepackage{listings}
-\usepackage[figurename=]{caption}
-
-\definecolor{LstColor}{HTML}{e3e2e0}
-
-%\usepackage[english]{babel} % English language/hyphenation
-
-\usepackage{amsmath,amsthm,amssymb,latexsym} % For including math equations, theorems, symbols, etc
-
-\usepackage{times}\usefonttheme{professionalfonts}  % Uncomment to use Times as the main font
-%\usefonttheme[onlymath]{serif} % Uncomment to use a Serif font within math environments
-
-\boldmath % Use bold for everything within the math environment
-
-\usepackage{booktabs} % Top and bottom rules for tables
-
-\graphicspath{{figures/}} % Location of the graphics files
-
-\usecaptiontemplate{\small\structure{\insertcaptionname~\insertcaptionnumber: }\insertcaption} % A fix for figure numbering
-
-%----------------------------------------------------------------------------------
-
-\title{\huge Komponentní systém pro herní grafický engine} % Poster title
-
-\author{Tomáš Polášek} % Author(s)
-
-\institute{Vysoké učení technické v Brně -- Fakulta informačních technologií} % Institution(s)
-
-%----------------------------------------------------------------------------------
-
-\newcommand{\leftfoot}{Entropy -- Entity-Component-System} % Left footer text
-
-\newcommand{\rightfoot}{Tomáš Polášek} % Right footer text
-
-%----------------------------------------------------------------------------------
-
-\begin{document}
-
-\addtobeamertemplate{block end}{}{\vspace*{2ex}} % White space under blocks
-
-\begin{frame}[t, fragile] % The whole poster is enclosed in one beamer frame
 
 \begin{columns}[t] % The whole poster consists of two major columns, each of which can be subdivided further with another \begin{columns} block - the [t] argument aligns each column's content to the top
 
@@ -97,9 +28,9 @@
 \begin{block}{Důvody}
 
 \begin{itemize}
-	\item Obvyklé návrhové prostředky -- jako \emph{objektově orientované programování} -- jsou pro návrh her příliš rigidní. 
+	\item Obvyklé návrhové prostředky -- jako \emph{objektově orientované programování} -- jsou pro návrh her příliš rigidní.
 	\item Zvyšující se požadavky na oddělení jednotlivých částí herního enginu.
-	\item Výkonnostní rozdíl mezi přístupovou dobou pamětí a rychlostí vykonávání instrukcí se stále zvyšuje. 
+	\item Výkonnostní rozdíl mezi přístupovou dobou pamětí a rychlostí vykonávání instrukcí se stále zvyšuje.
 	\item Vzniká \emph{datově orientovaný návrh}, jehož cílem je vyšší efektivita práce s fyzickým hardware -- vyrovnávací paměti, pipelining.
 \end{itemize}
 
@@ -108,7 +39,7 @@
 %----------------------------------------------------------------------------------
 
 \begin{block}{Entity-Component-System}
-	
+
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
 			\begin{itemize}
@@ -120,46 +51,46 @@
 		\end{column}
 	\end{columns}
 	\begin{itemize}
-		\item Striktní separace logiky a dat, čímž umožňuje vyšší úroveň modularity. 
+		\item Striktní separace logiky a dat, čímž umožňuje vyšší úroveň modularity.
 		\item Skládá se ze tří částí -- \emph{entity}, \emph{komponenty} a \emph{systémy}.
 	\end{itemize}
 
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
 
 \begin{block}{Entity}
-	
+
 	\begin{itemize}
 		\item \emph{Entity} reprezentují virtuální objekty uvnitř herního světa.
 		\item Jejich hlavní funkcí je identifikace daného objektu a vazba na komponenty.
 		\item Identifikátor \emph{entity} je primárním klíčem v tabulce \emph{entit}.
 	\end{itemize}
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
 
 \begin{block}{Komponenty}
-	
+
 	\begin{itemize}
 		\item Základní nosiče dat a zároveň nejmenší datová jednotka, kterou lze \emph{entitám} přiřadit.
 		\item Neobsahují \uv{výkonnou} logiku, pouze operace pro manipulaci dat.
 		\item Sloupce tabulky \emph{entit} obsahují jednotlivé typy komponent.
 	\end{itemize}
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
 
 \begin{block}{Systémy}
-	
+
 	\begin{itemize}
 		\item \emph{Systémy} implementují datové transformace nad \emph{entitami} a~jejich \emph{komponentami}.
 		\item Transformují pouze takové \emph{entity}, které obsahují požadované \emph{komponenty}.
 	\end{itemize}
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
@@ -167,9 +98,9 @@
 \end{column} % End of the first column
 
 \begin{column}{.03\textwidth}\end{column} % Empty spacer column
- 
+
 \begin{column}{.465\textwidth} % The second column
-	
+
 %----------------------------------------------------------------------------------
 
 \begin{block}{Výsledky}
@@ -209,9 +140,9 @@
 %----------------------------------------------------------------------------------
 
 \begin{block}{Použití}
-	
+
 	\begin{itemize}
-		\item Knihovna \textbf{Entropy} je volně dostupná, pod licencí \emph{MIT}, z níže uvedeného repositáře projektu. 
+		\item Knihovna \textbf{Entropy} je volně dostupná, pod licencí \emph{MIT}, z níže uvedeného repositáře projektu.
 		\item Příklad jednoduchého \emph{systému}, který implementuje pohyb \emph{entit}, definice \emph{komponenty}:
 	\end{itemize}
 	\begin{lstlisting}[backgroundcolor = \color{LstColor}, language = C++, xleftmargin = 0cm, framexleftmargin = 0em, tabsize=2]
@@ -222,7 +153,7 @@
 	}
 	\end{lstlisting}
 	\begin{itemize}
-		\item Definice \emph{systému}: 
+		\item Definice \emph{systému}:
 	\end{itemize}
 	\begin{lstlisting}[backgroundcolor = \color{LstColor}, language = C++, xleftmargin = 0cm, framexleftmargin = 0em, tabsize=2]
 	struct MovementS : public System
@@ -232,7 +163,7 @@
 	}
 	\end{lstlisting}
 	\begin{itemize}
-		\item Samotný posun entit: 
+		\item Samotný posun entit:
 	\end{itemize}
 	\begin{lstlisting}[backgroundcolor = \color{LstColor}, language = C++, xleftmargin = 0cm, framexleftmargin = 0em, tabsize=2]
 	void doMove()
@@ -245,7 +176,7 @@
 		}
 	}
 	\end{lstlisting}
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
@@ -255,12 +186,12 @@
 \vspace{1.2em}
 
 \begin{block}{Kontaktní informace}
-	
+
 	\begin{itemize}
 		\item GIT projektu: \href{https://github.com/T0mt0mp/Entropy}{https://github.com/T0mt0mp/Entropy}
 		\item E-mail: \href{mailto:xpolas34@stud.fit.vutbr.cz}{xpolas34@stud.fit.vutbr.cz}
 	\end{itemize}
-	
+
 \end{block}
 
 %----------------------------------------------------------------------------------
@@ -271,8 +202,3 @@
 
 \end{columns} % End of all the columns in the poster
 
-\end{frame} 
-
-% End of the enclosing frame
-
-\end{document}

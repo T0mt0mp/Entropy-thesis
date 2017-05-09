@@ -15,7 +15,7 @@
 %   xpolas34-ECS-01-kapitoly-chapters.tex - obsah práce / the thesis content
 %   xpolas34-ECS-30-prilohy-appendices.tex - přílohy / appendices
 %==============================================================================
-\documentclass[]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
+\documentclass[zadani]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
 %\documentclass[english]{fitthesis} % without assignment - for the work start to avoid compilation problem
 %\documentclass[zadani]{fitthesis} % odevzdani do wisu - odkazy jsou barevné
 %\documentclass[english,zadani]{fitthesis} % for submission to the IS FIT - links are color
@@ -136,7 +136,7 @@
 %Výsledná knihovna umožňuje návrh aplikací za použití techniky \emph{datově orientované kompozice}.}
 \abstract[cs]{Cílem této bakalářské práce je návrh a implementace knihovny pro správu entit, která umožňuje vývoj pomocí \emph{Entity-Component-System} paradigmatu. Součástí práce je analýza aktuálního stavu návrhu software, z pohledu vývoje her a rozbor dnes používaných technik pro práci s entitami včetně srovnání jejich výhod a nevýhod. Následně se práce zabývá důvody, proč tuto metodu návrhu používat a jakým způsobem využití kompozice ovlivňuje výkon aplikací, ve vztahu k hardwarové architektuře moderních počítačů, se zaměřením na paměťovou hierarchii.\\
 V práci je dále navržen entitní systém, který umožňuje dynamickou kompozici entit za běhu aplikace z předem definovaných komponent. Výsledný systém je navržen s ohledem na snadnou paralelizaci vykonávaných akcí a umožňuje uživatelské rozšíření ve směru datových struktur k uchovávání komponent. \\
-Výsledkem této bakalářské práce je multiplatformní knihovna v programovacím jazyce \emph{C++}, pojmenovaná \emph{Entropy}, která vývojářům zpřístupňuje návrh aplikací pomocí \emph{ECS} paradigmatu.}
+Výsledkem této bakalářské práce je multiplatformní knihovna pro programovací jazyk \emph{C++}, pojmenovaná \emph{Entropy}, která vývojářům zpřístupňuje návrh aplikací pomocí \emph{ECS} paradigmatu.}
 \abstract[en]{The goal of this bachelor thesis is the design and implementation of a library for entity management which allows software development using the \emph{Entity-Component-System} paradigm. Analysis of the current state of software design is presented, including comparison of techniques used for entity representation. Potential advantages of composition are discussed from the hardware point of view, primarily based on the memory hierarchy found in modern computers. \\
 Thesis proposes design of an entity system, using the \emph{ECS} paradigm, which allows dynamic composition of entities during runtime of application from predefined components. The resulting system is designed to allow for easy parallelization of performed actions and user customizability of component data structures.\\
 The result of this bachelor thesis is a \emph{C++} multi-platform library, named \emph{Entropy}, which enables its users to design applications using the \emph{ECS} paradigm.}

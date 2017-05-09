@@ -3,14 +3,106 @@
 
 % Umístění obsahu paměťového média do příloh je vhodné konzultovat s vedoucím
 % Placing of table of contents of the memory media here should be consulted with a supervisor
-\chapter{Obsah přiloženého paměťového média}
+\chapter{Obsah přiložené SD karty}
+\label{Att:Card}
+
+Přiložená karta obsahuje:
+\begin{itemize}
+	\item \texttt{xpolas34-ECS.pdf} -- Text písemné zprávy.
+	\item \texttt{xpolas34-ECS-tisk.pdf} -- Verze tohoto textu určená k tisku.
+	\item \texttt{popis.txt} -- Popis obsahu karty a jak jej použít.
+	\item \texttt{src\_text/}:
+	\begin{itemize}
+		\item Zdrojové texty této technické zprávy.
+		\item \texttt{Poster/} -- Zdrojové texty plakátu.
+	\end{itemize}
+	\item \texttt{src/}:
+	\begin{itemize}
+		\item Zdrojové texty v programovacím jazyce \emph{C++}.
+		\item \texttt{app/} -- Ukázková aplikace vytvořená pomocí entitního systému.
+		\item \texttt{doc/}:
+		\begin{itemize}
+			\item \texttt{DoxyfileEntropy} -- Generátor dokumentace \emph{Doxygen}.
+			\item \texttt{graph/} -- Skripty pro tvorbu grafů.
+		\end{itemize}
+		\item \texttt{Entropy/} -- Výsledek práce, knihovna \textbf{Entropy}.
+		\item \texttt{include/} a \texttt{src/} -- Zdrojové kódy pomocných knihoven.
+		\item \texttt{tests/} -- Zdrojové kódy testů a porovnání.
+	\end{itemize}
+	\item \texttt{exec/}
+	\begin{itemize}
+		\item Přeložené testovací aplikace, spustitelné na serveru \emph{Merlin}:
+		\begin{itemize}
+			\item \texttt{Comparison*} -- Porovnání entitních systémů
+			\item \texttt{Test*} -- Testování knihovny \textbf{Entropy}.
+			\item \texttt{gameTest} -- Implementace jednoduché aplikace.
+			\item \texttt{res/} -- Zdroje pro spustitelný soubor \texttt{gameTest}.
+		\end{itemize}
+	\end{itemize}
+	\item \texttt{archive/} -- Obsahuje záložní archivy s obsahem této karty.
+	\item \texttt{*/external/} -- Všechny adresáře se jménem \texttt{external} obsahují externí knihovny, které nebyly vyvinuty autorem této práce.
+\end{itemize}
+
+\chapter{Manuál}
+Tento manuál obsahuje informace o použití obsahu přiložené paměťové karty. Obsah této karty lze vidět v příloze \ref{Att:Card}.
+
+\section*{Překlad}
+Předem přeložené spustitelné soubory lze nalézt v adresáři \texttt{exec}. Jejich testování bylo provedeno na školním severu \emph{Merlin}.
+
+Překlad pro jiné platformy lze provést následující sekvencí příkazů. Nástroje potřebné pro provedení překladu jsou:
+\begin{itemize}
+	\item Překladač jazyka \emph{C++}, který podporuje standard \emph{C++14}.
+	\item CMake alespoň verze 3.1, pro překlad všech porovnávacích aplikací. Na serveru \emph{Merlin} byl použit \emph{cmake37}.
+\end{itemize}
+\noindent Výchozí adresář obsahuje kopii souborů z kořenového adresáře SD karty:
+\begin{lstlisting}[basicstyle=\ttfamily]
+  cd src && mkdir build && cd build
+  cmake ../ -DCMAKE_BUILD_TYPE=Release
+  # Nebo pro OS Windows.
+  cmake ../ -DCMAKE_BUILD_TYPE=Release \
+    -G "Visual Studio 15 2017 Win64"
+  cmake --build . --config Release
+\end{lstlisting}
+
+Výsledkem překladu jsou spustitelné soubory a adresář \emph{res}, který obsahuje soubory nutné pro běh aplikace \texttt{gameTest}. Bližší informace k použití knihovny \textbf{Entropy} lze najít v~souborech \texttt{README.md} a \texttt{README\_CS.md} v adresáři \texttt{src/}.
+
+\section*{Spustitelné soubory}
+
+Mezi spustitelné soubory patří:
+\begin{itemize}
+	\item \texttt{gameTest} -- Jednoduchá grafická aplikace, která ukazuje využití \emph{entitního systému}. Vyžaduje přítomnost adresáře \texttt{res/}, který obsahuje soubory použité při běhu. Stiskem klávesy \emph{c} lze zapnout ovládání kamery.
+	\item \texttt{Comparison*} -- Porovnání různých \emph{ECS} knihoven. Výstupem každého souboru je tabulka dat, kterou lze použít při tvorbě grafů. Testované scénáře lze specifikovat pomocí spuštění jednotlivých aplikací s parametry:
+	\begin{itemize}
+		\item \texttt{0 START DELTA MAX} -- Testování tvorby \emph{entit}.
+		\item \texttt{1 ENTS REPEATS START DELTA MAX} -- Testování při daném procentu využití \emph{entit}.
+		\item \texttt{2 ENTS REPEATS START DELTA MAX} -- Testování při daném procentu změn \emph{entit}.
+		\item \texttt{3 ENTS REPEATS START DELTA MAX} -- Testování paralelního vykonávání. V tomto případě je použita paralelizace rozdělením \emph{entit}.
+		\item \texttt{4 ENTS REPEATS START DELTA MAX} -- Testování paralelního vykonávání. V tomto případě je použita paralelizace použitím \emph{množin změn}.
+		\item \texttt{5 START DELTA MAX REPEATS READ\_OPS TYPE RAND} -- Porovnání různých \emph{nosičů komponent} a velikostí daných \emph{komponent}. Typ je složen z typu \emph{nosiče} (\emph{m}, \emph{ml} a \emph{l}) a typu \emph{komponenty} (\emph{s}, \emph{m} a \emph{l}).
+		\item \texttt{6 ENTS REPEATS THREADS START DELTA MAX} -- Porovnání paralelizace pro případ jednoduchého \emph{systému} s daným procentem využitých \emph{entit}.
+		\item \texttt{7 ENTS REPEATS THREADS START DELTA MAX} -- Porovnání paralelizace pro případ jednoduchého \emph{systému} s daným procentem změněných \emph{entit}.
+	\end{itemize}
+	\item \texttt{Test*} -- Testování částí knihovny \textbf{Entropy}. Výstupem je seznam testovaných scénářů, případně informace o tom, které nebyly splněny. Pokud všechny testy v daném soubory byly splněny, program vrací hodnotu 0. Jednotlivé soubory mají následující funkce: 
+	\begin{itemize}
+		\item \texttt{TestEntropy} -- Základní testy jednotlivých částí \emph{entitního systému}.
+		\item \texttt{TestEntropyMisc} -- Testování obecných datových struktur.
+		\item \texttt{TestEntropyParallel} -- Testování vícevláknového použití \emph{entitního systému}.
+		\item \texttt{TestEntropyPerformance} -- Výkonnostní testy.
+		\item \texttt{TestEntropySandbox} -- Testování vlastností výsledného \emph{entitního systému}.
+	\end{itemize}
+\end{itemize}
+
+\section*{Generování grafů}
+Pro generování grafů je nutné, aby spustitelné soubory \texttt{Comparison*} byly obsaženy v adresáři \emph{src/build/}. Dále je nutné, aby systém obsahoval nástroj \texttt{R}, spustitelný voláním \texttt{Rscript}. Pro správnou funkci skriptu jsou nutná \emph{root} práva, pro spuštění testovaných aplikaci s vyšší prioritou. Generaci grafů lze spustit následovně:
+\begin{lstlisting}[basicstyle=\ttfamily]
+  cd src/doc/graph
+  ./makeGraphs.sh
+\end{lstlisting}
 
 \chapter{Plakát}
 \begin{center}
 	\includegraphics[scale=0.5]{poster.pdf}
 \end{center}
-
-\chapter{Manuál}
 
 \chapter{Použití knihovny}
 
